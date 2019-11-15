@@ -162,19 +162,21 @@ layout: layout
                 <h5>COMMENT</h5>
                 <div id="vcomments"></div>
                 <script>
-                    new Promise(() => {
-                        new Valine({
-                            el: '#vcomments',
-                            appId: 'bd1nirzTb4YlrbE60rubD0O3-gzGzoHsz',
-                            appKey: 'HCdMhtYzjwyK8G374gLvu368',
-                            notify:false, 
-                            verify:false, 
-                            avatar:'mp', 
-                            placeholder: '来了老弟 #markdown格式'
-                        })
-                    }).then(() => {
-                        $(".info").hide();
+                    new Valine({
+                        el: '#vcomments',
+                        appId: 'bd1nirzTb4YlrbE60rubD0O3-gzGzoHsz',
+                        appKey: 'HCdMhtYzjwyK8G374gLvu368',
+                        notify:false, 
+                        verify:false, 
+                        avatar:'mp', 
+                        placeholder: '来了老弟 #markdown格式',
+                        updated: () => {
+                            console.log(3)
+                        }
                     })
+                    setTimeout(() => {
+                        document.getElementsByClassName("info")[0].style.display="none";
+                    }, 1000)
                 </script>
             </div>
         </div>

@@ -237,22 +237,21 @@ valine是前端部分嵌入组件，leancloud来存储信息
 <h5>COMMENT</h5>
 <div id="vcomments"></div>
 <script>
-    new Promise(() => {
-        new Valine({
-            el: '#vcomments',
-            appId: '<AppId>', #这个要注册后拿到
-            appKey: '<AppKey>', #这个同上
-            notify:false, 
-            verify:false, 
-            avatar:'mp', 
-            placeholder: '来了老弟 #markdown格式'
-        })
-    }).then(() => {
-        $(".info").hide();
+    new Valine({
+        el: '#vcomments',
+        appId: '<AppId>', #这个要注册后拿到
+        appKey: '<AppKey>', #这个同上
+        notify:false, 
+        verify:false, 
+        avatar:'mp', 
+        placeholder: '来了老弟 #markdown格式'
     })
+    setTimeout(() => {
+        document.getElementsByClassName("info")[0].style.display="none";
+    }, 1000)
 </script>
 ```
-特地说下加promise/then那步是为了隐藏自带的power信息🙃
+特地说下加settimeout那步是为了隐藏自带的power信息🙃
 
 评论，然后就可以在leancloud 存储->结构化数据->comment看到评论信息
 
@@ -276,6 +275,40 @@ valine是前端部分嵌入组件，leancloud来存储信息
 
 就可以通过域名访问啦！
 
+## 多终端同步
+
+这个也很常见，就是在多个地方写博客，想这边写完同步到各个客户端。
+
+如果是有自己服务器的，就装个hexo-admin的插件，开启hexo server后监听到公网端口，不放心的话入口加个认证，就可以在线编辑。
+
+一般的做法是使用刚才建的github仓库的master分支作为文章源码，gh-pages分支作为静态博客。
+
+```
+项目根目录下/
+# 引入git
+git init
+
+# 设置远程地址
+git remote add origin git地址
+
+# pull一下远程的提交，有冲突就解决下/文件备份/重命名
+git pull origin master --allow-unrelated-histories
+
+# 添加.gitignore，加入
+public/
+.vscode
+node_modules
+
+# git三连
+git add .
+git commit -m ""
+git push origin master
+```
+
+终端使用写博客前先clone / pull一下，
+
+写完deploy后 再 git三连就行
+
 ## 拓展内容
 
 自建主题
@@ -295,3 +328,14 @@ _config.yml # 配置文件
 
 贴个不错的[教程](https://www.cnblogs.com/yyhh/p/11058985.html)
 
+## 最后一席话
+
+github有时会被墙，有时会访问慢，这个国内不一定稳定🤔
+
+体验来说相比于简书等来说，搭建过程还是需要一定基础，写起来也都markdown，
+
+但胜在可以自定义花里胡哨的东西(装逼万岁)。
+
+为了坚持写博客之前一直用的是先立标题文章，几星期过去有想法和方法了再去填充完成剩下的文章内容，这个一直都还不错。
+
+希望这个博客可以坚持久一些~
