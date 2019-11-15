@@ -1,0 +1,17 @@
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Hexo version: \u001b[35m3.4.3\u001b[39m","time":"2019-11-13T09:19:35.031Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Working directory: \u001b[35m~/project/blog/\u001b[39m","time":"2019-11-13T09:19:35.033Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Config loaded: \u001b[35m~/project/blog/_config.yml\u001b[39m","time":"2019-11-13T09:19:35.147Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-baidu-url-push\u001b[39m","time":"2019-11-13T09:19:35.157Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index\u001b[39m","time":"2019-11-13T09:19:35.161Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2019-11-13T09:19:35.164Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2019-11-13T09:19:35.165Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2019-11-13T09:19:35.167Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2019-11-13T09:19:35.171Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-seo-friendly-sitemap\u001b[39m","time":"2019-11-13T09:19:35.185Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index-plus\u001b[39m","time":"2019-11-13T09:19:35.187Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-markdown-it\u001b[39m","time":"2019-11-13T09:19:35.188Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-deployer-git\u001b[39m","time":"2019-11-13T09:19:35.201Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2019-11-13T09:19:35.282Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2019-11-13T09:19:35.283Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-toc\u001b[39m","time":"2019-11-13T09:19:35.396Z","v":0}
+{"name":"hexo","hostname":"AgaindeMacBook-Pro.local","pid":39748,"level":20,"msg":"Database saved","time":"2019-11-13T09:19:35.405Z","v":0}
