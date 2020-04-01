@@ -22,7 +22,7 @@ layout: page
             <%- post.subtitle || "" %>
         </h3>
         <div class="post-content-preview">
-            <%- truncate(strip_html(post.content), {length: 200, omission: '...'}) %>...
+            <%- truncate(strip_html(post.content), {length: 200, omission: '...'}).replace(/[\d]{5,}/i, '') %>...
         </div>
     </a>
     <% if (config.home_posts_tag){%>
