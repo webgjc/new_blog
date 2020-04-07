@@ -34,7 +34,7 @@ fixed: false
 - 继续Python的web开发，接触大数据的全家桶，也进行了下Java和Springboot的尝试。
 
 2020 - 2021
-- 期待中。。。
+- Springboot继续尝试，大数据组件继续尝试，其他期待中。。。
 
 
 ## 联系我
