@@ -42,3 +42,6 @@ fixed: false
 > Email: 935669873@qq.com  
 
 > 当然也可以直接加我qq交流👆
+
+> [我的简历 HTML](/about/resume.html)  
+> [我的简历 PDF](/about/resume.pdf)

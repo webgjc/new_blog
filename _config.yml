@@ -118,8 +118,9 @@ relative_link: false
 future: true
 highlight:
   enable: true
+  hljs: true
   line_number: true
-  auto_detect: true
+  auto_detect: false
   tab_replace:
 
 # Category & Tag
