@@ -35,7 +35,7 @@ fixed: false
     该项目一方面是对数据标准、数据码值进行定义、录入、管理和对外提供。另一块是数仓建模工具，通过表单，hql，execl等方式导入建表信息，提供ER图画图模块对导入表进行建模作图。建模的时候可以直接应用到数据标准和码值信息。项目使用java/springboot(optimus)/mybatis搭建，存储使用mysql，本人为项目的后端开发，项目为从零搭建。
     - 项目中在码表中因为码表是自建的，数值字段是自定义的，因此使用了json存储，且用到分表存储；
     - 在hql导入中用到了hql的create语句的解析，使用的是antlr4和hive的hplsql.g4然后用java实现visit模式的create_table；
-    - 渲染导出hql使用musache模板引擎；
+    - 渲染导出hql使用mustache模板引擎；
     - excel导入使用easyexcel实现；
 
   - ### 自助查询与敏捷分析
