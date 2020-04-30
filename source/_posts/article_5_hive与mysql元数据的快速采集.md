@@ -7,7 +7,7 @@ header-img: "/img/article_header/header.jpg"
 tags:
 - 元数据
 - 大数据
-- Mysql
+- MYSQL
 ---
 
 ## Hive元数据采集

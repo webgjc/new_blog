@@ -6,7 +6,7 @@ subtitle:
 header-img: "/img/article_header/header.jpg"
 tags:
 - HQL解析
-- Java
+- JAVA
 ---
 
 ## 前言

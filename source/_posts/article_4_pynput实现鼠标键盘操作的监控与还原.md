@@ -5,7 +5,7 @@ date: 2020-04-01 16:19:52
 subtitle: 
 header-img: "/img/article_header/header.jpg"
 tags:
-- Python
+- PYTHON
 - 脚本
 ---
 

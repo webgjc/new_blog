@@ -5,9 +5,9 @@ date: 2020-04-09 16:28:17
 subtitle:
 header-img: "/img/article_header/header.jpg"
 tags:
-- Hive
-- Python
-- Java
+- HIVE
+- PYTHON
+- JAVA
 ---
 
 ## 前言

@@ -6,7 +6,7 @@ date: 2019-11-13 17:05:00
 subtitle: "讲讲本次建博客中间那些事"
 header-img: "/img/article_header/header.jpg"
 tags:
-- Other
+- OTHER
 ---
 
 ## 前言

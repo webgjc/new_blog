@@ -5,8 +5,8 @@ date: 2020-04-09 16:30:21
 subtitle:
 header-img:
 tags:
-- hive
-- yarn
+- HIVE
+- YARN
 ---
 
 ## 前言

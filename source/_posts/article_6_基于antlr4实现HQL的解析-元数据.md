@@ -7,7 +7,7 @@ header-img: "/img/article_header/header.jpg"
 tags:
 - HQL解析
 - 元数据
-- Java
+- JAVA
 ---
 
 ## 前言
@@ -66,6 +66,32 @@ create_table_options_hive_item :
     create_table_hive_tblproperties?
      ;
 ```
+
+### 实现思路
+
+首先需要根据g4文件，使用antlr4-maven-plugin生成对应的java文件，要在pom文件配置对应如下的插件信息，sourcedirectory这样配可以让生成的java文件直接在target里的可用包里。
+``` xml
+<plugin>
+    <groupId>org.antlr</groupId>
+    <artifactId>antlr4-maven-plugin</artifactId>
+    <version>${antlr4.version}</version>
+    <configuration>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <arguments>
+            <argument>-visitor</argument>
+            <argument>-listener</argument>
+        </arguments>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>antlr4</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+然后写一个实体类继承HplsqlBaseVisitor，确认要重写的目标函数为创表语句的visitCreate_table_stmt，根据antlr4的插件查看到具体的子结构，然后可以根据Optional和map判断下层节点函数是否存在，存在就保存解析出的数据。
 
 ### 表字段相关定义
 

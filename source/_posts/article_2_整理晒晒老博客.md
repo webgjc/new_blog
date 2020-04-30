@@ -5,7 +5,7 @@ date: 2020-02-29 16:15:00
 subtitle: "整理下之前记录的一些东西"
 header-img: "/img/article_header/header.jpg"
 tags:
-- Other
+- OTHER
 ---
 
 ## 前言
