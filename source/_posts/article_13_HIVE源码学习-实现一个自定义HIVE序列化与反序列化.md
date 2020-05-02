@@ -1,5 +1,5 @@
 ---
-title: HIVE源码学习--实现一个自定义的HIVE序列化与反序列化
+title: HIVE源码学习--实现一个自定义的HIVE序列化与反序列化器
 catalog: true
 date: 2020-05-01 14:31:43
 subtitle: 

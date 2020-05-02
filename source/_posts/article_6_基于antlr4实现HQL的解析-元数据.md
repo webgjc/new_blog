@@ -318,3 +318,53 @@ public HiveTableMetadata getHiveTableMetadata() {
     return visitor.getTableMetadata();
 }
 ```
+
+## 效果展示
+
+原始sql
+
+``` sql
+create external table if not exists db_test.test_user (
+    id int comment 'id',
+    name string comment '姓名',
+    age int comment '年龄'
+)
+comment '测试用户表'
+partitioned by (ds string comment '分区')
+ROW FORMAT DELIMITED
+NULL DEFINED AS ""
+STORED AS TEXTFILE
+LOCATION '/user/hive/warehouse/db_test.db/test_user';
+```
+
+解析后的结果
+``` json
+{
+    "dbName": "db_test",
+    "fields": [
+        {
+            "dataType": "int",
+            "fieldComment": "id",
+            "fieldName": "id"
+        },
+        {
+            "dataType": "string",
+            "fieldComment": "姓名",
+            "fieldName": "name"
+        },
+        {
+            "dataType": "int",
+            "fieldComment": "年龄",
+            "fieldName": "age"
+        }
+    ],
+    "location": "LOCATION '/user/hive/warehouse/db_test.db/test_user'",
+    "partition": "partitioned by (ds string comment '分区')",
+    "properties": null,
+    "rowFormat": "ROW FORMAT DELIMITED\nNULL DEFINED AS \"\"",
+    "store": "STORED AS TEXTFILE",
+    "tableComment": "测试用户表",
+    "tableName": "test_user",
+    "tableType": "external"
+}
+```

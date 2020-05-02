@@ -6,6 +6,8 @@
 
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
+    <!-- <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas> -->
+
 	<%- partial('_partial/header',{cache: true}) %>
 	
     <%- partial('_partial/nav',{cache: true}) %>
@@ -16,15 +18,7 @@
     <!-- Footer -->
     <%- partial('_partial/footer') %>
 
-
-	<a id="rocket" href="#top" class=""></a>
-	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
-<!-- Image to hack wechat -->
-<img src="<%= config['url'] %><%= config['root'] %>img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
-<canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     var width = document.body.clientWidth;
     var height = document.body.clientHeight-300;
     var can = document.getElementById("canvas");
@@ -39,8 +33,8 @@
     for(var j=0;j<num;j++){
         x[j] = width*Math.random();
         y[j] = height*Math.random();
-        vx[j] = v*Math.random();
-        vy[j] = v*Math.random();
+        vx[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+        vy[j] = v*Math.random() * (Math.random()>0.5?-1:1);
     }
     var draw = function(){
         con.clearRect(0,0,width,height);
@@ -84,9 +78,17 @@
             draw();
             line();
             move();
-        },30);
+        },1000);
     }
-</script>
+</script> -->
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="<%= config['url'] %><%= config['root'] %>img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
 </body>
 
 </html>
