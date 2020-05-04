@@ -253,3 +253,5 @@ live2d:
 
 busuanzi:
   enable: true
+
+favicon: /favicon.ico

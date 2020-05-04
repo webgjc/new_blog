@@ -36,7 +36,7 @@ id=2,name="john",age=30
 <dependency>
       <groupId>org.apache.hive</groupId>
       <artifactId>hive-serde</artifactId>
-      <version>3.1.2</version>
+      <version>1.2.1</version>
 </dependency>
 ```
 
