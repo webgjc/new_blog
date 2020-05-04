@@ -70,12 +70,6 @@ import org.apache.hadoop.hive.metastore.api.Table;
 
 import java.util.*;
 
-/**
- * @description:
- * @author: again
- * @email: ganjiacheng@souche.com
- * @date: 2020/5/4 3:18 下午
- */
 public class MyLineagehook implements ExecuteWithHookContext {
 
     private Set<String> inputTables = new HashSet<>();
