@@ -2,17 +2,18 @@
 <section class="visible-md visible-lg">
     <h5><a href="<%= config.root %>about/">ABOUT ME</a></h5>
     <div class="short-about">
-
-        <% if(config['sidebar-avatar']) { %>
-            <img id = "avatar_pic" src="<%= config['sidebar-avatar'] %>" />
-        <% } %>
+        <a target="_blank"  href="https://github.com/<%= config.github_username %>">
+            <% if(config['sidebar-avatar']) { %>
+                <img id = "avatar_pic" src="<%= config['sidebar-avatar'] %>" />
+            <% } %>
+        </a>
 
         <% if(config['sidebar-about-description']) { %>
             <p><%= config['sidebar-about-description'] %></p>
         <% }%>
 
         <!-- SNS Link -->
-        <ul class="list-inline">
+        <!-- <ul class="list-inline">
             <% if (config.RSS) { %>
                 <li>
                     <a href="<%= config.root + 'feed.xml' %>">
@@ -88,6 +89,15 @@
                     </a>
                 </li>
             <% } %>
-        </ul>
+        </ul> -->
+
+        <p>本站地址(github):
+            <br />
+            <a href="http://ganjiacheng.cn/">http://ganjiacheng.cn/</a>
+        </p>
+        <p>本站地址2(coding访问更快):
+            <br />
+            <a href="http://blog.ganjiacheng.cn/">http://blog.ganjiacheng.cn/</a>
+        </p>
     </div>
 </section>

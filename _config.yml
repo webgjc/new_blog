@@ -64,7 +64,7 @@ ga_domain: yoursite
 
 # Sidebar settings
 sidebar: true                       # whether or not using Sidebar.
-sidebar-about-description: "带给自己一些快乐"
+sidebar-about-description: "不断放下，好好告别"
 sidebar-avatar: /img/avatar/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 widgets:
 - short-about
