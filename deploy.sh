@@ -1,0 +1,43 @@
+#!/bin/bash
+
+HOME_PATH=`echo ~`
+ROOT_PATH=$HOME_PATH/project/blog
+CODING_PATH=$HOME_PATH/project/coding/blog
+
+deploy_github(){
+    echo "start deploy github"
+    cd $ROOT_PATH
+    hexo clean
+    hexo g
+    hexo d
+    git add .
+    git commit -m "update blog"
+    git push origin master
+    echo "end deploy github"
+}
+
+deploy_coding(){
+    echo "start deploy coding"
+    cd $ROOT_PATH
+    hexo clean
+    hexo g
+    rm -rf $CODING_PATH/*
+    cp -r $ROOT_PATH/public/* $CODING_PATH/
+    cd $CODING_PATH
+    git add .
+    git commit -m "update blog"
+    git push origin master
+    echo "end deploy coding"
+}
+
+case $1 in 
+    github)
+        deploy_github
+        ;;
+    coding)
+        deploy_coding
+        ;;
+    *)
+        echo "use args github/coding"
+        ;;
+esac
