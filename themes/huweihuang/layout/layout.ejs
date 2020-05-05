@@ -6,7 +6,7 @@
 
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
-    <!-- <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas> -->
+    <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas>
 
 	<%- partial('_partial/header',{cache: true}) %>
 	
@@ -18,7 +18,7 @@
     <!-- Footer -->
     <%- partial('_partial/footer') %>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     var width = document.body.clientWidth;
     var height = document.body.clientHeight-300;
     var can = document.getElementById("canvas");
@@ -29,7 +29,7 @@
     var y = height*Math.random();
     var x = [],y = [],vx = [],vy = [];
     var num = 80;
-    var v = 2;
+    var v = 1.5;
     for(var j=0;j<num;j++){
         x[j] = width*Math.random();
         y[j] = height*Math.random();
@@ -78,9 +78,9 @@
             draw();
             line();
             move();
-        },1000);
+        },30);
     }
-</script> -->
+</script>
 
 
 	<a id="rocket" href="#top" class=""></a>
