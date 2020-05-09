@@ -95,6 +95,14 @@ friends: [
   {
     "href": "/book/",
     "title": "我的阅读室"
+  },
+  {
+    "href": "/",
+    "title": "我的理财"
+  },
+  {
+    "href": "/",
+    "title": "我的生活"
   }
 ]
 

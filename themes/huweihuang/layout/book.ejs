@@ -1,12 +1,17 @@
 ---
 layout: page
 ---
+
+<div style="text-align: center;">
+    感受洗涤灵魂的书籍
+</div>
+<br />
 <% site.posts.each(function(post){ %>
     <% if (post.book){ %>
         <div>
             <a href="<%- config.root %><%- post.path %>">
                 <div class="book-cover" style="display: inline-block;width: 40%">
-                        <img src="/img/book/huozhe.jpg" width="130" height="173" />
+                        <img src="<%- post.bookcover %>" width="130" height="173" />
                 </div>
             </a>
             <div class="post-preview" style="display: inline-block;width: 60%;float: right;">
