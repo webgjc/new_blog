@@ -273,27 +273,29 @@ C即为2x1，shuffle后的的key原本会有6个，现在只需要2个
 11 9
 
 // shuffle后的数据格式
-0,0
+0,0,0
 matB,0,0,10
 matB,0,1,15
 matB,1,1,2
-matB,2,0,11
-matB,2,1,9
 matA,0,0,1
 matA,0,1,2
-matA,0,2,3
 matA,1,0,4
 matA,1,1,5
-1,0
-matA,2,0,7
-matA,2,1,8
-matA,2,2,9
-matA,3,0,10
-matA,3,1,11
-matA,3,2,12
+0,1,0
+matA,0,2,3
+matB,2,0,11
+matB,2,1,9
+1,0,0
 matB,0,0,10
 matB,0,1,15
 matB,1,1,2
+matA,2,0,7
+matA,2,1,8
+matA,3,0,10
+matA,3,1,11
+1,1,0
+matA,2,2,9
+matA,3,2,12
 matB,2,0,11
 matB,2,1,9
 ```
@@ -338,11 +340,12 @@ public class BlockMatrix {
             int col = Integer.parseInt((lineData[1]));
             String fileName = ((FileSplit) reporter.getInputSplit()).getPath().getName();
             if(MATA.equals(fileName)){
-                // 分块后key只需要存分好的大块即可，
+                // 分块后key只需要存分好的大块的位置和A列B行对应值，
                 // value需要全部位置和值
+                // 保证每块shuffle后数据量都只有 DIV**2 * 2
                 for(int i = 0; i < Math.ceil(1.0 * MATRIXB_C / DIV); i++) {
                     outputCollector.collect(
-                            new Text(String.format("%s,%s",row/DIV, i)),
+                            new Text(String.format("%s,%s,%s", row/DIV, col/DIV, i)),
                             new Text(String.format("%s,%s,%s,%s", MATA, row, col, lineData[2])));
                 }
             }
@@ -350,7 +353,7 @@ public class BlockMatrix {
             if(MATB.equals(fileName)) {
                 for(int i = 0; i < Math.ceil(1.0 * MATRIXA_R / DIV); i++) {
                     outputCollector.collect(
-                            new Text(String.format("%s,%s", i, col/DIV)),
+                            new Text(String.format("%s,%s,%s", i, row/DIV, col/DIV)),
                             new Text(String.format("%s,%s,%s,%s", MATB, row, col, lineData[2])));
                 }
             }
@@ -395,30 +398,7 @@ public class BlockMatrix {
             }
         }
     }
-
-    // 主程序和上面一致
-    public static void main(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        Path outpath = new Path(args[1]);
-        FileSystem fileSystem = outpath.getFileSystem(conf);
-        if(fileSystem.exists(outpath)){
-            fileSystem.delete(outpath, true);
-        }
-
-        JobConf jobConf = new JobConf(BlockMatrix.class);
-        jobConf.setJobName("block matrix");
-
-        jobConf.setOutputKeyClass(Text.class);
-        jobConf.setOutputValueClass(Text.class);
-
-        jobConf.setMapperClass(BlockMatrix.Map.class);
-        jobConf.setReducerClass(BlockMatrix.Reduce.class);
-
-        FileInputFormat.addInputPath(jobConf, new Path(args[0]));
-        FileOutputFormat.setOutputPath(jobConf, new Path(args[1]));
-
-        JobClient.runJob(jobConf);
-    }
+    // 后续需要接一个累加的mapreduce，这个与下面的列行乘法相同，见下方。
 }
 ```
 
@@ -576,6 +556,14 @@ public class LhMatrix {
 }
 
 ```
+
+# 小结
+
+- 第一种基本的矩阵乘法，实现比较直接，主要问题在于map的时候数据复制了n份，导致shuffle的数据过大；另一个是每个reduce的时候获得的数据量为m+n，且需要转存到内存中，可能会导致存储不下。
+- 第二种分块相乘，将数据复制分数减少了DIV倍，同时一个reduce的数据量在DIV**2 * 2的大小；麻烦的是需要控制的就是DIV取合适的值。
+- 第三种列行相乘，这边实现的是直接在全集上进行列行分，其实也可以在分块后进行列行，这边的每个reduce也是会有m+n的数据进来内存中，分块后再按列行划分就是步骤会多了点，也是可以的。
+
+**感觉最为关键的一步是在map的时候对数据进行合理的计算划分与分发，就如同这边对矩阵的分块/列行对应分发(什么作为key)，不同的key划分对应的计算量和中间过程数据完全不同。划分完后的每块reduce的计算基本是水到渠成的事情，都是一些累加或点乘的事情。**
 
 
 # MapReduce开发环境
