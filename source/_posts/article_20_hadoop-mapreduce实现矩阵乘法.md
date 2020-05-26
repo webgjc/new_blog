@@ -251,14 +251,14 @@ public class Matrix {
 ![juzhengfenkuai](/img/mypost/juzhengfenkuai.jpg)
 
 分块后如果是k个分为一块，数据大致可以减少k倍，  
-细细想想上面的第一种方法，也就是k取1的时候的情况。
 
-对应到上面的mapreduce中，就是map的时候按C的结果大块进行取key，reduce的时候进行对应的块的矩阵计算。
-
-可以发现reduce的计算逻辑会变复杂了，相当于时间换空间了。
+map的时候按C的结果大块进行取key，同时将需要进行对应计算的A列块和B行块划分到一起，reduce的时候进行对应的块的矩阵计算。
 
 这边举例以2个为一块，矩阵切分后如下，A为2x2，B为2x1  
-C即为2x1，shuffle后的的key原本会有6个，现在只需要2个
+C即为2x1，shuffle后的的key原本会有6个，现在只需要4个，且每个数量也减少了
+
+如下将 1 2 4 5 和 10 15 0 2 （DIV ** 2 * 2）的块划到一起并在第一层reduce做计算，返回的key为对应行列
+然后第二层mapreduce将计算结果合并累加
 ```
 1  2  | 3
 4  5  | 0
