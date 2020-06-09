@@ -11,6 +11,7 @@ tags:
 # 前言
 
 这边主要介绍一款个人自行开发的chrome插件 web-robot，  
+这边讲解的是他的V1.0版本，  
 包括它的开始设计，使用教程，实现思路和细节。  
 源码的github地址是在[https://github.com/webgjc/web_robot](https://github.com/webgjc/web_robot)
 
@@ -65,6 +66,13 @@ https://github.com/webgjc/web_robot)
 ### 从chrome商店下载导入
 
 暂时没有上线chrome应用商店
+
+### 版本更新
+
+首先更新本地代码
+> git pull
+
+**然后重复上面的 加载已解压的扩展程序 的操作**。
 
 ## 软件使用
 
