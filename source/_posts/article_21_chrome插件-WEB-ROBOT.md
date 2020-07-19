@@ -46,16 +46,20 @@ tags:
 ![robot](/img/mypost/robot2.jpg)
 
 
-另一种是在页面中进行(V1.5.0)，  
 点进一个事务里，选择页面添加  
 然后在页面里点击任意位置，就会获取到dom节点并在右上角产生以下配置
-![robot](/img/mypost/robot1.jpg)
+(1.8.0) 支持可视化圈选定义事件
+![robot](/img/mypost/keshihuaquanxuan.gif)
+
+(1.7.1) 支持页面直接录制事件，支持点击事件和英文设值事件。
 
 动作目前可选择的有 
 - 点击（click）
 - 设值（value）
 - 刷新（refresh）
 - 当页跳转（pagejump）
+- 取值 (getvalue) (v1.7.0)
+- 鼠标移入 (mouseover) (v1.6.3)
 
 设值支持参数配置(v1.4.0)，可以填写${参数}，  
 这样在运行事务的时候就会出现需要填写对应的参数
