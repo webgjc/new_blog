@@ -1,34 +1,34 @@
 ---
-title: '基于antlr4实现hiveSQL的解析[表血缘和字段血缘]'
+title: "基于antlr4实现hiveSQL的解析[表血缘和字段血缘]"
 catalog: true
 date: 2020-05-02 16:25:06
 subtitle:
 header-img: "/img/article_header/header.jpg"
 tags:
-- HQL解析
+    - HQL解析
 ---
 
 ## 前言
 
-关于HiveSQL血缘，一般表示的就是hive数据仓库中所有表和字段的来源流向关系。它的解析是十分必要的，一方面数仓建表的时候有时只会定义SQL任务不会特别关注到任务之间的关系，对于查看的数据也不容易追溯两层以上或以下的数据来源和去向。
+关于 HiveSQL 血缘，一般表示的就是 hive 数据仓库中所有表和字段的来源流向关系。它的解析是十分必要的，一方面数仓建表的时候有时只会定义 SQL 任务不会特别关注到任务之间的关系，对于查看的数据也不容易追溯两层以上或以下的数据来源和去向。
 
 有了血缘就可以对离线任务执行的先后关系作出一定规范，可以做数据来源链路的分析，数据的上卷下钻，数仓直接的数据建模等。
 
 ## 实现思路
 
-一般来说比较直接的实现方式是hivehook的LineageLogger，但直接用也有比较明显麻烦的地方，一个是借用了hive自带的antlr3的hql解析，如果有部分语法不满足，去修改解析文件会造成不可控影响；另一个用hivehook实现后的迭代测试发布等都是一个比较麻烦的过程，出错了也很难定位问题所在。
+一般来说比较直接的实现方式是 hivehook 的 LineageLogger，但直接用也有比较明显麻烦的地方，一个是借用了 hive 自带的 antlr3 的 hql 解析，如果有部分语法不满足，去修改解析文件会造成不可控影响；另一个用 hivehook 实现后的迭代测试发布等都是一个比较麻烦的过程，出错了也很难定位问题所在。
 
-这边就考虑用antlr4配合hive内部的Hplsql.g4直接实现一个血缘的解析。实现方式还是visit模式。
+这边就考虑用 antlr4 配合 hive 内部的 Hplsql.g4 直接实现一个血缘的解析。实现方式还是 visit 模式。
 
 ### 表血缘
 
-首先表血缘是比较之间简单的，比如对于一个insert来说，目标表永远只有一个，来源表是select中所有from的真实表。
+首先表血缘是比较之间简单的，比如对于一个 insert 来说，目标表永远只有一个，来源表是 select 中所有 from 的真实表。
 
 ### 字段血缘
 
 对于字段血缘实现会麻烦一点，因为要将每个结果字段的层层关系找到并最后对应上真实表的字段，可能中间还会有多个字段计算为一个字段，一个字段于下层多个字段有血缘，还会有表别名，字段别名的干扰。
 
-这边最后的考虑是将每个select剥离出来存成一个object，其中包括来源表(来源子select则为null)，select字段，父select的Index(第一层则为null)。在解析完成后所有select的object存为一个数组，然后逐个对最外层的字段进行溯源找到真实的来源表。
+这边最后的考虑是将每个 select 剥离出来存成一个 object，其中包括来源表(来源子 select 则为 null)，select 字段，父 select 的 Index(第一层则为 null)。在解析完成后所有 select 的 object 存为一个数组，然后逐个对最外层的字段进行溯源找到真实的来源表。
 
 ## SHOW CODE
 
@@ -36,11 +36,19 @@ tags:
 
 首先定义好结构
 
-``` java
+```java
 // 表名的结构
 public class TableNameModel {
     private String dbName;
     private String tableName;
+
+    public static String dealNameMark(String name) {
+        if(name.startsWith("`") && name.endsWith("`")) {
+            return name.substring(1, name.length()-1);
+        }else{
+            return name;
+        }
+    }
 
     public static TableNameModel parseTableName(String tableName) {
         TableNameModel tableNameModel = new TableNameModel();
@@ -65,9 +73,9 @@ public class HiveTableLineageModel {
 
 ```
 
-表血缘主要过程，监听insert语句
+表血缘主要过程，监听 insert 语句
 
-``` java
+```java
 public class HiveSQLTableLineage extends HplsqlBaseVisitor {
 
     private TableNameModel outputTable;
@@ -109,7 +117,7 @@ public class HiveSQLTableLineage extends HplsqlBaseVisitor {
 
 定义结构
 
-``` java
+```java
 // 字段名
 public class FieldNameModel {
     private String dbName;
@@ -151,12 +159,12 @@ public class HiveFieldLineageModel {
 
 ```
 
-字段血缘主要过程,主要针对的是insert语句，  
-但一般的select也是可以用的，因为是把最外层select的字段作为结果字段,  
-有一个限制是中间不能有select * 这种操作，因为目前不连接元数据库，就无法获得*对应的字段。   
+字段血缘主要过程,主要针对的是 insert 语句，  
+但一般的 select 也是可以用的，因为是把最外层 select 的字段作为结果字段,  
+有一个限制是中间不能有 select * 这种操作，因为目前不连接元数据库，就无法获得*对应的字段。  
 中间也记录了字段流转的计算过程，理应是一个数组，取了最长一个，这边比较不稳定。
 
-``` java
+```java
 public class HiveSQLFieldLineage extends HplsqlBaseVisitor {
 
     private TableNameModel outputTable;
@@ -521,9 +529,9 @@ public class HiveSQLFieldLineage extends HplsqlBaseVisitor {
 
 ## 效果展示
 
-举一个简单的sql
+举一个简单的 sql
 
-``` sql
+```sql
 INSERT INTO TABLE db_test.table_result
 SELECT
     t1.id,
@@ -555,7 +563,7 @@ ON t1.id=t2.id
 
 解析后的表血缘
 
-``` json
+```json
 {
     "inputTables": [
         {
@@ -576,7 +584,7 @@ ON t1.id=t2.id
 
 解析后的字段血缘
 
-``` json
+```json
 [
     {
         "sourceFields": [
@@ -615,5 +623,22 @@ ON t1.id=t2.id
         }
     }
 ]
+```
 
+## 引用说明
+
+```xml
+<java.version>1.8</java.version>
+<antlr4.version>4.7.2</antlr4.version>
+```
+
+```java
+// 通用的
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.RuleContext;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.apache.commons.lang3.StringUtils;
+// 基于Hplsql.g4文件生成的, 使用antlr4-maven-plugin
+import xxx.HplsqlBaseVisitor;
+import xxx.HplsqlParser;
 ```
