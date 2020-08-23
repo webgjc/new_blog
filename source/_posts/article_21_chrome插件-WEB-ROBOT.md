@@ -2,8 +2,7 @@
 title: chrome插件 web_robot
 catalog: true
 date: 2020-06-09 19:31:43
-subtitle: web_robot最新教程(持续更新中)
-header-img:
+subtitle: web_robot最新版教程
 tags:
     - CHROME插件
     - 自动化
@@ -11,11 +10,13 @@ tags:
 
 ## 前言
 
+- 2020-08-23 暂停频繁的更新，等待新的idea出现
+
 这边是 web_robot 持续更新教程，
 
 对于基本的安装，导入，基础使用，请参照[V1.0 版本教程](/article/article_18_chrome插件-网页自动化/)
 
-对于 V1.0 版本以外的功能这边都会做提醒与说明,目前版本 1.8.0
+对于 V1.0 版本以外的功能这边都会做提醒与说明,目前版本 1.8.2
 
 ![插件图](/img/mypost/robot_pic.jpg)
 
