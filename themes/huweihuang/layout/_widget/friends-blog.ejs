@@ -1,10 +1,11 @@
 <!-- Friends Blog -->
 <% if(config.friends) { %>
-<h5>FRIENDS</h5>
+<h5>MINE</h5>
 <ul class="list-inline">
-
-    <% config.friends.forEach(function(friend){ %>
-        <li><a href="<%= friend.href %>"><%= friend.title %></a></li>
-    <% }); %>
+    <% config.friends.forEach(function(friend, index){ %>
+    <li><a href="<%= friend.href %>"><%= friend.title %></a></li>
+    <% if(index % 2 == 1){ %>
+    <br />
+    <% } %> <% }); %>
 </ul>
 <% }%>
