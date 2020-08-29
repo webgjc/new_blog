@@ -17,11 +17,15 @@ for code in code_list:
     try:
         time.sleep(0.5)
         resp = req.get("http://fund.eastmoney.com/pingzhongdata/{}.js".format(code))
-        source_data = re.search("Data_netWorthTrend = (.*?);", resp.text).group(1)
-        data = [i for i in json.loads(source_data) if i["x"] >= start_timestamp]
+        source_data = re.search("Data_ACWorthTrend = (.*?);", resp.text).group(1)
+        data = [i for i in json.loads(source_data) if i[0] >= start_timestamp]
+        res = []
         for i in data:
-            i["x"] = time.strftime("%Y-%m-%d", time.localtime(i["x"]/1000))
-        json.dump(data, open("./funddata/{}.json".format(code), "w"))
+            res.append({
+                "x": time.strftime("%Y-%m-%d", time.localtime(i[0]/1000)),
+                "y": i[1]
+            })
+        json.dump(res, open("./funddata/{}.json".format(code), "w"))
     except Exception as e:
         print(e)
 
