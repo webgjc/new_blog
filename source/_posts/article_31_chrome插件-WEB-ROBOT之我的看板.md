@@ -74,8 +74,6 @@ chrome浏览器点击右边更多，更多工具，扩展程序
 
 移动选择器可以在页面看到对应的粉色蒙版
 
-![web_robot_xuanzhong](/img/mypost/web_robot_xuanzhong.jpg)
-
 点击后，点击确认添加到看板，则可以将对应选择的元素加到看板中  
 打开新页，就可以看到刚刚加的元素。
 
