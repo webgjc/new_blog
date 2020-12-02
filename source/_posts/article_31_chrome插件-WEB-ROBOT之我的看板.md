@@ -86,6 +86,8 @@ chrome浏览器点击右边更多，更多工具，扩展程序
 
 可以调整位置和大小，或者删除元素。
 
+![web_robot_paiban.jpg](/img/mypost/web_robot_paiban.jpg)
+
 多加几个即可达到页面初的效果。
 
 ### 复杂模式
