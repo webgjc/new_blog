@@ -109,5 +109,27 @@ chrome浏览器点击右边更多，更多工具，扩展程序
 
 ![web_robot_add_dshb](/img/mypost/web_robot_add_dshb.jpg)
 
+这边以加一个live2d为例，效果如下
+
+![web_robot_live2d1](/img/mypost/web_robot_live2d1.jpg)
+
+可以直接复制导入这个配置食用
+
+``` json
+{"add_dashboard":true,"case_name":"live2d","case_process":[{"check":true,"expr":"","n":"0","opera":"pagejump","tag":"body","value":"http://blog.ganjiacheng.cn/","wait":"0"},{"check":true,"expr":"","n":"0","opera":"onlyshow","tag":"#live2d-widget","value":"","wait":"0.5"}],"case_sourcecode":"","case_type":"process","control_url":"","sourcecode_url":".*"}
+```
+
+自行定义的话首先在插件主页中 新增一个流程事务。
+
+然后点进去详情，新增一个当页跳转事件，跳转 http://blog.ganjiacheng.cn/ 这个地址
+
+然后新增一个唯一展示事件，找到live2d的标签，这里是 #live2d-widget，定义为唯一展示onlyshow
+
+定义完如下
+
+![web_robot_live2d](/img/mypost/web_robot_live2d.jpg)
+
+保存后在主页中点击添加到看板
+
 后续看板中的管理和上面简易模式一致。
 
