@@ -50,6 +50,18 @@ chrome浏览器点击右边更多，更多工具，扩展程序
 
 ![web_robot](/img/mypost/web_robot_1201.jpg)
 
+### 关闭看板
+
+看板默认为开启状态，如果想要关闭
+
+将插件源码中跟目录下的 **manifest.json** 中最下方的这块删掉，  
+重新加载一下插件
+```
+"chrome_url_overrides": {
+    "newtab": "html/newtab.html"
+}
+```
+
 ### 简易模式
 
 点击 开启简单看板模式
