@@ -4,6 +4,10 @@ HOME_PATH=`echo ~`
 ROOT_PATH=$HOME_PATH/project/blog
 CODING_PATH=$HOME_PATH/project/coding/blog
 
+upload_sitemap(){
+    open -a 'Google Chrome' https://www.google.com/ping?sitemap=http://blog.ganjiacheng.cn/sitemap.xml
+}
+
 deploy_github(){
     echo "start deploy github"
     cd $ROOT_PATH
@@ -14,6 +18,7 @@ deploy_github(){
     git commit -m "update blog"
     git push origin master
     echo "end deploy github"
+    upload_sitemap
 }
 
 deploy_coding(){
