@@ -3,8 +3,8 @@ title: MYSQL中关于统计某列最新不同值的方法
 catalog: true
 date: 2020-12-30 19:31:43
 tags:
-    - MYSQL
     - SQL
+    - MYSQL
 ---
 
 ## 前言
@@ -123,10 +123,10 @@ sql如下：
 
 先定义两个变量，这边是curRank，preRank  
 curRank这边表示的是上一个资源id，  
-preBank表示的是排名
+preRank表示的是排名
 
 当从上往下遍历时，当preBank = resource_id时，curRank赋值为1，（表示每个新资源排名从1开始）  
-当preBank != resource_id时，curRank += 1，  （同一个资源内，每次排名自增）
+当preRank != resource_id时，curRank += 1，  （同一个资源内，每次排名自增）
 
 产生排名后外层筛选排名为1的，再重新按时间进行倒排序。
 
