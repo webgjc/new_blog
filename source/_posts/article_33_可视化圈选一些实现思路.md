@@ -80,9 +80,6 @@ function direct_select_dom(cb) {
     document.addEventListener(
         "click",
         function (e) {
-            if (document.getElementById("robot_iframe")) {
-                document.getElementById("robot_iframe").remove();
-            }
             // 阻止原事件和事件冒泡
             e.stopPropagation();
             e.preventDefault();

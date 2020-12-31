@@ -7,8 +7,12 @@ subtitle: 音乐始终陪伴
 header-img: "/img/header_img/archive.jpg"
 ---
 
+## 夜的钢琴曲11（一个人的舞蹈）
+[夜的钢琴曲11](/img/movie/yedegangqinqu11.mp4)
+
 ## 梁祝
 [梁祝钢琴曲](/img/movie/liangzhu.mp4)
+
 
 ## 原音乐篇入口，听学钢琴曲 
 - 2020-08-23
