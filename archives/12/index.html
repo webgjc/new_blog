@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/page/5/">
+  <link rel="canonical" href="http://ganjiacheng.cn/archives/12/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -145,13 +145,13 @@
                         
                     
                         
+                    
+                        
+                    
+                        
                         <li>
                             <a href="/archive/">Archives</a>
                         </li>
-                        
-                    
-                        
-                    
                         
                     
                         
@@ -217,219 +217,42 @@
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_18_练手c语言算法一/">
+    <a href="/article/2020/article_27_网络略知一二/">
         <h2 class="post-title">
             
-            练手c语言算法一
+            网络略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            大华2018年软件挑战赛初赛题
-初赛　十道题，题目此在，主要讲讲自己的思路，这里是前五题。
-１.不相邻最大子序和。不相邻所以奇偶分开写状态转移，然后取两者较大值。类似于leetcode中house robber。
-#include "stdio.h"
-#define max(a,b) ((a)&gt;(b)?(a):(b))
+            前言
+本文主要为网络的基础知识
+tcp 三次握手建立连接
 
-int calc(int *nums,int n){
-    i......
+连接端发起一个 SYN 消息，SEQ=x
+被连端收到后返回 SYN+ACK 消息，SEQ=y, ACK=x+1
+连接端收到消息返回 ACK 消息，ACK=y+1
+
+两端都进入 Established 状态
+tcp 四次挥手断开连接
+
+发起端发起一个 FIN 的消息，SEQ=x
+接收端收到后返回 ACK 消息，表示准备断开连接，SEQ......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-05-06
-        <span class="post-count"> 文章字数: 1.8k</span>
-        <span class="post-count"> 阅读时间: 11分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_17_整理下二叉树/">
-        <h2 class="post-title">
-            
-            整理下二叉树
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            在leetcode遇到二叉树就卡机，恶补下这种数据结构，想想都难。
-首先是节点构建和插入，这里的插入形式用来下面排序，小的在左，大的在右。
-class Node():
-    def __init__(self, val=None, left= None, right=None):
-        self.val = val
-        self.left = left
-       ......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-04-22
-        <span class="post-count"> 文章字数: 851</span>
-        <span class="post-count"> 阅读时间: 5分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_15_手搓一个kmeans聚类/">
-        <h2 class="post-title">
-            
-            手搓一个kmeans聚类
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            起意是在看一些招聘算法机器学习面经的时候有看到好几次让直接写一个kmeans。之前用sklearn试过这个聚类算法，这次也来手写实现一下。
-import random
-import matplotlib.pyplot as plt
-
-#生成点
-def make_points():
-    points = []
-    for i in range(100):
-        points.......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-04-11
-        <span class="post-count"> 文章字数: 365</span>
-        <span class="post-count"> 阅读时间: 2分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_14_手持弹幕效果--网页版/">
-        <h2 class="post-title">
-            
-            手持弹幕效果--网页版
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            看到抖音上手持弹幕的效果，想想应该不复杂，也可以自己在浏览器实现一个。主要问题在于怎么把浏览器上面的搜索框去掉而实现一种伪全屏。结尾有彩蛋。
-效果暂时可以在https://ganjiacheng.cn/danmu.html 查看。
-直接上代码，在其中论述方法。
- &lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-04-06
-        <span class="post-count"> 文章字数: 1.1k</span>
-        <span class="post-count"> 阅读时间: 7分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_13_沉迷深搜，来做个解数独的/">
-        <h2 class="post-title">
-            
-            沉迷深搜，来做个解数独的
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            还记得以前高中默默盯着数独的能看半天，然后还一个个凑，这回来彻底解决一下这个问题。顺便理清一下深度优先搜索的设计流程。
-首先数独规则自行了解，这里做最基础的9宫格数独。
-拿到数独题，分一部分已知点和一部分未知点，未知点的状态是有限的，每个点都不能与横竖加九宫格内的数重复，因此可以根据这个遍历所有状态。
-深度优先搜索设计
-for 上一个点的可用状态：
-    尝试下点
-    进入下一个点（递......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-04-02
-        <span class="post-count"> 文章字数: 710</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 690</span>
         <span class="post-count"> 阅读时间: 4分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_11_聊聊深度优先搜索算法及应用/">
-        <h2 class="post-title">
-            
-            聊聊深度优先搜索算法及应用
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            之前看算法书对于深搜一直是一个坎，有点难以理解或者理解了一些但没法下手写，这回来重新探讨一下个人目前的理解及解决方案。文章从全排入手，到解决八皇后，和尚妖怪过河等问题。
-首先，看一个全排序，传入一个数组（其中有n个可不等长的数组），得到的结果是其中每个数组取一个数组成的新数组的集合，如下
-result=[0]*3
-arr=[[1,2,3],[4,5],[7,8,9]]
-res=[]
-#算法部......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-03-31
-        <span class="post-count"> 文章字数: 1.5k</span>
-        <span class="post-count"> 阅读时间: 9分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
     </div>
     
@@ -441,67 +264,55 @@ res=[]
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_12_爬虫--钢琴曲谱/">
+    <a href="/article/2020/article_28_mysql略知一二/">
         <h2 class="post-title">
             
-            爬虫--钢琴曲谱
+            Mysql略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            最近学钢琴，也经常会用到曲谱，但网上大多数曲谱不清晰，或者清晰的要vip。因此研究下某曲谱网站，进行爬取vip才能下载的曲谱并组合为pdf。
-可以在http://123.206.217.190:8888试用效果
-下面的是python3.x代码，在window可直接本地运行，在linux做一些注释中的修改。
-#coding:utf-8
-import requests
-from bs4 impo......
+            前言
+本文主要为 mysql 相关知识
+脏读，不可重复读，幻读
+
+脏读：某个事务更新数据没有提交，另一个事务已经读取了数据
+不可重复读：一个事务两次查询数据不一致，因为两次查询中间另一个事务更新了数据
+幻读：一个事务两次查询数据总量不一致，因为两次中间另一个事务插入了数据
+
+隔离级别
+
+
+
+隔离级别
+脏读
+不可重复读
+幻读
+
+
+
+
+读未提交(Read Uncommitted)
+√
+√
+√
+
+......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-03-29
-        <span class="post-count"> 文章字数: 457</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 582</span>
         <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_10_在线接口测试及生成文档/">
-        <h2 class="post-title">
-            
-            在线接口测试及生成文档
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            由于每次更改后端接口都要经过测试，然后又要去修改接口文档，就想着能不能整合这两步，为了自己能灵活修改，便自己来写个。
-https://github.com/webgjc/ApiTestToMd
-这次的代码有点多，就不直接展示了，放在github上，也可方便下载使用。
- 
-写写思路及主要用到的工具：
-后端使用flask框架，requests作为接口测试，增加了百度翻译api作为参数翻译，另外写......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-03-14
-        <span class="post-count"> 文章字数: 341</span>
-        <span class="post-count"> 阅读时间: 2分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
     </div>
     
@@ -513,34 +324,39 @@ https://github.com/webgjc/ApiTestToMd
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_9_庆祝博客一周年！！/">
+    <a href="/article/2020/article_30_操作系统略知一二/">
         <h2 class="post-title">
             
-            庆祝博客一周年！！
+            操作系统略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            博客不知不觉已经一周年咯。
-一年写了50+篇文章，coding也基本未间断。
-在去年还未知的技术走向今年也将看到沉淀。
-这次主要将要完成一个的一个事情便是 将博客已有的一些技术和代码较为完善的转存到github上。
-一方面是收集零散的片段，另一方面是整理注释代码。
-为以后做简单的借鉴与留念。
-github地址是https://github.com/webgjc/blog
-...
+            前言
+本文涉及操作系统各种方面，包括进程，线程，协议，cpu，内存；
+进程调度算法
+
+先来先服务调度算法：队列
+最短作业优先调度算法：时间短的先运行
+高响应比优先调度算法：先计算响应比优先级，优先级高的先运行
+时间片轮转调度算法：每个进程分配一个时间片段，如果在时间片段内没有执行完成，也切换进程运行，如果时间片内执行，则立即切换。
+最高优先级调度算法：静态优先级 - 创建进程时确定优先级，动......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-03-09
-        <span class="post-count"> 文章字数: 128</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 220</span>
         <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
         
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+        <a href="/tags/#操作系统" title="操作系统">操作系统</a>
+        
     </div>
     
 
@@ -551,39 +367,53 @@ github地址是https://github.com/webgjc/blog
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_8_扫雷js版/">
+    <a href="/article/2020/article_17_HIVE源码学习-实现自定义的udf/">
         <h2 class="post-title">
             
-            扫雷js版
+            HIVE源码学习--实现自定义的UDF，UDAF，UDTF
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            是老早之前写的，今天整理系统文件发现了这个扫雷，也是小惊喜，小看了下还挺有趣哈！
-直接上代码，具体在代码中注释。
-主要看点有两块，一个是从n个整数随机产生不重复的m个随机整数,m&lt;n
-另一个就是自动搜寻周边不是雷的区域，也就是点了一个不是雷有时会显现一大片。
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &l......
+            前言
+hive里有三种可以自定义实现的函数，
+
+自定义函数包括三种 UDF、UDAF、UDTF
+
+UDF（User-Defined-Function） 一进一出 ，既一行进一行出
+UDAF（User- Defined Aggregation Funcation） 聚集函数，多进一出（多行进一行出）。Count/max/min
+UDTF（User-Defined Table-Generatin......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-02-27
-        <span class="post-count"> 文章字数: 1.1k</span>
-        <span class="post-count"> 阅读时间: 7分钟</span>
+        2000-05-07
+        <span class="post-count"> 文章字数: 78</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
         
     </div>
     
 
 </div>
 <hr>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -593,13 +423,9 @@ github地址是https://github.com/webgjc/blog
     <ul class="pager">
         
         <li class="previous">
-            <a href="/page/4/">&larr; Newer Posts</a>
+            <a href="/archives/11/">&larr; Newer Posts</a>
         </li>
         
-        
-        <li class="next">
-            <a href="/page/6/">Older Posts &rarr;</a>
-        </li>
         
     </ul>
 
@@ -706,11 +532,11 @@ github地址是https://github.com/webgjc/blog
             
         
             
-            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
             
         
             
-            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
+            <a href="/tags/#CHROME插件" title="CHROME插件" rel="6">CHROME插件</a>
             
         
             
@@ -722,7 +548,11 @@ github地址是https://github.com/webgjc/blog
             
         
             
-            <a href="/tags/#CHROME插件" title="CHROME插件" rel="6">CHROME插件</a>
+            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
+            
+        
+            
+            <a href="/tags/#自动化" title="自动化" rel="4">自动化</a>
             
         
             
@@ -730,15 +560,7 @@ github地址是https://github.com/webgjc/blog
             
         
             
-            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
-            
-        
-            
             <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
-            
-        
-            
-            <a href="/tags/#自动化" title="自动化" rel="4">自动化</a>
             
         
             
@@ -781,6 +603,10 @@ github地址是https://github.com/webgjc/blog
             <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
             
         
+            
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            
+        
     </div>
 </section>
 
@@ -796,7 +622,7 @@ github地址是https://github.com/webgjc/blog
         </li>
       
         <li>
-          <a href="/article/2021/article_2_原博客大迁移2017-2018/">原博客大迁移2017-2018</a>
+          <a href="/article/2021/article_2_原博客大迁移2017-2018/">原博客迁移与复原（2017-2018）</a>
         </li>
       
         <li>

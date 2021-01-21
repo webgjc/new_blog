@@ -145,13 +145,13 @@
                         
                     
                         
+                    
+                        
+                    
+                        
                         <li>
                             <a href="/archive/">Archives</a>
                         </li>
-                        
-                    
-                        
-                    
                         
                     
                         
@@ -210,23 +210,21 @@
                 
                     <a href="#OTHER" title="OTHER" rel="3">OTHER</a>
                 
-                    <a href="#总结" title="总结" rel="1">总结</a>
-                
                     <a href="#HIVE" title="HIVE" rel="8">HIVE</a>
+                
+                    <a href="#CHROME插件" title="CHROME插件" rel="6">CHROME插件</a>
                 
                     <a href="#HQL解析" title="HQL解析" rel="3">HQL解析</a>
                 
                     <a href="#JAVA" title="JAVA" rel="10">JAVA</a>
                 
-                    <a href="#CHROME插件" title="CHROME插件" rel="6">CHROME插件</a>
+                    <a href="#HADOOP" title="HADOOP" rel="2">HADOOP</a>
+                
+                    <a href="#自动化" title="自动化" rel="4">自动化</a>
                 
                     <a href="#其他" title="其他" rel="1">其他</a>
                 
-                    <a href="#HADOOP" title="HADOOP" rel="2">HADOOP</a>
-                
                     <a href="#知识积累" title="知识积累" rel="8">知识积累</a>
-                
-                    <a href="#自动化" title="自动化" rel="4">自动化</a>
                 
                     <a href="#操作系统" title="操作系统" rel="1">操作系统</a>
                 
@@ -248,6 +246,8 @@
                 
                     <a href="#YARN" title="YARN" rel="1">YARN</a>
                 
+                    <a href="#总结" title="总结" rel="1">总结</a>
+                
             </div>
 
             <!-- 标签列表 -->
@@ -257,6 +257,25 @@
                 <span class="fa fa-tag listing-seperator" id="OTHER">
                     <span class="tag-text">OTHER</span>
                 </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2019/article_1_又双叒叕建博客/">
+                        <h2 class="post-title">
+                            又双叒叕建博客
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                讲讲本次建博客中间那些事
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
                 
                   <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -292,47 +311,6 @@
                 </div>
                 <hr>
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2019/article_1_又双叒叕建博客/">
-                        <h2 class="post-title">
-                            又双叒叕建博客
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                讲讲本次建博客中间那些事
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="总结">
-                    <span class="tag-text">总结</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2021/article_1_2020总结-稳中求进/">
-                        <h2 class="post-title">
-                            2020总结 -- 稳重求进
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
             </div>
             
             <div class="one-tag-list">
@@ -345,24 +323,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_16_HIVE源码学习-hivehook尝试血缘解析/">
+                     <a href="/article/2020/article_10_HIVE源码学习-从CliDriver跟踪整个执行流程/">
                         <h2 class="post-title">
-                            HIVE源码学习-hivehook尝试表血缘与字段血缘的解析
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_15_HIVE源码学习-执行计划Operators和优化Optimizers/">
-                        <h2 class="post-title">
-                            HIVE源码学习-执行计划Operators和优化Optimizers
+                            HIVE源码学习--从CliDriver跟踪整个执行流程
                         </h2>
                         
                     </a>
@@ -390,9 +353,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_10_HIVE源码学习-从CliDriver跟踪整个执行流程/">
+                     <a href="/article/2020/article_15_HIVE源码学习-执行计划Operators和优化Optimizers/">
                         <h2 class="post-title">
-                            HIVE源码学习--从CliDriver跟踪整个执行流程
+                            HIVE源码学习-执行计划Operators和优化Optimizers
                         </h2>
                         
                     </a>
@@ -405,9 +368,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_9_本地hadoop与hive的部署-mac/">
+                     <a href="/article/2020/article_17_HIVE源码学习-实现自定义的udf/">
                         <h2 class="post-title">
-                            本地hadoop与hive的单节点部署和开发调试[mac]
+                            HIVE源码学习--实现自定义的UDF，UDAF，UDTF
                         </h2>
                         
                     </a>
@@ -420,9 +383,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_8_hiveSQL执行日志的收集/">
+                     <a href="/article/2020/article_16_HIVE源码学习-hivehook尝试血缘解析/">
                         <h2 class="post-title">
-                            hiveSQL执行日志的收集
+                            HIVE源码学习-hivehook尝试表血缘与字段血缘的解析
                         </h2>
                         
                     </a>
@@ -450,9 +413,133 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_17_HIVE源码学习-实现自定义的udf/">
+                     <a href="/article/2020/article_8_hiveSQL执行日志的收集/">
                         <h2 class="post-title">
-                            HIVE源码学习--实现自定义的UDF，UDAF，UDTF
+                            hiveSQL执行日志的收集
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_9_本地hadoop与hive的部署-mac/">
+                        <h2 class="post-title">
+                            本地hadoop与hive的单节点部署和开发调试[mac]
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="CHROME插件">
+                    <span class="tag-text">CHROME插件</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_19_chrome插件-万能表格/">
+                        <h2 class="post-title">
+                            TABLE-MAKER
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                一个万能数据表格的浏览器插件
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_18_chrome插件-网页自动化/">
+                        <h2 class="post-title">
+                            WEB-ROBOT
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                一个管理网页自动化执行的chrome插件
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_21_chrome插件-WEB-ROBOT/">
+                        <h2 class="post-title">
+                            chrome插件 web_robot
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                web_robot最新版教程
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_31_chrome插件-WEB-ROBOT之我的看板/">
+                        <h2 class="post-title">
+                            chrome插件 web_robot之我的看板
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_32_chrome插件-WEB-ROBOT实现难点/">
+                        <h2 class="post-title">
+                            chrome插件 web_robot之难点探讨
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_33_可视化圈选一些实现思路/">
+                        <h2 class="post-title">
+                            关于网页可视化圈选的一些实现思路
                         </h2>
                         
                     </a>
@@ -524,25 +611,6 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_23_java虚拟机/">
-                        <h2 class="post-title">
-                            Java虚拟机
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                《深入理解java虚拟机》学习篇
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
                      <a href="/article/2020/article_12_基于antlr4实现HQL的解析-格式化/">
                         <h2 class="post-title">
                             基于antlr4实现HQL的解析[格式化]
@@ -558,24 +626,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_7_hiveserver2与HQL的执行/">
+                     <a href="/article/2020/article_25_spring略知一二/">
                         <h2 class="post-title">
-                            hiveserver2与hiveSQL的执行
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_6_基于antlr4实现HQL的解析-元数据/">
-                        <h2 class="post-title">
-                            基于antlr4实现HQL的解析[元数据]
+                            Spring略知一二
                         </h2>
                         
                     </a>
@@ -618,9 +671,28 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_25_spring略知一二/">
+                     <a href="/article/2020/article_23_java虚拟机/">
                         <h2 class="post-title">
-                            Spring略知一二
+                            Java虚拟机
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                《深入理解java虚拟机》学习篇
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_29_分布式略知一二/">
+                        <h2 class="post-title">
+                            分布式略知一二
                         </h2>
                         
                     </a>
@@ -648,21 +720,6 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_29_分布式略知一二/">
-                        <h2 class="post-title">
-                            分布式略知一二
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
                      <a href="/article/2020/article_28_mysql略知一二/">
                         <h2 class="post-title">
                             Mysql略知一二
@@ -673,21 +730,14 @@
                 </div>
                 <hr>
                 
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="CHROME插件">
-                    <span class="tag-text">CHROME插件</span>
-                </span>
-                
                   <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_33_可视化圈选一些实现思路/">
+                     <a href="/article/2020/article_7_hiveserver2与HQL的执行/">
                         <h2 class="post-title">
-                            关于网页可视化圈选的一些实现思路
+                            hiveserver2与hiveSQL的执行
                         </h2>
                         
                     </a>
@@ -700,108 +750,10 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_31_chrome插件-WEB-ROBOT之我的看板/">
+                     <a href="/article/2020/article_6_基于antlr4实现HQL的解析-元数据/">
                         <h2 class="post-title">
-                            chrome插件 web_robot之我的看板
+                            基于antlr4实现HQL的解析[元数据]
                         </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_21_chrome插件-WEB-ROBOT/">
-                        <h2 class="post-title">
-                            chrome插件 web_robot
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                web_robot最新版教程
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_19_chrome插件-万能表格/">
-                        <h2 class="post-title">
-                            TABLE-MAKER
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                一个万能数据表格的浏览器插件
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_18_chrome插件-网页自动化/">
-                        <h2 class="post-title">
-                            WEB-ROBOT
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                一个管理网页自动化执行的chrome插件
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_32_chrome插件-WEB-ROBOT实现难点/">
-                        <h2 class="post-title">
-                            chrome插件 web_robot之难点探讨
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="其他">
-                    <span class="tag-text">其他</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_22_改版我的部分/">
-                        <h2 class="post-title">
-                            改版博客我的部分
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                这是一次不大不小的改版
-                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -848,6 +800,103 @@
             </div>
             
             <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="自动化">
+                    <span class="tag-text">自动化</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_21_chrome插件-WEB-ROBOT/">
+                        <h2 class="post-title">
+                            chrome插件 web_robot
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                web_robot最新版教程
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_31_chrome插件-WEB-ROBOT之我的看板/">
+                        <h2 class="post-title">
+                            chrome插件 web_robot之我的看板
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_32_chrome插件-WEB-ROBOT实现难点/">
+                        <h2 class="post-title">
+                            chrome插件 web_robot之难点探讨
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_33_可视化圈选一些实现思路/">
+                        <h2 class="post-title">
+                            关于网页可视化圈选的一些实现思路
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="其他">
+                    <span class="tag-text">其他</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_22_改版我的部分/">
+                        <h2 class="post-title">
+                            改版博客我的部分
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                这是一次不大不小的改版
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="知识积累">
                     <span class="tag-text">知识积累</span>
                 </span>
@@ -857,14 +906,10 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_23_java虚拟机/">
+                     <a href="/article/2020/article_25_spring略知一二/">
                         <h2 class="post-title">
-                            Java虚拟机
+                            Spring略知一二
                         </h2>
-                        
-                            <h3 class="post-subtitle">
-                                《深入理解java虚拟机》学习篇
-                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -906,9 +951,28 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_25_spring略知一二/">
+                     <a href="/article/2020/article_23_java虚拟机/">
                         <h2 class="post-title">
-                            Spring略知一二
+                            Java虚拟机
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                《深入理解java虚拟机》学习篇
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_29_分布式略知一二/">
+                        <h2 class="post-title">
+                            分布式略知一二
                         </h2>
                         
                     </a>
@@ -924,21 +988,6 @@
                      <a href="/article/2020/article_27_网络略知一二/">
                         <h2 class="post-title">
                             网络略知一二
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_29_分布式略知一二/">
-                        <h2 class="post-title">
-                            分布式略知一二
                         </h2>
                         
                     </a>
@@ -969,77 +1018,6 @@
                      <a href="/article/2020/article_30_操作系统略知一二/">
                         <h2 class="post-title">
                             操作系统略知一二
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="自动化">
-                    <span class="tag-text">自动化</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_33_可视化圈选一些实现思路/">
-                        <h2 class="post-title">
-                            关于网页可视化圈选的一些实现思路
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_31_chrome插件-WEB-ROBOT之我的看板/">
-                        <h2 class="post-title">
-                            chrome插件 web_robot之我的看板
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_21_chrome插件-WEB-ROBOT/">
-                        <h2 class="post-title">
-                            chrome插件 web_robot
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                web_robot最新版教程
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_32_chrome插件-WEB-ROBOT实现难点/">
-                        <h2 class="post-title">
-                            chrome插件 web_robot之难点探讨
                         </h2>
                         
                     </a>
@@ -1184,10 +1162,14 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_6_基于antlr4实现HQL的解析-元数据/">
+                     <a href="/article/2020/article_3_讲讲元数据/">
                         <h2 class="post-title">
-                            基于antlr4实现HQL的解析[元数据]
+                            讲讲元数据
                         </h2>
+                        
+                            <h3 class="post-subtitle">
+                                大数据平台中元数据系统的一些见解
+                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -1214,14 +1196,10 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_3_讲讲元数据/">
+                     <a href="/article/2020/article_6_基于antlr4实现HQL的解析-元数据/">
                         <h2 class="post-title">
-                            讲讲元数据
+                            基于antlr4实现HQL的解析[元数据]
                         </h2>
-                        
-                            <h3 class="post-subtitle">
-                                大数据平台中元数据系统的一些见解
-                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -1240,10 +1218,14 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_5_hive与mysql元数据的快速采集/">
+                     <a href="/article/2020/article_3_讲讲元数据/">
                         <h2 class="post-title">
-                            hive与mysql元数据的快速采集
+                            讲讲元数据
                         </h2>
+                        
+                            <h3 class="post-subtitle">
+                                大数据平台中元数据系统的一些见解
+                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -1255,14 +1237,10 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_3_讲讲元数据/">
+                     <a href="/article/2020/article_5_hive与mysql元数据的快速采集/">
                         <h2 class="post-title">
-                            讲讲元数据
+                            hive与mysql元数据的快速采集
                         </h2>
-                        
-                            <h3 class="post-subtitle">
-                                大数据平台中元数据系统的一些见解
-                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -1281,9 +1259,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_7_hiveserver2与HQL的执行/">
+                     <a href="/article/2020/article_4_pynput实现鼠标键盘操作的监控与还原/">
                         <h2 class="post-title">
-                            hiveserver2与hiveSQL的执行
+                            pynput实现鼠标键盘操作的记录与还原
                         </h2>
                         
                     </a>
@@ -1296,9 +1274,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/2020/article_4_pynput实现鼠标键盘操作的监控与还原/">
+                     <a href="/article/2020/article_7_hiveserver2与HQL的执行/">
                         <h2 class="post-title">
-                            pynput实现鼠标键盘操作的记录与还原
+                            hiveserver2与hiveSQL的执行
                         </h2>
                         
                     </a>
@@ -1343,6 +1321,28 @@
                      <a href="/article/2020/article_8_hiveSQL执行日志的收集/">
                         <h2 class="post-title">
                             hiveSQL执行日志的收集
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="总结">
+                    <span class="tag-text">总结</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2021/article_1_2020总结-稳中求进/">
+                        <h2 class="post-title">
+                            2020总结 -- 稳重求进
                         </h2>
                         
                     </a>
