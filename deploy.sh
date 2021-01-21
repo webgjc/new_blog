@@ -1,8 +1,8 @@
 #!/bin/bash
 
 HOME_PATH=`echo ~`
-ROOT_PATH=$HOME_PATH/project/blog
-CODING_PATH=$HOME_PATH/project/coding/blog
+ROOT_PATH=$HOME_PATH/new_blog
+CODING_PATH=$HOME_PATH/projects/coding/blog
 
 upload_sitemap(){
     open -a 'Google Chrome' https://www.google.com/ping?sitemap=http://blog.ganjiacheng.cn/sitemap.xml
