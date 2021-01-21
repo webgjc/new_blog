@@ -83,10 +83,10 @@ featured-condition-size: 0 # A tag will be featured if the size of it is more th
 ## Friends
 friends:
     [
-        { "href": "/article/music_1_音乐篇/", "title": "我的音乐" },
+        { "href": "/article/music/music_1_音乐篇/", "title": "我的音乐" },
         { "href": "/book/", "title": "我的阅读" },
-        { "href": "/article/money_1_理财篇/", "title": "我的理财" },
-        { "href": "/article/life_1_生活篇/", "title": "我的生活" },
+        { "href": "/article/money/money_1_理财篇/", "title": "我的理财" },
+        { "href": "/article/life/life_1_生活篇/", "title": "我的生活" },
     ]
 
 #Custom Setting End
