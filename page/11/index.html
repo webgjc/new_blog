@@ -145,15 +145,15 @@
                         
                     
                         
-                    
-                        
-                    
-                        
-                    
-                        
                         <li>
                             <a href="/archive/">Archives</a>
                         </li>
+                        
+                    
+                        
+                    
+                        
+                    
                         
                     
                         
@@ -214,6 +214,42 @@
         >
             <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_5_KNN实现手写数字0-9识别/">
+        <h2 class="post-title">
+            
+            KNN实现手写数字0-9识别
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            KNN：我的简单理解为计算各个点到原点的距离，对于于样本数据以相差远近排序，取前面K个，属于哪个类别比较多的就当做最后分类，样本越多就越精确。
+举个栗子：样本点：[a,b,c,d,e,f]，类别：[1,2,3,2,3,5]，假定a-f分别为相差从近到远；
+如果K取1，那分类结果属于1，如果K取值为4，拿结果便为2。
+废话不多说直接上代码：
+//KNN分类的主程序
+from numpy imp......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-09
+        <span class="post-count"> 文章字数: 461</span>
+        <span class="post-count"> 阅读时间: 3分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
 
 <div class="post-preview">
 
@@ -456,44 +492,6 @@ get：首先将 key 进行一样的操作，得到 index，获取数组 i......
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_25_spring略知一二/">
-        <h2 class="post-title">
-            
-            Spring略知一二
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-本文涉及 spring 的相关实现和源码解读
-
-...
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2000-09-27
-        <span class="post-count"> 文章字数: 17</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
-        
-        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
     <a href="/article/2020/article_26_容器略知一二/">
         <h2 class="post-title">
             
@@ -536,30 +534,26 @@ container:执行请求并返回响应的对象，包括 engine，ho......
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_29_分布式略知一二/">
+    <a href="/article/2020/article_25_spring略知一二/">
         <h2 class="post-title">
             
-            分布式略知一二
+            Spring略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-本文涉及分布式情况下会产生的各种问题；
-celery 多个 comsumor 如何实现一致性
-当 celery 配合 redis，将 redis 作为消息队列时，redis 内部使用 list 的 lpush，brpop 来实现入队出队。
-当多个 celery 消费进程来取任务时，由于 redis 内部是单线程的，不会导致消息的重复读，brpop 在没任务时会阻塞。
-cap 理论
+本文涉及 spring 的相关实现和源码解读
 
-一......
+...
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
         2000-09-27
-        <span class="post-count"> 文章字数: 200</span>
+        <span class="post-count"> 文章字数: 17</span>
         <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
@@ -578,49 +572,36 @@ cap 理论
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_28_mysql略知一二/">
+    <a href="/article/2020/article_27_网络略知一二/">
         <h2 class="post-title">
             
-            Mysql略知一二
+            网络略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-本文主要为 mysql 相关知识
-脏读，不可重复读，幻读
+本文主要为网络的基础知识
+tcp 三次握手建立连接
 
-脏读：某个事务更新数据没有提交，另一个事务已经读取了数据
-不可重复读：一个事务两次查询数据不一致，因为两次查询中间另一个事务更新了数据
-幻读：一个事务两次查询数据总量不一致，因为两次中间另一个事务插入了数据
+连接端发起一个 SYN 消息，SEQ=x
+被连端收到后返回 SYN+ACK 消息，SEQ=y, ACK=x+1
+连接端收到消息返回 ACK 消息，ACK=y+1
 
-隔离级别
+两端都进入 Established 状态
+tcp 四次挥手断开连接
 
-
-
-隔离级别
-脏读
-不可重复读
-幻读
-
-
-
-
-读未提交(Read Uncommitted)
-√
-√
-√
-
-......
+发起端发起一个 FIN 的消息，SEQ=x
+接收端收到后返回 ACK 消息，表示准备断开连接，SEQ......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
         2000-09-27
-        <span class="post-count"> 文章字数: 582</span>
-        <span class="post-count"> 阅读时间: 3分钟</span>
+        <span class="post-count"> 文章字数: 690</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
     </p>
     <div class="tags">
         
@@ -755,6 +736,10 @@ cap 理论
             
         
             
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            
+        
+            
             <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
             
         
@@ -763,11 +748,11 @@ cap 理论
             
         
             
-            <a href="/tags/#CHROME插件" title="CHROME插件" rel="6">CHROME插件</a>
+            <a href="/tags/#JAVA" title="JAVA" rel="10">JAVA</a>
             
         
             
-            <a href="/tags/#自动化" title="自动化" rel="4">自动化</a>
+            <a href="/tags/#CHROME插件" title="CHROME插件" rel="6">CHROME插件</a>
             
         
             
@@ -775,7 +760,7 @@ cap 理论
             
         
             
-            <a href="/tags/#JAVA" title="JAVA" rel="10">JAVA</a>
+            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
             
         
             
@@ -783,7 +768,7 @@ cap 理论
             
         
             
-            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
+            <a href="/tags/#自动化" title="自动化" rel="4">自动化</a>
             
         
             
@@ -837,7 +822,11 @@ cap 理论
     <ul>
       
         <li>
-          <a href="/article/2021/article_1_2020总结/">(no title)</a>
+          <a href="/article/2021/article_1_2020总结-稳中求进/">2020总结 -- 稳重求进</a>
+        </li>
+      
+        <li>
+          <a href="/article/2021/article_2_原博客大迁移2017-2018/">原博客大迁移2017-2018</a>
         </li>
       
         <li>
@@ -852,10 +841,6 @@ cap 理论
           <a href="/article/2020/article_33_可视化圈选一些实现思路/">关于网页可视化圈选的一些实现思路</a>
         </li>
       
-        <li>
-          <a href="/article/2020/article_31_chrome插件-WEB-ROBOT之我的看板/">chrome插件 web_robot之我的看板</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -864,7 +849,7 @@ cap 理论
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/12/">December 2000</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/09/">September 2000</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/05/">May 2000</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1020/08/">August 1020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1020/05/">May 1020</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/12/">December 2000</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/09/">September 2000</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/05/">May 2000</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1020/08/">August 1020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1020/05/">May 1020</a><span class="archive-list-count">2</span></li></ul>
     </div>
 
         <hr>
