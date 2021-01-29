@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+  <meta name="baidu-site-verification" content="code-NFdFjxnyBp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="甘家城的个人博客">
+  <meta name="keyword" content="甘家城">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- <script data-ad-client="ca-pub-3781840703100023" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <title>
+    
+    基于antlr4实现hiveSQL的解析[表血缘和字段血缘] - 甘家城 | Blog
+    
+  </title>
+
+  <link rel="canonical" href="http://ganjiacheng.cn/article/2020/article_14_基于antlr4实现HQL的解析-表血缘和字段血缘/">
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css">
+
+  <link rel="stylesheet" href="/css/donate.css">
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="/css/highlight.css">
+
+  <link rel="stylesheet" href="/css/widget.css">
+
+  <link rel="stylesheet" href="/css/rocket.css">
+
+  <link rel="stylesheet" href="/css/signature.css">
+
+  <link rel="stylesheet" href="/css/toc.css">
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+  <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <script></script>
+</head>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/header.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+                            
+                        </div>
+                        <h1>基于antlr4实现hiveSQL的解析[表血缘和字段血缘]</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 甘家城 on
+                            2020-05-02
+                            
+                                <span>
+                                    Viewed <span id="busuanzi_value_page_pv"></span> times
+                                </span>
+                            
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">甘家城的个人博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="前言">前言</h2>
+<p>关于 HiveSQL 血缘，一般表示的就是 hive 数据仓库中所有表和字段的来源流向关系。它的解析是十分必要的，一方面数仓建表的时候有时只会定义 SQL 任务不会特别关注到任务之间的关系，对于查看的数据也不容易追溯两层以上或以下的数据来源和去向。</p>
+<p>有了血缘就可以对离线任务执行的先后关系作出一定规范，可以做数据来源链路的分析，数据的上卷下钻，数仓直接的数据建模等。</p>
+<h2 id="实现思路">实现思路</h2>
+<p>一般来说比较直接的实现方式是 hivehook 的 LineageLogger，但直接用也有比较明显麻烦的地方，一个是借用了 hive 自带的 antlr3 的 hql 解析，如果有部分语法不满足，去修改解析文件会造成不可控影响；另一个用 hivehook 实现后的迭代测试发布等都是一个比较麻烦的过程，出错了也很难定位问题所在。</p>
+<p>这边就考虑用 antlr4 配合 hive 内部的 Hplsql.g4 直接实现一个血缘的解析。实现方式还是 visit 模式。</p>
+<h3 id="表血缘">表血缘</h3>
+<p>首先表血缘是比较之间简单的，比如对于一个 insert 来说，目标表永远只有一个，来源表是 select 中所有 from 的真实表。</p>
+<h3 id="字段血缘">字段血缘</h3>
+<p>对于字段血缘实现会麻烦一点，因为要将每个结果字段的层层关系找到并最后对应上真实表的字段，可能中间还会有多个字段计算为一个字段，一个字段于下层多个字段有血缘，还会有表别名，字段别名的干扰。</p>
+<p>这边最后的考虑是将每个 select 剥离出来存成一个 object，其中包括来源表(来源子 select 则为 null)，select 字段，父 select 的 Index(第一层则为 null)。在解析完成后所有 select 的 object 存为一个数组，然后逐个对最外层的字段进行溯源找到真实的来源表。</p>
+<h2 id="show-code">SHOW CODE</h2>
+<h3 id="表血缘">表血缘</h3>
+<p>首先定义好结构</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表名的结构</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TableNameModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String dbName;</span><br><span class="line">    <span class="keyword">private</span> String tableName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">dealNameMark</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(name.startsWith(<span class="string">"`"</span>) &amp;&amp; name.endsWith(<span class="string">"`"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> name.substring(<span class="number">1</span>, name.length()-<span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TableNameModel <span class="title">parseTableName</span><span class="params">(String tableName)</span> </span>&#123;</span><br><span class="line">        TableNameModel tableNameModel = <span class="keyword">new</span> TableNameModel();</span><br><span class="line">        String[] splitTable = tableName.split(<span class="string">"\\."</span>);</span><br><span class="line">        <span class="keyword">if</span>(splitTable.length == <span class="number">2</span>) &#123;</span><br><span class="line">            tableNameModel.setDbName(splitTable[<span class="number">0</span>]);</span><br><span class="line">            tableNameModel.setTableName(splitTable[<span class="number">1</span>]);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(splitTable.length == <span class="number">1</span>) &#123;</span><br><span class="line">            tableNameModel.setTableName(splitTable[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> tableNameModel;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 表血缘结构，对单个sql</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HiveTableLineageModel</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 输出的表名</span></span><br><span class="line">    <span class="keyword">private</span> TableNameModel outputTable;</span><br><span class="line">    <span class="comment">// 输入的表名列表</span></span><br><span class="line">    <span class="keyword">private</span> HashSet&lt;TableNameModel&gt; inputTables;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>表血缘主要过程，监听 insert 语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HiveSQLTableLineage</span> <span class="keyword">extends</span> <span class="title">HplsqlBaseVisitor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TableNameModel outputTable;</span><br><span class="line">    <span class="keyword">private</span> HashSet&lt;TableNameModel&gt; inputTables = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// visitInsert获取insert的table_name节点，作为目标输出表</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">visitInsert_stmt</span><span class="params">(HplsqlParser.Insert_stmtContext ctx)</span> </span>&#123;</span><br><span class="line">         outputTable = Optional.ofNullable(ctx)</span><br><span class="line">                .map(HplsqlParser.Insert_stmtContext::table_name)</span><br><span class="line">                .map(RuleContext::getText)</span><br><span class="line">                .map(TableNameModel::parseTableName)</span><br><span class="line">                .orElse(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.visitInsert_stmt(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取from真实表，加到来源表的Set里</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">visitFrom_table_clause</span><span class="params">(HplsqlParser.From_table_clauseContext ctx)</span> </span>&#123;</span><br><span class="line">        Optional.ofNullable(ctx)</span><br><span class="line">                .map(HplsqlParser.From_table_clauseContext::from_table_name_clause)</span><br><span class="line">                .map(RuleContext::getText)</span><br><span class="line">                .map(TableNameModel::parseTableName)</span><br><span class="line">                .map(inputTables::add);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.visitFrom_table_clause(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> HiveTableLineageModel <span class="title">getTableLineage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        HiveTableLineageModel hiveTableLineageModel = <span class="keyword">new</span> HiveTableLineageModel();</span><br><span class="line">        hiveTableLineageModel.setOutputTable(outputTable);</span><br><span class="line">        hiveTableLineageModel.setInputTables(inputTables);</span><br><span class="line">        <span class="keyword">return</span> hiveTableLineageModel;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字段血缘">字段血缘</h3>
+<p>定义结构</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字段名</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FieldNameModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String dbName;</span><br><span class="line">    <span class="keyword">private</span> String tableName;</span><br><span class="line">    <span class="keyword">private</span> String fieldName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带过程的表字段</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FieldNameWithProcessModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String dbName;</span><br><span class="line">    <span class="keyword">private</span> String tableName;</span><br><span class="line">    <span class="keyword">private</span> String fieldName;</span><br><span class="line">    <span class="keyword">private</span> String process;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析单个select中存储字段和别名</span></span><br><span class="line"><span class="comment">// 如：select a+b as c from table;</span></span><br><span class="line"><span class="comment">// 存储数据为 fieldNames:[a,b] alias:c process:a+b</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HiveFieldLineageSelectItemModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Set&lt;String&gt; fieldNames;</span><br><span class="line">    <span class="keyword">private</span> String alias;</span><br><span class="line">    <span class="keyword">private</span> String process;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析单个select后的结果</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HiveFieldLineageSelectModel</span> </span>&#123;</span><br><span class="line">    Integer id; <span class="comment">// index</span></span><br><span class="line">    Integer parentId; <span class="comment">// 父id，第一层select为null</span></span><br><span class="line">    TableNameModel fromTable; <span class="comment">// 来源表，来源子select则为null</span></span><br><span class="line">    String tableAlias; <span class="comment">// 表别名</span></span><br><span class="line">    List&lt;HiveFieldLineageSelectItemModel&gt; selectItems; <span class="comment">// select字段</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 血缘结果结构</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HiveFieldLineageModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> FieldNameModel targetField; <span class="comment">// 目标字段</span></span><br><span class="line">    <span class="keyword">private</span> HashSet&lt;FieldNameModel&gt; sourceFields; <span class="comment">// 来源字段列表</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>字段血缘主要过程,主要针对的是 insert 语句，<br>
+但一般的 select 也是可以用的，因为是把最外层 select 的字段作为结果字段,<br>
+有一个限制是中间不能有 select * 这种操作，因为目前不连接元数据库，就无法获得*对应的字段。<br>
+中间也记录了字段流转的计算过程，理应是一个数组，取了最长一个，这边比较不稳定。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HiveSQLFieldLineage</span> <span class="keyword">extends</span> <span class="title">HplsqlBaseVisitor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TableNameModel outputTable;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;String, HiveFieldLineageSelectModel&gt; hiveFieldSelects = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer, String&gt; selectParentKeyMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String thisSelectId;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String sourceSQL;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// for select Item</span></span><br><span class="line">    <span class="keyword">private</span> HiveFieldLineageSelectItemModel selectItemModel;</span><br><span class="line">    <span class="keyword">private</span> List&lt;HiveFieldLineageSelectItemModel&gt; selectFields = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> Boolean startSelectItem = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HiveSQLFieldLineage</span><span class="params">(String sql)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sourceSQL = sql;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">subSourceSql</span><span class="params">(ParserRuleContext parserRuleContext)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sourceSQL.substring(</span><br><span class="line">                parserRuleContext.getStart().getStartIndex(),</span><br><span class="line">                parserRuleContext.getStop().getStopIndex() + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * insert解析结果表</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">visitInsert_stmt</span><span class="params">(HplsqlParser.Insert_stmtContext ctx)</span> </span>&#123;</span><br><span class="line">        outputTable = Optional.ofNullable(ctx)</span><br><span class="line">                .map(HplsqlParser.Insert_stmtContext::table_name)</span><br><span class="line">                .map(RuleContext::getText)</span><br><span class="line">                .map(TableNameModel::parseTableName)</span><br><span class="line">                .orElse(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.visitInsert_stmt(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 解析select每个selectItem里用到字段</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">visitExpr</span><span class="params">(HplsqlParser.ExprContext ctx)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(startSelectItem) &#123;</span><br><span class="line">            Optional.ofNullable(ctx)</span><br><span class="line">                    .map(HplsqlParser.ExprContext::expr_atom)</span><br><span class="line">                    .map(HplsqlParser.Expr_atomContext::ident)</span><br><span class="line">                    .map(ParseTree::getText)</span><br><span class="line">                    .ifPresent(s -&gt; &#123;</span><br><span class="line">                        <span class="keyword">if</span>(!StringUtils.isNumeric(s)) &#123;</span><br><span class="line">                            selectItemModel.getFieldNames().add(TableNameModel.dealNameMark(s));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.visitExpr(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * selectItem 获取别名名，初始化selectItem存相关字段的fieldNames</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">visitSelect_list_item</span><span class="params">(HplsqlParser.Select_list_itemContext ctx)</span> </span>&#123;</span><br><span class="line">        startSelectItem = <span class="keyword">true</span>;</span><br><span class="line">        selectItemModel = <span class="keyword">new</span> HiveFieldLineageSelectItemModel();</span><br><span class="line">        selectItemModel.setFieldNames(<span class="keyword">new</span> HashSet&lt;&gt;());</span><br><span class="line">        Optional.ofNullable(ctx)</span><br><span class="line">                .map(HplsqlParser.Select_list_itemContext::expr)</span><br><span class="line">                .map(<span class="keyword">this</span>::subSourceSql)</span><br><span class="line">                .ifPresent(selectItemModel::setProcess);</span><br><span class="line">        Optional.ofNullable(ctx)</span><br><span class="line">                .map(HplsqlParser.Select_list_itemContext::select_list_alias)</span><br><span class="line">                .map(HplsqlParser.Select_list_aliasContext::ident)</span><br><span class="line">                .map(RuleContext::getText)</span><br><span class="line">                .ifPresent(selectItemModel::setAlias);</span><br><span class="line">        Object visit = <span class="keyword">super</span>.visitSelect_list_item(ctx);</span><br><span class="line">        selectFields.add(selectItemModel);</span><br><span class="line">        <span class="keyword">return</span> visit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * from语句，处理于所有selectItem结束</span></span><br><span class="line"><span class="comment">     * 对上面解析出的字段名中的表别名进行处理 如t0.field</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">visitFrom_clause</span><span class="params">(HplsqlParser.From_clauseContext ctx)</span> </span>&#123;</span><br><span class="line">        startSelectItem = <span class="keyword">false</span>;</span><br><span class="line">        HashMap&lt;String, List&lt;HiveFieldLineageSelectItemModel&gt;&gt; fieldItems = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(HiveFieldLineageSelectItemModel item: selectFields) &#123;</span><br><span class="line">            HashMap&lt;String, HashSet&lt;String&gt;&gt; aliasSet = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span>(String field: item.getFieldNames()) &#123;</span><br><span class="line">                String[] sp = field.split(<span class="string">"\\."</span>);</span><br><span class="line">                <span class="keyword">if</span>(sp.length == <span class="number">2</span>)&#123;</span><br><span class="line">                    String key = thisSelectId + <span class="string">"_"</span> + sp[<span class="number">0</span>];</span><br><span class="line">                    aliasSet.computeIfAbsent(key, t -&gt; <span class="keyword">new</span> HashSet&lt;&gt;());</span><br><span class="line">                    aliasSet.get(key).add(sp[<span class="number">1</span>]);</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(sp.length == <span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">boolean</span> flat = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">for</span>(String k: selectParentKeyMap.values()) &#123;</span><br><span class="line">                        <span class="keyword">if</span>(k.startsWith(thisSelectId + <span class="string">"_"</span>)) &#123;</span><br><span class="line">                            aliasSet.computeIfAbsent(k, t -&gt; <span class="keyword">new</span> HashSet&lt;&gt;());</span><br><span class="line">                            aliasSet.get(k).add(sp[<span class="number">0</span>]);</span><br><span class="line">                            flat=<span class="keyword">false</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(flat) &#123;</span><br><span class="line">                        String key = thisSelectId + <span class="string">"_"</span>;</span><br><span class="line">                        aliasSet.computeIfAbsent(key, t -&gt; <span class="keyword">new</span> HashSet&lt;&gt;());</span><br><span class="line">                        aliasSet.get(key).add(sp[<span class="number">0</span>]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(String key: aliasSet.keySet()) &#123;</span><br><span class="line">                fieldItems.computeIfAbsent(key, k -&gt; <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">                HiveFieldLineageSelectItemModel selectItemModel = <span class="keyword">new</span> HiveFieldLineageSelectItemModel();</span><br><span class="line">                selectItemModel.setFieldNames(aliasSet.get(key));</span><br><span class="line">                selectItemModel.setAlias(item.getAlias());</span><br><span class="line">                selectItemModel.setProcess(item.getProcess());</span><br><span class="line">                <span class="keyword">if</span>(selectItemModel.getFieldNames().size() == <span class="number">1</span> &amp;&amp; selectItemModel.getAlias() == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    selectItemModel.setAlias(selectItemModel.getFieldNames().iterator().next());</span><br><span class="line">                &#125;</span><br><span class="line">                fieldItems.get(key).add(selectItemModel);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(String key: fieldItems.keySet()) &#123;</span><br><span class="line">            <span class="keyword">if</span>(hiveFieldSelects.get(key) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                hiveFieldSelects.get(key).setSelectItems(fieldItems.get(key));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.visitFrom_clause(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 进入select前</span></span><br><span class="line"><span class="comment">     * 解析每个select存信息并另存父子关系</span></span><br><span class="line"><span class="comment">     * 父子来源于from subSelect, join subSelect</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">visitSelect_stmt</span><span class="params">(HplsqlParser.Select_stmtContext ctx)</span> </span>&#123;</span><br><span class="line">        List&lt;HplsqlParser.Fullselect_stmt_itemContext&gt; selectItems  = ctx.fullselect_stmt().fullselect_stmt_item();</span><br><span class="line">        <span class="keyword">for</span>(HplsqlParser.Fullselect_stmt_itemContext selectItem: selectItems) &#123;</span><br><span class="line">            HiveFieldLineageSelectModel hiveFieldLineageSelectModel = <span class="keyword">new</span> HiveFieldLineageSelectModel();</span><br><span class="line">            Integer thisId = selectItem.getStart().getStartIndex();</span><br><span class="line">            HplsqlParser.Subselect_stmtContext subSelect = selectItem.subselect_stmt();</span><br><span class="line">            HplsqlParser.From_table_name_clauseContext fromTableNameClause = Optional.ofNullable(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::from_clause)</span><br><span class="line">                    .map(HplsqlParser.From_clauseContext::from_table_clause)</span><br><span class="line">                    .map(HplsqlParser.From_table_clauseContext::from_table_name_clause)</span><br><span class="line">                    .orElse(<span class="keyword">null</span>);</span><br><span class="line">            Optional.ofNullable(fromTableNameClause)</span><br><span class="line">                    .map(HplsqlParser.From_table_name_clauseContext::table_name)</span><br><span class="line">                    .map(RuleContext::getText)</span><br><span class="line">                    .map(TableNameModel::parseTableName)</span><br><span class="line">                    .ifPresent(hiveFieldLineageSelectModel::setFromTable);</span><br><span class="line">            Optional.ofNullable(fromTableNameClause)</span><br><span class="line">                    .map(HplsqlParser.From_table_name_clauseContext::from_alias_clause)</span><br><span class="line">                    .map(HplsqlParser.From_alias_clauseContext::ident)</span><br><span class="line">                    .map(RuleContext::getText)</span><br><span class="line">                    .ifPresent(hiveFieldLineageSelectModel::setTableAlias);</span><br><span class="line"></span><br><span class="line">            Optional.ofNullable(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::from_clause)</span><br><span class="line">                    .map(HplsqlParser.From_clauseContext::from_table_clause)</span><br><span class="line">                    .map(HplsqlParser.From_table_clauseContext::from_subselect_clause)</span><br><span class="line">                    .map(HplsqlParser.From_subselect_clauseContext::from_alias_clause)</span><br><span class="line">                    .map(RuleContext::getText)</span><br><span class="line">                    .ifPresent(hiveFieldLineageSelectModel::setTableAlias);</span><br><span class="line"></span><br><span class="line">            String alias = hiveFieldLineageSelectModel.getTableAlias();</span><br><span class="line">            String thisKey = String.format(<span class="string">"%s_%s"</span>, thisId, alias == <span class="keyword">null</span> ? <span class="string">""</span>: alias);</span><br><span class="line">            hiveFieldLineageSelectModel.setId(thisKey + <span class="string">""</span>);</span><br><span class="line">            hiveFieldLineageSelectModel.setParentId(selectParentKeyMap.get(thisId));</span><br><span class="line">            hiveFieldLineageSelectModel.setSelectItems(<span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">            hiveFieldSelects.put(thisKey, hiveFieldLineageSelectModel);</span><br><span class="line"></span><br><span class="line">            Optional.ofNullable(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::from_clause)</span><br><span class="line">                    .map(HplsqlParser.From_clauseContext::from_table_clause)</span><br><span class="line">                    .map(HplsqlParser.From_table_clauseContext::from_subselect_clause)</span><br><span class="line">                    .map(HplsqlParser.From_subselect_clauseContext::select_stmt)</span><br><span class="line">                    .map(HplsqlParser.Select_stmtContext::fullselect_stmt)</span><br><span class="line">                    .map(HplsqlParser.Fullselect_stmtContext::fullselect_stmt_item)</span><br><span class="line">                    .ifPresent(subSelects -&gt;</span><br><span class="line">                            subSelects.forEach(item -&gt;</span><br><span class="line">                                    selectParentKeyMap.put(item.getStart().getStartIndex(), thisKey)));</span><br><span class="line"></span><br><span class="line">            List&lt;HplsqlParser.From_join_clauseContext&gt; fromJoinClauses = Optional.ofNullable(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::from_clause)</span><br><span class="line">                    .map(HplsqlParser.From_clauseContext::from_join_clause)</span><br><span class="line">                    .orElse(<span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">            <span class="keyword">for</span>(HplsqlParser.From_join_clauseContext fromJoinClauseContext: fromJoinClauses) &#123;</span><br><span class="line">                HiveFieldLineageSelectModel joinSelect = <span class="keyword">new</span> HiveFieldLineageSelectModel();</span><br><span class="line">                Optional.ofNullable(fromJoinClauseContext)</span><br><span class="line">                        .map(HplsqlParser.From_join_clauseContext::from_table_clause)</span><br><span class="line">                        .map(HplsqlParser.From_table_clauseContext::from_table_name_clause)</span><br><span class="line">                        .map(HplsqlParser.From_table_name_clauseContext::table_name)</span><br><span class="line">                        .map(RuleContext::getText)</span><br><span class="line">                        .map(TableNameModel::parseTableName)</span><br><span class="line">                        .ifPresent(joinSelect::setFromTable);</span><br><span class="line">                Optional.ofNullable(fromJoinClauseContext)</span><br><span class="line">                        .map(HplsqlParser.From_join_clauseContext::from_table_clause)</span><br><span class="line">                        .map(HplsqlParser.From_table_clauseContext::from_table_name_clause)</span><br><span class="line">                        .map(HplsqlParser.From_table_name_clauseContext::from_alias_clause)</span><br><span class="line">                        .map(HplsqlParser.From_alias_clauseContext::ident)</span><br><span class="line">                        .map(RuleContext::getText)</span><br><span class="line">                        .ifPresent(joinSelect::setTableAlias);</span><br><span class="line"></span><br><span class="line">                Optional.ofNullable(fromJoinClauseContext)</span><br><span class="line">                        .map(HplsqlParser.From_join_clauseContext::from_table_clause)</span><br><span class="line">                        .map(HplsqlParser.From_table_clauseContext::from_subselect_clause)</span><br><span class="line">                        .map(HplsqlParser.From_subselect_clauseContext::from_alias_clause)</span><br><span class="line">                        .map(RuleContext::getText)</span><br><span class="line">                        .ifPresent(joinSelect::setTableAlias);</span><br><span class="line"></span><br><span class="line">                String jalias = joinSelect.getTableAlias();</span><br><span class="line">                String jkey = String.format(<span class="string">"%s_%s"</span>, thisId, jalias == <span class="keyword">null</span> ? <span class="string">""</span>: jalias);</span><br><span class="line">                joinSelect.setId(jkey);</span><br><span class="line">                joinSelect.setParentId(selectParentKeyMap.get(thisId));</span><br><span class="line">                joinSelect.setSelectItems(<span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">                hiveFieldSelects.put(jkey, joinSelect);</span><br><span class="line"></span><br><span class="line">                Optional.ofNullable(fromJoinClauseContext)</span><br><span class="line">                        .map(HplsqlParser.From_join_clauseContext::from_table_clause)</span><br><span class="line">                        .map(HplsqlParser.From_table_clauseContext::from_subselect_clause)</span><br><span class="line">                        .map(HplsqlParser.From_subselect_clauseContext::select_stmt)</span><br><span class="line">                        .map(HplsqlParser.Select_stmtContext::fullselect_stmt)</span><br><span class="line">                        .map(HplsqlParser.Fullselect_stmtContext::fullselect_stmt_item)</span><br><span class="line">                        .ifPresent(subSelects -&gt;</span><br><span class="line">                                subSelects.forEach(item -&gt;</span><br><span class="line">                                        selectParentKeyMap.put(item.getStart().getStartIndex(), jkey)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.visitSelect_stmt(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理每个子select进入前，</span></span><br><span class="line"><span class="comment">     * 初始化selectItem相关的变量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">visitSubselect_stmt</span><span class="params">(HplsqlParser.Subselect_stmtContext ctx)</span> </span>&#123;</span><br><span class="line">        thisSelectId = ctx.getStart().getStartIndex() + <span class="string">""</span>;</span><br><span class="line">        selectFields = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.visitSubselect_stmt(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;HiveFieldLineageSelectModel&gt; hiveFieldSelectList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转换HashMap存储为List</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">transSelectToList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(String key: hiveFieldSelects.keySet()) &#123;</span><br><span class="line">            hiveFieldSelectList.add(hiveFieldSelects.get(key));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取目标字段</span></span><br><span class="line"><span class="comment">     * 也就是parentId为null的最外层select的字段别名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;FieldNameModel&gt; <span class="title">getTargetFields</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;List&lt;String&gt;&gt; items = hiveFieldSelectList.stream()</span><br><span class="line">                .filter(item -&gt; item.getParentId() == <span class="keyword">null</span>)</span><br><span class="line">                .map(HiveFieldLineageSelectModel::getSelectItems)</span><br><span class="line">                .map(fields -&gt; fields.stream()</span><br><span class="line">                        .map(HiveFieldLineageSelectItemModel::getAlias)</span><br><span class="line">                        .collect(Collectors.toList()))</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">        List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(List&lt;String&gt; item: items) &#123;</span><br><span class="line">            res.addAll(item);</span><br><span class="line">        &#125;</span><br><span class="line">        res = res.stream().distinct().collect(Collectors.toList());</span><br><span class="line">        List&lt;FieldNameModel&gt; fieldNameModels = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(String i: res) &#123;</span><br><span class="line">            FieldNameModel fieldNameModel = <span class="keyword">new</span> FieldNameModel();</span><br><span class="line">            <span class="keyword">if</span>(outputTable != <span class="keyword">null</span>) &#123;</span><br><span class="line">                fieldNameModel.setDbName(outputTable.getDbName());</span><br><span class="line">                fieldNameModel.setTableName(outputTable.getTableName());</span><br><span class="line">            &#125;</span><br><span class="line">            fieldNameModel.setFieldName(i);</span><br><span class="line">            fieldNameModels.add(fieldNameModel);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fieldNameModels;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HashSet&lt;FieldNameWithProcessModel&gt; sourceFields;</span><br><span class="line">    <span class="keyword">private</span> String fieldProcess = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 递归按每个字段从外到内寻找每个字段的来源</span></span><br><span class="line"><span class="comment">     * 逻辑为最外的字段别名，父id -&gt; 匹配子id别名 -&gt;</span></span><br><span class="line"><span class="comment">     * -&gt; 如果是来源是表，存储，如果来源是子select，继续递归</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">findFieldSource</span><span class="params">(String targetField, String parentId)</span> </span>&#123;</span><br><span class="line">        hiveFieldSelectList.forEach(select -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span>((parentId == <span class="keyword">null</span> &amp;&amp; select.getParentId() == <span class="keyword">null</span>) ||</span><br><span class="line">                    (select.getParentId() != <span class="keyword">null</span> &amp;&amp; select.getParentId().equals(parentId))) &#123;</span><br><span class="line">                <span class="keyword">if</span>(select.getSelectItems() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(select.getFromTable() == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        select.getSelectItems().forEach(selectItem -&gt; &#123;</span><br><span class="line">                            <span class="keyword">if</span>(selectItem.getAlias().equals(targetField)) &#123;</span><br><span class="line">                                <span class="keyword">if</span>(selectItem.getProcess().length() &gt; fieldProcess.length()) &#123;</span><br><span class="line">                                    fieldProcess = selectItem.getProcess();</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="keyword">for</span>(String field: selectItem.getFieldNames())&#123;</span><br><span class="line">                                    findFieldSource(field, select.getId());</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        select.getSelectItems().forEach(selectItem -&gt; &#123;</span><br><span class="line">                            <span class="keyword">if</span>(selectItem.getAlias().equals(targetField)) &#123;</span><br><span class="line">                                <span class="keyword">if</span>(selectItem.getProcess().length() &gt; fieldProcess.length()) &#123;</span><br><span class="line">                                    fieldProcess = selectItem.getProcess();</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="keyword">for</span>(String field: selectItem.getFieldNames())&#123;</span><br><span class="line">                                    FieldNameWithProcessModel fieldNameWithProcessModel = <span class="keyword">new</span> FieldNameWithProcessModel();</span><br><span class="line">                                    fieldNameWithProcessModel.setDbName(select.getFromTable().getDbName());</span><br><span class="line">                                    fieldNameWithProcessModel.setTableName(select.getFromTable().getTableName());</span><br><span class="line">                                    fieldNameWithProcessModel.setFieldName(field);</span><br><span class="line">                                    fieldNameWithProcessModel.setProcess(fieldProcess);</span><br><span class="line">                                    sourceFields.add(fieldNameWithProcessModel);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取字段血缘列表</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;HiveFieldLineageModel&gt; <span class="title">getHiveFieldLineage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        transSelectToList();</span><br><span class="line">        List&lt;FieldNameModel&gt; targetFields = getTargetFields();</span><br><span class="line">        List&lt;HiveFieldLineageModel&gt; hiveFieldLineageModelList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(FieldNameModel targetField: targetFields) &#123;</span><br><span class="line">            HiveFieldLineageModel hiveFieldLineageModel = <span class="keyword">new</span> HiveFieldLineageModel();</span><br><span class="line">            hiveFieldLineageModel.setTargetField(targetField);</span><br><span class="line">            sourceFields = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">            fieldProcess = <span class="string">""</span>;</span><br><span class="line">            findFieldSource(targetField.getFieldName(), <span class="keyword">null</span>);</span><br><span class="line">            hiveFieldLineageModel.setSourceFields(sourceFields);</span><br><span class="line">            hiveFieldLineageModelList.add(hiveFieldLineageModel);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hiveFieldLineageModelList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取sql解析处理后的结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> HashMap&lt;String, HiveFieldLineageSelectModel&gt; <span class="title">getHiveFieldSelects</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> hiveFieldSelects;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="效果展示">效果展示</h2>
+<p>举一个简单的 sql</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">TABLE</span> db_test.table_result</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    t1.id,</span><br><span class="line">    t2.name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">        id1 + id2 <span class="keyword">AS</span> <span class="keyword">id</span></span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        db_test.table1</span><br><span class="line">) t1</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">        <span class="keyword">id</span>,</span><br><span class="line">        <span class="keyword">name</span></span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">    (</span><br><span class="line">        <span class="keyword">SELECT</span></span><br><span class="line">            <span class="keyword">id</span>,</span><br><span class="line">            sourcename <span class="keyword">AS</span> <span class="keyword">name</span></span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            db_test.table2</span><br><span class="line">    )</span><br><span class="line">) t2</span><br><span class="line"><span class="keyword">ON</span> t1.id=t2.id</span><br></pre></td></tr></table></figure>
+<p>解析后的表血缘</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"inputTables"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"dbName"</span>: <span class="string">"db_test"</span>,</span><br><span class="line">            <span class="attr">"tableName"</span>: <span class="string">"table2"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"dbName"</span>: <span class="string">"db_test"</span>,</span><br><span class="line">            <span class="attr">"tableName"</span>: <span class="string">"table1"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"outputTable"</span>: &#123;</span><br><span class="line">        <span class="attr">"dbName"</span>: <span class="string">"db_test"</span>,</span><br><span class="line">        <span class="attr">"tableName"</span>: <span class="string">"table_result"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解析后的字段血缘</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"sourceFields"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"dbName"</span>: <span class="string">"db_test"</span>,</span><br><span class="line">                <span class="attr">"fieldName"</span>: <span class="string">"id1"</span>,</span><br><span class="line">                <span class="attr">"process"</span>: <span class="string">"id1 + id2"</span>,</span><br><span class="line">                <span class="attr">"tableName"</span>: <span class="string">"table1"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"dbName"</span>: <span class="string">"db_test"</span>,</span><br><span class="line">                <span class="attr">"fieldName"</span>: <span class="string">"id2"</span>,</span><br><span class="line">                <span class="attr">"process"</span>: <span class="string">"id1 + id2"</span>,</span><br><span class="line">                <span class="attr">"tableName"</span>: <span class="string">"table1"</span></span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">"targetField"</span>: &#123;</span><br><span class="line">            <span class="attr">"dbName"</span>: <span class="string">"db_test"</span>,</span><br><span class="line">            <span class="attr">"fieldName"</span>: <span class="string">"id"</span>,</span><br><span class="line">            <span class="attr">"tableName"</span>: <span class="string">"table_result"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"sourceFields"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"dbName"</span>: <span class="string">"db_test"</span>,</span><br><span class="line">                <span class="attr">"fieldName"</span>: <span class="string">"sourcename"</span>,</span><br><span class="line">                <span class="attr">"process"</span>: <span class="string">"sourcename"</span>,</span><br><span class="line">                <span class="attr">"tableName"</span>: <span class="string">"table2"</span></span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">"targetField"</span>: &#123;</span><br><span class="line">            <span class="attr">"dbName"</span>: <span class="string">"db_test"</span>,</span><br><span class="line">            <span class="attr">"fieldName"</span>: <span class="string">"name"</span>,</span><br><span class="line">            <span class="attr">"tableName"</span>: <span class="string">"table_result"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="引用说明">引用说明</h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">antlr4.version</span>&gt;</span>4.7.2<span class="tag">&lt;/<span class="name">antlr4.version</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通用的</span></span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.ParserRuleContext;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.RuleContext;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.tree.ParseTree;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"><span class="comment">// 基于Hplsql.g4文件生成的, 使用antlr4-maven-plugin</span></span><br><span class="line"><span class="keyword">import</span> xxx.HplsqlBaseVisitor;</span><br><span class="line"><span class="keyword">import</span> xxx.HplsqlParser;</span><br></pre></td></tr></table></figure>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/2020/article_16_HIVE源码学习-hivehook尝试血缘解析/" data-toggle="tooltip" data-placement="top" title="HIVE源码学习-hivehook尝试表血缘与字段血缘的解析">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/2020/article_15_HIVE源码学习-执行计划Operators和优化Optimizers/" data-toggle="tooltip" data-placement="top" title="HIVE源码学习-执行计划Operators和优化Optimizers">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#前言"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x524D;&#x8A00;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#实现思路"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x5B9E;&#x73B0;&#x601D;&#x8DEF;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#表血缘"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x8868;&#x8840;&#x7F18;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字段血缘"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">&#x5B57;&#x6BB5;&#x8840;&#x7F18;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#show-code"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">SHOW CODE</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#表血缘"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">&#x8868;&#x8840;&#x7F18;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字段血缘"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">&#x5B57;&#x6BB5;&#x8840;&#x7F18;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#效果展示"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x6548;&#x679C;&#x5C55;&#x793A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#引用说明"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x5F15;&#x7528;&#x8BF4;&#x660E;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>MINE</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="/article/music/music_1_音乐篇/" target="_blank">我的音乐</a></li>
+                    
+                        <li><a href="/book/" target="_blank">我的阅读</a></li>
+                    
+                        <li><a href="/article/money/money_1_理财篇/" target="_blank">我的理财</a></li>
+                    
+                        <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
+                    
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
+                </ul>
+                
+                <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+                <h5>COMMENT</h5>
+                <div id="vcomments"></div>
+                <script>
+                    new Valine({
+                        el: '#vcomments',
+                        appId: 'bd1nirzTb4YlrbE60rubD0O3-gzGzoHsz',
+                        appKey: 'HCdMhtYzjwyK8G374gLvu368',
+                        notify:false, 
+                        verify:false, 
+                        avatar:'mp', 
+                        placeholder: '来了老弟 #markdown格式',
+                        updated: () => {
+                            console.log(3)
+                        }
+                    })
+                    setTimeout(() => {
+                        document.getElementsByClassName("info")[0].style.display="none";
+                    }, 3000)
+                </script>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/webgjc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <!-- <p class="copyright text-muted">
+                    Copyright &copy; 甘家城 2021 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    
+        <!-- 不蒜子统计 -->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+            <span>
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+        </div>
+    
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ganjiacheng.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+    <!-- <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas>
+
+<script type="text/javascript">
+    var width = document.body.clientWidth;
+    var height = document.body.clientHeight-300;
+    var can = document.getElementById("canvas");
+    can.setAttribute("width",width);
+    can.setAttribute("height",height);
+    var con = can.getContext("2d");
+    var x = width*Math.random();
+    var y = height*Math.random();
+    var x = [],y = [],vx = [],vy = [];
+    var num = 80;
+    var v = 1.5;
+    for(var j=0;j<num;j++){
+        x[j] = width*Math.random();
+        y[j] = height*Math.random();
+        vx[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+        vy[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+    }
+    var draw = function(){
+        con.clearRect(0,0,width,height);
+        for(var i=0;i<num;i++){
+        con.fillStyle = "rgba(206,209,208,0.6)";
+        con.beginPath();
+        con.arc(x[i],y[i],4,0,2*Math.PI,false);
+        con.fill();	
+        }
+    };
+    var move = function(){
+        for(var k=0;k<num;k++){
+            x[k] += vx[k];
+            y[k] += vy[k];
+            if(x[k]+5>=width||x[k]<5){
+                vx[k] = -vx[k];
+            }else if(y[k]+5>=height||y[k]<5){
+                vy[k] = -vy[k];
+            }
+        }
+    };
+    var line = function(){
+        for(var i=0;i<num;i++){
+            for(var j=0;j<num;j++){
+                if(j!=i){
+                    if([Math.pow(x[i]-x[j],2)+Math.pow(y[i]-y[j],2)]>30000){
+                        continue;
+                    }
+                    con.beginPath();
+                    con.lineWidth="0.3";
+                    con.strokeStyle = "#c7c7c7";
+                    con.moveTo(x[i],y[i]);
+                    con.lineTo(x[j],y[j]);
+                    con.stroke();
+                }
+            }
+        }
+    }
+    if(width > 1000) {
+        setInterval(function(){
+            draw();
+            line();
+            move();
+        },30);
+    }
+</script> -->
+
+	<a id="rocket" href="#top" class=""></a>
+	
+<!-- Image to hack wechat -->
+<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+</html>

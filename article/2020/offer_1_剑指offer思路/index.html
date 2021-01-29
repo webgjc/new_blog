@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+  <meta name="baidu-site-verification" content="code-NFdFjxnyBp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="甘家城的个人博客">
+  <meta name="keyword" content="甘家城">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- <script data-ad-client="ca-pub-3781840703100023" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <title>
+    
+    刷一下剑指offer题 - 甘家城 | Blog
+    
+  </title>
+
+  <link rel="canonical" href="http://ganjiacheng.cn/article/2020/offer_1_剑指offer思路/">
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css">
+
+  <link rel="stylesheet" href="/css/donate.css">
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="/css/highlight.css">
+
+  <link rel="stylesheet" href="/css/widget.css">
+
+  <link rel="stylesheet" href="/css/rocket.css">
+
+  <link rel="stylesheet" href="/css/signature.css">
+
+  <link rel="stylesheet" href="/css/toc.css">
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+  <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <script></script>
+</head>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>刷一下剑指offer题</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 甘家城 on
+                            2020-09-13
+                            
+                                <span>
+                                    Viewed <span id="busuanzi_value_page_pv"></span> times
+                                </span>
+                            
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">甘家城的个人博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>题库地址：<a href="https://leetcode-cn.com/problemset/lcof/" target="_blank" rel="noopener">https://leetcode-cn.com/problemset/lcof/</a></p>
+<h3 id="数组中重复的数字">数组中重复的数字</h3>
+<p>放到set判断</p>
+<h3 id="二维数组中的查找">二维数组中的查找</h3>
+<p>二位数组左下角作为开始点，target比当前大的话往有移动，target比当前小的话往上移动，只到不能移动或者找到target</p>
+<h3 id="替换空格">替换空格</h3>
+<p>字符串遍历替换空格并拼接</p>
+<h3 id="从尾到头打印链表">从尾到头打印链表</h3>
+<p>链表从头到尾取出，放到栈中，再从栈中取出打印</p>
+<h3 id="重建二叉树">重建二叉树</h3>
+<p>前序遍历节点为根节点，将中序遍历分为左子树和右子树，由此递归</p>
+<h3 id="用两个栈实现队列">用两个栈实现队列</h3>
+<p>先往栈1加元素，当遇到删除的时候，判断栈2存不存在元素，不存在则将栈1弹入到栈2，存在则删除栈2最上面元素。</p>
+<h3 id="斐波那契数列">斐波那契数列</h3>
+<p>a, b = b, a+b</p>
+<h3 id="青蛙跳台阶问题">青蛙跳台阶问题</h3>
+<p>一阶或两阶表示f(n) = f(n-1) + f(n-2)<br>
+同斐波那契</p>
+<h3 id="旋转数组的最小数字">旋转数组的最小数字</h3>
+<p>二分查找，中间值比右边大则在右边，比右边小则在左边，相等则右边向左位移</p>
+<h3 id="矩阵中的路径">矩阵中的路径</h3>
+<p>dfs</p>
+<h3 id="机器人的运动范围">机器人的运动范围</h3>
+<p>bfs</p>
+<h3 id="剪绳子">剪绳子</h3>
+<p>剪长度为3最优先，将绳子变成3a+b，b分情况讨论</p>
+<h3 id="剪绳子-ii">剪绳子 II</h3>
+<p>同上+取余</p>
+<h3 id="二进制中1的个数">二进制中1的个数</h3>
+<p>数与1进行&amp;操作，使用移位操作&gt;&gt;</p>
+<h3 id="数值的整数次方">数值的整数次方</h3>
+<p>将n转为2进制 x^9 转为 x^(1<em>1)<em>x^(2</em>0)<em>x^(4</em>0)<em>x^(8</em>0)<br>
+二进制从尾向头遍历，遍历中x</em>=x，为1增乘到结果中</p>
+<h3 id="打印从1到最大的n位数">打印从1到最大的n位数</h3>
+<p>直接打印1 - 10^n-1</p>
+<h3 id="删除链表的节点">删除链表的节点</h3>
+<p>遍历链表节点，相等的话node.next=node.next.next</p>
+<h3 id="正则表达式匹配">正则表达式匹配</h3>
+<h3 id="表示数值的字符串">表示数值的字符串</h3>
+<p>有限状态自动机</p>
+<h3 id="调整数组顺序使奇数位于偶数前面">调整数组顺序使奇数位于偶数前面</h3>
+<p>左右指针，左边遇到偶数和右边遇到奇数进行交换</p>
+<h3 id="链表中倒数第k个节点">链表中倒数第k个节点</h3>
+<p>左右指针</p>
+<h3 id="反转链表">反转链表</h3>
+<p>next = cur.next<br>
+cur.next = prev<br>
+prev = cur<br>
+cur = next</p>
+<h3 id="合并两个排序的链表">合并两个排序的链表</h3>
+<p>新链表，迭代两个链表往里加</p>
+<h3 id="树的子结构">树的子结构</h3>
+<p>先序遍历a，判断两个树是否全等</p>
+<h3 id="二叉树的镜像">二叉树的镜像</h3>
+<p>left,right = func(right), func(left)</p>
+<h3 id="对称的二叉树">对称的二叉树</h3>
+<p>func(l.left, r.right) and func(l.right, r.left)</p>
+<h3 id="顺时针打印矩阵">顺时针打印矩阵</h3>
+<p>一次遍历一圈</p>
+<h3 id="包含min函数的栈">包含min函数的栈</h3>
+<p>用另一个栈，栈顶存储最小值</p>
+<h3 id="栈的压入-弹出序列">栈的压入、弹出序列</h3>
+<p>每压入一个数，都进行循环判断出栈</p>
+<h3 id="从上到下打印二叉树">从上到下打印二叉树</h3>
+<p>bfs</p>
+<h3 id="从上到下打印二叉树-ii">从上到下打印二叉树 II</h3>
+<p>bfs</p>
+<h3 id="从上到下打印二叉树-iii">从上到下打印二叉树 III</h3>
+<p>bfs</p>
+<h3 id="二叉搜索树的后序遍历序列">二叉搜索树的后序遍历序列</h3>
+<p>最后一个为根节点，小的在左侧，大的在右侧，由此递归</p>
+<h3 id="二叉树中和为某一值的路径">二叉树中和为某一值的路径</h3>
+<p>先序遍历，记下路径和总和</p>
+<h3 id="复杂链表的复制">复杂链表的复制</h3>
+<p>深拷贝</p>
+<h3 id="二叉搜索树与双向链表">二叉搜索树与双向链表</h3>
+<h3 id="序列化二叉树">序列化二叉树</h3>
+<h3 id="字符串的排列">字符串的排列</h3>
+<p>dfs, 交换字符位置，剪枝</p>
+<h3 id="数组中出现次数超过一半的数字">数组中出现次数超过一半的数字</h3>
+<p>相同数+1，不相同数-1，最后留下的数</p>
+<h3 id="最小的k个数">最小的k个数</h3>
+<p>快排，左侧如果数量为k则返回，如果大于k则继续快排 // 小顶堆</p>
+<h3 id="数据流中的中位数">数据流中的中位数</h3>
+<h3 id="连续子数组的最大和">连续子数组的最大和</h3>
+<p>局部和，全局和</p>
+<h3 id="1~n整数中1出现的次数">1～n整数中1出现的次数</h3>
+<p>0-h<em>d 1-h</em>d+l+1 2-h*d+d</p>
+<h3 id="数字序列中某一位的数字">数字序列中某一位的数字</h3>
+<p>位数d<em>9，找到数字在的位的第n个，找到在哪个数10</em>*(d-1)+(n-1)//d，找到在这个数的第几个(n-1)%d</p>
+<h3 id="把数组排成最小的数">把数组排成最小的数</h3>
+<p>基于xy &gt; yx 则 x&gt;y进行排序，连接</p>
+<h3 id="把数字翻译成字符串">把数字翻译成字符串</h3>
+<p>dfs</p>
+<h3 id="礼物的最大价值">礼物的最大价值</h3>
+<p>动态规划，左上开始，每格+=max(左，上)</p>
+<h3 id="最长不含重复字符的子字符串">最长不含重复字符的子字符串</h3>
+<p>双指针+hash表，i=max(dic[s[j]], i) j=max(res, j-i)</p>
+<h3 id="丑数">丑数</h3>
+<p>三个指针a,b,c指向0位1，分别乘2,3,5取min，与min相等的往后+1位</p>
+<h3 id="第一个只出现一次的字符">第一个只出现一次的字符</h3>
+<p>哈希表，遍历两次字符</p>
+<h3 id="数组中的逆序对">数组中的逆序对</h3>
+<h3 id="两个链表的第一个公共节点">两个链表的第一个公共节点</h3>
+<p>双指针，一个链表到结尾了返回头，直到相交或一起为null</p>
+<h3 id="在排序数组中查找数字-i">在排序数组中查找数字 I</h3>
+<p>二分找到数字，然后向左向右找</p>
+<h3 id="0~n-1中缺失的数字">0～n-1中缺失的数字</h3>
+<p>二分看数字和index对不对应</p>
+<h3 id="二叉搜索树的第k大节点">二叉搜索树的第k大节点</h3>
+<p>反向中序遍历，到底k个</p>
+<h3 id="二叉树的深度">二叉树的深度</h3>
+<p>后序遍历，层序遍历</p>
+<h3 id="平衡二叉树">平衡二叉树</h3>
+<p>先序遍历，根据深度判断</p>
+<h3 id=""></h3>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/2020/article_23_java虚拟机/" data-toggle="tooltip" data-placement="top" title="Java虚拟机">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/2020/article_22_改版我的部分/" data-toggle="tooltip" data-placement="top" title="改版博客我的部分">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数组中重复的数字"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6570;&#x7EC4;&#x4E2D;&#x91CD;&#x590D;&#x7684;&#x6570;&#x5B57;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二维数组中的查找"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x67E5;&#x627E;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#替换空格"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x66FF;&#x6362;&#x7A7A;&#x683C;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#从尾到头打印链表"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x4ECE;&#x5C3E;&#x5230;&#x5934;&#x6253;&#x5370;&#x94FE;&#x8868;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重建二叉树"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x91CD;&#x5EFA;&#x4E8C;&#x53C9;&#x6811;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#用两个栈实现队列"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x7528;&#x4E24;&#x4E2A;&#x6808;&#x5B9E;&#x73B0;&#x961F;&#x5217;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#斐波那契数列"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#青蛙跳台阶问题"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">&#x9752;&#x86D9;&#x8DF3;&#x53F0;&#x9636;&#x95EE;&#x9898;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#旋转数组的最小数字"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">&#x65CB;&#x8F6C;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5C0F;&#x6570;&#x5B57;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#矩阵中的路径"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">&#x77E9;&#x9635;&#x4E2D;&#x7684;&#x8DEF;&#x5F84;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#机器人的运动范围"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">&#x673A;&#x5668;&#x4EBA;&#x7684;&#x8FD0;&#x52A8;&#x8303;&#x56F4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#剪绳子"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">&#x526A;&#x7EF3;&#x5B50;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#剪绳子-ii"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">&#x526A;&#x7EF3;&#x5B50; II</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二进制中1的个数"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">&#x4E8C;&#x8FDB;&#x5236;&#x4E2D;1&#x7684;&#x4E2A;&#x6570;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数值的整数次方"><span class="toc-nav-number">15.</span> <span class="toc-nav-text">&#x6570;&#x503C;&#x7684;&#x6574;&#x6570;&#x6B21;&#x65B9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#打印从1到最大的n位数"><span class="toc-nav-number">16.</span> <span class="toc-nav-text">&#x6253;&#x5370;&#x4ECE;1&#x5230;&#x6700;&#x5927;&#x7684;n&#x4F4D;&#x6570;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#删除链表的节点"><span class="toc-nav-number">17.</span> <span class="toc-nav-text">&#x5220;&#x9664;&#x94FE;&#x8868;&#x7684;&#x8282;&#x70B9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#正则表达式匹配"><span class="toc-nav-number">18.</span> <span class="toc-nav-text">&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#表示数值的字符串"><span class="toc-nav-number">19.</span> <span class="toc-nav-text">&#x8868;&#x793A;&#x6570;&#x503C;&#x7684;&#x5B57;&#x7B26;&#x4E32;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#调整数组顺序使奇数位于偶数前面"><span class="toc-nav-number">20.</span> <span class="toc-nav-text">&#x8C03;&#x6574;&#x6570;&#x7EC4;&#x987A;&#x5E8F;&#x4F7F;&#x5947;&#x6570;&#x4F4D;&#x4E8E;&#x5076;&#x6570;&#x524D;&#x9762;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#链表中倒数第k个节点"><span class="toc-nav-number">21.</span> <span class="toc-nav-text">&#x94FE;&#x8868;&#x4E2D;&#x5012;&#x6570;&#x7B2C;k&#x4E2A;&#x8282;&#x70B9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#反转链表"><span class="toc-nav-number">22.</span> <span class="toc-nav-text">&#x53CD;&#x8F6C;&#x94FE;&#x8868;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#合并两个排序的链表"><span class="toc-nav-number">23.</span> <span class="toc-nav-text">&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6392;&#x5E8F;&#x7684;&#x94FE;&#x8868;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#树的子结构"><span class="toc-nav-number">24.</span> <span class="toc-nav-text">&#x6811;&#x7684;&#x5B50;&#x7ED3;&#x6784;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉树的镜像"><span class="toc-nav-number">25.</span> <span class="toc-nav-text">&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x955C;&#x50CF;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#对称的二叉树"><span class="toc-nav-number">26.</span> <span class="toc-nav-text">&#x5BF9;&#x79F0;&#x7684;&#x4E8C;&#x53C9;&#x6811;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#顺时针打印矩阵"><span class="toc-nav-number">27.</span> <span class="toc-nav-text">&#x987A;&#x65F6;&#x9488;&#x6253;&#x5370;&#x77E9;&#x9635;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#包含min函数的栈"><span class="toc-nav-number">28.</span> <span class="toc-nav-text">&#x5305;&#x542B;min&#x51FD;&#x6570;&#x7684;&#x6808;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#栈的压入-弹出序列"><span class="toc-nav-number">29.</span> <span class="toc-nav-text">&#x6808;&#x7684;&#x538B;&#x5165;&#x3001;&#x5F39;&#x51FA;&#x5E8F;&#x5217;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#从上到下打印二叉树"><span class="toc-nav-number">30.</span> <span class="toc-nav-text">&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x6253;&#x5370;&#x4E8C;&#x53C9;&#x6811;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#从上到下打印二叉树-ii"><span class="toc-nav-number">31.</span> <span class="toc-nav-text">&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x6253;&#x5370;&#x4E8C;&#x53C9;&#x6811; II</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#从上到下打印二叉树-iii"><span class="toc-nav-number">32.</span> <span class="toc-nav-text">&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x6253;&#x5370;&#x4E8C;&#x53C9;&#x6811; III</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉搜索树的后序遍历序列"><span class="toc-nav-number">33.</span> <span class="toc-nav-text">&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x7684;&#x540E;&#x5E8F;&#x904D;&#x5386;&#x5E8F;&#x5217;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉树中和为某一值的路径"><span class="toc-nav-number">34.</span> <span class="toc-nav-text">&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x548C;&#x4E3A;&#x67D0;&#x4E00;&#x503C;&#x7684;&#x8DEF;&#x5F84;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#复杂链表的复制"><span class="toc-nav-number">35.</span> <span class="toc-nav-text">&#x590D;&#x6742;&#x94FE;&#x8868;&#x7684;&#x590D;&#x5236;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉搜索树与双向链表"><span class="toc-nav-number">36.</span> <span class="toc-nav-text">&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x4E0E;&#x53CC;&#x5411;&#x94FE;&#x8868;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#序列化二叉树"><span class="toc-nav-number">37.</span> <span class="toc-nav-text">&#x5E8F;&#x5217;&#x5316;&#x4E8C;&#x53C9;&#x6811;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字符串的排列"><span class="toc-nav-number">38.</span> <span class="toc-nav-text">&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6392;&#x5217;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数组中出现次数超过一半的数字"><span class="toc-nav-number">39.</span> <span class="toc-nav-text">&#x6570;&#x7EC4;&#x4E2D;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x8D85;&#x8FC7;&#x4E00;&#x534A;&#x7684;&#x6570;&#x5B57;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#最小的k个数"><span class="toc-nav-number">40.</span> <span class="toc-nav-text">&#x6700;&#x5C0F;&#x7684;k&#x4E2A;&#x6570;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数据流中的中位数"><span class="toc-nav-number">41.</span> <span class="toc-nav-text">&#x6570;&#x636E;&#x6D41;&#x4E2D;&#x7684;&#x4E2D;&#x4F4D;&#x6570;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#连续子数组的最大和"><span class="toc-nav-number">42.</span> <span class="toc-nav-text">&#x8FDE;&#x7EED;&#x5B50;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5927;&#x548C;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1~n整数中1出现的次数"><span class="toc-nav-number">43.</span> <span class="toc-nav-text">1&#xFF5E;n&#x6574;&#x6570;&#x4E2D;1&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数字序列中某一位的数字"><span class="toc-nav-number">44.</span> <span class="toc-nav-text">&#x6570;&#x5B57;&#x5E8F;&#x5217;&#x4E2D;&#x67D0;&#x4E00;&#x4F4D;&#x7684;&#x6570;&#x5B57;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#把数组排成最小的数"><span class="toc-nav-number">45.</span> <span class="toc-nav-text">&#x628A;&#x6570;&#x7EC4;&#x6392;&#x6210;&#x6700;&#x5C0F;&#x7684;&#x6570;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#把数字翻译成字符串"><span class="toc-nav-number">46.</span> <span class="toc-nav-text">&#x628A;&#x6570;&#x5B57;&#x7FFB;&#x8BD1;&#x6210;&#x5B57;&#x7B26;&#x4E32;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#礼物的最大价值"><span class="toc-nav-number">47.</span> <span class="toc-nav-text">&#x793C;&#x7269;&#x7684;&#x6700;&#x5927;&#x4EF7;&#x503C;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#最长不含重复字符的子字符串"><span class="toc-nav-number">48.</span> <span class="toc-nav-text">&#x6700;&#x957F;&#x4E0D;&#x542B;&#x91CD;&#x590D;&#x5B57;&#x7B26;&#x7684;&#x5B50;&#x5B57;&#x7B26;&#x4E32;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#丑数"><span class="toc-nav-number">49.</span> <span class="toc-nav-text">&#x4E11;&#x6570;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#第一个只出现一次的字符"><span class="toc-nav-number">50.</span> <span class="toc-nav-text">&#x7B2C;&#x4E00;&#x4E2A;&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x7684;&#x5B57;&#x7B26;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数组中的逆序对"><span class="toc-nav-number">51.</span> <span class="toc-nav-text">&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x9006;&#x5E8F;&#x5BF9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#两个链表的第一个公共节点"><span class="toc-nav-number">52.</span> <span class="toc-nav-text">&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x516C;&#x5171;&#x8282;&#x70B9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在排序数组中查找数字-i"><span class="toc-nav-number">53.</span> <span class="toc-nav-text">&#x5728;&#x6392;&#x5E8F;&#x6570;&#x7EC4;&#x4E2D;&#x67E5;&#x627E;&#x6570;&#x5B57; I</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#0~n-1中缺失的数字"><span class="toc-nav-number">54.</span> <span class="toc-nav-text">0&#xFF5E;n-1&#x4E2D;&#x7F3A;&#x5931;&#x7684;&#x6570;&#x5B57;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉搜索树的第k大节点"><span class="toc-nav-number">55.</span> <span class="toc-nav-text">&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x7684;&#x7B2C;k&#x5927;&#x8282;&#x70B9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉树的深度"><span class="toc-nav-number">56.</span> <span class="toc-nav-text">&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#平衡二叉树"><span class="toc-nav-number">57.</span> <span class="toc-nav-text">&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#"><span class="toc-nav-number">58.</span> <span class="toc-nav-text"></span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>MINE</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="/article/music/music_1_音乐篇/" target="_blank">我的音乐</a></li>
+                    
+                        <li><a href="/book/" target="_blank">我的阅读</a></li>
+                    
+                        <li><a href="/article/money/money_1_理财篇/" target="_blank">我的理财</a></li>
+                    
+                        <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
+                    
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
+                </ul>
+                
+                <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+                <h5>COMMENT</h5>
+                <div id="vcomments"></div>
+                <script>
+                    new Valine({
+                        el: '#vcomments',
+                        appId: 'bd1nirzTb4YlrbE60rubD0O3-gzGzoHsz',
+                        appKey: 'HCdMhtYzjwyK8G374gLvu368',
+                        notify:false, 
+                        verify:false, 
+                        avatar:'mp', 
+                        placeholder: '来了老弟 #markdown格式',
+                        updated: () => {
+                            console.log(3)
+                        }
+                    })
+                    setTimeout(() => {
+                        document.getElementsByClassName("info")[0].style.display="none";
+                    }, 3000)
+                </script>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/webgjc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <!-- <p class="copyright text-muted">
+                    Copyright &copy; 甘家城 2021 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    
+        <!-- 不蒜子统计 -->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+            <span>
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+        </div>
+    
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ganjiacheng.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+    <!-- <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas>
+
+<script type="text/javascript">
+    var width = document.body.clientWidth;
+    var height = document.body.clientHeight-300;
+    var can = document.getElementById("canvas");
+    can.setAttribute("width",width);
+    can.setAttribute("height",height);
+    var con = can.getContext("2d");
+    var x = width*Math.random();
+    var y = height*Math.random();
+    var x = [],y = [],vx = [],vy = [];
+    var num = 80;
+    var v = 1.5;
+    for(var j=0;j<num;j++){
+        x[j] = width*Math.random();
+        y[j] = height*Math.random();
+        vx[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+        vy[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+    }
+    var draw = function(){
+        con.clearRect(0,0,width,height);
+        for(var i=0;i<num;i++){
+        con.fillStyle = "rgba(206,209,208,0.6)";
+        con.beginPath();
+        con.arc(x[i],y[i],4,0,2*Math.PI,false);
+        con.fill();	
+        }
+    };
+    var move = function(){
+        for(var k=0;k<num;k++){
+            x[k] += vx[k];
+            y[k] += vy[k];
+            if(x[k]+5>=width||x[k]<5){
+                vx[k] = -vx[k];
+            }else if(y[k]+5>=height||y[k]<5){
+                vy[k] = -vy[k];
+            }
+        }
+    };
+    var line = function(){
+        for(var i=0;i<num;i++){
+            for(var j=0;j<num;j++){
+                if(j!=i){
+                    if([Math.pow(x[i]-x[j],2)+Math.pow(y[i]-y[j],2)]>30000){
+                        continue;
+                    }
+                    con.beginPath();
+                    con.lineWidth="0.3";
+                    con.strokeStyle = "#c7c7c7";
+                    con.moveTo(x[i],y[i]);
+                    con.lineTo(x[j],y[j]);
+                    con.stroke();
+                }
+            }
+        }
+    }
+    if(width > 1000) {
+        setInterval(function(){
+            draw();
+            line();
+            move();
+        },30);
+    }
+</script> -->
+
+	<a id="rocket" href="#top" class=""></a>
+	
+<!-- Image to hack wechat -->
+<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+</html>

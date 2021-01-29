@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+  <meta name="baidu-site-verification" content="code-NFdFjxnyBp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="甘家城的个人博客">
+  <meta name="keyword" content="甘家城">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- <script data-ad-client="ca-pub-3781840703100023" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <title>
+    
+    甘家城 | Blog
+    
+  </title>
+
+  <link rel="canonical" href="http://ganjiacheng.cn/about/resume.html">
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css">
+
+  <link rel="stylesheet" href="/css/donate.css">
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="/css/highlight.css">
+
+  <link rel="stylesheet" href="/css/widget.css">
+
+  <link rel="stylesheet" href="/css/rocket.css">
+
+  <link rel="stylesheet" href="/css/signature.css">
+
+  <link rel="stylesheet" href="/css/toc.css">
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+  <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <script></script>
+</head>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/header_img/about.jpg')
+            /*page*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="site-heading">
+                        <!-- <h1>甘家城的个人博客</h1> -->
+                        <!--<hr class="small">-->
+                        <!-- <span class="subheading">resume</span> -->
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">甘家城的个人博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
+
+        <!-- USE SIDEBAR -->
+        <!-- Post Container -->
+        <div
+            class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container"
+        >
+            <h1 id="个人信息">个人信息</h1>
+<ul>
+<li>甘家城 / 男 / 1996</li>
+<li>手机/微信：15968182251</li>
+<li>邮箱：935669873@qq.com</li>
+<li>本科 / 杭州电子科技大学<br>
+电子科学与技术专业 / 19届毕业生</li>
+<li>技术博客：<a href="http://ganjiacheng.cn">http://ganjiacheng.cn</a></li>
+<li>Github：<a href="https://github.com/webgjc" target="_blank" rel="noopener">https://github.com/webgjc</a></li>
+<li>期望职位：后端开发</li>
+<li>期望薪资：面谈</li>
+<li>期望城市：杭州</li>
+</ul>
+<hr>
+<h1 id="技术之谈">技术之谈</h1>
+<ul>
+<li>后端目前主要使用比较多的为java和python，web框架的分别为django和spingboot;</li>
+<li>对前端html/css/js有所涉猎，工作期间学了react和公司内部用的前端框架，并在实际公司项目中配合antd动手写了一部分，自己日常也常用原生js和jq写一些插件和实现(最近更新一个github上的项目<a href="https://github.com/webgjc/web_robot" target="_blank" rel="noopener">web_robot</a>)；</li>
+<li>关于大数据一些组件有在工作中用到，包括hadoop，hive，ranger，元数据与指标等，做大数据相关的平台和数据可视化的后端开发。</li>
+<li>github和技术博客一直有更新，最近做的比较多的是大数据相关的事情，和一些插件；</li>
+<li>之前做过段时间运维，日常的运维也能自己完成，打包部署装机，shell脚本等，对linux也玩的还行；</li>
+<li>版本管理git用的比较多，svn很早前也用过一段时间；</li>
+<li>对于算法一直在跟进，偶尔也算在leetcode有做题吧；</li>
+</ul>
+<hr>
+<h1 id="工作经历">工作经历</h1>
+<ul>
+<li>
+<h2 id="大搜车软件技术有限公司-数据研发工程师-2019-04-~-至今">大搜车软件技术有限公司 (数据研发工程师) (2019-04 ~ 至今)</h2>
+<ul>
+<li>
+<h3 id="元数据管理与数据地图">元数据管理与数据地图</h3>
+<p>该项目主要是对数据仓库元数据进行采集、管理，同时也支持业务模型元数据，指标元数据等，本身提供一个数据查询平台数据地图，并也为其他应用提供元数据支持。采集的元数据主要包括表字段信息，血缘，权限，业务关联信息等，从metastore、hivehook、离线调度平台、ranger采集到整合到后端数据库存储，进行了统计与分类，并在数据地图中的展示搜索。项目使用python/django/celery实现，存储用的mysql和redis，本人在项目中为主要后端开发，项目为从零搭建。项目中的元数据采集使用celery的定时任务，采用新表和全量两种同步策略，也提供手动同步的方式。具体可以参考我的原创博客<a href="https://ganjiacheng.cn/article/%E8%AE%B2%E8%AE%B2%E5%85%83%E6%95%B0%E6%8D%AE/">讲讲元数据</a>与<a href="https://ganjiacheng.cn/article/hive%E4%B8%8Emysql%E5%85%83%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BF%AB%E9%80%9F%E9%87%87%E9%9B%86/">元数据采集</a></p>
+<ul>
+<li>对元数据采集进行了多层次(增量全量)多方式(手动定时)多来源(metastore/information_schema)的优化；</li>
+<li>元数据进行了多个来源的整合，并标记清理，关联，统计等业务操作，同时监控了每日的变更；</li>
+<li>实现了建议方便的元数据查询平台，包括大部分元数据的展示；</li>
+<li>提供多种稳定的元数据外部对接接口；</li>
+</ul>
+</li>
+<li>
+<h3 id="数据标准与数据建模">数据标准与数据建模</h3>
+<p>该项目一方面是对数据标准、数据码值进行定义、录入、管理和对外提供。另一块是数仓建模工具，通过表单，hql，execl等方式导入建表信息，提供ER图画图模块对导入表进行建模作图。建模的时候可以直接应用到数据标准和码值信息。项目使用java/springboot/mybatis搭建，存储使用mysql，本人为项目的后端开发，项目为从零搭建。</p>
+<ul>
+<li>项目中在码表中因为码表是自建的，数值字段是自定义的，因此使用了json存储，且用到分表存储；</li>
+<li>在hql导入中用到了hql的create语句的解析，使用的是antlr4和hive的hplsql.g4然后用java实现visit模式的create_table；</li>
+<li>渲染导出hql使用mustache模板引擎；</li>
+<li>excel导入使用easyexcel实现；</li>
+<li>同时参与实现了一部分前端的功能，使用react和antd;</li>
+</ul>
+</li>
+<li>
+<h3 id="敏捷分析与可视化报表">敏捷分析与可视化报表</h3>
+<p>该项目是包括一个sql即时查询工具，包括直连数据库和模型元数据的拖拉敏捷分析，包括一个报表系统。项目分两个大模块，查询模块和图表后端模块；查询模块专注于sql的生成、sql的解析优化，sql的执行，多种数据源的对接等，图表模块专注于图表配置，前端拖拽交互接口，外部对接，权限控制等，两个服务使用dubbo进行交互。本人为项目主要后端开发之一，主要参与图表模块，进行权限设计，查询交互；也部分参与查询模块，对hiveSql的解析进行了部分研究和优化。项目使用java/springboot/mybatis搭建，存储使用mysql，查询支持hive，presto，mysql等。</p>
+<ul>
+<li>查询使用ranger控制到表级别的查询权限，中间设计进行了权限缓存，行级权限由后端自行实现；</li>
+<li>元数据由数据地图提供，这边由后端对接接口；</li>
+<li>查询分同步异步查询，统一走jdbc协议；</li>
+<li>使用了sql解析实现了sql的格式化，sql血缘和sql元数据解析；</li>
+<li>使用图表缓存的方案，由离线任务关系控制缓存的刷新；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h2 id="默安科技有限公司实习-运维开发-2018-07-~-2019-03">默安科技有限公司(实习) (运维开发) (2018-07 ~ 2019-03)</h2>
+<ul>
+<li>
+<h3 id="产品打包部署更新等自动化脚本和平台">产品打包部署更新等自动化脚本和平台</h3>
+<p>为各个产品编写打包的脚本，部署脚本，更新脚本等。通过搭建的平台使用可以直接将产品打包部署到机器上，可以更新该环境的代码，和查看环境中产品运行的状态。平台项目使用python/django构建，日常的各个脚本使用shell编写完成，同时在版本迭代有变更或依赖包有变动时实时更新。</p>
+</li>
+<li>
+<h3 id="其他一些服务如vpn文档服务器官网等的维护">其他一些服务如vpn，文档服务器，官网等的维护</h3>
+<p>搭建维护vpn平台使用openvpn实现，对接钉钉群完成在在群内获取验证码登录，并做登录记录和统计。<br>
+文档服务器和官网做日常维护和更新。</p>
+</li>
+</ul>
+</li>
+<li>
+<h2 id="艾锝信息技术有限公司实习-python开发-2017-12-~-2018-04">艾锝信息技术有限公司(实习) (python开发) (2017-12 ~ 2018-04)</h2>
+<ul>
+<li>
+<h3 id="量化策略与相关平台工具">量化策略与相关平台工具</h3>
+<p>主要实现一些金融研报的策略，在开放平台完成回测。<br>
+搭建金融相关使用工具的平台，主要使用python/flask。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="最后一席话">最后一席话</h1>
+<ul>
+<li>毕业一年多了，算上实习的也有个两年多了，技术栈也是在深挖阶段，希望可以在web开发，大数据等这些领域有更多的机会和挑战。最后感谢阅读，欢迎交流！</li>
+</ul>
+
+
+            <br />
+
+            <!-- require APlayer  -->
+
+            <!-- 如果开启评论功能 -->
+            
+            <hr />
+
+                  
+        </div>
+
+        <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
+        <a target="_blank"  href="https://github.com/webgjc">
+            
+                <img id = "avatar_pic" src="/img/avatar/avatar.jpg" />
+            
+        </a>
+
+        
+            <p>不断放下，好好告别</p>
+        
+
+        <!-- SNS Link -->
+        <!-- <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+                <li>
+                    <a target="_blank"  href="https://github.com/webgjc">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
+            
+            
+        </ul> -->
+
+        <p>本站地址(github):
+            <br />
+            <a href="http://ganjiacheng.cn/">http://ganjiacheng.cn/</a>
+        </p>
+        <p>本站地址2(coding访问更快):
+            <br />
+            <a href="http://blog.ganjiacheng.cn/">http://blog.ganjiacheng.cn/</a>
+        </p>
+    </div>
+</section>
+
+        <hr>
+    
+        <!-- Friends Blog -->
+
+<h5>MINE</h5>
+<ul class="list-inline">
+    
+    <li><a href="/article/music/music_1_音乐篇/">我的音乐</a></li>
+     
+    <li><a href="/book/">我的阅读</a></li>
+    
+    <br />
+     
+    <li><a href="/article/money/money_1_理财篇/">我的理财</a></li>
+     
+    <li><a href="/article/life/life_1_生活篇/">我的生活</a></li>
+    
+    <br />
+     
+    <li><a href="/article/bug_review/">采坑备忘录</a></li>
+     
+</ul>
+
+
+        <hr>
+    
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+            
+            <a href="/tags/#OTHER" title="OTHER" rel="3">OTHER</a>
+            
+        
+            
+            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
+            
+        
+            
+            <a href="/tags/#HQL解析" title="HQL解析" rel="3">HQL解析</a>
+            
+        
+            
+            <a href="/tags/#JAVA" title="JAVA" rel="10">JAVA</a>
+            
+        
+            
+            <a href="/tags/#CHROME插件" title="CHROME插件" rel="7">CHROME插件</a>
+            
+        
+            
+            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
+            
+        
+            
+            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
+            
+        
+            
+            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
+            
+        
+            
+            <a href="/tags/#其他" title="其他" rel="1">其他</a>
+            
+        
+            
+            <a href="/tags/#操作系统" title="操作系统" rel="1">操作系统</a>
+            
+        
+            
+            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
+            
+        
+            
+            <a href="/tags/#后端" title="后端" rel="1">后端</a>
+            
+        
+            
+            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
+            
+        
+            
+            <a href="/tags/#MYSQL" title="MYSQL" rel="2">MYSQL</a>
+            
+        
+            
+            <a href="/tags/#元数据" title="元数据" rel="3">元数据</a>
+            
+        
+            
+            <a href="/tags/#大数据" title="大数据" rel="2">大数据</a>
+            
+        
+            
+            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
+            
+        
+            
+            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
+            
+        
+            
+            <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
+            
+        
+            
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            
+        
+    </div>
+</section>
+
+        <hr>
+    
+        
+  <h5>RECENT POSTS</h3>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/article/bug_review/">采坑备忘录</a>
+        </li>
+      
+        <li>
+          <a href="/article/2021/article_3_WEB_ROBOT使用文档(终极版)/">Web Robot使用教程(终极版)</a>
+        </li>
+      
+        <li>
+          <a href="/article/2021/article_1_2020总结-稳中求进/">2020总结 -- 稳重求进</a>
+        </li>
+      
+        <li>
+          <a href="/article/2021/article_2_原博客大迁移2017-2018/">原博客迁移与复原（2017-2018）</a>
+        </li>
+      
+        <li>
+          <a href="/article/2020/article_35_sql中关于统计某列最新不同值的方法/">MYSQL中关于统计某列最新不同值的方法</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        <hr>
+    
+        
+    <h5>ARCHIVES</h5>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/12/">December 2000</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/09/">September 2000</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/05/">May 2000</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1020/08/">August 1020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1020/05/">May 1020</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+
+        <hr>
+    
+</div> 
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/webgjc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <!-- <p class="copyright text-muted">
+                    Copyright &copy; 甘家城 2021 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    
+        <!-- 不蒜子统计 -->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+            <span>
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+        </div>
+    
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ganjiacheng.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+    <!-- <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas>
+
+<script type="text/javascript">
+    var width = document.body.clientWidth;
+    var height = document.body.clientHeight-300;
+    var can = document.getElementById("canvas");
+    can.setAttribute("width",width);
+    can.setAttribute("height",height);
+    var con = can.getContext("2d");
+    var x = width*Math.random();
+    var y = height*Math.random();
+    var x = [],y = [],vx = [],vy = [];
+    var num = 80;
+    var v = 1.5;
+    for(var j=0;j<num;j++){
+        x[j] = width*Math.random();
+        y[j] = height*Math.random();
+        vx[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+        vy[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+    }
+    var draw = function(){
+        con.clearRect(0,0,width,height);
+        for(var i=0;i<num;i++){
+        con.fillStyle = "rgba(206,209,208,0.6)";
+        con.beginPath();
+        con.arc(x[i],y[i],4,0,2*Math.PI,false);
+        con.fill();	
+        }
+    };
+    var move = function(){
+        for(var k=0;k<num;k++){
+            x[k] += vx[k];
+            y[k] += vy[k];
+            if(x[k]+5>=width||x[k]<5){
+                vx[k] = -vx[k];
+            }else if(y[k]+5>=height||y[k]<5){
+                vy[k] = -vy[k];
+            }
+        }
+    };
+    var line = function(){
+        for(var i=0;i<num;i++){
+            for(var j=0;j<num;j++){
+                if(j!=i){
+                    if([Math.pow(x[i]-x[j],2)+Math.pow(y[i]-y[j],2)]>30000){
+                        continue;
+                    }
+                    con.beginPath();
+                    con.lineWidth="0.3";
+                    con.strokeStyle = "#c7c7c7";
+                    con.moveTo(x[i],y[i]);
+                    con.lineTo(x[j],y[j]);
+                    con.stroke();
+                }
+            }
+        }
+    }
+    if(width > 1000) {
+        setInterval(function(){
+            draw();
+            line();
+            move();
+        },30);
+    }
+</script> -->
+
+	<a id="rocket" href="#top" class=""></a>
+	
+<!-- Image to hack wechat -->
+<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+</html>

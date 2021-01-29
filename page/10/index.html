@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+  <meta name="baidu-site-verification" content="code-NFdFjxnyBp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="甘家城的个人博客">
+  <meta name="keyword" content="甘家城">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- <script data-ad-client="ca-pub-3781840703100023" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <title>
+    
+    甘家城 | Blog
+    
+  </title>
+
+  <link rel="canonical" href="http://ganjiacheng.cn/page/10/">
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css">
+
+  <link rel="stylesheet" href="/css/donate.css">
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="/css/highlight.css">
+
+  <link rel="stylesheet" href="/css/widget.css">
+
+  <link rel="stylesheet" href="/css/rocket.css">
+
+  <link rel="stylesheet" href="/css/signature.css">
+
+  <link rel="stylesheet" href="/css/toc.css">
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+  <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <script></script>
+</head>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/header_img/home3.jpg') 
+            /*config*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="site-heading">
+                        <!-- <h1>甘家城的个人博客</h1> -->
+                        <!--<hr class="small">-->
+                        <!-- <span class="subheading"></span> -->
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">甘家城的个人博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
+
+        <!-- USE SIDEBAR -->
+        <!-- Post Container -->
+        <div
+            class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container"
+        >
+            <!-- Main Content -->
+
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_18_python实现简单时时打印桌面程序/">
+        <h2 class="post-title">
+            
+            python实现简单时时打印桌面程序
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            这里的需求是用户在某个网页下单之后，需要打印机打出票据。
+实现：用python访问一个网络接口获取需要打印的数据（json格式），之后调用系统win32print的打印接口打印出来。
+时时打印的话下面用轮询并定时sleep实现。
+再用Tkinter写一个桌面程序可以用来提醒并可以使程序长久运行。
+之后再用py2exe把python文件变成一个exe文件方便在后台执行。
+#coding:utf......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-31
+        <span class="post-count"> 文章字数: 646</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_17_nginx+php下配置https/">
+        <h2 class="post-title">
+            
+            nginx+php下配置https
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            本来以为配置https应该和配置http是差不多的，没想到还是出了许多问题，分享给大家。
+现在市面有许多免费的ssl证书，可以找一个，本人使用了腾讯云的免费dv证书。
+之后就会得到两个文件，分别为test.com_bundle.crt和test.com.key
+本人配置的环境是在centos，php集成环境lnmp下
+先在服务器找到文件usr/local/nginx/conf/nginx.c......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-30
+        <span class="post-count"> 文章字数: 338</span>
+        <span class="post-count"> 阅读时间: 2分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_16_许愿墙效果（仿）/">
+        <h2 class="post-title">
+            
+            许愿墙效果（仿）
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            也不知道为什么要叫许愿墙，在前端网看到许多人实现了，便来实现一个自己的版本，顺便许个愿！
+这里需要先看一下下面这张图，对于后面的理解很有帮助。
+
+使用方法：下面代码复制到一个html文件里，之后浏览器打开就行。
+具体实现在代码中注释。
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset=......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-26
+        <span class="post-count"> 文章字数: 670</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_15_前端回忆录---下篇/">
+        <h2 class="post-title">
+            
+            前端回忆录---下篇
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            下篇开始，对于我自己来说也就是在这边徘徊，暂时也并不能完全很好的掌握这些或深入的或新颖的知识，因为前端新东西出现的实在太快了。这里的我只大致做一个引导，如有错误请及时指出。毕竟修行在个人，还是得靠自己摸索。
+我们还是再来学习js—js进阶。这里目前必读的一本书—泽卡斯的《js高级编程指南》，如果能啃下这本书，必定精进一大步。当初我也是略读读了几次，能感受到他的强大和对我的影响力。js进阶，一......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-20
+        <span class="post-count"> 文章字数: 1.8k</span>
+        <span class="post-count"> 阅读时间: 11分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_13_php实现Soap调用的两种方法/">
+        <h2 class="post-title">
+            
+            php实现Soap调用的两种方法
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            php也可以通过soap（一种基于xml的协议）和webservice进行数据交互。
+这里通过两种方法来讲解，一个是php的SoapClient对象，另一个是php的curl。
+
+第一种：先要做一件事就是在php.ini中把soap扩展开了。
+extension=php_soap.dll
+然后进行php代码的编写，这里直接讲解带有header验证的soap。没有header验证的话就不需要加......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-20
+        <span class="post-count"> 文章字数: 610</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_11_便捷的集体通讯录---vcf文件制作使用/">
+        <h2 class="post-title">
+            
+            便捷的集体通讯录---vcf文件制作使用
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            一种情况就是新组成的一个团队，人比较多，要互相留下手机号。这种时候一个个输入到手机里就比较麻烦，所以可以制作一个vcf文件，直接导入到通讯录。
+vcf文件制作软件可以到这里下载http://pan.baidu.com/s/1kVLoUTh
+下载后打开里面的exe文件，之后添加需要的人的信息和手机号码，点击保存通讯录就会保存到Contacts.vcf文件里。可能会发生输入名字变成问号的问题，这......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-19
+        <span class="post-count"> 文章字数: 266</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_14_logistics回归做二分类---学习篇/">
+        <h2 class="post-title">
+            
+            logistics回归做二分类---学习篇
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            一般的logistics回归过程并不复杂，特别是在理解了梯度下降之后，梯度下降法可以参考我之前的文章，点击这里查看
+大致讲一下理解：
+大致还是通过梯度下降把需要拟合的直线的前面的系数渐渐靠近，比如用ax+by+c=0，这条直线来进行二分类，a，b，c三个系数就是下面代码中的数组weight，每次迭代改变的就是weight。然后误差是通过把每组训练的数进行sigmoid函数  ，在与之前分好的......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-19
+        <span class="post-count"> 文章字数: 587</span>
+        <span class="post-count"> 阅读时间: 3分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_12_梯度下降法---学习篇/">
+        <h2 class="post-title">
+            
+            梯度下降法---学习篇
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            梯度下降法：一般想法就是，开始先找一个点，之后每次找下降最快的那个方向来找下一个点，直到找到最低点。
+看过很多教程或者高数书上的讲解，大致就知道梯度下降是怎么回事情。但很多时候都是被众多的公式和英文名词吓到而不真正理解。
+这次我们来简单理解最初的一个------单变量梯度下降，这里用梯度下降来做线性回归，也就是找一条h(x)=ax+b的线来拟合现有的点。
+想象有很多点，中间有条线，所有点不可......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-16
+        <span class="post-count"> 文章字数: 526</span>
+        <span class="post-count"> 阅读时间: 3分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_10_使用ppython---实现python和php之间的通信/">
+        <h2 class="post-title">
+            
+            使用ppython---实现python和php之间的通信
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            ppython大致是用socket来实现php和python的联络;
+日常不常用，有必要时还是挺有用的。
+先是用python的socket开一个端口监听，在这个端口来进行数据传输
+之后php连接那个端口，向那个端口传输数据，python在接受到数据处理之后再返回结果。
+这里介绍一下基本使用，先下载http://pan.baidu.com/s/1dEHgYgL。
+解压之后放到服务器上。
+为了长......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-15
+        <span class="post-count"> 文章字数: 203</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_8_python日常问答篇--更新中/">
+        <h2 class="post-title">
+            
+            python日常问答篇--更新中
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            python篇：
+1.windows上，在pip install xxx失败的时候怎么办？
+答：http://www.lfd.uci.edu/~gohlke/pythonlibs/到这里面寻找whl，下载之后用 pip install xxx.whl 来安装。
+
+2.解决pip3报错Fatal error in launcher: Unable to create process using......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-11
+        <span class="post-count"> 文章字数: 161</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+
+    <!-- Pager -->
+
+    <ul class="pager">
+        
+        <li class="previous">
+            <a href="/page/9/">&larr; Newer Posts</a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/page/11/">Older Posts &rarr;</a>
+        </li>
+        
+    </ul>
+
+            <br />
+
+            <!-- require APlayer  -->
+
+            <!-- 如果开启评论功能 -->
+            
+        </div>
+
+        <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
+        <a target="_blank"  href="https://github.com/webgjc">
+            
+                <img id = "avatar_pic" src="/img/avatar/avatar.jpg" />
+            
+        </a>
+
+        
+            <p>不断放下，好好告别</p>
+        
+
+        <!-- SNS Link -->
+        <!-- <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+                <li>
+                    <a target="_blank"  href="https://github.com/webgjc">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
+            
+            
+        </ul> -->
+
+        <p>本站地址(github):
+            <br />
+            <a href="http://ganjiacheng.cn/">http://ganjiacheng.cn/</a>
+        </p>
+        <p>本站地址2(coding访问更快):
+            <br />
+            <a href="http://blog.ganjiacheng.cn/">http://blog.ganjiacheng.cn/</a>
+        </p>
+    </div>
+</section>
+
+        <hr>
+    
+        <!-- Friends Blog -->
+
+<h5>MINE</h5>
+<ul class="list-inline">
+    
+    <li><a href="/article/music/music_1_音乐篇/">我的音乐</a></li>
+     
+    <li><a href="/book/">我的阅读</a></li>
+    
+    <br />
+     
+    <li><a href="/article/money/money_1_理财篇/">我的理财</a></li>
+     
+    <li><a href="/article/life/life_1_生活篇/">我的生活</a></li>
+    
+    <br />
+     
+    <li><a href="/article/bug_review/">采坑备忘录</a></li>
+     
+</ul>
+
+
+        <hr>
+    
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+            
+            <a href="/tags/#OTHER" title="OTHER" rel="3">OTHER</a>
+            
+        
+            
+            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
+            
+        
+            
+            <a href="/tags/#HQL解析" title="HQL解析" rel="3">HQL解析</a>
+            
+        
+            
+            <a href="/tags/#JAVA" title="JAVA" rel="10">JAVA</a>
+            
+        
+            
+            <a href="/tags/#CHROME插件" title="CHROME插件" rel="7">CHROME插件</a>
+            
+        
+            
+            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
+            
+        
+            
+            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
+            
+        
+            
+            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
+            
+        
+            
+            <a href="/tags/#其他" title="其他" rel="1">其他</a>
+            
+        
+            
+            <a href="/tags/#操作系统" title="操作系统" rel="1">操作系统</a>
+            
+        
+            
+            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
+            
+        
+            
+            <a href="/tags/#后端" title="后端" rel="1">后端</a>
+            
+        
+            
+            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
+            
+        
+            
+            <a href="/tags/#MYSQL" title="MYSQL" rel="2">MYSQL</a>
+            
+        
+            
+            <a href="/tags/#元数据" title="元数据" rel="3">元数据</a>
+            
+        
+            
+            <a href="/tags/#大数据" title="大数据" rel="2">大数据</a>
+            
+        
+            
+            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
+            
+        
+            
+            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
+            
+        
+            
+            <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
+            
+        
+            
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            
+        
+    </div>
+</section>
+
+        <hr>
+    
+        
+  <h5>RECENT POSTS</h3>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/article/bug_review/">采坑备忘录</a>
+        </li>
+      
+        <li>
+          <a href="/article/2021/article_3_WEB_ROBOT使用文档(终极版)/">Web Robot使用教程(终极版)</a>
+        </li>
+      
+        <li>
+          <a href="/article/2021/article_1_2020总结-稳中求进/">2020总结 -- 稳重求进</a>
+        </li>
+      
+        <li>
+          <a href="/article/2021/article_2_原博客大迁移2017-2018/">原博客迁移与复原（2017-2018）</a>
+        </li>
+      
+        <li>
+          <a href="/article/2020/article_35_sql中关于统计某列最新不同值的方法/">MYSQL中关于统计某列最新不同值的方法</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        <hr>
+    
+        
+    <h5>ARCHIVES</h5>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/12/">December 2000</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/09/">September 2000</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/05/">May 2000</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1020/08/">August 1020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1020/05/">May 1020</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+
+        <hr>
+    
+</div> 
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/webgjc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <!-- <p class="copyright text-muted">
+                    Copyright &copy; 甘家城 2021 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    
+        <!-- 不蒜子统计 -->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+            <span>
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+        </div>
+    
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ganjiacheng.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+    <!-- <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas>
+
+<script type="text/javascript">
+    var width = document.body.clientWidth;
+    var height = document.body.clientHeight-300;
+    var can = document.getElementById("canvas");
+    can.setAttribute("width",width);
+    can.setAttribute("height",height);
+    var con = can.getContext("2d");
+    var x = width*Math.random();
+    var y = height*Math.random();
+    var x = [],y = [],vx = [],vy = [];
+    var num = 80;
+    var v = 1.5;
+    for(var j=0;j<num;j++){
+        x[j] = width*Math.random();
+        y[j] = height*Math.random();
+        vx[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+        vy[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+    }
+    var draw = function(){
+        con.clearRect(0,0,width,height);
+        for(var i=0;i<num;i++){
+        con.fillStyle = "rgba(206,209,208,0.6)";
+        con.beginPath();
+        con.arc(x[i],y[i],4,0,2*Math.PI,false);
+        con.fill();	
+        }
+    };
+    var move = function(){
+        for(var k=0;k<num;k++){
+            x[k] += vx[k];
+            y[k] += vy[k];
+            if(x[k]+5>=width||x[k]<5){
+                vx[k] = -vx[k];
+            }else if(y[k]+5>=height||y[k]<5){
+                vy[k] = -vy[k];
+            }
+        }
+    };
+    var line = function(){
+        for(var i=0;i<num;i++){
+            for(var j=0;j<num;j++){
+                if(j!=i){
+                    if([Math.pow(x[i]-x[j],2)+Math.pow(y[i]-y[j],2)]>30000){
+                        continue;
+                    }
+                    con.beginPath();
+                    con.lineWidth="0.3";
+                    con.strokeStyle = "#c7c7c7";
+                    con.moveTo(x[i],y[i]);
+                    con.lineTo(x[j],y[j]);
+                    con.stroke();
+                }
+            }
+        }
+    }
+    if(width > 1000) {
+        setInterval(function(){
+            draw();
+            line();
+            move();
+        },30);
+    }
+</script> -->
+
+	<a id="rocket" href="#top" class=""></a>
+	
+<!-- Image to hack wechat -->
+<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+</html>

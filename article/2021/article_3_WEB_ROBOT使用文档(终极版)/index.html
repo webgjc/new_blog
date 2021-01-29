@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+  <meta name="baidu-site-verification" content="code-NFdFjxnyBp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="甘家城的个人博客">
+  <meta name="keyword" content="甘家城">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- <script data-ad-client="ca-pub-3781840703100023" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <title>
+    
+    Web Robot使用教程(终极版) - 甘家城 | Blog
+    
+  </title>
+
+  <link rel="canonical" href="http://ganjiacheng.cn/article/2021/article_3_WEB_ROBOT使用文档(终极版)/">
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css">
+
+  <link rel="stylesheet" href="/css/donate.css">
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="/css/highlight.css">
+
+  <link rel="stylesheet" href="/css/widget.css">
+
+  <link rel="stylesheet" href="/css/rocket.css">
+
+  <link rel="stylesheet" href="/css/signature.css">
+
+  <link rel="stylesheet" href="/css/toc.css">
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+  <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <script></script>
+</head>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#CHROME插件" title="CHROME插件">CHROME插件</a>
+                            
+                              <a class="tag" href="/tags/#自动化" title="自动化">自动化</a>
+                            
+                        </div>
+                        <h1>Web Robot使用教程(终极版)</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 甘家城 on
+                            2021-01-22
+                            
+                                <span>
+                                    Viewed <span id="busuanzi_value_page_pv"></span> times
+                                </span>
+                            
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">甘家城的个人博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="前言">前言</h1>
+<p>本文为<a href="https://github.com/webgjc/web_robot" target="_blank" rel="noopener">Web Robot</a>插件使用教程终极版</p>
+<p>融合所有前面版本迭代的功能，包括有用的没用的</p>
+<p>当前文档教程的Web Robot版本 V2.2.0</p>
+<p><img src="/img/mypost/2021/1-1.jpg" alt="image"></p>
+<h1 id="教程">教程</h1>
+<h2 id="下载与安装">下载与安装</h2>
+<p>因为一些权限因素，本插件目前没有上到chrome商店，需通过源码安装</p>
+<h3 id="下载">下载</h3>
+<p>首先到github的仓库 <a href="https://github.com/webgjc/web_robot" target="_blank" rel="noopener">https://github.com/webgjc/web_robot</a></p>
+<p>将仓库克隆到本地</p>
+<blockquote>
+<p>git clone <a href="https://github.com/webgjc/web_robot.git" target="_blank" rel="noopener">https://github.com/webgjc/web_robot.git</a></p>
+</blockquote>
+<h3 id="安装">安装</h3>
+<p>打开chrome浏览器，访问 <a href="chrome://extensions/" target="_blank" rel="noopener">chrome://extensions/</a></p>
+<p>点击开启开发者模式（右上角）</p>
+<p>加载已解压的扩展程序，选择本地的仓库代码，即可完成。</p>
+<p>完成后可关闭开发者模式。</p>
+<h2 id="事务相关操作">事务相关操作</h2>
+<p>事务在Web Robot中表示一系列浏览器操作的集合。</p>
+<p>如自动化表单填写，自动化签到，自动化去广告。</p>
+<p>配置事务/导入事务是使用插件的第一步。</p>
+<h3 id="导入事务">导入事务</h3>
+<p><img src="/img/mypost/2021/1-2.jpg" alt="image"></p>
+<p>如果有别人已经配置好的并导出的成熟事务，<br>
+或者想直接体验一下github上的演示用例<a href="https://github.com/webgjc/web_robot#%E6%BC%94%E7%A4%BA%E7%94%A8%E4%BE%8B" target="_blank" rel="noopener">Web Robot演示用例</a></p>
+<p>可以直接导入即可体验浏览器自动化的乐趣。</p>
+<p>点开插件面板，点击 导入事务</p>
+<p>复制如上面演示用例中的一长json字符串。点击确认即可。</p>
+<h3 id="新增事务">新增事务</h3>
+<p><img src="/img/mypost/2021/1-3.jpg" alt="image"></p>
+<p>如果要自己进行自定义的配置，首先第一步是新增事务。</p>
+<p>点击 新增事务，填写事务的名称（不能有重复）</p>
+<p>选择事务的类型</p>
+<ul>
+<li>流程事务：通过页面元素定义事件，支持运行，受控运行，添加看板等；</li>
+<li>并发爬虫事务：页面级的爬虫，支持并发，定时运行，数据添加看板等；</li>
+<li>源码事务：源码注入，支持自定义代码，自定义注入地址；</li>
+<li>受控事务：键盘鼠标的录制，支持录制，回放；</li>
+</ul>
+<p>选择好后 点击确认 即创建了一个空的事务。</p>
+<h3 id="重命名上移删除">重命名/上移/删除</h3>
+<p><img src="/img/mypost/2021/1-4.jpg" alt="image"></p>
+<p>一些一般性的操作</p>
+<ul>
+<li>重命名已创建的事务</li>
+</ul>
+<p>点击事务右边操作列表中的 重命名</p>
+<p>输入新的名字 确认即可。</p>
+<ul>
+<li>移动事务在列表中的上下位置</li>
+</ul>
+<p>点击上移，即可与上面一个事务交换位置</p>
+<ul>
+<li>删除事务</li>
+</ul>
+<p>点击删除，二次确认后即可删除。(删除不可复原)</p>
+<h3 id="导出事务">导出事务</h3>
+<p>如果想要讲一个已经制作完成的事务分享给别人</p>
+<p>点击导出，出现导出成功。</p>
+<p>表示已经复制到 <strong>剪切板</strong>，再其他地方直接粘贴即可。</p>
+<h2 id="本地客户端相关启动与使用">本地客户端相关，启动与使用</h2>
+<p><strong>重点：本地客户端只影响部分插件功能的使用。</strong><br>
+<strong>大部分情况下不需要用到！详情看<a href="#%E5%8F%97%E6%8E%A7%E6%A6%82%E5%BF%B5">受控概念</a>，<a href="#%E7%88%AC%E8%99%AB%E6%9C%AC%E5%9C%B0%E7%9B%B8%E5%85%B3">爬虫本地相关</a></strong></p>
+<p>为了实现浏览器插件能与本地进行<strong>数据交互</strong>，<br>
+同时在一些插件无法实现的功能（如控制键盘鼠标）上通过本地python来实现。</p>
+<p>这边写了一个简单的<strong>python web</strong>服务，插件通过 <strong>HTTP</strong> 访问接口来交互。</p>
+<h3 id="启动与使用">启动与使用</h3>
+<p><img src="/img/mypost/2021/1-5.jpg" alt="image"></p>
+<p>首先机器上需要有python3的环境，或者创建一个python3的虚拟环境。</p>
+<p>到插件仓库的跟目录</p>
+<p>有一个依赖库的文件在 <strong>py/requirements.txt</strong></p>
+<p>下载依赖</p>
+<blockquote>
+<p>pip install -r py/requirements.txt</p>
+</blockquote>
+<p>启动web服务</p>
+<blockquote>
+<p>bash <a href="http://main.sh" target="_blank" rel="noopener">main.sh</a> start</p>
+</blockquote>
+<p>或</p>
+<blockquote>
+<p>python py/web.py</p>
+</blockquote>
+<p><strong>注</strong>：main.sh中还有一些可配置操作，可用下面命令查看</p>
+<blockquote>
+<p>bash <a href="http://main.sh" target="_blank" rel="noopener">main.sh</a></p>
+</blockquote>
+<h3 id="受控概念">受控概念</h3>
+<p>插件中一直穿插一个名词受控，包括受控事务，流程事务的受控运行。</p>
+<p>这边受控表示对鼠标键盘进行控制。</p>
+<ul>
+<li>受控事务：录制鼠标键盘操作，控制鼠标键盘还原操作</li>
+<li>流程事务受控运行：流程事务是由浏览器元素定义的事件，通过控制鼠标键盘来还原事件（一般运行是通过js还原事件）</li>
+</ul>
+<p>由于Chrome插件本身不能实现这个操作，</p>
+<p>因此这边都由本地python来实现控制鼠标键盘。</p>
+<p>由此受控相关的都会用到与本地进行数据交互。</p>
+<p><strong>注</strong>：Mac中控制键鼠需要进行 <strong>安全与隐私</strong> 的配置<br>
+如用iTerm开的web服务，则需要配置 <strong>隐私 - 辅助功能 - 支持iTerm控制您的电脑</strong></p>
+<h3 id="爬虫本地相关">爬虫本地相关</h3>
+<p>具体爬虫信息可到 <a href="#%E5%B9%B6%E5%8F%91%E7%88%AC%E8%99%AB%E4%BA%8B%E5%8A%A1">并发爬虫事务</a> 查看</p>
+<p>这边由于页面爬虫在完成数据获取之后需要将数据发出去。</p>
+<p>这边是在web服务中开了一个数据接收的接口，</p>
+<p>插件爬到的数据按一定的切割数量分批次进行接口发送。</p>
+<p>web服务受到数据后，存储到本地文件，并进行整合。</p>
+<p><strong>数据存储于 /py/crawler/</strong></p>
+<h2 id="流程事务">流程事务</h2>
+<p><img src="/img/mypost/2021/1-6.jpg" alt="image"></p>
+<p>创建一个流程事务后，点击事务的名称即进入事务的详情配置页</p>
+<p>流程事务由 <strong>多个浏览器事件</strong> 组成。</p>
+<p>每个事件可以是如开关某页面，点击某元素，输入某值。</p>
+<h3 id="事件详情">事件详情</h3>
+<p><img src="/img/mypost/2021/1-7.jpg" alt="image"></p>
+<p>一个事件包含</p>
+<ul>
+<li>元素：唯一选择器；</li>
+<li>操作：点击，设值，开关页面；</li>
+<li>等待时间：与前一个事件中间间隔的时间；</li>
+<li>dom检查：由于一些元素是异步/延时创建的，开启dom检查则在运行前可以保证这个元素一定存在，否则自旋。</li>
+<li>其他一些不固定选项(一些特殊事件有)</li>
+</ul>
+<h4 id="事件操作说明">事件操作说明</h4>
+<p>click：点击某个元素</p>
+<p>value：可以在一般浏览器输入框中设值（输入需要设值的值）<br>
+如果你需要在运行前才设值这边的输入值，可以将这边设值为${value}，则在点击运行会弹出让你输入value的值</p>
+<p>mouseover：鼠标移动到上面事件</p>
+<p>refresh：刷新当前页面</p>
+<p>pagejump：当前页面跳转，需要设值页面url</p>
+<p>newpage：打开一个新页面，需要设值页面url<br>
+<strong>注</strong>：第一个事件如果是新开页面且选择在后台打开，这样整个事务都会在后台运行</p>
+<p>getvalue：取页面元素的文本，取到后保留在运行参数中，可用来后续设值，也可作为爬虫的数据。（需要设值一个取到后保存的key）<br>
+（如取到第一个页面的元素设为 title(key)，然后打卡第二个页面，设值输入框为title值，则会用刚才设值的title）</p>
+<p>getcustomvalue：取document结果，或js函数结果，用处同上。（需要设值两个，一个作为取值key，一个为表达式）<br>
+如取document.title可以取到页面的标题。</p>
+<p>closepage：关闭当前页面</p>
+<p>onlyshow：看板特殊事件操作，将当前页面只保留选择的元素，其他所有都隐藏。</p>
+<p>sendmessgae: 发送消息，默认为发送系统消息，也可以走浏览器alert消息。</p>
+<h3 id="确定唯一元素">确定唯一元素</h3>
+<p>定义页面事件的第一步都是确定一个页面元素。</p>
+<p>这边有多种方法，通用的为 <strong>一般选择器 + 第n个</strong> 来表述唯一元素(如 body&amp;0)</p>
+<h4 id="添加事件">添加事件</h4>
+<p><img src="/img/mypost/2021/1-8.jpg" alt="image"></p>
+<p>点击添加事件，进入一般选择器配置页，可配置 <strong>标签选择器</strong> 或 <strong>自由选择器</strong></p>
+<ul>
+<li>标签选择器<br>
+选择一个标签：如body，div</li>
+</ul>
+<p>然后会出现一个列表，表示页面中有多少个这样的标签。（div&amp;0，div&amp;1）</p>
+<p>鼠标移动上去后，页面会相应定位到这个元素上，并出现红色蒙版。</p>
+<p>点击确认一个想要的元素。</p>
+<p><img src="/img/mypost/2021/1-10.jpg" alt="image"></p>
+<ul>
+<li>自由选择器<br>
+选择了自由选择器，会出现一个输入框，可以自己输入想要的选择器，</li>
+</ul>
+<p>回车之后也会出现一个相同的列表，(选择器&amp;0，选择器&amp;1)</p>
+<p>鼠标移动和点击确认同上。</p>
+<h4 id="页面录制不推荐">页面录制（不推荐）</h4>
+<p>点击页面录制，这边暂时只支持单页面中的 <strong>英文设值</strong> 和 <strong>点击事件</strong>的录制。</p>
+<p>录制完成后，可以点击完成录制</p>
+<p>事件列表页会出现已经录制的所有事件。</p>
+<h4 id="页面添加事件推荐使用">页面添加事件（推荐使用）</h4>
+<p><img src="/img/mypost/2021/1-9.jpg" alt="image"></p>
+<p>打开一个页面，点击页面添加事件。</p>
+<p>然后在鼠标移回页面可以看到在移动到每个元素上时，都会出现一个粉色边框。</p>
+<p>单机之后，会出现一个列表，表示当前最子元素，和其父元素，一直到跟元素。</p>
+<p>点击选择一个想要的元素选择器</p>
+<p>进入事件配置页，进行事件的配置。</p>
+<h3 id="运行说明">运行说明</h3>
+<p><img src="/img/mypost/2021/1-11.jpg" alt="image"></p>
+<p>流程事务包含：运行，定时运行，受控运行，轮播 四种模式</p>
+<h4 id="运行">运行</h4>
+<p>采用后台运行模式，使用js和chrome接口还原事件。</p>
+<p>可直接点击运行，无其他依赖。</p>
+<h4 id="定时运行">定时运行</h4>
+<p><img src="/img/mypost/2021/1-12.jpg" alt="image"></p>
+<p>配置模式分两种：每日hh:mm，每隔n分钟</p>
+<p>如写 15:00 表示每日15点运行一次。</p>
+<p>写 5m 则表示每5分钟运行一次。</p>
+<p>运行按当天开始算。</p>
+<p>运行具体会有一些时间上的出入。</p>
+<p>运行可以配置失败重试。（失败重试有多次运行的风险）</p>
+<h4 id="受控运行">受控运行</h4>
+<p>采用控制本地鼠标键盘还原事件。（事件操作为 点击，设值）</p>
+<p>需依赖本地web服务开启。</p>
+<h4 id="轮播">轮播</h4>
+<p>运行完一次后直接进行下一次运行。</p>
+<h2 id="并发爬虫事务">并发爬虫事务</h2>
+<p><img src="/img/mypost/2021/1-13.jpg" alt="image"></p>
+<p>顾名思义这个事务要做的事情就是页面级的爬虫，适合爬一些小批量数据，同时可以突破一些反扒限制(因为就和人打开没啥区别)</p>
+<p>这边对于爬虫配置的抽象为：</p>
+<ul>
+<li>一批需要爬的地址：可以自己填，批量填，或接口获取；</li>
+<li>每个页面中需要爬的信息配置：配置一个流程事务，getvalue等的作为爬取数据事件；</li>
+<li>并发量配置：这边使用iframe实现；</li>
+<li>是否后台运行配置：后台运行则是新开chrome，并最小化的运行；</li>
+<li>发送数据/保存数据：可发送到本地接收，或就存在插件信息存储中；</li>
+</ul>
+<h3 id="配置爬虫">配置爬虫</h3>
+<p>点击爬虫事务的名称，进入爬虫配置页</p>
+<h4 id="url配置">url配置</h4>
+<p>两种配置方式</p>
+<p>可自行配置地址，一行一个，<br>
+也可直接配置成批量模式，如下的地址，则表示pn=0 到 pn=10的是个页面<br>
+<a href="https://www.baidu.com/s?wd=test&amp;pn=%7B0-10%7D" target="_blank" rel="noopener">https://www.baidu.com/s?wd=test&amp;pn={0-10}</a></p>
+<p>可从接口获取<br>
+在本地web服务这边写了一个demo。具体外部接口获取地址需要自行实现一个接口。</p>
+<p>接口调用时返回地址，如果没有了则返回空即可。</p>
+<p>兼容场景如地址上带有一些时间戳，加密字符等特殊符号</p>
+<h4 id="爬取数据配置">爬取数据配置</h4>
+<p>类似于配置流程事务，先通过一个方式选择一个唯一元素选择器。</p>
+<p>然后配置事件操作，延时，dom检查等。</p>
+<p>这边一般用getvalue，getcustomvalue事件操作。</p>
+<p>（一般可以设置延时为0，开启dom检查）</p>
+<h4 id="其他">其他</h4>
+<p>后台运行：不开启使用当前浏览器开一个新tab来爬取数据，<br>
+开启后使用新开一个chrome，并最小化来运行，并在结束后关闭。</p>
+<p>定时运行：同上流程事务定时运行</p>
+<h2 id="源码事务">源码事务</h2>
+<p><img src="/img/mypost/2021/1-14.jpg" alt="image"></p>
+<p>提供源码注入的基本实现。</p>
+<p>注：代码中可以获取document，但不能获取原页面中的js变量。</p>
+<p>另附可以自定义在哪些页面注入。</p>
+<p>同时也支持运行，定时运行，开启注入。</p>
+<h3 id="配置事务">配置事务</h3>
+<p>点击事务名称进入配置页，</p>
+<p>首先选择注入的 <strong>匹配地址</strong>，默认为全地址。</p>
+<p>然后<strong>写要注入的代码</strong>，可以使用jquery。</p>
+<p>保存后，<strong>开启注入</strong>则是生效。</p>
+<h2 id="受控事务">受控事务</h2>
+<p><img src="/img/mypost/2021/1-15.jpg" alt="image"></p>
+<p>实现了鼠标键盘的录制和还原。</p>
+<p>由本地python实现，插件提供数据交互。</p>
+<h3 id="配置事务">配置事务</h3>
+<p>点击事务名称，进入配置页</p>
+<p>首先配置要打开的网页。</p>
+<p>点击 <strong>录制操作</strong>，进入录制</p>
+<p>录制完，键盘按esc结束录制</p>
+<p>点击 <strong>受控运行</strong> 则是回放刚刚的录制</p>
+<h2 id="我的看板">我的看板</h2>
+<p><img src="/img/mypost/2021/1-16.jpg" alt="image"></p>
+<p>我的看板这边默认覆盖使用的是浏览器的新tab页。</p>
+<p>当然也可以主动关闭，使用命令</p>
+<blockquote>
+<p>bash <a href="http://main.sh" target="_blank" rel="noopener">main.sh</a> close_dashboard</p>
+</blockquote>
+<p>要在开启的话</p>
+<blockquote>
+<p>bash <a href="http://main.sh" target="_blank" rel="noopener">main.sh</a> close_dashboard</p>
+</blockquote>
+<p>目前看板包含两种内容：</p>
+<ul>
+<li>单独一个页面元素的展示；</li>
+<li>爬虫数据表格的展示；</li>
+</ul>
+<p>添加页面元素到看板，实际使用的是流程事务，<br>
+条件则为 事务的第一个事件为 <strong>当前页跳转</strong>， 最后一个事件为 <strong>元素唯一展示</strong></p>
+<p>符合条件的在主页会出现添加到看板选项。</p>
+<p>并发爬虫事务也有一个操作是添加看板，点击则可以将爬到的数据到看板以表格展示。</p>
+<h3 id="看板操作与排版">看板操作与排版</h3>
+<p><img src="/img/mypost/2021/1-18.jpg" alt="image"></p>
+<p>将鼠标移动到看板中间的最上面，会出现排版，重置操作</p>
+<p>点击排版，每块元素都会变成绿色，可以调整大小与位置，或者点击删除</p>
+<p>调整完后点击保存按钮可以保存。</p>
+<p>点击重置则会还原到最初的位置与大小。</p>
+<h3 id="简单看板模式">简单看板模式</h3>
+<p><img src="/img/mypost/2021/1-17.jpg" alt="image"></p>
+<p>在主页点击开关开启，开启简单看板模式后，就不可以自己配置事务。</p>
+<p>点击页面添加看板，就可以到页面中选择元素。</p>
+<p>同上粉色边框展示选中元素。</p>
+<p>点击确认后，选择一个选择器。</p>
+<p>选择器列表还是从 最子元素，往上的所有父元素。</p>
+<p>已到选择器上会出现红色蒙版。</p>
+<p>在点击后，则会出现确认添加到看板，</p>
+<p>确认则可以直接将这个元素添加到看板。</p>
+<p>同时也会生成一个流程事务（只是看不到）</p>
+<h1 id="演示用例">演示用例</h1>
+<p>复制下面的json字符串，走导入事务的流程即可</p>
+<h3 id="基本操作">基本操作</h3>
+<p>实现效果：打开百度，设置搜索为天气，点击搜索</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"基本操作"</span>,<span class="attr">"case_process"</span>:[&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"newpage"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"https://www.baidu.com/s?ie=UTF-8&amp;wd=test"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"value"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#kw"</span>,<span class="attr">"value"</span>:<span class="string">"天气"</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#su"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"process"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="取值事件">取值事件</h3>
+<p>实现效果：打开我的博客主页，获取标题，打开百度，搜索获取到的标题</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"取值事件用例"</span>,<span class="attr">"case_process"</span>:[&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"newpage"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"http://blog.ganjiacheng.cn/"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"HTML.macos.desktop.landscape &gt; BODY &gt; NAV.navbar.navbar-default.navbar-custom.navbar-fixed-top &gt; DIV.container-fluid &gt; DIV.navbar-header.page-scroll &gt; A.navbar-brand"</span>,<span class="attr">"value"</span>:<span class="string">"title"</span>,<span class="attr">"wait"</span>:<span class="string">"3"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"pagejump"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"https://www.baidu.com/s?ie=UTF-8&amp;wd=test"</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"value"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#kw"</span>,<span class="attr">"value"</span>:<span class="string">"title"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#su"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"process"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="百度去广告源码事务">百度去广告(源码事务)</h3>
+<p>实现效果：百度去广告</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"百度去广告"</span>,<span class="attr">"case_process"</span>:[],<span class="attr">"case_sourcecode"</span>:<span class="string">"Array.from(\n            document.querySelectorAll('#content_left&gt;div'))\n            .forEach(el =&gt; \n                /&gt;广告&lt;/.test(el.innerHTML) &amp;&amp; el.parentNode.removeChild(el)\n        );\nsetInterval(() =&gt; &#123;\n    try&#123;\n        Array.from(\n            document.querySelectorAll('#content_left&gt;div'))\n            .forEach(el =&gt; \n                /&gt;广告&lt;/.test(el.innerHTML) &amp;&amp; el.parentNode.removeChild(el)\n        )\n    &#125; catch(e)&#123;&#125;\n&#125;, 1000)\n"</span>,<span class="attr">"case_type"</span>:<span class="string">"sourcecode"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">"baidu.com.*"</span>,<span class="attr">"start_inject"</span>:<span class="literal">true</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定时喝水源码事务">定时喝水(源码事务)</h3>
+<p>实现效果：每60分钟发出alert提醒喝水</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"定时喝水"</span>,<span class="attr">"case_process"</span>:[],<span class="attr">"case_sourcecode"</span>:<span class="string">"alert(\"你该喝水咯\")"</span>,<span class="attr">"case_type"</span>:<span class="string">"sourcecode"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"last_runtime"</span>:<span class="number">1599706892179</span>,<span class="attr">"runtime"</span>:<span class="string">"60m"</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="值选择器用例">值选择器用例</h3>
+<p>实现效果：div{xx}可以选择值为xx的div标签，适用于页面元素匹配的补充</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"值选择器用例"</span>,<span class="attr">"case_process"</span>:[&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"newpage"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"http://blog.ganjiacheng.cn/"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"a&#123;About&#125;"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"a&#123;Archives&#125;"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"a&#123;Home&#125;"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"process"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="并发爬虫事务用例爬取百度搜索前10页的每页前三条结果">并发爬虫事务用例(爬取百度搜索前10页的每页前三条结果)</h3>
+<p>实现效果：爬取百度搜索test前10页的前三条标题</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"爬虫用例"</span>,<span class="attr">"case_process"</span>:[],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"paral_crawler"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"paral_crawler"</span>:&#123;<span class="attr">"api"</span>:<span class="string">"http://127.0.0.1:12580/crawler/"</span>,<span class="attr">"apicb"</span>:<span class="literal">false</span>,<span class="attr">"cc"</span>:<span class="number">5</span>,<span class="attr">"data"</span>:[],<span class="attr">"fetch"</span>:[&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">"new Date()"</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"getcustomvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"时间"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"h3"</span>,<span class="attr">"value"</span>:<span class="string">"标题1"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"1"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"h3"</span>,<span class="attr">"value"</span>:<span class="string">"标题2"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"2"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"h3"</span>,<span class="attr">"value"</span>:<span class="string">"标题3"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;],<span class="attr">"freq"</span>:<span class="number">1</span>,<span class="attr">"send"</span>:<span class="literal">false</span>,<span class="attr">"urlapi"</span>:<span class="string">"http://127.0.0.1:12580/crawler/url/"</span>,<span class="attr">"urls"</span>:[<span class="string">"https://www.baidu.com/s?wd=test&amp;pn=&#123;0-10&#125;0"</span>]&#125;,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="后台运行流程事务-消息通知用例">后台运行流程事务 + 消息通知用例</h3>
+<p>实现效果：流程事务在后台运行，打开百度，搜索天气，点击搜搜，获取到天气的框中的值，发送系统消息</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"后台运行+消息发送"</span>,<span class="attr">"case_process"</span>:[&#123;<span class="attr">"bgopen"</span>:<span class="literal">true</span>,<span class="attr">"check"</span>:<span class="literal">false</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"newpage"</span>,<span class="attr">"sysmsg"</span>:<span class="literal">false</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"https://www.baidu.com/s?ie=UTF-8&amp;wd=test"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"value"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#kw"</span>,<span class="attr">"value"</span>:<span class="string">"天气"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#su"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"bgopen"</span>:<span class="literal">false</span>,<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"DIV#content_left &gt; DIV.result-op.c-container.xpath-log &gt; DIV.op_weather4_twoicon_container_div &gt; DIV.op_weather4_twoicon &gt; A.op_weather4_twoicon_today.OP_LOG_LINK"</span>,<span class="attr">"value"</span>:<span class="string">"key"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"bgopen"</span>:<span class="literal">false</span>,<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"sendmessage"</span>,<span class="attr">"sysmsg"</span>:<span class="literal">true</span>,<span class="attr">"tag"</span>:<span class="string">"DIV#wrapper_wrapper"</span>,<span class="attr">"value"</span>:<span class="string">"天气：$&#123;key&#125;"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"process"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"fail_rerun"</span>:<span class="literal">false</span>,<span class="attr">"last_runtime"</span>:<span class="number">1611820796375</span>,<span class="attr">"runtime"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="asd">asd</h1>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/bug_review/" data-toggle="tooltip" data-placement="top" title="采坑备忘录">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/2021/article_1_2020总结-稳中求进/" data-toggle="tooltip" data-placement="top" title="2020总结 -- 稳重求进">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#前言"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x524D;&#x8A00;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#教程"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x6559;&#x7A0B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载与安装"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x4E0B;&#x8F7D;&#x4E0E;&#x5B89;&#x88C5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#下载"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">&#x4E0B;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#事务相关操作"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">&#x4E8B;&#x52A1;&#x76F8;&#x5173;&#x64CD;&#x4F5C;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#导入事务"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">&#x5BFC;&#x5165;&#x4E8B;&#x52A1;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#新增事务"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">&#x65B0;&#x589E;&#x4E8B;&#x52A1;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重命名上移删除"><span class="toc-nav-number">2.2.3.</span> <span class="toc-nav-text">&#x91CD;&#x547D;&#x540D;/&#x4E0A;&#x79FB;/&#x5220;&#x9664;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#导出事务"><span class="toc-nav-number">2.2.4.</span> <span class="toc-nav-text">&#x5BFC;&#x51FA;&#x4E8B;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#本地客户端相关启动与使用"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">&#x672C;&#x5730;&#x5BA2;&#x6237;&#x7AEF;&#x76F8;&#x5173;&#xFF0C;&#x542F;&#x52A8;&#x4E0E;&#x4F7F;&#x7528;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#启动与使用"><span class="toc-nav-number">2.3.1.</span> <span class="toc-nav-text">&#x542F;&#x52A8;&#x4E0E;&#x4F7F;&#x7528;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#受控概念"><span class="toc-nav-number">2.3.2.</span> <span class="toc-nav-text">&#x53D7;&#x63A7;&#x6982;&#x5FF5;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#爬虫本地相关"><span class="toc-nav-number">2.3.3.</span> <span class="toc-nav-text">&#x722C;&#x866B;&#x672C;&#x5730;&#x76F8;&#x5173;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#流程事务"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">&#x6D41;&#x7A0B;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#事件详情"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">&#x4E8B;&#x4EF6;&#x8BE6;&#x60C5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#事件操作说明"><span class="toc-nav-number">2.4.1.1.</span> <span class="toc-nav-text">&#x4E8B;&#x4EF6;&#x64CD;&#x4F5C;&#x8BF4;&#x660E;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#确定唯一元素"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">&#x786E;&#x5B9A;&#x552F;&#x4E00;&#x5143;&#x7D20;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#添加事件"><span class="toc-nav-number">2.4.2.1.</span> <span class="toc-nav-text">&#x6DFB;&#x52A0;&#x4E8B;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#页面录制不推荐"><span class="toc-nav-number">2.4.2.2.</span> <span class="toc-nav-text">&#x9875;&#x9762;&#x5F55;&#x5236;&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#页面添加事件推荐使用"><span class="toc-nav-number">2.4.2.3.</span> <span class="toc-nav-text">&#x9875;&#x9762;&#x6DFB;&#x52A0;&#x4E8B;&#x4EF6;&#xFF08;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#xFF09;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#运行说明"><span class="toc-nav-number">2.4.3.</span> <span class="toc-nav-text">&#x8FD0;&#x884C;&#x8BF4;&#x660E;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#运行"><span class="toc-nav-number">2.4.3.1.</span> <span class="toc-nav-text">&#x8FD0;&#x884C;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#定时运行"><span class="toc-nav-number">2.4.3.2.</span> <span class="toc-nav-text">&#x5B9A;&#x65F6;&#x8FD0;&#x884C;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#受控运行"><span class="toc-nav-number">2.4.3.3.</span> <span class="toc-nav-text">&#x53D7;&#x63A7;&#x8FD0;&#x884C;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#轮播"><span class="toc-nav-number">2.4.3.4.</span> <span class="toc-nav-text">&#x8F6E;&#x64AD;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#并发爬虫事务"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">&#x5E76;&#x53D1;&#x722C;&#x866B;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置爬虫"><span class="toc-nav-number">2.5.1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x722C;&#x866B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#url配置"><span class="toc-nav-number">2.5.1.1.</span> <span class="toc-nav-text">url&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#爬取数据配置"><span class="toc-nav-number">2.5.1.2.</span> <span class="toc-nav-text">&#x722C;&#x53D6;&#x6570;&#x636E;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#其他"><span class="toc-nav-number">2.5.1.3.</span> <span class="toc-nav-text">&#x5176;&#x4ED6;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#源码事务"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">&#x6E90;&#x7801;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置事务"><span class="toc-nav-number">2.6.1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x4E8B;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#受控事务"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">&#x53D7;&#x63A7;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置事务"><span class="toc-nav-number">2.7.1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x4E8B;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#我的看板"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">&#x6211;&#x7684;&#x770B;&#x677F;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#看板操作与排版"><span class="toc-nav-number">2.8.1.</span> <span class="toc-nav-text">&#x770B;&#x677F;&#x64CD;&#x4F5C;&#x4E0E;&#x6392;&#x7248;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#简单看板模式"><span class="toc-nav-number">2.8.2.</span> <span class="toc-nav-text">&#x7B80;&#x5355;&#x770B;&#x677F;&#x6A21;&#x5F0F;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#演示用例"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x6F14;&#x793A;&#x7528;&#x4F8B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#基本操作"><span class="toc-nav-number">3.0.1.</span> <span class="toc-nav-text">&#x57FA;&#x672C;&#x64CD;&#x4F5C;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#取值事件"><span class="toc-nav-number">3.0.2.</span> <span class="toc-nav-text">&#x53D6;&#x503C;&#x4E8B;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#百度去广告源码事务"><span class="toc-nav-number">3.0.3.</span> <span class="toc-nav-text">&#x767E;&#x5EA6;&#x53BB;&#x5E7F;&#x544A;(&#x6E90;&#x7801;&#x4E8B;&#x52A1;)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#定时喝水源码事务"><span class="toc-nav-number">3.0.4.</span> <span class="toc-nav-text">&#x5B9A;&#x65F6;&#x559D;&#x6C34;(&#x6E90;&#x7801;&#x4E8B;&#x52A1;)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#值选择器用例"><span class="toc-nav-number">3.0.5.</span> <span class="toc-nav-text">&#x503C;&#x9009;&#x62E9;&#x5668;&#x7528;&#x4F8B;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#并发爬虫事务用例爬取百度搜索前10页的每页前三条结果"><span class="toc-nav-number">3.0.6.</span> <span class="toc-nav-text">&#x5E76;&#x53D1;&#x722C;&#x866B;&#x4E8B;&#x52A1;&#x7528;&#x4F8B;(&#x722C;&#x53D6;&#x767E;&#x5EA6;&#x641C;&#x7D22;&#x524D;10&#x9875;&#x7684;&#x6BCF;&#x9875;&#x524D;&#x4E09;&#x6761;&#x7ED3;&#x679C;)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#后台运行流程事务-消息通知用例"><span class="toc-nav-number">3.0.7.</span> <span class="toc-nav-text">&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x6D41;&#x7A0B;&#x4E8B;&#x52A1; + &#x6D88;&#x606F;&#x901A;&#x77E5;&#x7528;&#x4F8B;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#asd"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">asd</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#CHROME插件" title="CHROME插件">CHROME插件</a>
+                        
+                          <a class="tag" href="/tags/#自动化" title="自动化">自动化</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>MINE</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="/article/music/music_1_音乐篇/" target="_blank">我的音乐</a></li>
+                    
+                        <li><a href="/book/" target="_blank">我的阅读</a></li>
+                    
+                        <li><a href="/article/money/money_1_理财篇/" target="_blank">我的理财</a></li>
+                    
+                        <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
+                    
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
+                </ul>
+                
+                <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+                <h5>COMMENT</h5>
+                <div id="vcomments"></div>
+                <script>
+                    new Valine({
+                        el: '#vcomments',
+                        appId: 'bd1nirzTb4YlrbE60rubD0O3-gzGzoHsz',
+                        appKey: 'HCdMhtYzjwyK8G374gLvu368',
+                        notify:false, 
+                        verify:false, 
+                        avatar:'mp', 
+                        placeholder: '来了老弟 #markdown格式',
+                        updated: () => {
+                            console.log(3)
+                        }
+                    })
+                    setTimeout(() => {
+                        document.getElementsByClassName("info")[0].style.display="none";
+                    }, 3000)
+                </script>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/webgjc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <!-- <p class="copyright text-muted">
+                    Copyright &copy; 甘家城 2021 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    
+        <!-- 不蒜子统计 -->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+            <span>
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+        </div>
+    
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ganjiacheng.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+    <!-- <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas>
+
+<script type="text/javascript">
+    var width = document.body.clientWidth;
+    var height = document.body.clientHeight-300;
+    var can = document.getElementById("canvas");
+    can.setAttribute("width",width);
+    can.setAttribute("height",height);
+    var con = can.getContext("2d");
+    var x = width*Math.random();
+    var y = height*Math.random();
+    var x = [],y = [],vx = [],vy = [];
+    var num = 80;
+    var v = 1.5;
+    for(var j=0;j<num;j++){
+        x[j] = width*Math.random();
+        y[j] = height*Math.random();
+        vx[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+        vy[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+    }
+    var draw = function(){
+        con.clearRect(0,0,width,height);
+        for(var i=0;i<num;i++){
+        con.fillStyle = "rgba(206,209,208,0.6)";
+        con.beginPath();
+        con.arc(x[i],y[i],4,0,2*Math.PI,false);
+        con.fill();	
+        }
+    };
+    var move = function(){
+        for(var k=0;k<num;k++){
+            x[k] += vx[k];
+            y[k] += vy[k];
+            if(x[k]+5>=width||x[k]<5){
+                vx[k] = -vx[k];
+            }else if(y[k]+5>=height||y[k]<5){
+                vy[k] = -vy[k];
+            }
+        }
+    };
+    var line = function(){
+        for(var i=0;i<num;i++){
+            for(var j=0;j<num;j++){
+                if(j!=i){
+                    if([Math.pow(x[i]-x[j],2)+Math.pow(y[i]-y[j],2)]>30000){
+                        continue;
+                    }
+                    con.beginPath();
+                    con.lineWidth="0.3";
+                    con.strokeStyle = "#c7c7c7";
+                    con.moveTo(x[i],y[i]);
+                    con.lineTo(x[j],y[j]);
+                    con.stroke();
+                }
+            }
+        }
+    }
+    if(width > 1000) {
+        setInterval(function(){
+            draw();
+            line();
+            move();
+        },30);
+    }
+</script> -->
+
+	<a id="rocket" href="#top" class=""></a>
+	
+<!-- Image to hack wechat -->
+<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+</html>
