@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/page/7/">
+  <link rel="canonical" href="http://ganjiacheng.cn/archives/2/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -133,11 +133,11 @@
                         
                     
                         
-                    
-                        
                         <li>
                             <a href="/archive/">Archives</a>
                         </li>
+                        
+                    
                         
                     
                         
@@ -217,31 +217,35 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_47_不会停下的setInterval/">
+    <a href="/article/2020/article_22_改版我的部分/">
         <h2 class="post-title">
             
-            不会停下的setInterval
+            改版博客我的部分
         </h2>
         <h3 class="post-subtitle">
-            
+            这是一次不大不小的改版
         </h3>
         <div class="post-content-preview">
-            关于定时器，如果把浏览器最小化或者看其他页面的时候，页面都会处于未激活状态，也就是对于chrome定时器会变1s运行一次，手机定时器则会直接暂停。
-比如运行如下代码，页面切到后台的话，定时器chrome会变一秒变一次，手机则会暂停。
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="......
+            前言
+原博客主要定位为技术博客，因此都是一些技术分享上的文章；
+本次将引入很多其他元素，博客不仅仅记录下技术上的改变，也能反映音乐，阅读，理财，生活等方面的变化，因此主目录部分还是原来的文章，在侧边栏将 FRIENDS 改为了 MINE，同时定向到了各个不同的版块；
+为了留下更多自己的足迹，为了更好的自己；
+我的音乐
+音乐主要还是平常敲代码就喜欢听纯音乐，
+听到好听的便可以记录下来。
+另外也......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-12-07
-        <span class="post-count"> 文章字数: 653</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
+        2020-08-23
+        <span class="post-count"> 文章字数: 522</span>
+        <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#其他" title="其他">其他</a>
         
     </div>
     
@@ -253,28 +257,52 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_46_swoole初试，作为一个你画我猜的websocket server/">
+    <a href="/article/2020/article_21_chrome插件-WEB-ROBOT/">
         <h2 class="post-title">
             
-            swoole初试，作为一个你画我猜的websocket server
+            chrome插件 web_robot
         </h2>
         <h3 class="post-subtitle">
-            
+            web_robot最新版教程
         </h3>
         <div class="post-content-preview">
-            swoole也是一个php比较强大的扩展，可以实现高性能的异步并发 TCP、UDP、Unix Socket、HTTP，WebSocket。这里实现一个WebSocket的server端的你画我猜。自我觉得还是踩坑之旅，生产环节用还是值得斟酌。
-安装环节这里不多叙述，linux上按这里的进行就可以，插一句修改php.ini那个只要加在第一行就行。
-然后touch一个php文件，这里命名为dra......
+            前言
+
+2020-08-23 暂停频繁的更新，等待新的 idea 出现
+
+这边是 web_robot 持续更新教程，
+对于基本的安装，导入，基础使用，请参照V1.0 版本教程
+对于 V1.0 版本以外的功能这边都会做提醒与说明,目前版本 1.8.2
+
+先看演示
+演示流程事务
+
+演示源码事务
+
+演示受控事务
+
+事务模式
+新建事务的时候可以选择三种事务
+
+流程事务
+源码事务
+受控事务
+
+流程事务......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-12-07
-        <span class="post-count"> 文章字数: 2.5k</span>
-        <span class="post-count"> 阅读时间: 16分钟</span>
+        2020-06-09
+        <span class="post-count"> 文章字数: 930</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#CHROME插件" title="CHROME插件">CHROME插件</a>
+        
+        <a href="/tags/#自动化" title="自动化">自动化</a>
         
     </div>
     
@@ -286,30 +314,37 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_45_解决各种问题集/">
+    <a href="/article/2020/article_20_hadoop-mapreduce实现矩阵乘法/">
         <h2 class="post-title">
             
-            解决各种问题集
+            利用Hadoop-MapReduce实现稀疏矩阵乘法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            python篇：
-1.windows上，在pip install xxx失败的时候怎么办？
-答：http://www.lfd.uci.edu/~gohlke/pythonlibs/到这里面寻找whl，下载之后用 pip install xxx.whl 来安装。
+            前言
+之前关于 hadoop，也就试过一个 wordcount，这次来学习一下用 mapreduce 实现矩阵乘法，体会一下里面的思路过程。
+预备
+开发环境准备
+第一次开发 MapReduce 程序可以看下这边的环境准备
+开发环境准备
+MapReduce
+关于 MapReduce 这边只用到最基础的，因此了解一下wordcount也就能知道最基础的思想。
 
-2.解决pip3报错Fatal error in launcher: Unable to create process using......
+Map 将每行数据转为 key,v......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-11-30
-        <span class="post-count"> 文章字数: 212</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2020-05-24
+        <span class="post-count"> 文章字数: 3.7k</span>
+        <span class="post-count"> 阅读时间: 24分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#HADOOP" title="HADOOP">HADOOP</a>
         
     </div>
     
@@ -321,37 +356,32 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_9_常用编程小操作/">
+    <a href="/article/2020/article_19_chrome插件-万能表格/">
         <h2 class="post-title">
             
-            常用编程小操作
+            TABLE-MAKER
         </h2>
         <h3 class="post-subtitle">
-            
+            一个万能数据表格的浏览器插件
         </h3>
         <div class="post-content-preview">
-            包括，批量重命名，待更新。。。
-1.批量重命名  changeName.py
-import os
-f=os.listdir("./")
-f.remove("changeName.py")
-j=0
-for i in f:
- os.renames(i,str(j)+".jpg")
- j+=1
-2.实现数组next并循环—js版
-(now+1)%array.length
-3.python字典自动初......
+            前言
+本次依旧发布一款浏览器插件–万能表格。
+说说为什么万能，其一，因为它可以接入任意的 GET 接口数据或其他文本(html/text…)数据来源，且无跨域限制，且一些需要 cookie 的接口或网站访问数据时也会带上 cookie。
+其二，你可以自定义列的数量和名称，自定义数据的解析到对应的列，json 解析用就直接用 key，文本解析就用正则表达式。
+其三，设置的数据来源一般是一个数据......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-11-30
-        <span class="post-count"> 文章字数: 204</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2020-05-20
+        <span class="post-count"> 文章字数: 2.4k</span>
+        <span class="post-count"> 阅读时间: 15分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#CHROME插件" title="CHROME插件">CHROME插件</a>
         
     </div>
     
@@ -363,29 +393,36 @@ for i in f:
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_44_sublime装个google翻译的package/">
+    <a href="/article/2020/article_18_chrome插件-网页自动化/">
         <h2 class="post-title">
             
-            sublime装个google翻译的package
+            WEB-ROBOT
         </h2>
         <h3 class="post-subtitle">
-            
+            一个管理网页自动化执行的chrome插件
         </h3>
         <div class="post-content-preview">
-            原以为翻译这种包package control就可以解决，还是有许多问题出现，所以记录一下。顺便了解一下sublime包文件结构，毕竟也是python写的！
-这里引用的是github上的一个google 翻译包，这是另一个人改过的，主要更新了google的api，他的原作是在这里。
-这里的操作皆为windows平台下，首先用git
-git clone https://github.com/M......
+            前言
+这边主要介绍一款个人自行开发的chrome插件 web-robot，
+这边讲解的是他的V1.0版本，
+包括它的开始设计，使用教程，实现思路和细节。
+源码的github地址是在https://github.com/webgjc/web_robot
+软件设计
+关于这个软件的初始设计定位，这边将他定位为网页自动化链路管理执行；
+类似模拟自动化测试，但不会有结果校验。
+创建事务和流程的用户主要......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-11-26
-        <span class="post-count"> 文章字数: 728</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
+        2020-05-11
+        <span class="post-count"> 文章字数: 2.3k</span>
+        <span class="post-count"> 阅读时间: 15分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#CHROME插件" title="CHROME插件">CHROME插件</a>
         
     </div>
     
@@ -397,64 +434,120 @@ git clone https://github.com/M......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_28_用node.js的socket.io实现双人五子棋对战/">
+    <a href="/article/2020/article_16_HIVE源码学习-hivehook尝试血缘解析/">
         <h2 class="post-title">
             
-            用node.js的socket.io实现双人五子棋对战
+            HIVE源码学习-hivehook尝试表血缘与字段血缘的解析
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            websocket也没啥好讲的，就一可以实现长连接的协议，其中也有三次握手之说。具体的也不去探究了，这里用node.js做后端来实现与前端js的websocket连接。并完成一个简易的联机游戏。
-首先参考这个socket.io的网址，参考get start可得到一些安装的基本步骤，这里默认已经安装好node.js以及npm，具体操作包括如下
-npm init
-npm install --sa......
+            前言
+hive在中间执行过程中留下不少钩子可以供开发者开发拓展功能，大致有如下几个
+
+
+driver run的时候
+
+
+执行计划semanticAnalyze前后
+
+
+查询放入job之前
+
+
+exec前后
+
+
+执行失败时
+
+
+下面引用一份完整的hive中hook的流程，包括相应的配置项。
+Dri......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-11-22
+        2020-05-04
+        <span class="post-count"> 文章字数: 1.2k</span>
+        <span class="post-count"> 阅读时间: 7分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_14_基于antlr4实现HQL的解析-表血缘和字段血缘/">
+        <h2 class="post-title">
+            
+            基于antlr4实现hiveSQL的解析[表血缘和字段血缘]
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+关于 HiveSQL 血缘，一般表示的就是 hive 数据仓库中所有表和字段的来源流向关系。它的解析是十分必要的，一方面数仓建表的时候有时只会定义 SQL 任务不会特别关注到任务之间的关系，对于查看的数据也不容易追溯两层以上或以下的数据来源和去向。
+有了血缘就可以对离线任务执行的先后关系作出一定规范，可以做数据来源链路的分析，数据的上卷下钻，数仓直接的数据建模等。
+实现思路
+一般来说比......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-05-02
+        <span class="post-count"> 文章字数: 2.7k</span>
+        <span class="post-count"> 阅读时间: 18分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_15_HIVE源码学习-执行计划Operators和优化Optimizers/">
+        <h2 class="post-title">
+            
+            HIVE源码学习-执行计划Operators和优化Optimizers
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            逻辑执行
+首先看下之前的总体处理流程
+Hive SQL - (Parser) -&gt; AST - (Semantic Analyze) -&gt; QB -  (Logical Plan) -&gt; Operator Tree - (Physical Plan) -&gt; Task Tree - (Physical Optim) -&gt; Task Tree主要有三大块，......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-05-02
         <span class="post-count"> 文章字数: 1.1k</span>
         <span class="post-count"> 阅读时间: 7分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_43_用python写个自动改壁纸的桌面程序/">
-        <h2 class="post-title">
-            
-            用python写个自动改壁纸的桌面程序
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            忍无可忍桌面壁纸软件的广告了，终于决定自己写个，总体逻辑上也并不复杂。
-先是随机爬取某bing站的壁纸图片，调用win32接口改桌面壁纸，之后用tk的桌面程序来获取用户输入时间间隔，最后封装成exe使得更通用，在后台运行以及加个图标。不说了，直接上代码。
-由于是python3.x，库win32api库可能下载会有问题。建议直接去这里手动下载安装。
-#coding:utf-8
-#python3......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-11-10
-        <span class="post-count"> 文章字数: 911</span>
-        <span class="post-count"> 阅读时间: 6分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
         
     </div>
     
@@ -466,28 +559,35 @@ npm install --sa......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_42_爬虫技术栈小结/">
+    <a href="/article/2020/article_13_HIVE源码学习-实现一个自定义HIVE序列化与反序列化/">
         <h2 class="post-title">
             
-            爬虫技术栈小结
+            HIVE源码学习--实现一个自定义的HIVE序列化与反序列化器
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            做了接近一个月爬虫，中间爬到数据多的爬过唯品会，dpchallenge，frilly。百度图片和1688也是取了一部分数据来。这里做一些爬虫技术总结记录，包括基本的requests使用，json，bs4，OrderedDict，下载图片，多进程以及post一个数组。
-首先，基本的爬虫以唯品会（这里以女装做示范），主要用以接口获取json数据，json解析，json格式化。
-首先获取一下他的分......
+            前言
+hive本身并不存储数据，它用的是hdfs上存储的文件，在与hdfs的文件交互读取和写入的时候需要用到序列化，
+hive有一个serde模块，其中就有很多的序列化器和反序列化器，
+
+序列化(serialize)是将导入的数据转成hadoop的Writable格式
+反序列化(deserialize)是select时将hadoop上的数据导入到内存object
+
+当然也有一部分不放在ser......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-11-05
-        <span class="post-count"> 文章字数: 947</span>
-        <span class="post-count"> 阅读时间: 6分钟</span>
+        2020-05-01
+        <span class="post-count"> 文章字数: 1.5k</span>
+        <span class="post-count"> 阅读时间: 9分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
         
     </div>
     
@@ -499,66 +599,37 @@ npm install --sa......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_41_用google的GAE部署kindle的自动推送/">
+    <a href="/article/2020/article_12_基于antlr4实现HQL的解析-格式化/">
         <h2 class="post-title">
             
-            用google的GAE部署kindle的自动推送
+            基于antlr4实现HQL的解析[格式化]
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            偶然在github看到一个kindleear，发现可以在google的gea配置推送到kindle，便来试试，这里记下最简单的几步操作。
-具体可以参考网页—https://bookfere.com/post/19.html
-首先，到google的https://console.developers.google.com/project?hl=zh-cn创建一个新项目。
-之后在https://......
+            前言
+对于一般的网页上sql查询工具都会有一个功能【格式化】，对于hql的格式化市面上没有很好的直接使用的工具。
+这边基于antlr4对hql的解析手动实现一个格式化的功能。
+设计思路
+对于一般比较固定的语句如create，show，drop，alter等采用直接对拿到节点并带格式用字符串拼接。
+对于最复杂的select，因为其中包含很多嵌套，因此这边基本的想法有两种：
+
+因为visit树节......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-10-08
-        <span class="post-count"> 文章字数: 349</span>
-        <span class="post-count"> 阅读时间: 2分钟</span>
+        2020-04-30
+        <span class="post-count"> 文章字数: 2.4k</span>
+        <span class="post-count"> 阅读时间: 15分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_40_爬进数字杭电python篇/">
-        <h2 class="post-title">
-            
-            爬进数字杭电python篇
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            上次有的php篇数字杭电模拟登陆，不过由于如今没有了验证码，可能会出点小错误，因此用python再来进进出出一遍。
-此次主要还是熟悉一下python requests的使用以及对网站cookie变化的准确捕捉。post的参数以及header也是这里的重点部分，其他还能加点简单的正则。
-具体细节在代码注释里：
-import requests
-import re
-
-#先访问一次登录网站得到lt（......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-09-06
-        <span class="post-count"> 文章字数: 486</span>
-        <span class="post-count"> 阅读时间: 3分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
         
     </div>
     
@@ -574,12 +645,12 @@ import re
     <ul class="pager">
         
         <li class="previous">
-            <a href="/page/6/">&larr; Newer Posts</a>
+            <a href="/">&larr; Newer Posts</a>
         </li>
         
         
         <li class="next">
-            <a href="/page/8/">Older Posts &rarr;</a>
+            <a href="/archives/3/">Older Posts &rarr;</a>
         </li>
         
     </ul>
@@ -693,10 +764,6 @@ import re
             
         
             
-            <a href="/tags/#总结" title="总结" rel="1">总结</a>
-            
-        
-            
             <a href="/tags/#HQL解析" title="HQL解析" rel="3">HQL解析</a>
             
         
@@ -709,7 +776,7 @@ import re
             
         
             
-            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
+            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
             
         
             
@@ -717,11 +784,11 @@ import re
             
         
             
-            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
+            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
             
         
             
-            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
+            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
             
         
             
@@ -762,6 +829,10 @@ import re
         
             
             <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
+            
+        
+            
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
             
         
     </div>
