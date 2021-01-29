@@ -133,10 +133,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
                     
                         
                     
@@ -154,6 +150,10 @@
                     
                         
                     
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -566,26 +566,30 @@ get：首先将 key 进行一样的操作，得到 index，获取数组 i......
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_25_spring略知一二/">
+    <a href="/article/2020/article_26_容器略知一二/">
         <h2 class="post-title">
             
-            Spring略知一二
+            容器略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-本文涉及 spring 的相关实现和源码解读
+本文产出关于一些容器的知识
+tomcat 总体架构
 
-...
+server:一个 tomcat 即一个 server
+service:包含多个 connector 和一个 container，一个 server 可以有多个 service
+connector:链接器，监听 socket 并交给对应 container 处理
+container:执行请求并返回响应的对象，包括 engine，ho......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
         2000-09-27
-        <span class="post-count"> 文章字数: 17</span>
+        <span class="post-count"> 文章字数: 224</span>
         <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
@@ -719,6 +723,18 @@ get：首先将 key 进行一样的操作，得到 index，获取数组 i......
     <div class="tags">
         
             
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            
+        
+            
+            <a href="/tags/#CHROME插件" title="CHROME插件" rel="7">CHROME插件</a>
+            
+        
+            
+            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
+            
+        
+            
             <a href="/tags/#OTHER" title="OTHER" rel="3">OTHER</a>
             
         
@@ -735,11 +751,7 @@ get：首先将 key 进行一样的操作，得到 index，获取数组 i......
             
         
             
-            <a href="/tags/#CHROME插件" title="CHROME插件" rel="7">CHROME插件</a>
-            
-        
-            
-            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
+            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
             
         
             
@@ -747,11 +759,7 @@ get：首先将 key 进行一样的操作，得到 index，获取数组 i......
             
         
             
-            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
-            
-        
-            
-            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
+            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
             
         
             
@@ -792,10 +800,6 @@ get：首先将 key 进行一样的操作，得到 index，获取数组 i......
         
             
             <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
-            
-        
-            
-            <a href="/tags/#总结" title="总结" rel="1">总结</a>
             
         
     </div>
