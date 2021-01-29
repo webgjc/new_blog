@@ -204,7 +204,8 @@ refresh：刷新当前页面
 
 pagejump：当前页面跳转，需要设值页面url
 
-newpage：打开一个新页面，需要设值页面url
+newpage：打开一个新页面，需要设值页面url  
+**注**：第一个事件如果是新开页面且选择在后台打开，这样整个事务都会在后台运行
 
 getvalue：取页面元素的文本，取到后保留在运行参数中，可用来后续设值，也可作为爬虫的数据。（需要设值一个取到后保存的key）
 （如取到第一个页面的元素设为 title(key)，然后打卡第二个页面，设值输入框为title值，则会用刚才设值的title）
@@ -216,8 +217,9 @@ closepage：关闭当前页面
 
 onlyshow：看板特殊事件操作，将当前页面只保留选择的元素，其他所有都隐藏。
 
-### 确定唯一元素
+sendmessgae: 发送消息，默认为发送系统消息，也可以走浏览器alert消息。
 
+### 确定唯一元素
 
 定义页面事件的第一步都是确定一个页面元素。
 
@@ -455,3 +457,53 @@ https://www.baidu.com/s?wd=test&pn={0-10}
 确认则可以直接将这个元素添加到看板。
 
 同时也会生成一个流程事务（只是看不到）
+
+
+# 演示用例
+
+复制下面的json字符串，走导入事务的流程即可
+
+### 基本操作
+实现效果：打开百度，设置搜索为天气，点击搜索
+```json
+{"case_name":"基本操作","case_process":[{"n":"0","opera":"newpage","tag":"body","value":"https://www.baidu.com/s?ie=UTF-8&wd=test","wait":"1"},{"n":"0","opera":"value","tag":"INPUT#kw","value":"天气","wait":"2"},{"n":"0","opera":"click","tag":"INPUT#su","value":"","wait":"1"}],"case_sourcecode":"","case_type":"process","control_url":"","sourcecode_url":".*"}
+```
+
+### 取值事件
+实现效果：打开我的博客主页，获取标题，打开百度，搜索获取到的标题
+```json
+{"case_name":"取值事件用例","case_process":[{"n":"0","opera":"newpage","tag":"body","value":"http://blog.ganjiacheng.cn/","wait":"1"},{"n":"0","opera":"getvalue","tag":"HTML.macos.desktop.landscape > BODY > NAV.navbar.navbar-default.navbar-custom.navbar-fixed-top > DIV.container-fluid > DIV.navbar-header.page-scroll > A.navbar-brand","value":"title","wait":"3"},{"n":"0","opera":"pagejump","tag":"body","value":"https://www.baidu.com/s?ie=UTF-8&wd=test","wait":"2"},{"n":"0","opera":"value","tag":"INPUT#kw","value":"title","wait":"1"},{"n":"0","opera":"click","tag":"INPUT#su","value":"","wait":"1"}],"case_sourcecode":"","case_type":"process","control_url":"","sourcecode_url":".*"}
+```
+
+### 百度去广告(源码事务)
+实现效果：百度去广告
+```json
+{"case_name":"百度去广告","case_process":[],"case_sourcecode":"Array.from(\n            document.querySelectorAll('#content_left>div'))\n            .forEach(el => \n                />广告</.test(el.innerHTML) && el.parentNode.removeChild(el)\n        );\nsetInterval(() => {\n    try{\n        Array.from(\n            document.querySelectorAll('#content_left>div'))\n            .forEach(el => \n                />广告</.test(el.innerHTML) && el.parentNode.removeChild(el)\n        )\n    } catch(e){}\n}, 1000)\n","case_type":"sourcecode","control_url":"","sourcecode_url":"baidu.com.*","start_inject":true}
+```
+
+### 定时喝水(源码事务)
+实现效果：每60分钟发出alert提醒喝水
+```json
+{"case_name":"定时喝水","case_process":[],"case_sourcecode":"alert(\"你该喝水咯\")","case_type":"sourcecode","control_url":"","last_runtime":1599706892179,"runtime":"60m","sourcecode_url":".*"}
+```
+
+### 值选择器用例
+实现效果：div{xx}可以选择值为xx的div标签，适用于页面元素匹配的补充
+```json
+{"case_name":"值选择器用例","case_process":[{"n":"0","opera":"newpage","tag":"body","value":"http://blog.ganjiacheng.cn/","wait":"1"},{"n":"0","opera":"click","tag":"a{About}","value":"","wait":"2"},{"n":"0","opera":"click","tag":"a{Archives}","value":"","wait":"2"},{"n":"0","opera":"click","tag":"a{Home}","value":"","wait":"2"}],"case_sourcecode":"","case_type":"process","control_url":"","sourcecode_url":".*"}
+```
+
+### 并发爬虫事务用例(爬取百度搜索前10页的每页前三条结果)
+实现效果：爬取百度搜索test前10页的前三条标题
+```json
+{"case_name":"爬虫用例","case_process":[],"case_sourcecode":"","case_type":"paral_crawler","control_url":"","paral_crawler":{"api":"http://127.0.0.1:12580/crawler/","apicb":false,"cc":5,"data":[],"fetch":[{"check":true,"expr":"new Date()","n":"0","opera":"getcustomvalue","tag":"body","value":"时间","wait":"0"},{"check":true,"expr":"","n":"0","opera":"getvalue","tag":"h3","value":"标题1","wait":"0"},{"check":true,"expr":"","n":"1","opera":"getvalue","tag":"h3","value":"标题2","wait":"0"},{"check":true,"expr":"","n":"2","opera":"getvalue","tag":"h3","value":"标题3","wait":"0"}],"freq":1,"send":false,"urlapi":"http://127.0.0.1:12580/crawler/url/","urls":["https://www.baidu.com/s?wd=test&pn={0-10}0"]},"sourcecode_url":".*"}
+```
+
+### 后台运行流程事务 + 消息通知用例
+实现效果：流程事务在后台运行，打开百度，搜索天气，点击搜搜，获取到天气的框中的值，发送系统消息
+```json
+{"case_name":"后台运行+消息发送","case_process":[{"bgopen":true,"check":false,"expr":"","n":"0","opera":"newpage","sysmsg":false,"tag":"body","value":"https://www.baidu.com/s?ie=UTF-8&wd=test","wait":"0"},{"check":true,"expr":"","n":"0","opera":"value","tag":"INPUT#kw","value":"天气","wait":"0"},{"check":true,"expr":"","n":"0","opera":"click","tag":"INPUT#su","value":"","wait":"0"},{"bgopen":false,"check":true,"expr":"","n":"0","opera":"getvalue","tag":"DIV#content_left > DIV.result-op.c-container.xpath-log > DIV.op_weather4_twoicon_container_div > DIV.op_weather4_twoicon > A.op_weather4_twoicon_today.OP_LOG_LINK","value":"key","wait":"1"},{"bgopen":false,"check":true,"expr":"","n":"0","opera":"sendmessage","sysmsg":true,"tag":"DIV#wrapper_wrapper","value":"天气：${key}","wait":"0"}],"case_sourcecode":"","case_type":"process","control_url":"","fail_rerun":false,"last_runtime":1611820796375,"runtime":"","sourcecode_url":".*"}
+```
+
+
+# asd

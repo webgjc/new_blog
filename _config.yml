@@ -87,6 +87,7 @@ friends:
         { "href": "/book/", "title": "我的阅读" },
         { "href": "/article/money/money_1_理财篇/", "title": "我的理财" },
         { "href": "/article/life/life_1_生活篇/", "title": "我的生活" },
+        { "href": "/article/bug_review/", "title": "采坑备忘录" },
     ]
 
 #Custom Setting End
