@@ -54,7 +54,13 @@ header-img:
     .then(res => res.json())
     .then(data => {
         let codemap = {};
-        data.forEach(d => codemap[d["fund_name"]] = d["fund_code"]);
+        let now = new Date();
+        now.setFullYear(new Date().getFullYear()-1);
+        data.forEach(d => {
+            if(new Date(d["datetime"]) > now) {
+                codemap[d["fund_name"]] = d["fund_code"];
+            }
+        });
         let codes = Object.keys(codemap);
         scode.innerHTML = codes
         .map(name => `<option value=${codemap[name]}>${name}</option>`)
