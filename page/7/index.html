@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/archives/5/">
+  <link rel="canonical" href="http://ganjiacheng.cn/page/7/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -133,6 +133,12 @@
                         
                     
                         
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
                     
                         
                     
@@ -148,12 +154,6 @@
                     
                         
                     
-                        
-                    
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
                         
                     
                         
@@ -217,26 +217,96 @@
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_21_svm的一些理解---《机器学习》周志华/">
+    <a href="/article/2017/article_47_不会停下的setInterval/">
         <h2 class="post-title">
             
-            svm的一些理解---《机器学习》周志华
+            不会停下的setInterval
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            svm的一些笔记，自己的一些见解，挑了自己能看懂的部分，点击看原图。
-
-
-...
+            关于定时器，如果把浏览器最小化或者看其他页面的时候，页面都会处于未激活状态，也就是对于chrome定时器会变1s运行一次，手机定时器则会直接暂停。
+比如运行如下代码，页面切到后台的话，定时器chrome会变一秒变一次，手机则会暂停。
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-05-12
-        <span class="post-count"> 文章字数: 28</span>
+        2017-12-07
+        <span class="post-count"> 文章字数: 653</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_46_swoole初试，作为一个你画我猜的websocket server/">
+        <h2 class="post-title">
+            
+            swoole初试，作为一个你画我猜的websocket server
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            swoole也是一个php比较强大的扩展，可以实现高性能的异步并发 TCP、UDP、Unix Socket、HTTP，WebSocket。这里实现一个WebSocket的server端的你画我猜。自我觉得还是踩坑之旅，生产环节用还是值得斟酌。
+安装环节这里不多叙述，linux上按这里的进行就可以，插一句修改php.ini那个只要加在第一行就行。
+然后touch一个php文件，这里命名为dra......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-12-07
+        <span class="post-count"> 文章字数: 2.5k</span>
+        <span class="post-count"> 阅读时间: 16分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_45_解决各种问题集/">
+        <h2 class="post-title">
+            
+            解决各种问题集
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            python篇：
+1.windows上，在pip install xxx失败的时候怎么办？
+答：http://www.lfd.uci.edu/~gohlke/pythonlibs/到这里面寻找whl，下载之后用 pip install xxx.whl 来安装。
+
+2.解决pip3报错Fatal error in launcher: Unable to create process using......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-11-30
+        <span class="post-count"> 文章字数: 212</span>
         <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
@@ -251,32 +321,35 @@
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_19_练手c语言算法二/">
+    <a href="/article/2017/article_9_常用编程小操作/">
         <h2 class="post-title">
             
-            练手c语言算法二
+            常用编程小操作
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            大华2018软件挑战赛，这里是后五题。
-6.视频编解码。16进制的数存储，加些简单的判断（开头判断，结尾判断，中间舍去部分判断）。
-#include "stdio.h"
-
-int main(){
-    int T,k,x=0,y=0,tmp=0;
-    scanf("%d",&amp;T);
-    int res[],ns[T];
-    for(k=0;k&lt;T;k++......
+            包括，批量重命名，待更新。。。
+1.批量重命名  changeName.py
+import os
+f=os.listdir("./")
+f.remove("changeName.py")
+j=0
+for i in f:
+ os.renames(i,str(j)+".jpg")
+ j+=1
+2.实现数组next并循环—js版
+(now+1)%array.length
+3.python字典自动初......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-05-06
-        <span class="post-count"> 文章字数: 892</span>
-        <span class="post-count"> 阅读时间: 5分钟</span>
+        2017-11-30
+        <span class="post-count"> 文章字数: 204</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
         
@@ -290,31 +363,27 @@ int main(){
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_18_练手c语言算法一/">
+    <a href="/article/2017/article_44_sublime装个google翻译的package/">
         <h2 class="post-title">
             
-            练手c语言算法一
+            sublime装个google翻译的package
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            大华2018年软件挑战赛初赛题
-初赛　十道题，题目此在，主要讲讲自己的思路，这里是前五题。
-１.不相邻最大子序和。不相邻所以奇偶分开写状态转移，然后取两者较大值。类似于leetcode中house robber。
-#include "stdio.h"
-#define max(a,b) ((a)&gt;(b)?(a):(b))
-
-int calc(int *nums,int n){
-    i......
+            原以为翻译这种包package control就可以解决，还是有许多问题出现，所以记录一下。顺便了解一下sublime包文件结构，毕竟也是python写的！
+这里引用的是github上的一个google 翻译包，这是另一个人改过的，主要更新了google的api，他的原作是在这里。
+这里的操作皆为windows平台下，首先用git
+git clone https://github.com/M......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-05-06
-        <span class="post-count"> 文章字数: 1.8k</span>
-        <span class="post-count"> 阅读时间: 11分钟</span>
+        2017-11-26
+        <span class="post-count"> 文章字数: 728</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
     </p>
     <div class="tags">
         
@@ -328,104 +397,25 @@ int calc(int *nums,int n){
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_17_整理下二叉树/">
+    <a href="/article/2017/article_28_用node.js的socket.io实现双人五子棋对战/">
         <h2 class="post-title">
             
-            整理下二叉树
+            用node.js的socket.io实现双人五子棋对战
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            在leetcode遇到二叉树就卡机，恶补下这种数据结构，想想都难。
-首先是节点构建和插入，这里的插入形式用来下面排序，小的在左，大的在右。
-class Node():
-    def __init__(self, val=None, left= None, right=None):
-        self.val = val
-        self.left = left
-       ......
+            websocket也没啥好讲的，就一可以实现长连接的协议，其中也有三次握手之说。具体的也不去探究了，这里用node.js做后端来实现与前端js的websocket连接。并完成一个简易的联机游戏。
+首先参考这个socket.io的网址，参考get start可得到一些安装的基本步骤，这里默认已经安装好node.js以及npm，具体操作包括如下
+npm init
+npm install --sa......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-04-22
-        <span class="post-count"> 文章字数: 851</span>
-        <span class="post-count"> 阅读时间: 5分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_15_手搓一个kmeans聚类/">
-        <h2 class="post-title">
-            
-            手搓一个kmeans聚类
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            起意是在看一些招聘算法机器学习面经的时候有看到好几次让直接写一个kmeans。之前用sklearn试过这个聚类算法，这次也来手写实现一下。
-import random
-import matplotlib.pyplot as plt
-
-#生成点
-def make_points():
-    points = []
-    for i in range(100):
-        points.......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-04-11
-        <span class="post-count"> 文章字数: 365</span>
-        <span class="post-count"> 阅读时间: 2分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_14_手持弹幕效果--网页版/">
-        <h2 class="post-title">
-            
-            手持弹幕效果--网页版
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            看到抖音上手持弹幕的效果，想想应该不复杂，也可以自己在浏览器实现一个。主要问题在于怎么把浏览器上面的搜索框去掉而实现一种伪全屏。结尾有彩蛋。
-效果暂时可以在https://ganjiacheng.cn/danmu.html 查看。
-直接上代码，在其中论述方法。
- &lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-04-06
+        2017-11-22
         <span class="post-count"> 文章字数: 1.1k</span>
         <span class="post-count"> 阅读时间: 7分钟</span>
     </p>
@@ -441,102 +431,28 @@ def make_points():
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_13_沉迷深搜，来做个解数独的/">
+    <a href="/article/2017/article_43_用python写个自动改壁纸的桌面程序/">
         <h2 class="post-title">
             
-            沉迷深搜，来做个解数独的
+            用python写个自动改壁纸的桌面程序
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            还记得以前高中默默盯着数独的能看半天，然后还一个个凑，这回来彻底解决一下这个问题。顺便理清一下深度优先搜索的设计流程。
-首先数独规则自行了解，这里做最基础的9宫格数独。
-拿到数独题，分一部分已知点和一部分未知点，未知点的状态是有限的，每个点都不能与横竖加九宫格内的数重复，因此可以根据这个遍历所有状态。
-深度优先搜索设计
-for 上一个点的可用状态：
-    尝试下点
-    进入下一个点（递......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-04-02
-        <span class="post-count"> 文章字数: 710</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_11_聊聊深度优先搜索算法及应用/">
-        <h2 class="post-title">
-            
-            聊聊深度优先搜索算法及应用
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            之前看算法书对于深搜一直是一个坎，有点难以理解或者理解了一些但没法下手写，这回来重新探讨一下个人目前的理解及解决方案。文章从全排入手，到解决八皇后，和尚妖怪过河等问题。
-首先，看一个全排序，传入一个数组（其中有n个可不等长的数组），得到的结果是其中每个数组取一个数组成的新数组的集合，如下
-result=[0]*3
-arr=[[1,2,3],[4,5],[7,8,9]]
-res=[]
-#算法部......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2018-03-31
-        <span class="post-count"> 文章字数: 1.5k</span>
-        <span class="post-count"> 阅读时间: 9分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2018/article_12_爬虫--钢琴曲谱/">
-        <h2 class="post-title">
-            
-            爬虫--钢琴曲谱
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            最近学钢琴，也经常会用到曲谱，但网上大多数曲谱不清晰，或者清晰的要vip。因此研究下某曲谱网站，进行爬取vip才能下载的曲谱并组合为pdf。
-可以在http://123.206.217.190:8888试用效果
-下面的是python3.x代码，在window可直接本地运行，在linux做一些注释中的修改。
+            忍无可忍桌面壁纸软件的广告了，终于决定自己写个，总体逻辑上也并不复杂。
+先是随机爬取某bing站的壁纸图片，调用win32接口改桌面壁纸，之后用tk的桌面程序来获取用户输入时间间隔，最后封装成exe使得更通用，在后台运行以及加个图标。不说了，直接上代码。
+由于是python3.x，库win32api库可能下载会有问题。建议直接去这里手动下载安装。
 #coding:utf-8
-import requests
-from bs4 impo......
+#python3......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-03-29
-        <span class="post-count"> 文章字数: 457</span>
-        <span class="post-count"> 阅读时间: 3分钟</span>
+        2017-11-10
+        <span class="post-count"> 文章字数: 911</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
     </p>
     <div class="tags">
         
@@ -550,29 +466,97 @@ from bs4 impo......
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_10_在线接口测试及生成文档/">
+    <a href="/article/2017/article_42_爬虫技术栈小结/">
         <h2 class="post-title">
             
-            在线接口测试及生成文档
+            爬虫技术栈小结
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            由于每次更改后端接口都要经过测试，然后又要去修改接口文档，就想着能不能整合这两步，为了自己能灵活修改，便自己来写个。
-https://github.com/webgjc/ApiTestToMd
-这次的代码有点多，就不直接展示了，放在github上，也可方便下载使用。
- 
-写写思路及主要用到的工具：
-后端使用flask框架，requests作为接口测试，增加了百度翻译api作为参数翻译，另外写......
+            做了接近一个月爬虫，中间爬到数据多的爬过唯品会，dpchallenge，frilly。百度图片和1688也是取了一部分数据来。这里做一些爬虫技术总结记录，包括基本的requests使用，json，bs4，OrderedDict，下载图片，多进程以及post一个数组。
+首先，基本的爬虫以唯品会（这里以女装做示范），主要用以接口获取json数据，json解析，json格式化。
+首先获取一下他的分......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-03-14
-        <span class="post-count"> 文章字数: 341</span>
+        2017-11-05
+        <span class="post-count"> 文章字数: 947</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_41_用google的GAE部署kindle的自动推送/">
+        <h2 class="post-title">
+            
+            用google的GAE部署kindle的自动推送
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            偶然在github看到一个kindleear，发现可以在google的gea配置推送到kindle，便来试试，这里记下最简单的几步操作。
+具体可以参考网页—https://bookfere.com/post/19.html
+首先，到google的https://console.developers.google.com/project?hl=zh-cn创建一个新项目。
+之后在https://......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-10-08
+        <span class="post-count"> 文章字数: 349</span>
         <span class="post-count"> 阅读时间: 2分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_40_爬进数字杭电python篇/">
+        <h2 class="post-title">
+            
+            爬进数字杭电python篇
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            上次有的php篇数字杭电模拟登陆，不过由于如今没有了验证码，可能会出点小错误，因此用python再来进进出出一遍。
+此次主要还是熟悉一下python requests的使用以及对网站cookie变化的准确捕捉。post的参数以及header也是这里的重点部分，其他还能加点简单的正则。
+具体细节在代码注释里：
+import requests
+import re
+
+#先访问一次登录网站得到lt（......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-09-06
+        <span class="post-count"> 文章字数: 486</span>
+        <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
         
@@ -590,12 +574,12 @@ https://github.com/webgjc/ApiTestToMd
     <ul class="pager">
         
         <li class="previous">
-            <a href="/archives/4/">&larr; Newer Posts</a>
+            <a href="/page/6/">&larr; Newer Posts</a>
         </li>
         
         
         <li class="next">
-            <a href="/archives/6/">Older Posts &rarr;</a>
+            <a href="/page/8/">Older Posts &rarr;</a>
         </li>
         
     </ul>
@@ -701,6 +685,10 @@ https://github.com/webgjc/ApiTestToMd
     <div class="tags">
         
             
+            <a href="/tags/#OTHER" title="OTHER" rel="3">OTHER</a>
+            
+        
+            
             <a href="/tags/#总结" title="总结" rel="1">总结</a>
             
         
@@ -710,10 +698,6 @@ https://github.com/webgjc/ApiTestToMd
         
             
             <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
-            
-        
-            
-            <a href="/tags/#OTHER" title="OTHER" rel="3">OTHER</a>
             
         
             

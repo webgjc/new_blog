@@ -66,25 +66,28 @@ for i in data:
 # print(fundcode)
 
 date_list = []
-zhishu_data = req.get("http://push2his.eastmoney.com/api/qt/stock/kline/get?"
-        "secid=1.000001&ut=fa5fd1943c7b386f172d6893dbfba10b&fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5&"
-        "fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58&klt=101&fqt=0&beg=19900101&end=20220101").json()
+tmp = req.get("http://push2his.eastmoney.com/api/qt/stock/kline/get?cb=jQuery112407444039735425554_1612348798572&secid=1.000001&ut=fa5fd1943c7b386f172d6893dbfba10b&fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58&klt=101&fqt=0&beg=19900101&end=20220101&_=1612348798573")
+# print(re.search("798572(.*?)", tmp.text).group(1)[1:-1][10:])
+zhishu_data = json.loads(re.search("798572(.*?);", tmp.text).group(1)[1:-1])
+# zhishu_data = req.get("http://push2his.eastmoney.com/api/qt/stock/kline/get?cb=jQuery112407444039735425554_1612348798572&secid=1.000001&ut=fa5fd1943c7b386f172d6893dbfba10b&fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58&klt=101&fqt=0&beg=19900101&end=20220101&_=1612348798573").json()
 for i in zhishu_data["data"]["klines"]:
     date_list.append(i.split(",")[0])
 
-
 result = []
-fund_data = pd.read_csv("./funddata/alipay_record_20200829_1144_1.csv")
+fund_data = pd.read_csv("./alipay_record_20210203_1253_1.csv")
 columns = fund_data.columns
 unfund_names = set()
 for index, row in fund_data.iterrows():
+    # print(index, row)
+    # print(row[columns[9]])
+    # break
     if row[columns[0]].startswith("20"):
         fund_tmp = row[columns[8]].split("-")
         if len(fund_tmp) == 3:
             money_tmp = 0
-            if row[columns[10]].strip() == "收入":
+            if "卖出" in fund_tmp[2]:
                 money_tmp = str(-float(row[columns[9]]))
-            if row[columns[10]].strip() == "支出":
+            if "买入" in fund_tmp[2]:
                 money_tmp = row[columns[9]]
             fund_tmp[1] = fund_tmp[1].strip()
 
@@ -111,6 +114,7 @@ for index, row in fund_data.iterrows():
 # print(result)
 print("未确认基金代码:", unfund_names)
 # print(fund_name_code_map)
+print(result)
 
 # 矫正时间数据
 use_date_list = []

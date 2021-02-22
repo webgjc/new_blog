@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/archives/11/">
+  <link rel="canonical" href="http://ganjiacheng.cn/page/6/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -133,6 +133,12 @@
                         
                     
                         
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
                     
                         
                     
@@ -148,12 +154,6 @@
                     
                         
                     
-                        
-                    
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
                         
                     
                         
@@ -217,26 +217,31 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_7_前端回忆录---上篇/">
+    <a href="/article/2018/article_9_庆祝博客一周年！！/">
         <h2 class="post-title">
             
-            前端回忆录---上篇
+            庆祝博客一周年！！
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            前端起家，而最终还是没留在这块‘宝地’，虽然火，但也不和大波人抢饭吃啦！！
-记载回忆篇教程—'老年人’的理解（这里不讲教程，而是整个的学习过程）
-一款好的文本编辑器是必须先入手的，sublime是我一直在用且功能强大的文本编辑器，软件自寻，装好之后装一些插件,在工具栏Preference-&gt;Browse Packdges先安装包，之后Preference-&gt;Packdge Con......
+            博客不知不觉已经一周年咯。
+一年写了50+篇文章，coding也基本未间断。
+在去年还未知的技术走向今年也将看到沉淀。
+这次主要将要完成一个的一个事情便是 将博客已有的一些技术和代码较为完善的转存到github上。
+一方面是收集零散的片段，另一方面是整理注释代码。
+为以后做简单的借鉴与留念。
+github地址是https://github.com/webgjc/blog
+...
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-11
-        <span class="post-count"> 文章字数: 3k</span>
-        <span class="post-count"> 阅读时间: 19分钟</span>
+        2018-03-09
+        <span class="post-count"> 文章字数: 128</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
         
@@ -250,34 +255,31 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_6_leetcode解题篇Python法1-5题/">
+    <a href="/article/2018/article_8_扫雷js版/">
         <h2 class="post-title">
             
-            leetcode解题篇Python法1-5题
+            扫雷js版
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            具体详细题目请到https://leetcode.com/problemset/algorithms/查看
-之下解法都属第一思路，大可改进。
-悄悄自问一句：今天ac了吗？
-
-Two Sum
-
-class Solution(object):
-    def twoSum(self, nums, target):
-    l=len(nums)
-    for i in xrange(l):
- ......
+            是老早之前写的，今天整理系统文件发现了这个扫雷，也是小惊喜，小看了下还挺有趣哈！
+直接上代码，具体在代码中注释。
+主要看点有两块，一个是从n个整数随机产生不重复的m个随机整数,m&lt;n
+另一个就是自动搜寻周边不是雷的区域，也就是点了一个不是雷有时会显现一大片。
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &l......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-10
-        <span class="post-count"> 文章字数: 417</span>
-        <span class="post-count"> 阅读时间: 2分钟</span>
+        2018-02-27
+        <span class="post-count"> 文章字数: 1.1k</span>
+        <span class="post-count"> 阅读时间: 7分钟</span>
     </p>
     <div class="tags">
         
@@ -291,28 +293,66 @@ class Solution(object):
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_5_KNN实现手写数字0-9识别/">
+    <a href="/article/2018/article_7_node+express+mongodb初试/">
         <h2 class="post-title">
             
-            KNN实现手写数字0-9识别
+            node+express+mongodb初试
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            KNN：我的简单理解为计算各个点到原点的距离，对于于样本数据以相差远近排序，取前面K个，属于哪个类别比较多的就当做最后分类，样本越多就越精确。
-举个栗子：样本点：[a,b,c,d,e,f]，类别：[1,2,3,2,3,5]，假定a-f分别为相差从近到远；
-如果K取1，那分类结果属于1，如果K取值为4，拿结果便为2。
-废话不多说直接上代码：
-//KNN分类的主程序
-from numpy imp......
+            新尝试另一个语言node.js和框架express，记录一些基本的操作与技巧。
+此次最大的不同是node.js是异步的，有些操作就不那么直观。
+这里在linux centos做测试。前提先安装好node.js和npm。
+这里也类似上次flask完成一个登陆与增删改操作的接口。
+先用命令行直接生成一个项目
+npm install express-generator -g
+express --v......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-09
-        <span class="post-count"> 文章字数: 461</span>
+        2018-02-26
+        <span class="post-count"> 文章字数: 1.2k</span>
+        <span class="post-count"> 阅读时间: 7分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2018/article_6_Python一个人机聊天的应用/">
+        <h2 class="post-title">
+            
+            Python一个人机聊天的应用
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            在上次tts的基础上，这次来完成一个完整的聊天应用。流程为记录音频–读取音频–语音识别（使用百度api）–文本对话（使用图灵机器人api）–tts。
+其余的就直接在代码中解释：
+#python3.x
+#aip是百度语言识别AI库，可以到百度免费使用
+from pyaudio import PyAudio,paInt16
+import numpy as np
+from datetime imp......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2018-02-13
+        <span class="post-count"> 文章字数: 578</span>
         <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
@@ -327,31 +367,27 @@ from numpy imp......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_4_数字杭电的模拟登陆(带验证码)/">
+    <a href="/article/2018/article_5_用python完成文本转音频(tts)/">
         <h2 class="post-title">
             
-            数字杭电的模拟登陆(带验证码)
+            用python完成文本转音频(tts)
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            对于一个学生，研究学校网站还是比较有趣滴！
-Talk is cheap！Then I show the code.
-下面是用php的实现，具体细节在注释里讲解
-//登录之前先获取cookie及lt(一次性使用，lt很关键)
-function GetCookie(){
-    //cookie的地址
-    $cookie=dirname(__FILE__).'/cookie.txt';
-  ......
+            用 python完成tts的话一般会用pyttsx库，但一般pip下载的话会有各种报错。所以这里找了实际试了可用的github上几个改编的库。
+对于python3.x版本，选择 https://github.com/jpercent/pyttsx ，来完成tts，但python3版本的目前还没发现有保存为音频文件的，只能直接发出声音。代码如下：
+import pyttsx
+engine = ......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-08
-        <span class="post-count"> 文章字数: 619</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
+        2018-02-07
+        <span class="post-count"> 文章字数: 354</span>
+        <span class="post-count"> 阅读时间: 2分钟</span>
     </p>
     <div class="tags">
         
@@ -365,31 +401,26 @@ function GetCookie(){
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_3_简单线性回归---学习篇/">
+    <a href="/article/2018/article_4_宽客初探---策略之旅/">
         <h2 class="post-title">
             
-            简单线性回归---学习篇
+            宽客初探---策略之旅
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            先讲回归这个概念，我的理解：如果是二维平面里，指根据现有的点拟合出直线，在用直线做分析与预测。
-简单线性回归便是全部的点都在一类之下。拟合出直线用于发现其中的关系。
-logistic回归是在两类里做分类，完成训练后，拟合出的直线一边各一类，新来的点就可以很轻易的分类。
-softmax回归便是多分类。
-这是简单线性回归的一般公式：
-然后用python进行了尝试
-#python2.7
-impor......
+            既然已经接触了股票类金融，便也尝试一下宽客的滋味，至少python编程还是在的，在聚宽创了个号，了解基本的几个股票概念，便开始实践。
+看了很多知乎，雪球大v的文章，了解到量化大多也是条充满荆棘的道路，然而这种路走多了好像也习惯了，（绝望多了也享受绝望的感觉了）&lt;-这种feeling很奇妙。不试试咋么知道呢，反正还没到头脑发热的程度，大不了重头再来呗。
+家里人谈股色变，但好像我没咋受影响......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-07
-        <span class="post-count"> 文章字数: 296</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2018-01-31
+        <span class="post-count"> 文章字数: 980</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
     </p>
     <div class="tags">
         
@@ -403,29 +434,25 @@ impor......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_2_搭建wordpress个人博客/">
+    <a href="/article/2018/article_3_蒙特卡洛树搜索(mcts)实践--还是五子棋吧/">
         <h2 class="post-title">
             
-            搭建wordpress个人博客
+            蒙特卡洛树搜索(mcts)实践--还是五子棋吧
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            试着写blog啦，用以分享，记录技术和生活！
-本人年方21，前端起家，在向后端的php和python前进。
-本次就从安装wordpress说起：
-注：环境：云服务器+lnmp+域名。
-1.先从官网https://cn.wordpress.org/releases/找了最新版本4.7.2，之后解压，复制到服务器上，打开对应域名+路径就有了。
-2.在配置mysql数据库，用户名和密码。就可以生成......
+            看AlphaZero的时候看到这个mcts，因为需要用他来产生棋局进行训练。比较神奇，就小小探究一下。这边做一个五子棋mcts AI。
+mcts按我目前的理解也就是在目前的情况下（根节点），随机产生下一步的节点，之后进行随机模拟至产生一个结果，把结果反馈于当前节点与之前的节点，这样模拟n次以后，得到根节点的下一步的各个节点的A/B，A为结果获胜的次数，B为访问次数。用公式计算就可以得到各个节......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-06
-        <span class="post-count"> 文章字数: 243</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2018-01-26
+        <span class="post-count"> 文章字数: 1.6k</span>
+        <span class="post-count"> 阅读时间: 10分钟</span>
     </p>
     <div class="tags">
         
@@ -439,27 +466,33 @@ impor......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_1_个人简介/">
+    <a href="/article/2018/article_2_python数据分析之基础画图/">
         <h2 class="post-title">
             
-            个人简介
+            python数据分析之基础画图
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            我叫甘家城，来自宁波余姚，目前是杭电的一名大三学生，作为一个电子专业的学生，路过前端的崛起，也看过“最好”的php，目前写着苦短的python，咯咯咯。
-All of life is an act of letting go, but what hurts the most is not taking a moment to say goodbye.
- 
-私邮：@qq.co......
+            之前由于每次有数据用python画图都要找找其他资料和手册，顾这里做一些总结，用于方便查找与快捷使用！这里主要用matplotlib.pyplot。
+import numpy as np
+import matplotlib.pyplot as plt
+#得到测试点
+x=np.linspace(-5,5,50)
+y=np.sin(x)
+z=2*x
+
+#设置画板大小
+plt.figure(fig......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-06
-        <span class="post-count"> 文章字数: 86</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2018-01-03
+        <span class="post-count"> 文章字数: 767</span>
+        <span class="post-count"> 阅读时间: 5分钟</span>
     </p>
     <div class="tags">
         
@@ -473,48 +506,30 @@ All of life is an act of letting go, but what hurts the most is not taking a mom
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_32_chrome插件-WEB-ROBOT实现难点/">
+    <a href="/article/2018/article_1_2017总结咯/">
         <h2 class="post-title">
             
-            chrome插件 web_robot之难点探讨
+            2017总结咯
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            前言
-本篇主要对 WEB-ROBOT 用到的技术点和实现的探讨
-将会以一个一篇文章的粒度来探讨。
-可视化圈选的实现
-
-选中事件捕获与ui展示
-反向选择器解析
-
-从上层运行到下层事件的运行流程
-
-多条事务形成联动，事务上下游，事务循环，爬虫事务（未实现）
-一个事务的运行
-一个事件的运行，包括前置dom检查
-js事件与chrome事件封装
-
-插件的通信
-
-background与popup
-pop......
+            之前的博客多数以技术为主，今后将加入Life板块，用以记录生活，随笔，杂念～
+首篇就做一篇2017年总结，也算有东西写，不ga聊。
+2017上半年，我大二上，还当着宿管会技术部的部长，事情也是一大堆。
+开年印象比较深刻的是我作为主负责人之一的项目在上线前一刻被pass了，这可能也是后来我离开宿管原因之一。
+我找了半个女朋友，咋么这么说呢，至少那时候没有确定关系吧，聊得挺开的，也经常一起吃饭看......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2000-12-01
-        <span class="post-count"> 文章字数: 159</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2018-01-01
+        <span class="post-count"> 文章字数: 850</span>
+        <span class="post-count"> 阅读时间: 5分钟</span>
     </p>
     <div class="tags">
-        
-        <a href="/tags/#CHROME插件" title="CHROME插件">CHROME插件</a>
-        
-        <a href="/tags/#自动化" title="自动化">自动化</a>
         
     </div>
     
@@ -526,77 +541,31 @@ pop......
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_24_java常用类略知一二/">
+    <a href="/article/2017/article_48_flask+mongodb+gunicron初试/">
         <h2 class="post-title">
             
-            Java常用类略知一二
+            flask+mongodb+gunicron初试
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            前言
-这是一篇关于 Java 部分常用类的源码和实现方法的快速记录回忆篇
-HashMap
-存储结构：数组 + 链表/红黑树
-put：首先将 key 取 hashcode，移位 16 位得到 1-16 的数作为数组 index，对于不同的 key 一样的 index 存入一个单链表中，当数量比较大后存成一个红黑树，便于查找
-get：首先将 key 进行一样的操作，得到 index，获取数组 i......
+            最近接触些python后端开发，记录下所用到的一些技术。
+flask，这个在他的官网里也有详细文档，这里简单论述一个登录+后台管理的例子。
+#引入一个蓝图，蓝图封装一些接口
+from lantu import simple_page
+from flask import Flask,render_template,request,session,redirect,url_for
+import ......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2000-09-27
-        <span class="post-count"> 文章字数: 281</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2017-12-21
+        <span class="post-count"> 文章字数: 785</span>
+        <span class="post-count"> 阅读时间: 5分钟</span>
     </p>
     <div class="tags">
-        
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
-        
-        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_26_容器略知一二/">
-        <h2 class="post-title">
-            
-            容器略知一二
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-本文产出关于一些容器的知识
-tomcat 总体架构
-
-server:一个 tomcat 即一个 server
-service:包含多个 connector 和一个 container，一个 server 可以有多个 service
-connector:链接器，监听 socket 并交给对应 container 处理
-container:执行请求并返回响应的对象，包括 engine，ho......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2000-09-27
-        <span class="post-count"> 文章字数: 224</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
-        
-        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
     </div>
     
@@ -612,12 +581,12 @@ container:执行请求并返回响应的对象，包括 engine，ho......
     <ul class="pager">
         
         <li class="previous">
-            <a href="/archives/10/">&larr; Newer Posts</a>
+            <a href="/page/5/">&larr; Newer Posts</a>
         </li>
         
         
         <li class="next">
-            <a href="/archives/12/">Older Posts &rarr;</a>
+            <a href="/page/7/">Older Posts &rarr;</a>
         </li>
         
     </ul>
@@ -723,6 +692,10 @@ container:执行请求并返回响应的对象，包括 engine，ho......
     <div class="tags">
         
             
+            <a href="/tags/#OTHER" title="OTHER" rel="3">OTHER</a>
+            
+        
+            
             <a href="/tags/#总结" title="总结" rel="1">总结</a>
             
         
@@ -732,10 +705,6 @@ container:执行请求并返回响应的对象，包括 engine，ho......
         
             
             <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
-            
-        
-            
-            <a href="/tags/#OTHER" title="OTHER" rel="3">OTHER</a>
             
         
             
