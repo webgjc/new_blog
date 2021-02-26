@@ -3,6 +3,73 @@ layout: layout
 ---
 <!-- Modify by Yu-Hsuan Yen -->
 
+<script>
+    function encrypto( str, xor, hex ) {
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+
+        for ( let i=0; i<str.length; i++ ) {
+            // 提取字符串每个字符的ascll码
+            let charCode = str.charCodeAt(i);
+            // 进行异或加密
+            charCode = (charCode * 1) ^ xor;
+            // 异或加密后的字符转成 hex 位数的字符串
+            charCode = charCode.toString(hex);
+            resultList.push(charCode);
+        }
+
+        let splitStr = String.fromCharCode(hex + 97);
+        let resultStr = resultList.join( splitStr );
+        return resultStr;
+    }
+
+    function decrypto( str, xor, hex ) { 
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+        let strCharList = [];
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+        // 解析出分割字符
+        let splitStr = String.fromCharCode(hex + 97);
+        // 分割出加密字符串的加密后的每个字符
+        strCharList = str.split(splitStr);
+
+        for ( let i=0; i<strCharList.length; i++ ) {
+            // 将加密后的每个字符转成加密后的ascll码
+            let charCode = parseInt(strCharList[i], hex);
+            // 异或解密出原字符的ascll码
+            charCode = (charCode * 1) ^ xor;
+            let strChar = String.fromCharCode(charCode);
+            resultList.push(strChar);
+        }
+        let resultStr = resultList.join('');
+        return resultStr;
+    }
+</script>
+
+<% if(page.lock) { %>
+    <script type="text/javascript">
+        if(!sessionStorage.getItem("unlock")) {
+            if(encrypto(prompt("我的微信名是？"), 123, 25) !== "11z13z11zizl") {
+                window.location.href = "/404.html";
+            } else {
+                sessionStorage.setItem("unlock", true);
+            }
+        }
+    </script>
+<% } %>
+
+
+<!-- audio player -->
+<!-- <div>
+    <div class="music"></div>
+</div> -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -14,8 +81,30 @@ layout: layout
                 col-md-10 col-md-offset-1
                 post-container">
 
+                <div class="music" style="margin-top: 30px;"></div>
+                <% if (page.music) { %>
+                    <%- js('js/jquery.min.js') %>
+                    <%- js('js/meplayer.min.js')%>
+                    <script>
+                        fetch("/music/music.json")
+                        .then(resp => resp.json())
+                        .then(data => {
+                            let md = data["<%= page.music %>"];
+                            mePlayer({
+                                music: {
+                                    src: md.url,
+                                    title: md.title,
+                                    author: md.comment,
+                                    loop: true
+                                },
+                                target: '.music',
+                                autoplay: false
+                            });
+                        })
+                    </script>
+                <% } %>
+
                 <%- page.content %>
-                
 
                 <hr>
                 <!-- Pager -->
@@ -175,7 +264,9 @@ layout: layout
                         }
                     })
                     setTimeout(() => {
-                        document.getElementsByClassName("info")[0].style.display="none";
+                        if(document.getElementsByClassName("info")[0] != undefined) {
+                            document.getElementsByClassName("info")[0].style.display="none";
+                        }
                     }, 3000)
                 </script>
             </div>
