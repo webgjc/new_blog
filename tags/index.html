@@ -141,20 +141,18 @@
                         
                     
                         
-                        <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-                        
-                    
-                        
                     
                         
                     
                         
                         <li>
                             <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -166,6 +164,8 @@
                         <li>
                             <a href="/tags/">Tags</a>
                         </li>
+                        
+                    
                         
                     
                     
@@ -214,9 +214,9 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
-                    <a href="#HIVE" title="HIVE" rel="8">HIVE</a>
-                
                     <a href="#OTHER" title="OTHER" rel="3">OTHER</a>
+                
+                    <a href="#HIVE" title="HIVE" rel="8">HIVE</a>
                 
                     <a href="#HQL解析" title="HQL解析" rel="3">HQL解析</a>
                 
@@ -258,6 +258,66 @@
 
             <!-- 标签列表 -->
 
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="OTHER">
+                    <span class="tag-text">OTHER</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_11_新增两个功能/">
+                        <h2 class="post-title">
+                            博客新增两个功能模块
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2020/article_2_整理晒晒老博客/">
+                        <h2 class="post-title">
+                            整理晒晒老博客
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                整理下之前记录的一些东西
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/2019/article_1_又双叒叕建博客/">
+                        <h2 class="post-title">
+                            又双叒叕建博客
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                讲讲本次建博客中间那些事
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="HIVE">
@@ -378,66 +438,6 @@
                         <h2 class="post-title">
                             HIVE源码学习--实现自定义的UDF，UDAF，UDTF
                         </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="OTHER">
-                    <span class="tag-text">OTHER</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_11_新增两个功能/">
-                        <h2 class="post-title">
-                            博客新增两个功能模块
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2020/article_2_整理晒晒老博客/">
-                        <h2 class="post-title">
-                            整理晒晒老博客
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                整理下之前记录的一些东西
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/2019/article_1_又双叒叕建博客/">
-                        <h2 class="post-title">
-                            又双叒叕建博客
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                讲讲本次建博客中间那些事
-                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
