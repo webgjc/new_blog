@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+  <meta name="baidu-site-verification" content="code-NFdFjxnyBp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="甘家城的个人博客">
+  <meta name="keyword" content="甘家城">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- <script data-ad-client="ca-pub-3781840703100023" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <title>
+    
+    基于antlr4实现HQL的解析[格式化] - 甘家城 | Blog
+    
+  </title>
+
+  <link rel="canonical" href="http://ganjiacheng.cn/article/2020/article_12_基于antlr4实现HQL的解析-格式化/">
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css">
+
+  <link rel="stylesheet" href="/css/donate.css">
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="/css/highlight.css">
+
+  <link rel="stylesheet" href="/css/widget.css">
+
+  <link rel="stylesheet" href="/css/rocket.css">
+
+  <link rel="stylesheet" href="/css/signature.css">
+
+  <link rel="stylesheet" href="/css/toc.css">
+
+  <!-- audio player -->
+  <link rel="stylesheet" href="/css/meplayer.min.css">
+  <link rel="stylesheet" href="/css/player.css">
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  
+  <script></script>
+</head>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/header.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+                            
+                              <a class="tag" href="/tags/#JAVA" title="JAVA">JAVA</a>
+                            
+                        </div>
+                        <h1>基于antlr4实现HQL的解析[格式化]</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 甘家城 on
+                            2020-04-30
+                            
+                                <span>
+                                    Viewed <span id="busuanzi_value_page_pv"></span> times
+                                </span>
+                            
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">甘家城的个人博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<script>
+    function encrypto( str, xor, hex ) {
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+
+        for ( let i=0; i<str.length; i++ ) {
+            // 提取字符串每个字符的ascll码
+            let charCode = str.charCodeAt(i);
+            // 进行异或加密
+            charCode = (charCode * 1) ^ xor;
+            // 异或加密后的字符转成 hex 位数的字符串
+            charCode = charCode.toString(hex);
+            resultList.push(charCode);
+        }
+
+        let splitStr = String.fromCharCode(hex + 97);
+        let resultStr = resultList.join( splitStr );
+        return resultStr;
+    }
+
+    function decrypto( str, xor, hex ) { 
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+        let strCharList = [];
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+        // 解析出分割字符
+        let splitStr = String.fromCharCode(hex + 97);
+        // 分割出加密字符串的加密后的每个字符
+        strCharList = str.split(splitStr);
+
+        for ( let i=0; i<strCharList.length; i++ ) {
+            // 将加密后的每个字符转成加密后的ascll码
+            let charCode = parseInt(strCharList[i], hex);
+            // 异或解密出原字符的ascll码
+            charCode = (charCode * 1) ^ xor;
+            let strChar = String.fromCharCode(charCode);
+            resultList.push(strChar);
+        }
+        let resultStr = resultList.join('');
+        return resultStr;
+    }
+</script>
+
+
+
+
+<!-- audio player -->
+<!-- <div>
+    <div class="music"></div>
+</div> -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="music" style="margin-top: 30px;"></div>
+                
+
+                <h2 id="前言">前言</h2>
+<p>对于一般的网页上sql查询工具都会有一个功能【格式化】，对于hql的格式化市面上没有很好的直接使用的工具。</p>
+<p>这边基于antlr4对hql的解析手动实现一个格式化的功能。</p>
+<h2 id="设计思路">设计思路</h2>
+<p>对于一般比较固定的语句如create，show，drop，alter等采用直接对拿到节点并带格式用字符串拼接。</p>
+<p>对于最复杂的select，因为其中包含很多嵌套，因此这边基本的想法有两种：</p>
+<ol>
+<li>因为visit树节点用的是深度优先，所以只要实现实现覆盖全部子节点的节点格式化字符并拼接起来，对于中间的嵌套，采用标记记录当前select的层级。<br>
+比如默认层级为0，进入深一层select层级+1，然后继续递归子节点，在退出select后层级-1。</li>
+<li>采用替换法，首先遍历第一层的select，找到其中全部的子select并用startIndex做唯一标记，存储标记和层级，然后在到子select时判断标记是否存在存在则用替换法替换掉全局select结果中的待标记的select，比如select * from ({select1});</li>
+</ol>
+<h2 id="实现思路">实现思路</h2>
+<p>这边采用的还是antlr4的visit模式，并用第二种方法实现一遍select的主要核心部分。</p>
+<h3 id="主select部分">主SELECT部分</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">visitSelect_stmt</span><span class="params">(HplsqlParser.Select_stmtContext ctx)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 用全局标记判断是否为第一次进入，第一次进入也在结果字符串加上&#123;SELECT%s&#125;</span></span><br><span class="line">    <span class="comment">// 处理with子句</span></span><br><span class="line">    <span class="comment">// 遍历子select添加位置标记&#123;SELECT%s&#125;,保存层级</span></span><br><span class="line">    <span class="comment">// 格式化每个子select</span></span><br><span class="line">    <span class="comment">// 格式化方式采用Optional判断是否存在该节点，然后拼接到当前select</span></span><br><span class="line">    <span class="comment">// 用当前格式化后的select替换掉标记</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="select字段">SELECT字段</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">getSelectItem</span><span class="params">(HplsqlParser.Select_list_itemContext selectItem, Integer kong)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 处理case when的情况</span></span><br><span class="line">    <span class="comment">// 否则直接截取源sql中select的字段的字符串</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="from来源">FROM来源</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">getFromTableClause</span><span class="params">(HplsqlParser.From_table_clauseContext from_clauseContext, Integer kong)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 处理子select</span></span><br><span class="line">    <span class="comment">// 处理table来源的情况</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">getFromJoin</span><span class="params">(HplsqlParser.From_join_clauseContext ctx, <span class="keyword">int</span> kong)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 处理from join的情况</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="where条件">WHERE条件</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">makeWhereExpr</span><span class="params">(HplsqlParser.Bool_exprContext bool_exprContext)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 处理where的条件</span></span><br><span class="line">    <span class="comment">// 需要用到递归，树如下</span></span><br><span class="line">                     bool_expr</span><br><span class="line">                         |</span><br><span class="line">        bool_expr      operator     bool_expr</span><br><span class="line">            |                           |</span><br><span class="line">bool_expr.operator,bool_expr bool_expr,operator,bool_expr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="关键字大小写处理">关键字大小写处理</h3>
+<p>对于关键字的处理，本次不做详述，主要放在外面。<br>
+从lexer获取到全部定义的关键字，然后将sql切分，如果遇到关键字就替换。</p>
+<blockquote>
+<p>HplsqlLexer lexer = new HplsqlLexer(input);<br>
+lexer.getAllTokens();</p>
+</blockquote>
+<h3 id="sql注释">sql注释</h3>
+<p>对于sql中存在注释的，默认会不解析到，因此格式化后的结果暂时无法还原注释。</p>
+<h2 id="结果展示">结果展示</h2>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">name</span> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span> <span class="keyword">from</span> user_table ut <span class="keyword">left</span> <span class="keyword">join</span> test_table tt <span class="keyword">on</span> ut.id = tt.id)) <span class="keyword">where</span> <span class="keyword">id</span> &gt; <span class="number">1</span> <span class="keyword">and</span> <span class="keyword">id</span> &lt; <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="keyword">id</span>,</span><br><span class="line">    <span class="keyword">name</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">        <span class="keyword">id</span>,</span><br><span class="line">        <span class="keyword">name</span></span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">    (</span><br><span class="line">        <span class="keyword">SELECT</span></span><br><span class="line">            <span class="keyword">id</span>,</span><br><span class="line">            <span class="keyword">name</span></span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            user_table ut</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span></span><br><span class="line">            test_table tt</span><br><span class="line">        <span class="keyword">ON</span> ut.id = tt.id</span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    <span class="keyword">id</span> &gt; <span class="number">1</span> <span class="keyword">AND</span></span><br><span class="line">    <span class="keyword">id</span> &lt; <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h2 id="附录">附录</h2>
+<p>完整代码</p>
+<p>注释在代码中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HiveSQLFormatter</span> <span class="keyword">extends</span> <span class="title">HplsqlBaseVisitor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String sourceSQL;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String formattedSQL = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> firstSelect = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HiveSQLFormatter</span><span class="params">(String sql)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sourceSQL = sql;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用于从源字符串中截取，主要为了不继续深入，比如select的每个字段，会有计算和各个函数包裹等，就采用直接截取源字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">subSourceSql</span><span class="params">(ParserRuleContext parserRuleContext)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sourceSQL.substring(</span><br><span class="line">                parserRuleContext.getStart().getStartIndex(),</span><br><span class="line">                parserRuleContext.getStop().getStopIndex() + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//添加空占位，主要为了缩进</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">addKongFormat</span><span class="params">(String s, Integer n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> String.format(<span class="string">"%"</span> + (s.length() + n * <span class="number">4</span>) + <span class="string">"s"</span>, s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 保存某个select的层级，key为startIndex</span></span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer, Integer&gt; ceng = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; boolExpr = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; boolExprOperator = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 由于where多重条件判断是树状 -&gt; (前面条件) 操作 (最后一个条件)，扩展左子树</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">makeWhereExpr</span><span class="params">(HplsqlParser.Bool_exprContext bool_exprContext)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(bool_exprContext.children.size() == <span class="number">3</span> &amp;&amp; bool_exprContext.bool_expr().size() == <span class="number">2</span>) &#123;</span><br><span class="line">            makeWhereExpr(bool_exprContext.bool_expr(<span class="number">0</span>));</span><br><span class="line">            boolExpr.add(sourceSQL.substring(bool_exprContext.bool_expr(<span class="number">1</span>).getStart().getStartIndex(),</span><br><span class="line">                    bool_exprContext.bool_expr(<span class="number">1</span>).getStop().getStopIndex() + <span class="number">1</span>));</span><br><span class="line">            boolExprOperator.add(bool_exprContext.bool_expr_logical_operator().getText());</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            boolExpr.add(sourceSQL.substring(bool_exprContext.getStart().getStartIndex(),</span><br><span class="line">                    bool_exprContext.getStop().getStopIndex()+<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// select from 相关</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getFromTableClause</span><span class="params">(HplsqlParser.From_table_clauseContext from_clauseContext, Integer kong)</span> </span>&#123;</span><br><span class="line">        StringBuilder tmpSelect = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        Optional.of(from_clauseContext)</span><br><span class="line">                .map(HplsqlParser.From_table_clauseContext::from_table_name_clause)</span><br><span class="line">                .map(RuleContext -&gt; addKongFormat(subSourceSql(RuleContext), kong + <span class="number">1</span>))</span><br><span class="line">                .ifPresent(tmpSelect::append);</span><br><span class="line">        <span class="comment">// from 子select(</span></span><br><span class="line">        Optional.of(from_clauseContext)</span><br><span class="line">                .map(HplsqlParser.From_table_clauseContext::from_subselect_clause)</span><br><span class="line">                .map(HplsqlParser.From_subselect_clauseContext::T_OPEN_P)</span><br><span class="line">                .map(ParseTree -&gt; addKongFormat(ParseTree.getText(), kong))</span><br><span class="line">                .ifPresent(tmpSelect::append);</span><br><span class="line">        <span class="comment">// 添加子select标记</span></span><br><span class="line">        Integer fromSubIndex = Optional.of(from_clauseContext)</span><br><span class="line">                .map(HplsqlParser.From_table_clauseContext::from_subselect_clause)</span><br><span class="line">                .map(HplsqlParser.From_subselect_clauseContext::select_stmt)</span><br><span class="line">                .map(ParserRuleContext -&gt; ParserRuleContext.getStart().getStartIndex()).orElse(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">if</span>(fromSubIndex != <span class="keyword">null</span>) &#123;</span><br><span class="line">            tmpSelect.append(<span class="string">"\n&#123;SELECT"</span>).append(fromSubIndex).append(<span class="string">"&#125;"</span>);</span><br><span class="line">            ceng.put(fromSubIndex, kong + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// )</span></span><br><span class="line">        Optional.of(from_clauseContext)</span><br><span class="line">                .map(HplsqlParser.From_table_clauseContext::from_subselect_clause)</span><br><span class="line">                .map(HplsqlParser.From_subselect_clauseContext::T_CLOSE_P)</span><br><span class="line">                .map(ParseTree -&gt; <span class="string">"\n"</span> + addKongFormat(ParseTree.getText(), kong))</span><br><span class="line">                .ifPresent(tmpSelect::append);</span><br><span class="line">        <span class="comment">// from别名</span></span><br><span class="line">        Optional.of(from_clauseContext)</span><br><span class="line">                .map(HplsqlParser.From_table_clauseContext::from_subselect_clause)</span><br><span class="line">                .map(HplsqlParser.From_subselect_clauseContext::from_alias_clause)</span><br><span class="line">                .map(ParserRuleContext -&gt; <span class="string">" "</span> + subSourceSql(ParserRuleContext)).ifPresent(tmpSelect::append);</span><br><span class="line">        <span class="keyword">return</span> tmpSelect.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  select 字段相关</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getSelectItem</span><span class="params">(HplsqlParser.Select_list_itemContext selectItem, Integer kong)</span> </span>&#123;</span><br><span class="line">        AtomicReference&lt;String&gt; itemRes = <span class="keyword">new</span> AtomicReference&lt;&gt;(<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">boolean</span> isCase = Optional.of(selectItem)</span><br><span class="line">                .map(HplsqlParser.Select_list_itemContext::expr)</span><br><span class="line">                .map(HplsqlParser.ExprContext::expr_case)</span><br><span class="line">                .map(HplsqlParser.Expr_caseContext::expr_case_searched)</span><br><span class="line">                .map(expr_case_searchedContext -&gt; &#123;</span><br><span class="line">                    StringBuilder tmpbuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">                    List&lt;String&gt; tmps = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">                    Optional.of(expr_case_searchedContext)</span><br><span class="line">                            .map(HplsqlParser.Expr_case_searchedContext::T_CASE)</span><br><span class="line">                            .map(ParseTree -&gt; addKongFormat(ParseTree.getText() + <span class="string">"\n"</span>, kong + <span class="number">1</span>))</span><br><span class="line">                            .map(tmpbuilder::append);</span><br><span class="line">                    Optional.of(expr_case_searchedContext)</span><br><span class="line">                            .map(HplsqlParser.Expr_case_searchedContext::T_WHEN)</span><br><span class="line">                            .ifPresent(whenNodes -&gt; &#123;</span><br><span class="line">                                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; whenNodes.size(); i++)&#123;</span><br><span class="line">                                    tmps.add(addKongFormat(expr_case_searchedContext.T_WHEN(i).getText() + <span class="string">" "</span> +</span><br><span class="line">                                            subSourceSql(expr_case_searchedContext.bool_expr(i)) + <span class="string">" "</span> +</span><br><span class="line">                                            expr_case_searchedContext.T_THEN(i).getText() + <span class="string">" "</span> +</span><br><span class="line">                                            subSourceSql(expr_case_searchedContext.expr(i)), kong + <span class="number">2</span>));</span><br><span class="line">                                &#125;</span><br><span class="line">                                tmpbuilder.append(StringUtils.join(tmps.toArray(), <span class="string">"\n"</span>));</span><br><span class="line">                            &#125;);</span><br><span class="line">                    Optional.of(expr_case_searchedContext).map(HplsqlParser.Expr_case_searchedContext::T_ELSE)</span><br><span class="line">                            .map(ParseTree -&gt; <span class="string">"\n"</span> + addKongFormat(ParseTree.getText() +</span><br><span class="line">                                    <span class="string">" "</span> + expr_case_searchedContext.expr(expr_case_searchedContext.expr().size()-<span class="number">1</span>).getText(), kong + <span class="number">2</span>))</span><br><span class="line">                            .map(tmpbuilder::append);</span><br><span class="line">                    Optional.of(expr_case_searchedContext)</span><br><span class="line">                            .map(HplsqlParser.Expr_case_searchedContext::T_END)</span><br><span class="line">                            .map(ParseTree -&gt; <span class="string">"\n"</span> + addKongFormat(ParseTree.getText(), kong + <span class="number">1</span>))</span><br><span class="line">                            .map(tmpbuilder::append);</span><br><span class="line">                    Optional.of(selectItem)</span><br><span class="line">                            .map(HplsqlParser.Select_list_itemContext::select_list_alias)</span><br><span class="line">                            .map(select_list_aliasContext -&gt; <span class="string">"\n"</span> + addKongFormat(subSourceSql(select_list_aliasContext), kong + <span class="number">1</span>))</span><br><span class="line">                            .map(tmpbuilder::append);</span><br><span class="line">                    itemRes.set(tmpbuilder.toString());</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;).orElse(<span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">if</span> (!isCase) &#123;</span><br><span class="line">            Optional.of(selectItem)</span><br><span class="line">                    .ifPresent(select_list_itemContext -&gt; itemRes.set(addKongFormat(subSourceSql(selectItem), kong + <span class="number">1</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> itemRes.get();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getLateralView</span><span class="params">(HplsqlParser.Lateral_clause_itemContext ctx, <span class="keyword">int</span> kong)</span> </span>&#123;</span><br><span class="line">        StringBuilder lateralView = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.Lateral_clause_itemContext::T_LATERAL)</span><br><span class="line">                .map(lateralView::append);</span><br><span class="line">        lateralView.append(<span class="string">" "</span>);</span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.Lateral_clause_itemContext::T_VIEW)</span><br><span class="line">                .map(lateralView::append);</span><br><span class="line">        lateralView.append(<span class="string">"\n"</span>);</span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.Lateral_clause_itemContext::expr)</span><br><span class="line">                .map(ParserRuleContext -&gt; addKongFormat(subSourceSql(ParserRuleContext), kong+<span class="number">1</span>))</span><br><span class="line">                .map(lateralView::append);</span><br><span class="line">        lateralView.append(<span class="string">" "</span>);</span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.Lateral_clause_itemContext::ident)</span><br><span class="line">                .map(RuleContext::getText)</span><br><span class="line">                .map(lateralView::append);</span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.Lateral_clause_itemContext::T_AS)</span><br><span class="line">                .map(ParserRuleContext -&gt; <span class="string">"\n"</span> + ParserRuleContext.getText())</span><br><span class="line">                .map(lateralView::append);</span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.Lateral_clause_itemContext::lateral_clause_alias)</span><br><span class="line">                .map(ParserRuleContext -&gt; <span class="string">" "</span> + subSourceSql(ParserRuleContext))</span><br><span class="line">                .map(lateralView::append);</span><br><span class="line">        <span class="keyword">return</span> lateralView.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getFromJoin</span><span class="params">(HplsqlParser.From_join_clauseContext ctx, <span class="keyword">int</span> kong)</span> </span>&#123;</span><br><span class="line">        StringBuilder fromjoinSQL = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.From_join_clauseContext::from_join_type_clause)</span><br><span class="line">                .map(from_join_type_clauseContext -&gt; <span class="string">"\n"</span> + addKongFormat(subSourceSql(ctx.from_join_type_clause()), kong) + <span class="string">"\n"</span></span><br><span class="line">                        + getFromTableClause(ctx.from_table_clause(), kong) + <span class="string">"\n"</span></span><br><span class="line">                        + addKongFormat(ctx.T_ON().getText(), kong) + <span class="string">" "</span></span><br><span class="line">                        + subSourceSql(ctx.bool_expr()))</span><br><span class="line">                .map(fromjoinSQL::append);</span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.From_join_clauseContext::T_COMMA)</span><br><span class="line">                .map(ParserRuleContext -&gt; ParserRuleContext.getText() + <span class="string">"\n"</span></span><br><span class="line">                        + getFromTableClause(ctx.from_table_clause(), kong)</span><br><span class="line">                ).map(fromjoinSQL::append);</span><br><span class="line">        <span class="keyword">return</span> fromjoinSQL.toString();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 使用替换模式替换&#123;SELECTN&#125;</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">visitSelect_stmt</span><span class="params">(HplsqlParser.Select_stmtContext ctx)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> selectSize = ctx.fullselect_stmt().fullselect_stmt_item().size();</span><br><span class="line">        <span class="comment">// 第一次进入添加位置标记(节点在原字符串startIndex作为唯一标志)</span></span><br><span class="line">        <span class="keyword">int</span> gstartIndex = ctx.getStart().getStartIndex();</span><br><span class="line">        String thisSelect = String.format(<span class="string">"&#123;SELECT%s&#125;"</span>, gstartIndex);</span><br><span class="line">        <span class="keyword">if</span>(!formattedSQL.contains(thisSelect) &amp;&amp; firstSelect)&#123;</span><br><span class="line">            formattedSQL += thisSelect;</span><br><span class="line">            firstSelect = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder fullSelect = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="comment">// with语句</span></span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.Select_stmtContext::cte_select_stmt)</span><br><span class="line">                .map(HplsqlParser.Cte_select_stmtContext::T_WITH)</span><br><span class="line">                .map(ParserRuleContext -&gt; ParserRuleContext.getText() + <span class="string">" "</span>)</span><br><span class="line">                .map(fullSelect::append);</span><br><span class="line">        Optional.of(ctx)</span><br><span class="line">                .map(HplsqlParser.Select_stmtContext::cte_select_stmt)</span><br><span class="line">                .map(HplsqlParser.Cte_select_stmtContext::cte_select_stmt_item)</span><br><span class="line">                .map(cte_select_stmt_itemContexts -&gt; StringUtils.join(cte_select_stmt_itemContexts.stream().map(</span><br><span class="line">                        item -&gt; item.ident().getText() + <span class="string">" "</span> +</span><br><span class="line">                                item.T_AS().getText() + <span class="string">"\n"</span> +</span><br><span class="line">                                item.T_OPEN_P().getText() + <span class="string">""</span> +</span><br><span class="line">                                String.format(<span class="string">"\n&#123;SELECT%s&#125;"</span>, item.select_stmt().getStart().getStartIndex()) + <span class="string">"\n"</span> +</span><br><span class="line">                                item.T_CLOSE_P().getText()</span><br><span class="line">                ).toArray(), <span class="string">",\n"</span>)).map(fullSelect::append);</span><br><span class="line">        <span class="comment">// 遍历子select添加位置标记</span></span><br><span class="line">        Integer gkong = ceng.get(gstartIndex) == <span class="keyword">null</span> ? <span class="number">0</span>: ceng.get(gstartIndex);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; selectSize; i++) &#123;</span><br><span class="line">            Integer startIndex = ctx.fullselect_stmt().fullselect_stmt_item(i).subselect_stmt().getStart().getStartIndex();</span><br><span class="line">            fullSelect.append(String.format(<span class="string">"&#123;SELECT%s&#125;"</span>, startIndex));</span><br><span class="line">            ceng.put(startIndex, gkong);</span><br><span class="line">            <span class="keyword">if</span>(i &lt; selectSize - <span class="number">1</span>) &#123;</span><br><span class="line">                HplsqlParser.Fullselect_set_clauseContext clauseContext = ctx.fullselect_stmt().fullselect_set_clause(i);</span><br><span class="line">                fullSelect.append(<span class="string">"\n"</span>).append(addKongFormat(subSourceSql(clauseContext), gkong)).append(<span class="string">"\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 格式化每个子select并替换标记</span></span><br><span class="line">        formattedSQL = formattedSQL.replace(String.format(<span class="string">"&#123;SELECT%s&#125;"</span>, ctx.getStart().getStartIndex()), fullSelect.toString());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; selectSize; i++) &#123;</span><br><span class="line">            HplsqlParser.Subselect_stmtContext subSelect = ctx.fullselect_stmt().fullselect_stmt_item(i).subselect_stmt();</span><br><span class="line">            Integer thisIndex = subSelect.getStart().getStartIndex();</span><br><span class="line">            Integer kong = ceng.get(thisIndex) == <span class="keyword">null</span> ? <span class="number">0</span>: ceng.get(thisIndex);</span><br><span class="line">            StringBuilder tmpSelect = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="comment">// select</span></span><br><span class="line">            tmpSelect.append(addKongFormat(</span><br><span class="line">                    subSelect.T_SELECT().getText(),</span><br><span class="line">                    kong)).append(<span class="string">"\n"</span>);</span><br><span class="line">            Optional.of(subSelect).map(HplsqlParser.Subselect_stmtContext::select_list)</span><br><span class="line">                    .map(HplsqlParser.Select_listContext::select_list_set)</span><br><span class="line">                    .map(select_list_setContext -&gt; addKongFormat(subSourceSql(select_list_setContext)+<span class="string">"\n"</span>, kong+<span class="number">1</span>))</span><br><span class="line">                    .map(tmpSelect::append);</span><br><span class="line">            Optional.of(subSelect).map(HplsqlParser.Subselect_stmtContext::select_list)</span><br><span class="line">                    .map(HplsqlParser.Select_listContext::select_list_item)</span><br><span class="line">                    .map(select_list_itemContexts -&gt;</span><br><span class="line">                            StringUtils.join(select_list_itemContexts.stream().map(</span><br><span class="line">                                    item -&gt; getSelectItem(item, kong)).toArray(), <span class="string">",\n"</span>) + <span class="string">"\n"</span>).map(tmpSelect::append);</span><br><span class="line">            <span class="comment">// from</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::from_clause)</span><br><span class="line">                    .map(HplsqlParser.From_clauseContext::T_FROM)</span><br><span class="line">                    .map(ParserRuleContext -&gt; addKongFormat(ParserRuleContext.getText() + <span class="string">"\n"</span>, kong))</span><br><span class="line">                    .map(tmpSelect::append);</span><br><span class="line">            <span class="comment">// from 表</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::from_clause)</span><br><span class="line">                    .map(HplsqlParser.From_clauseContext::from_table_clause)</span><br><span class="line">                    .map(from_table_clauseContext -&gt; getFromTableClause(from_table_clauseContext, kong))</span><br><span class="line">                    .map(tmpSelect::append);</span><br><span class="line">            <span class="comment">// join语句</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::from_clause)</span><br><span class="line">                    .map(HplsqlParser.From_clauseContext::from_join_clause)</span><br><span class="line">                    .map(from_join_clauseContexts -&gt; from_join_clauseContexts.size() &gt; <span class="number">0</span> ?</span><br><span class="line">                            StringUtils.join(from_join_clauseContexts.stream().map(</span><br><span class="line">                                    item -&gt; getFromJoin(item, kong)).toArray(), <span class="string">""</span>): <span class="string">""</span>)</span><br><span class="line">                    .ifPresent(tmpSelect::append);</span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::lateral_clause)</span><br><span class="line">                    .map(HplsqlParser.Lateral_clauseContext::lateral_clause_item)</span><br><span class="line">                    .map(lateral_clause_itemContexts -&gt; <span class="string">"\n"</span> + StringUtils.join(lateral_clause_itemContexts.stream().map(</span><br><span class="line">                            item -&gt; getLateralView(item, kong)).toArray(), <span class="string">"\n"</span>))</span><br><span class="line">                    .map(tmpSelect::append);</span><br><span class="line">            <span class="comment">// where</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::where_clause)</span><br><span class="line">                    .map(HplsqlParser.Where_clauseContext::T_WHERE)</span><br><span class="line">                    .map(ParseTree -&gt; <span class="string">"\n"</span> + addKongFormat(ParseTree.getText() + <span class="string">"\n"</span>, kong))</span><br><span class="line">                    .ifPresent(tmpSelect::append);</span><br><span class="line">            <span class="comment">// where条件</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::where_clause)</span><br><span class="line">                    .ifPresent(ParserRuleContext -&gt; &#123;</span><br><span class="line">                        makeWhereExpr(ParserRuleContext.bool_expr());</span><br><span class="line">                        List&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">                        <span class="keyword">for</span>(<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; boolExpr.size(); t++) &#123;</span><br><span class="line">                            <span class="keyword">if</span>(t == boolExpr.size() -<span class="number">1</span>)&#123;</span><br><span class="line">                                result.add(boolExpr.get(t));</span><br><span class="line">                            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                                result.add(boolExpr.get(t) + <span class="string">" "</span> + boolExprOperator.get(t));</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        boolExpr = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">                        boolExprOperator = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">                        tmpSelect.append(StringUtils.join(result.stream().map(item -&gt; addKongFormat(item, kong + <span class="number">1</span>)).toArray(), <span class="string">"\n"</span>));</span><br><span class="line">                    &#125;);</span><br><span class="line">            <span class="comment">// group by</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::group_by_clause)</span><br><span class="line">                    .map(ParserRuleContext -&gt; <span class="string">"\n"</span> + addKongFormat(ParserRuleContext.T_GROUP().getText() + <span class="string">" "</span> + ParserRuleContext.T_BY().getText(), kong))</span><br><span class="line">                    .ifPresent(tmpSelect::append);</span><br><span class="line">            <span class="comment">// group by 字段</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::group_by_clause)</span><br><span class="line">                    .map(HplsqlParser.Group_by_clauseContext::expr)</span><br><span class="line">                    .map(exprContexts -&gt; <span class="string">"\n"</span> + addKongFormat(StringUtils.join(exprContexts.stream().map(<span class="keyword">this</span>::subSourceSql).toArray(), <span class="string">", "</span>), kong + <span class="number">1</span>))</span><br><span class="line">                    .ifPresent(tmpSelect::append);</span><br><span class="line">            <span class="comment">// having 语句</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::having_clause)</span><br><span class="line">                    .map(having_clauseContext -&gt; <span class="string">"\n"</span> + addKongFormat(subSourceSql(having_clauseContext), kong))</span><br><span class="line">                    .ifPresent(tmpSelect::append);</span><br><span class="line">            <span class="comment">// order by</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::order_by_clause)</span><br><span class="line">                    .map(ParserRuleContext -&gt; <span class="string">"\n"</span> + addKongFormat(ParserRuleContext.T_ORDER() + <span class="string">" "</span> + ParserRuleContext.T_BY(), kong))</span><br><span class="line">                    .ifPresent(tmpSelect::append);</span><br><span class="line">            <span class="comment">// order by 字段</span></span><br><span class="line">            Optional.of(subSelect)</span><br><span class="line">                    .map(HplsqlParser.Subselect_stmtContext::order_by_clause)</span><br><span class="line">                    .map(ParserRuleContext -&gt; <span class="string">"\n"</span> + addKongFormat(StringUtils.join(ParserRuleContext.expr().stream().map(</span><br><span class="line">                            RuleContext::getText).toArray(), <span class="string">", "</span>), kong + <span class="number">1</span>))</span><br><span class="line">                    .ifPresent((tmpSelect::append));</span><br><span class="line">            <span class="comment">// order by 参数</span></span><br><span class="line">            Optional.of(subSelect).map(HplsqlParser.Subselect_stmtContext::order_by_clause)</span><br><span class="line">                    .map(HplsqlParser.Order_by_clauseContext::T_ASC)</span><br><span class="line">                    .map(ParserRuleContext -&gt; ParserRuleContext.size() &gt; <span class="number">0</span> ? <span class="string">"\n"</span> + ParserRuleContext.get(<span class="number">0</span>).getText() : <span class="string">""</span>).ifPresent(tmpSelect::append);</span><br><span class="line">            Optional.of(subSelect).map(HplsqlParser.Subselect_stmtContext::order_by_clause)</span><br><span class="line">                    .map(HplsqlParser.Order_by_clauseContext::T_DESC)</span><br><span class="line">                    .map(ParserRuleContext -&gt; ParserRuleContext.size() &gt; <span class="number">0</span> ? <span class="string">"\n"</span> + ParserRuleContext.get(<span class="number">0</span>).getText() : <span class="string">""</span>).ifPresent(tmpSelect::append);</span><br><span class="line">            <span class="comment">// select 参数</span></span><br><span class="line">            Optional.of(subSelect).map(HplsqlParser.Subselect_stmtContext::select_options)</span><br><span class="line">                    .map(ParserRuleContext -&gt; <span class="string">"\n"</span> + addKongFormat(subSourceSql(ParserRuleContext), kong))</span><br><span class="line">                    .ifPresent(tmpSelect::append);</span><br><span class="line">            formattedSQL = formattedSQL.replace(String.format(<span class="string">"&#123;SELECT%s&#125;"</span>, thisIndex), tmpSelect.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.visitSelect_stmt(ctx);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/2020/article_13_HIVE源码学习-实现一个自定义HIVE序列化与反序列化/" data-toggle="tooltip" data-placement="top" title="HIVE源码学习--实现一个自定义的HIVE序列化与反序列化器">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/2020/article_11_新增两个功能/" data-toggle="tooltip" data-placement="top" title="博客新增两个功能模块">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#前言"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#设计思路"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">设计思路</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#实现思路"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">实现思路</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#主select部分"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">主SELECT部分</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#select字段"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">SELECT字段</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#from来源"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">FROM来源</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#where条件"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">WHERE条件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关键字大小写处理"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">关键字大小写处理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#sql注释"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">sql注释</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#结果展示"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">结果展示</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#附录"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">附录</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+                        
+                          <a class="tag" href="/tags/#JAVA" title="JAVA">JAVA</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>MINE</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="/article/music/music_1_音乐篇/" target="_blank">我的音乐</a></li>
+                    
+                        <li><a href="/book/" target="_blank">我的阅读</a></li>
+                    
+                        <li><a href="/article/money/money_1_理财篇/" target="_blank">我的理财</a></li>
+                    
+                        <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
+                    
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
+                </ul>
+                
+                <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+                <h5>COMMENT</h5>
+                <div id="vcomments"></div>
+                <script>
+                    new Valine({
+                        el: '#vcomments',
+                        appId: 'bd1nirzTb4YlrbE60rubD0O3-gzGzoHsz',
+                        appKey: 'HCdMhtYzjwyK8G374gLvu368',
+                        notify:false, 
+                        verify:false, 
+                        avatar:'mp', 
+                        placeholder: '来了老弟 #markdown格式',
+                        updated: () => {
+                            console.log(3)
+                        }
+                    })
+                    setTimeout(() => {
+                        if(document.getElementsByClassName("info")[0] != undefined) {
+                            document.getElementsByClassName("info")[0].style.display="none";
+                        }
+                    }, 3000)
+                </script>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/webgjc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <!-- <p class="copyright text-muted">
+                    Copyright &copy; 甘家城 2021 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    
+        <!-- 不蒜子统计 -->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+            <span>
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+        </div>
+    
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- audio player -->
+<script src="/js/meplayer.min.js"></script>
+<script src="/js/player.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ganjiacheng.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+    <!-- <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas>
+
+<script type="text/javascript">
+    var width = document.body.clientWidth;
+    var height = document.body.clientHeight-300;
+    var can = document.getElementById("canvas");
+    can.setAttribute("width",width);
+    can.setAttribute("height",height);
+    var con = can.getContext("2d");
+    var x = width*Math.random();
+    var y = height*Math.random();
+    var x = [],y = [],vx = [],vy = [];
+    var num = 80;
+    var v = 1.5;
+    for(var j=0;j<num;j++){
+        x[j] = width*Math.random();
+        y[j] = height*Math.random();
+        vx[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+        vy[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+    }
+    var draw = function(){
+        con.clearRect(0,0,width,height);
+        for(var i=0;i<num;i++){
+        con.fillStyle = "rgba(206,209,208,0.6)";
+        con.beginPath();
+        con.arc(x[i],y[i],4,0,2*Math.PI,false);
+        con.fill();	
+        }
+    };
+    var move = function(){
+        for(var k=0;k<num;k++){
+            x[k] += vx[k];
+            y[k] += vy[k];
+            if(x[k]+5>=width||x[k]<5){
+                vx[k] = -vx[k];
+            }else if(y[k]+5>=height||y[k]<5){
+                vy[k] = -vy[k];
+            }
+        }
+    };
+    var line = function(){
+        for(var i=0;i<num;i++){
+            for(var j=0;j<num;j++){
+                if(j!=i){
+                    if([Math.pow(x[i]-x[j],2)+Math.pow(y[i]-y[j],2)]>30000){
+                        continue;
+                    }
+                    con.beginPath();
+                    con.lineWidth="0.3";
+                    con.strokeStyle = "#c7c7c7";
+                    con.moveTo(x[i],y[i]);
+                    con.lineTo(x[j],y[j]);
+                    con.stroke();
+                }
+            }
+        }
+    }
+    if(width > 1000) {
+        setInterval(function(){
+            draw();
+            line();
+            move();
+        },30);
+    }
+</script> -->
+
+	<a id="rocket" href="#top" class=""></a>
+	
+<!-- Image to hack wechat -->
+<!-- <img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+</html>

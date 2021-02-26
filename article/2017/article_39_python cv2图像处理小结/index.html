@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+  <meta name="baidu-site-verification" content="code-NFdFjxnyBp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="甘家城的个人博客">
+  <meta name="keyword" content="甘家城">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- <script data-ad-client="ca-pub-3781840703100023" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <title>
+    
+    python cv2图像处理小结 - 甘家城 | Blog
+    
+  </title>
+
+  <link rel="canonical" href="http://ganjiacheng.cn/article/2017/article_39_python cv2图像处理小结/">
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css">
+
+  <link rel="stylesheet" href="/css/donate.css">
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="/css/highlight.css">
+
+  <link rel="stylesheet" href="/css/widget.css">
+
+  <link rel="stylesheet" href="/css/rocket.css">
+
+  <link rel="stylesheet" href="/css/signature.css">
+
+  <link rel="stylesheet" href="/css/toc.css">
+
+  <!-- audio player -->
+  <link rel="stylesheet" href="/css/meplayer.min.css">
+  <link rel="stylesheet" href="/css/player.css">
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  
+  <script></script>
+</head>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>python cv2图像处理小结</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 甘家城 on
+                            2017-08-06
+                            
+                                <span>
+                                    Viewed <span id="busuanzi_value_page_pv"></span> times
+                                </span>
+                            
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">甘家城的个人博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<script>
+    function encrypto( str, xor, hex ) {
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+
+        for ( let i=0; i<str.length; i++ ) {
+            // 提取字符串每个字符的ascll码
+            let charCode = str.charCodeAt(i);
+            // 进行异或加密
+            charCode = (charCode * 1) ^ xor;
+            // 异或加密后的字符转成 hex 位数的字符串
+            charCode = charCode.toString(hex);
+            resultList.push(charCode);
+        }
+
+        let splitStr = String.fromCharCode(hex + 97);
+        let resultStr = resultList.join( splitStr );
+        return resultStr;
+    }
+
+    function decrypto( str, xor, hex ) { 
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+        let strCharList = [];
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+        // 解析出分割字符
+        let splitStr = String.fromCharCode(hex + 97);
+        // 分割出加密字符串的加密后的每个字符
+        strCharList = str.split(splitStr);
+
+        for ( let i=0; i<strCharList.length; i++ ) {
+            // 将加密后的每个字符转成加密后的ascll码
+            let charCode = parseInt(strCharList[i], hex);
+            // 异或解密出原字符的ascll码
+            charCode = (charCode * 1) ^ xor;
+            let strChar = String.fromCharCode(charCode);
+            resultList.push(strChar);
+        }
+        let resultStr = resultList.join('');
+        return resultStr;
+    }
+</script>
+
+
+
+
+<!-- audio player -->
+<!-- <div>
+    <div class="music"></div>
+</div> -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="music" style="margin-top: 30px;"></div>
+                
+
+                <p>这里做图像处理初学的一个阶段性小结。从简单的读写到复杂点的开闭运算。还有一些用到过的边缘提取，垂直水平投影等方法。<a id="more"></a></p>
+<p>首先是读写和展示</p>
+<pre>import cv2
+#imread第二个参数不写默认是rgb彩色，有0读取到的就是黑白二值图
+im = cv2.imread("image.jpg",0)
+#写入文件
+cv2.imwrite("img.jpg",im)
+#展示
+cv2.imshow("imageName",im)
+cv2.waitKey(0)</pre>
+<p>一般复制粘贴的话可以用numpy，因为cv2本身图像保存的就是一个np矩阵。</p>
+<p>这里的注意点就是先是y再是x。</p>
+<pre>crop = im[y:y+height,x:x+width]</pre>
+<p>改尺寸</p>
+<pre>res = cv2.resize(im,(width, height), interpolation = cv2.INTER_CUBIC)</pre>
+<p>灰度，二值（手动阀值和自动阀值）</p>
+<pre>im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
+#第二个参数为手动阀值
+retval,im_hb = cv2.threshold(im_gray, 120, 255, cv2.THRESH_BINARY) 
+#自动阀值
+#这里255是二值中的高值，cv2.ADAPTIVE_THRESH_MEAN_C可以用cv2.ADAPTIVE_THRESH_GAUSSIAN_C
+#cv2.THRESH_BINARY和cv2.THRESH_BINARY_INV是黑白相反的
+#最后两个参数可以调整来改变黑白区域
+im_hb = cv2.adaptiveThreshold(im_gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 7, 1)</pre>
+<p>膨胀，腐蚀，开闭运算，待尝试（形态学梯度、顶帽、黑帽）</p>
+<pre>#首先定义一个核，一般矩形用的多
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
+#膨胀腐蚀是对图中白色部分而言，膨胀便是白色变多，腐蚀是白色变少
+#腐蚀
+eroded = cv2.erode(img,kernel)
+#膨胀
+dilated = cv2.dilate(img,kernel) 
+#闭运算=先膨胀后腐蚀
+closed = cv2.morphologyEx(im, cv2.MORPH_CLOSE, kernel) 
+#开运算=先腐蚀后膨胀
+open = cv2.morphologyEx(im, cv2.MORPH_OPEN, kernel)</pre>
+<p>mser连通域检测，原理貌似是把图像看做高低起伏的地形，然后往下灌水。</p>
+<pre>#图片如果底色比较单一就能用来截出内容，这里需要自己控制_min_area
+mser = cv2.MSER_create(_min_area=1800)
+regions, boxes = mser.detectRegions(im_hb)
+for box in boxes:
+    x, y, w, h = box
+    cv2.rectangle(im, (x,y),(x+w, y+h), (255, 0, 0), 2)</pre>
+<p>垂直，水平投影做分割，这里没找到直接可用的接口，就自己实现</p>
+<pre>#首先需要的是一张二值图im，以白底黑字为例
+division=np.array([[255.0]*width]*height)
+#水平投影，可以用来确定字的上下边缘
+for i in range(im.shape[0]):
+     n=0
+     for j in range(im.shape[1]):
+         if closed[i][j]==0:
+             division[i][n]=0
+             n+=1
+#垂直投影，可以用来确定字的左右边缘已经字符中间的空隙
+for i in range(im.shape[1]):
+    n=0
+    for j in range(im.shape[0]):
+        if division[j][i]==0:
+            division[height-1-n][i]=0
+            n+=1
+</pre>
+<p>边缘检测，尝试了findContours和sobel算子和canny算子</p>
+<pre>#这里也需要二值图im
+contours, hierarchy = cv2.findContours(im,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+cv2.drawContours(img,contours,-1,(0,0,255),3)</pre>
+<pre>x = cv2.Sobel(im,cv2.CV_16S,1,0)  
+y = cv2.Sobel(im,cv2.CV_16S,0,1)  
+absX = cv2.convertScaleAbs(x)
+absY = cv2.convertScaleAbs(y)  
+dst = cv2.addWeighted(absX,0.5,absY,0.5,0)</pre>
+<pre>#最大最小阀值
+canny = cv2.Canny(im, 50, 150)</pre>
+<p>入门至此把，python写起来还比较方便，至于最后还得上c++。</p>
+<p>真实中图像各异，总的还得实践出真知！</p>
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/2017/article_40_爬进数字杭电python篇/" data-toggle="tooltip" data-placement="top" title="爬进数字杭电python篇">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/2017/article_38_three.js第四发，粒子与第一视角的尝试/" data-toggle="tooltip" data-placement="top" title="three.js第四发，粒子与第一视角的尝试">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="nav">none</ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>MINE</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="/article/music/music_1_音乐篇/" target="_blank">我的音乐</a></li>
+                    
+                        <li><a href="/book/" target="_blank">我的阅读</a></li>
+                    
+                        <li><a href="/article/money/money_1_理财篇/" target="_blank">我的理财</a></li>
+                    
+                        <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
+                    
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
+                </ul>
+                
+                <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+                <h5>COMMENT</h5>
+                <div id="vcomments"></div>
+                <script>
+                    new Valine({
+                        el: '#vcomments',
+                        appId: 'bd1nirzTb4YlrbE60rubD0O3-gzGzoHsz',
+                        appKey: 'HCdMhtYzjwyK8G374gLvu368',
+                        notify:false, 
+                        verify:false, 
+                        avatar:'mp', 
+                        placeholder: '来了老弟 #markdown格式',
+                        updated: () => {
+                            console.log(3)
+                        }
+                    })
+                    setTimeout(() => {
+                        if(document.getElementsByClassName("info")[0] != undefined) {
+                            document.getElementsByClassName("info")[0].style.display="none";
+                        }
+                    }, 3000)
+                </script>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/webgjc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <!-- <p class="copyright text-muted">
+                    Copyright &copy; 甘家城 2021 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    
+        <!-- 不蒜子统计 -->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+            <span>
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+        </div>
+    
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- audio player -->
+<script src="/js/meplayer.min.js"></script>
+<script src="/js/player.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ganjiacheng.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+    <!-- <canvas id="canvas" style="z-index: -1;position: absolute; top: 300px;"></canvas>
+
+<script type="text/javascript">
+    var width = document.body.clientWidth;
+    var height = document.body.clientHeight-300;
+    var can = document.getElementById("canvas");
+    can.setAttribute("width",width);
+    can.setAttribute("height",height);
+    var con = can.getContext("2d");
+    var x = width*Math.random();
+    var y = height*Math.random();
+    var x = [],y = [],vx = [],vy = [];
+    var num = 80;
+    var v = 1.5;
+    for(var j=0;j<num;j++){
+        x[j] = width*Math.random();
+        y[j] = height*Math.random();
+        vx[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+        vy[j] = v*Math.random() * (Math.random()>0.5?-1:1);
+    }
+    var draw = function(){
+        con.clearRect(0,0,width,height);
+        for(var i=0;i<num;i++){
+        con.fillStyle = "rgba(206,209,208,0.6)";
+        con.beginPath();
+        con.arc(x[i],y[i],4,0,2*Math.PI,false);
+        con.fill();	
+        }
+    };
+    var move = function(){
+        for(var k=0;k<num;k++){
+            x[k] += vx[k];
+            y[k] += vy[k];
+            if(x[k]+5>=width||x[k]<5){
+                vx[k] = -vx[k];
+            }else if(y[k]+5>=height||y[k]<5){
+                vy[k] = -vy[k];
+            }
+        }
+    };
+    var line = function(){
+        for(var i=0;i<num;i++){
+            for(var j=0;j<num;j++){
+                if(j!=i){
+                    if([Math.pow(x[i]-x[j],2)+Math.pow(y[i]-y[j],2)]>30000){
+                        continue;
+                    }
+                    con.beginPath();
+                    con.lineWidth="0.3";
+                    con.strokeStyle = "#c7c7c7";
+                    con.moveTo(x[i],y[i]);
+                    con.lineTo(x[j],y[j]);
+                    con.stroke();
+                }
+            }
+        }
+    }
+    if(width > 1000) {
+        setInterval(function(){
+            draw();
+            line();
+            move();
+        },30);
+    }
+</script> -->
+
+	<a id="rocket" href="#top" class=""></a>
+	
+<!-- Image to hack wechat -->
+<!-- <img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+</html>

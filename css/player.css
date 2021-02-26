@@ -1,0 +1,32 @@
+/* button {
+    font-size: 14px;
+    line-height: 30px;
+
+    display: block;
+
+    width: 120px;
+    height: 30px;
+    margin: 70px auto;
+
+    text-align: center;
+
+    color: #777;
+    border: none;
+    background-color: #fff;
+
+    -webkit-appearance: none;
+
+       -moz-appearance: none;
+
+            appearance: none;
+} */
+
+.meplayer-info-cover > img {
+    margin-top: 0px;
+    height: 90px !important;
+    width: 90px !important;
+}
+
+.meplayer-meta {
+    height: 90px;
+}
