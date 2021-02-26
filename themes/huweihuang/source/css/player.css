@@ -30,3 +30,7 @@
 .meplayer-meta {
     height: 90px;
 }
+
+.meplayer-spectrum {
+    margin-left: -90px !important;
+}
