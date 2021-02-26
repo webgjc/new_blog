@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/archives/9/">
+  <link rel="canonical" href="http://ganjiacheng.cn/page/3/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -137,11 +137,11 @@
                         
                     
                         
-                    
-                        
                         <li>
                             <a href="/about/">About</a>
                         </li>
+                        
+                    
                         
                     
                         
@@ -223,101 +223,40 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_30_用ReactNative做一个简单新闻app/">
+    <a href="/article/2020/article_11_新增两个功能/">
         <h2 class="post-title">
             
-            用ReactNative做一个简单新闻app
+            博客新增两个功能模块
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里先从最近看ReactNative文档发现的expo说起，因为使用expo可以直接在ios或者安卓展示ReactNative的效果，门槛突然降低了许多，因此，突发奇想试试做native app。
-首先可以按照ReactNative的GetStart配置完环境并完成一个hello world！
-总体如果有node和npm的话就以下两步：
-npm install -g create-react......
+            入口
+在主页侧边栏的FRIENDS模块中，
+新增了我的钢琴屋 和 我的阅读室
+下面分别来阐述
+我的钢琴屋
+这个是挂在github上的一个静态页面，github地址为
+
+https://github.com/webgjc/tan8【如侵权可下线】
+
+主要功能为练习和收听钢琴曲
+实现
+其中包括一个flash播放器和一个数据列表
+flash播放器主要参考某琴吧的实现，并引用了他们的文件存储直接获取......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-07-22
-        <span class="post-count"> 文章字数: 836</span>
-        <span class="post-count"> 阅读时间: 5分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_27_php实现RSA加密/">
-        <h2 class="post-title">
-            
-            php实现RSA加密
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            RSA加密具体细节这里就不说了可以自行搜索。这里做php实现的例子。
-思路：在服务器端php先产生一个公钥给js用于加密，同时产生一个私钥用于解密并保存在session中，js获取用户输入并用公钥加密，然后将加密的字符串提交到后端，后端php用私钥解密后得到实际用户输入。
-这里主要安全的一点就是信息传输过程中始终是加密后的字符串，即使被抓包也无法得到实际用户输入。
-首先下载用于rsa加密的一......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-07-14
-        <span class="post-count"> 文章字数: 559</span>
+        2020-04-29
+        <span class="post-count"> 文章字数: 485</span>
         <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_29_使用python的jieba,wordcloud做唐诗分析/">
-        <h2 class="post-title">
-            
-            使用python的jieba,wordcloud做唐诗分析
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            首先安装好python3.x以及jieba,wordcloud库,这是前提。
-然后搜罗了一份唐诗的txt文档，具体看这里。
-思路：先用jieba把每首诗标题去掉，提取出正文。再jiaba.cut做分词，分完的词保存下来，再用worcloud作词云，具体可以看wordcloud文档。
-具体代码：
-#coding:utf-8
-#python3.5
-#引入库文件
-from wordcloud im......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-07-13
-        <span class="post-count"> 文章字数: 216</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#OTHER" title="OTHER">OTHER</a>
         
     </div>
     
@@ -329,101 +268,30 @@ from wordcloud im......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_24_几个loading动画---可更新/">
+    <a href="/article/2020/article_10_HIVE源码学习-从CliDriver跟踪整个执行流程/">
         <h2 class="post-title">
             
-            几个loading动画---可更新
+            HIVE源码学习--从CliDriver跟踪整个执行流程
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            因为网络等因素，有时候浏览器加载页面时间会很长，一直让用户看着白屏幕也不好。
-所以需要有loading动画来挽留用户。
-这个动画可以用css实现，也可以用js实现。
-这里先举两个简单的css的例子：
-点击这里看演示
-另一个演示
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF......
+            前言
+对接和使用hive的上层组件也很多了，hiveserver2，beeline，metastore，hivehook等，但没好好调试过hive，计划进行一次比较狠的补课，让自己对hive内部的很多实现有一个基础的认识，同时自定义实现一些模块。
+本次是hive源码层的调试与实验的开坑，初步想象的过程有：hive执行大致全流程调试，序列化反序列化，执行计划，metastore，hivehoo......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-05-30
-        <span class="post-count"> 文章字数: 429</span>
-        <span class="post-count"> 阅读时间: 2分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_25_使用dlib实现人脸检测和笑脸识别/">
-        <h2 class="post-title">
-            
-            使用dlib实现人脸检测和笑脸识别
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            人脸检测技术，在深度学习之前，特征+分类器一直是最好的选择，dlib便是用hog特征+级联分类器实现了认脸的检测，它本身是用c++写的，但也有python接口。要看具体的文档可以到dlib官网，这里只实现一个简单的应用。这是一个认脸定位+是不是笑脸的分类的应用。使用dlib定位，使用sklearn的svm来完成分类，笑脸与不笑脸是预先训练的，数据得自行准备。准备笑脸的图放在smile文件夹下......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-05-26
-        <span class="post-count"> 文章字数: 648</span>
+        2020-04-28
+        <span class="post-count"> 文章字数: 702</span>
         <span class="post-count"> 阅读时间: 4分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_23_svm分类器---sklearn/">
-        <h2 class="post-title">
-            
-            svm分类器---sklearn
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            刚开始理解svm（支持向量机）还是挺复杂的，现在稍微有了一点思路，便写下来。由于代码实现中对于svm基本是黑盒，所以这里直接讲一下，再用代码实现。
-在线性的情况下，svm就直接找一个超平面（下面就是那条线）来分割不同的两类。比如这个二分类，在超平面上的点距离这条线为0，定一侧距离这条线为正，一侧距离这条线为负，那么只要找到两类点和超平面最大的距离和就行。
-
-#python2.7
-#codin......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-05-01
-        <span class="post-count"> 文章字数: 624</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
         
     </div>
     
@@ -435,66 +303,43 @@ from wordcloud im......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_22_单变量非线性拟合和逻辑回归/">
+    <a href="/article/2020/article_9_本地hadoop与hive的部署-mac/">
         <h2 class="post-title">
             
-            单变量非线性拟合和逻辑回归
+            本地hadoop与hive的单节点部署和开发调试[mac]
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            之前讲过最简单的线性拟合和逻辑回归，但常常的情况并不是一条直线就能解决问题的,所以来研究一下非线性的。
-总体方法还是和之前差不多的，只是改变了初始的变量的指数。首先列出式子，求cost function（代价函数，一般理解就是拟合的线与实际的点差多少距离经过处理的总和）。在根据梯度下降最小化cost function，就可以求得接近点的一组系数解，也就是下面的θ，之后就得到直线了。
+            预备
+这边部署的
+hadoop版本为 2.7.3
+hive版本为 1.2.1
+注:src为源码包
+Hadoop搭建
+解压，进入配置目录
 
-先来看......
+tar zxvf hadoop-2.7.3.tar.gz
+cd hadoop-2.7.3/etc/hadoop
+
+修改配置
+core-site.xml，hdfs-site.xml， mapred-site.xml
+......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-04-30
-        <span class="post-count"> 文章字数: 981</span>
+        2020-04-27
+        <span class="post-count"> 文章字数: 989</span>
         <span class="post-count"> 阅读时间: 6分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_21_tensorflow入门之mnist手写数字识别/">
-        <h2 class="post-title">
-            
-            tensorflow入门之mnist手写数字识别
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这是tensorflow官网的第一个例子，按他的做就可以在测试数据集达到91%左右的识别率。之后的cnn版本就可以在测试数据集达到98%以上的正确率。
-因为直接用他的写没什么感觉，然后稍微摸索了一下mnist的内容。
-下面先将mnist的个测试数据变成图片的形式，直观一点。
-#python3.5
-#windows
-#引入所需库
-import tensorflow.examples.......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-04-29
-        <span class="post-count"> 文章字数: 883</span>
-        <span class="post-count"> 阅读时间: 5分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
+        
+        <a href="/tags/#HADOOP" title="HADOOP">HADOOP</a>
         
     </div>
     
@@ -506,66 +351,301 @@ import tensorflow.examples.......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_20_赛马问题/">
+    <a href="/article/2020/article_8_hiveSQL执行日志的收集/">
         <h2 class="post-title">
             
-            赛马问题
+            hiveSQL执行日志的收集
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            问题：有25匹马，速度都不同，但每匹马的速度都是定值。现在只有5条赛道，无法计时，即每赛一场最多只能知道5匹马的相对快慢。问最少赛几场可以找出25匹马中速度最快的前5名？
-写下一些个人思路。
-先把25匹马分成5组，每组5匹马，跑五次。得到五次的结果。
-在把5次都跑第一名的马拿出来跑一次。
-然后分别标上如下图序号。箭头方向表示由慢到快。
-
-此时可以得到11是其中跑得最快的，由于要选5匹，故可以......
+            前言
+一般的hive客户端都没有详细的执行日志，要了解执行情况得去yarn看，就比较麻烦，本次考虑的是在hive客户端获取到全部的执行日志，来源主要参考hadoop-yarn-client的内部实现。
+使用引擎为tez，在异步执行hql时，获取到的日志中包括applicationId，考虑通过这个去获取到全部的执行日志，包括进度和map/reduce信息。
+实现
+jdbc部分日志
+获取jdb......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-04-21
-        <span class="post-count"> 文章字数: 520</span>
+        2020-04-09
+        <span class="post-count"> 文章字数: 1.2k</span>
+        <span class="post-count"> 阅读时间: 7分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
+        
+        <a href="/tags/#YARN" title="YARN">YARN</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_7_hiveserver2与HQL的执行/">
+        <h2 class="post-title">
+            
+            hiveserver2与hiveSQL的执行
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+对于hql的执行，可以在集群中启动hive的命令行，也可以使用beeline或其他客户端用jdbc连接Hiveserver2发送sql，中间传输用的是thrift协议。
+这边演示python的实现和java的实现
+实现
+python
+python使用pyhive或者impyla库都可以。使用方式也都类似，这边以pyhive举例。
+from pyhive......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-04-09
+        <span class="post-count"> 文章字数: 632</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#PYTHON" title="PYTHON">PYTHON</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_6_基于antlr4实现HQL的解析-元数据/">
+        <h2 class="post-title">
+            
+            基于antlr4实现HQL的解析[元数据]
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+在大数据场景中，HQL的使用次数很多：离线任务，及时查询，数仓建模等。
+关于HQL解析在hive底层也有他自己的HQL解析实现。不过底层的实现直接用不起来，这边使用antlr4直接来实现HQL的解析。
+HQL解析在很多场景能用到并发挥如虎添翼的作用，这边开个新坑，会分好几个文章来讲主要用到的一些场景和实现。
+本文主要讲CREATE语句解析出元数据。会用到的场景也很多，比如建模的时候，离......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-04-07
+        <span class="post-count"> 文章字数: 1.5k</span>
+        <span class="post-count"> 阅读时间: 9分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#元数据" title="元数据">元数据</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_5_hive与mysql元数据的快速采集/">
+        <h2 class="post-title">
+            
+            hive与mysql元数据的快速采集
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Hive元数据采集
+首先以hive举例，
+hive可以在命令行执行下面命令得到大部分表和字段的元数据，
+但因为这样每个都要执行就很慢。
+
+DESCRIBE FORMATTED {tablename}
+
+然后直接尝试从metastore库采集，这里不做metastore具体结构的论述，
+想了解详细结构可以移步Hive MetaStore的结构。
+因为是按库采集，首先想到的方法是先到通过库获取库......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-04-05
+        <span class="post-count"> 文章字数: 1.4k</span>
+        <span class="post-count"> 阅读时间: 9分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#元数据" title="元数据">元数据</a>
+        
+        <a href="/tags/#大数据" title="大数据">大数据</a>
+        
+        <a href="/tags/#MYSQL" title="MYSQL">MYSQL</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_4_pynput实现鼠标键盘操作的监控与还原/">
+        <h2 class="post-title">
+            
+            pynput实现鼠标键盘操作的记录与还原
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+心血来潮，实现一波记录操作并还原操作，可用的场景说不定还挺多。
+这次实现的记录和还原的操作包括
+
+鼠标移动，滚动，左右键
+键盘的按下，松开
+
+前期准备
+使用pynput就可以完美的实现上面需求，而且用着还挺简单；
+具体包详细接口与使用说明看如下图：
+
+具体实现
+使用python3编写，在mac环境下运行良好。
+......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-04-01
+        <span class="post-count"> 文章字数: 920</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#PYTHON" title="PYTHON">PYTHON</a>
+        
+        <a href="/tags/#脚本" title="脚本">脚本</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_3_讲讲元数据/">
+        <h2 class="post-title">
+            
+            讲讲元数据
+        </h2>
+        <h3 class="post-subtitle">
+            大数据平台中元数据系统的一些见解
+        </h3>
+        <div class="post-content-preview">
+            前言
+做了一些元数据的系统，分享一些相关的理解与体会。
+掺杂个人理解与实操历史，不一定是最佳实践。
+元数据定义
+元数据一般指的是 定义数据的数据。
+对于一个后端系统或者大数据集群来说，基本的元数据就是在执行ddl时产生的各种库表字段等信息。
+
+比如mysql的每个实例会默认有一个叫information_schema的库；
+比如hive在运行前都需要配置一个metastore库，一般为mys......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-03-31
+        <span class="post-count"> 文章字数: 1.2k</span>
+        <span class="post-count"> 阅读时间: 7分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#元数据" title="元数据">元数据</a>
+        
+        <a href="/tags/#大数据" title="大数据">大数据</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_2_整理晒晒老博客/">
+        <h2 class="post-title">
+            
+            整理晒晒老博客
+        </h2>
+        <h3 class="post-subtitle">
+            整理下之前记录的一些东西
+        </h3>
+        <div class="post-content-preview">
+            前言
+之前写过些博客，文章没直接保留，代码都还留着；
+这边对之前的做简单论述和总结。
+git地址：https://github.com/webgjc/blog
+content
+修改桌面背景图片
+
+使用python实现，从网上获取图片，修改window桌面背景图片。可以用pyinstaller打包为exe
+
+dfs的几个demo
+
+dfs.py包含了全排，八皇后问题
+river.py为和尚妖怪......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-02-29
+        <span class="post-count"> 文章字数: 552</span>
         <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_19_微信小程序初探与文字二维码举例/">
-        <h2 class="post-title">
-            
-            微信小程序初探与文字二维码举例
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            最近，微信小程序开放了个人开发者，所以立刻申请了一个来试试。
-小程序从之前刚出来时在开发者圈火极一时，而现在却用的不多，也有限制多的缘故，所以在开放了部分限制之后再来看他的发展吧。
-这里讨论一下初探小程序的一点想法。
-在小程序手册中也已经很明白了，把视图和逻辑分开，有点类似于react的虚拟dom，不直接去操作dom，而是改变数据之后自动刷新页面的渲染，使改动最小化。最初的试验感觉他的数据应......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-04-07
-        <span class="post-count"> 文章字数: 964</span>
-        <span class="post-count"> 阅读时间: 6分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#OTHER" title="OTHER">OTHER</a>
         
     </div>
     
@@ -581,12 +661,12 @@ import tensorflow.examples.......
     <ul class="pager">
         
         <li class="previous">
-            <a href="/archives/8/">&larr; Newer Posts</a>
+            <a href="/page/2/">&larr; Newer Posts</a>
         </li>
         
         
         <li class="next">
-            <a href="/archives/10/">Older Posts &rarr;</a>
+            <a href="/page/4/">Older Posts &rarr;</a>
         </li>
         
     </ul>
@@ -720,7 +800,7 @@ import tensorflow.examples.......
             
         
             
-            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
+            <a href="/tags/#其他" title="其他" rel="1">其他</a>
             
         
             
@@ -728,7 +808,7 @@ import tensorflow.examples.......
             
         
             
-            <a href="/tags/#其他" title="其他" rel="1">其他</a>
+            <a href="/tags/#HADOOP" title="HADOOP" rel="2">HADOOP</a>
             
         
             
@@ -752,7 +832,11 @@ import tensorflow.examples.......
             
         
             
-            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
+            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
+            
+        
+            
+            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
             
         
             
@@ -760,11 +844,7 @@ import tensorflow.examples.......
             
         
             
-            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
-            
-        
-            
-            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
+            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
             
         
             
@@ -1057,7 +1137,7 @@ import tensorflow.examples.......
 	<a id="rocket" href="#top" class=""></a>
 	
 <!-- Image to hack wechat -->
-<img src="/img/icon_wechat.png" width="0" height="0" />
+<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
