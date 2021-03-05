@@ -30,13 +30,6 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/SQL/</loc>
-        <lastmod>2021-01-27T04:46:28.775Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ganjiacheng.cn/tags/HTTP/</loc>
         <lastmod>2021-01-27T04:46:28.775Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -45,6 +38,13 @@
 
     <url>
         <loc>http://ganjiacheng.cn/tags/%E5%90%8E%E7%AB%AF/</loc>
+        <lastmod>2021-01-27T04:46:28.775Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/tags/SQL/</loc>
         <lastmod>2021-01-27T04:46:28.775Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -107,20 +107,6 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/HIVE/</loc>
-        <lastmod>2021-01-27T04:46:28.779Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ganjiacheng.cn/tags/HADOOP/</loc>
-        <lastmod>2021-01-27T04:46:28.779Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ganjiacheng.cn/tags/CHROME%E6%8F%92%E4%BB%B6/</loc>
         <lastmod>2021-02-22T13:21:24.747Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -137,6 +123,20 @@
     <url>
         <loc>http://ganjiacheng.cn/tags/%E6%80%BB%E7%BB%93/</loc>
         <lastmod>2021-02-26T08:15:36.579Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/tags/HIVE/</loc>
+        <lastmod>2021-03-05T06:31:59.894Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/tags/HADOOP/</loc>
+        <lastmod>2021-03-05T06:31:59.894Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
