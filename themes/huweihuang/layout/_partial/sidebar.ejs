@@ -1,3 +1,14 @@
+<% if (page.__index) { %>
+    <input type="text" id="local-search-input" class="st-search-input" placeholder="搜索" />
+    <div id="local-search-result" class="local-search-result-cls"></div>
+  
+    <script type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript" id="local.search.active">
+        let inputArea       = document.querySelector("#local-search-input");
+        inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+    </script>
+<% } %>
+
 <!-- Sidebar Container -->
 <div class="
     col-lg-3 col-lg-offset-0

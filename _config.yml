@@ -248,3 +248,8 @@ busuanzi:
     enable: true
 
 favicon: /favicon.ico
+
+search:
+  path: search.xml
+  field: post
+  content: true

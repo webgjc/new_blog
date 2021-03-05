@@ -37,7 +37,7 @@ core-site.xml，hdfs-site.xml， mapred-site.xml
      </property>
      <property>
         <name>fs.default.name</name>
-        <value>hdfs://master:9000</value>
+        <value>hdfs://localhost:9000</value>
      </property>
 </configuration>
 
@@ -65,7 +65,7 @@ core-site.xml，hdfs-site.xml， mapred-site.xml
 <configuration>
     <property>
         <name>mapred.job.tracker</name>
-        <value>master:9001</value>
+        <value>localhost:9001</value>
      </property>
 </configuration>
 ```
@@ -86,12 +86,19 @@ chmod 750 $HOME
 ```
 
 ## 启动hadoop
+
+先format namenode
+>hadoop namenode -format
+
 >./hadoop-2.7.3/sbin/start-all.sh
 
 
 ## 验证安装成功
+jps查看namenode 和 datanode等正常启动
+
 执行 WordCount  
-在 hdfs 创建文件夹 hadoop fs -mkdir -p /data/input  hadoop fs -mkdir -p /data/out  
+在 hdfs 创建文件夹 hadoop fs -mkdir -p /data/input  
+hadoop fs -mkdir -p /data/out  
 上传文本文件  
 hadoop fs -put a.txt /data/input  
 执行 wordcount  
