@@ -7,6 +7,9 @@ subtitle: 音乐始终陪伴
 header-img: "/img/header_img/archive.jpg"
 ---
 
+## River flows in you
+[River flows in you](/img/movie/riverflowsinyou.mp4)
+
 ## 夜的钢琴曲11（一个人的舞蹈）
 [夜的钢琴曲11](/img/movie/yedegangqinqu11.mp4)
 
@@ -14,10 +17,9 @@ header-img: "/img/header_img/archive.jpg"
 [梁祝钢琴曲](/img/movie/liangzhu.mp4)
 
 
-## 原音乐篇入口，听学钢琴曲 
+<!-- ## 原音乐篇入口，听学钢琴曲 
 - 2020-08-23
-- [点击此处收听钢琴曲](/piano/)，需要浏览器开启flash
-
+- [点击此处收听钢琴曲](/piano/)，需要浏览器开启flash -->
 
 ## 音乐篇必读镇楼 
 - 2020-08-23
