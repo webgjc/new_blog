@@ -15,6 +15,8 @@ tags:
 
 这边基于antlr4对hql的解析手动实现一个格式化的功能。
 
+代码实现参考：https://github.com/webgjc/sql-parser/
+
 ## 设计思路
 
 对于一般比较固定的语句如create，show，drop，alter等采用直接对拿到节点并带格式用字符串拼接。
