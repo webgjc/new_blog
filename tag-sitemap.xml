@@ -58,7 +58,7 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/HQL%E8%A7%A3%E6%9E%90/</loc>
+        <loc>http://ganjiacheng.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
         <lastmod>2021-01-27T04:46:28.777Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -67,27 +67,6 @@
     <url>
         <loc>http://ganjiacheng.cn/tags/MYSQL/</loc>
         <lastmod>2021-01-27T04:46:28.777Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ganjiacheng.cn/tags/%E5%85%83%E6%95%B0%E6%8D%AE/</loc>
-        <lastmod>2021-01-27T04:46:28.777Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ganjiacheng.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
-        <lastmod>2021-01-27T04:46:28.777Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ganjiacheng.cn/tags/JAVA/</loc>
-        <lastmod>2021-01-27T04:46:28.778Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -136,7 +115,35 @@
 
     <url>
         <loc>http://ganjiacheng.cn/tags/HADOOP/</loc>
-        <lastmod>2021-03-05T06:31:59.894Z</lastmod>
+        <lastmod>2021-03-11T08:54:10.606Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/tags/HDFS/</loc>
+        <lastmod>2021-03-11T08:54:10.606Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/tags/HQL%E8%A7%A3%E6%9E%90/</loc>
+        <lastmod>2021-03-15T12:03:58.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/tags/JAVA/</loc>
+        <lastmod>2021-03-15T12:03:58.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/tags/%E5%85%83%E6%95%B0%E6%8D%AE/</loc>
+        <lastmod>2021-03-15T12:03:58.420Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -156,6 +156,12 @@
                         
                     
                         
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
                     
                         
                         <li>
@@ -172,10 +178,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
                     
                         
                     
@@ -183,8 +185,6 @@
                         <li>
                             <a href="/tags/">Tags</a>
                         </li>
-                        
-                    
                         
                     
                     
@@ -303,6 +303,7 @@
 <p>关于HQL解析在hive底层也有他自己的HQL解析实现。不过底层的实现直接用不起来，这边使用antlr4直接来实现HQL的解析。</p>
 <p>HQL解析在很多场景能用到并发挥如虎添翼的作用，这边开个新坑，会分好几个文章来讲主要用到的一些场景和实现。</p>
 <p>本文主要讲CREATE语句解析出元数据。会用到的场景也很多，比如建模的时候，离线任务中的创表和其他有用到类似建表的地方都可以转换为HQL的交互方式拿到数据，而不是传统的填写表单。</p>
+<p>代码实现参考：<a href="https://github.com/webgjc/sql-parser/" target="_blank" rel="external">https://github.com/webgjc/sql-parser/</a></p>
 <h2 id="前期准备">前期准备</h2>
 <ul>
 <li>antlr4安装看<a href="https://www.antlr.org/" target="_blank" rel="external">这里官方教程</a></li>

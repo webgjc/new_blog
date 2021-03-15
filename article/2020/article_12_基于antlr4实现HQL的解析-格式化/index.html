@@ -154,6 +154,12 @@
                         
                     
                         
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
                     
                         
                         <li>
@@ -170,10 +176,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
                     
                         
                     
@@ -181,8 +183,6 @@
                         <li>
                             <a href="/tags/">Tags</a>
                         </li>
-                        
-                    
                         
                     
                     
@@ -299,6 +299,7 @@
                 <h2 id="前言">前言</h2>
 <p>对于一般的网页上sql查询工具都会有一个功能【格式化】，对于hql的格式化市面上没有很好的直接使用的工具。</p>
 <p>这边基于antlr4对hql的解析手动实现一个格式化的功能。</p>
+<p>代码实现参考：<a href="https://github.com/webgjc/sql-parser/" target="_blank" rel="external">https://github.com/webgjc/sql-parser/</a></p>
 <h2 id="设计思路">设计思路</h2>
 <p>对于一般比较固定的语句如create，show，drop，alter等采用直接对拿到节点并带格式用字符串拼接。</p>
 <p>对于最复杂的select，因为其中包含很多嵌套，因此这边基本的想法有两种：</p>
