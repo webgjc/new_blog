@@ -158,6 +158,8 @@
                         
                     
                         
+                    
+                        
                         <li>
                             <a href="/about/">About</a>
                         </li>
@@ -172,13 +174,11 @@
                         
                     
                         
-                    
-                        
-                    
-                        
                         <li>
                             <a href="/tags/">Tags</a>
                         </li>
+                        
+                    
                         
                     
                     
@@ -292,27 +292,47 @@
                 <div class="music" style="margin-top: 30px;"></div>
                 
 
-                <h2 id="river-flows-in-you">River flows in you</h2>
-<p><a href="/img/movie/riverflowsinyou.mp4">River flows in you</a></p>
-<h2 id="夜的钢琴曲11一个人的舞蹈">夜的钢琴曲11（一个人的舞蹈）</h2>
-<p><a href="/img/movie/yedegangqinqu11.mp4">夜的钢琴曲11</a></p>
-<h2 id="梁祝">梁祝</h2>
-<p><a href="/img/movie/liangzhu.mp4">梁祝钢琴曲</a></p>
-<!-- ## 原音乐篇入口，听学钢琴曲 
-- 2020-08-23
-- [点击此处收听钢琴曲](/piano/)，需要浏览器开启flash -->
+                <video src="/img/movie/haidi.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">
+您的浏览器不支持 video 标签。
+</video>
+<h2 id="海底"><a href="/img/movie/haidi.mp4">海底</a></h2>
+<h2 id="river-flows-in-you"><a href="/img/movie/riverflowsinyou.mp4">River flows in you</a></h2>
+<h2 id="夜的钢琴曲11"><a href="/img/movie/yedegangqinqu11.mp4">夜的钢琴曲11</a></h2>
+<h2 id="梁祝钢琴曲"><a href="/img/movie/liangzhu.mp4">梁祝钢琴曲</a></h2>
+<h2 id="我的纯音乐歌单">我的纯音乐歌单</h2>
+<p><a href="https://t.kugou.com/355mda6xVV2" target="_blank" rel="external">纯音乐歌单</a>（打不开可以尝试手机打开）</p>
+<p>很多歌带着一段感情与记忆，还是要经历过才会听得更有滋味</p>
 <h2 id="音乐篇必读镇楼">音乐篇必读镇楼</h2>
 <ul>
 <li>2020-08-23</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">音乐自得其乐</span><br><span class="line">1. 分享音乐与感受</span><br><span class="line">2. 钢琴学习与弹奏</span><br></pre></td></tr></table></figure>
+<script type="text/javascript">
+    let movie = document.getElementById("movie");
+    let lks = document.querySelectorAll(".post-container > h2 > a");
+    for(let i = 0; i < lks.length; i++) {
+        if(lks[i].className == "" && lks[i].href.endsWith("mp4")) {
+            lks[i].onclick = function(e){
+                e.preventDefault();
+                movie.src=lks[i].href;
+                movie.play();
+            }
+        }
+    }
+</script>
 
                 <hr>
+
+                <div style="color: #ccc; font-size: 12px;">
+                    <span>版权声明：本文为原创文章，转载请注明出处和作者，不得用于商业用途，请遵守</span>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans">CC BY-NC-SA 4.0协议。</a>
+                </div>
+
                 <!-- Pager -->
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/money/money_2_基金实际操作/" data-toggle="tooltip" data-placement="top" title="基金实际操作篇">&larr; Previous Post</a>
+                            <a href="/article/money/money_1_理财篇/" data-toggle="tooltip" data-placement="top" title="理财篇">&larr; Previous Post</a>
                         </li>
                     
                     
@@ -325,6 +345,14 @@
                 <br>
 
                 <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.png"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
                 
                 <!--打赏-->
 
@@ -373,7 +401,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#river-flows-in-you"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">River flows in you</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#夜的钢琴曲11一个人的舞蹈"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">夜的钢琴曲11（一个人的舞蹈）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#梁祝"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">梁祝</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#音乐篇必读镇楼"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">音乐篇必读镇楼</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#海底"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">海底</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#river-flows-in-you"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">River flows in you</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#夜的钢琴曲11"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">夜的钢琴曲11</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#梁祝钢琴曲"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">梁祝钢琴曲</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#我的纯音乐歌单"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">我的纯音乐歌单</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#音乐篇必读镇楼"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">音乐篇必读镇楼</span></a></li></ol>
         
         </div>
       </aside>
