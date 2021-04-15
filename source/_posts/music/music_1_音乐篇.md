@@ -7,19 +7,22 @@ subtitle: 音乐始终陪伴
 header-img: "/img/header_img/archive.jpg"
 ---
 
-## River flows in you
-[River flows in you](/img/movie/riverflowsinyou.mp4)
+<video src="/img/movie/haidi.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">
+您的浏览器不支持 video 标签。
+</video>
 
-## 夜的钢琴曲11（一个人的舞蹈）
-[夜的钢琴曲11](/img/movie/yedegangqinqu11.mp4)
+## [海底](/img/movie/haidi.mp4)
 
-## 梁祝
-[梁祝钢琴曲](/img/movie/liangzhu.mp4)
+## [River flows in you](/img/movie/riverflowsinyou.mp4)
 
+## [夜的钢琴曲11](/img/movie/yedegangqinqu11.mp4)
 
-<!-- ## 原音乐篇入口，听学钢琴曲 
-- 2020-08-23
-- [点击此处收听钢琴曲](/piano/)，需要浏览器开启flash -->
+## [梁祝钢琴曲](/img/movie/liangzhu.mp4)
+
+## 我的纯音乐歌单
+[纯音乐歌单](https://t.kugou.com/355mda6xVV2)（打不开可以尝试手机打开）
+
+很多歌带着一段感情与记忆，还是要经历过才会听得更有滋味
 
 ## 音乐篇必读镇楼 
 - 2020-08-23
@@ -28,3 +31,17 @@ header-img: "/img/header_img/archive.jpg"
 1. 分享音乐与感受
 2. 钢琴学习与弹奏
 ```
+
+<script type="text/javascript">
+    let movie = document.getElementById("movie");
+    let lks = document.querySelectorAll(".post-container > h2 > a");
+    for(let i = 0; i < lks.length; i++) {
+        if(lks[i].className == "" && lks[i].href.endsWith("mp4")) {
+            lks[i].onclick = function(e){
+                e.preventDefault();
+                movie.src=lks[i].href;
+                movie.play();
+            }
+        }
+    }
+</script>

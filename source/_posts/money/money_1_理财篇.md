@@ -13,9 +13,19 @@ header-img:
     <iframe id="ifr_data"></iframe>
 </div>
 
+## 下跌在稳住
+- 2021-03-15
+年初挣的钱在年后都还回去了，现在还亏了不少，仓位也比较高  
+
+主要还是集中在半导体，还有不多的一些其他行业的，传媒/证券  
+
+但也想逐步转换到沪深300，做做指数比较香
+
+黄金最近也入手了一些，主要从之前的400跌倒了350，买时成本价在365左右，  
+现在价格差不多基本持平，个人觉得跌的差不多了，也可能最低在320。
+
 ## 整理基金实际操作记录
 - 2020-08-29
-[查看基金实际操作](/article/money_2_基金实际操作/)
 ```
 本次的数据来源主要是支付宝查账，
 地址为 https://consumeprod.alipay.com/record/standard.htm
@@ -49,6 +59,9 @@ header-img:
     ifr.style.border = "none";
     ifr.style.width = "100%";
     ifr.style.minHeight = "400px";
+    ifr.ondblclick = function(e) {
+        alert(1);
+    }
 
     fetch("/money/fund.json")
     .then(res => res.json())

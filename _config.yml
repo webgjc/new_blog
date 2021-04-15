@@ -194,10 +194,10 @@ markdown:
 # data-autoplay:
 
 # Reward
-reward: false
+reward: true
 reward_comment: 赞赏一下
-wechatpay: wechatpay_url
-alipay: alipay_url
+wechatpay: /img/wechatpay.png
+alipay: /img/alipay.jpg
 
 # Share
 # Reference: https://github.com/overtrue/share.js

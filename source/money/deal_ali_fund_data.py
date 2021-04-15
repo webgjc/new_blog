@@ -89,8 +89,11 @@ for index, row in fund_data.iterrows():
                 money_tmp = str(-float(row[columns[9]]))
             if "买入" in fund_tmp[2]:
                 money_tmp = row[columns[9]]
+            if "分红" in fund_tmp[2]:
+                money_tmp = str(-float(row[columns[9]]))
+            if money_tmp == 0:
+                continue
             fund_tmp[1] = fund_tmp[1].strip()
-
             tmp_code = None
             if fund_name_code_map.get(fund_tmp[1]) is not None:
                 tmp_code = fund_name_code_map.get(fund_tmp[1])
@@ -112,9 +115,9 @@ for index, row in fund_data.iterrows():
                     "money": money_tmp
                 })
 # print(result)
-print("未确认基金代码:", unfund_names)
+# print("未确认基金代码:", unfund_names)
 # print(fund_name_code_map)
-print(result)
+# print(result)
 
 # 矫正时间数据
 use_date_list = []
@@ -129,6 +132,7 @@ for item in result:
                 break
 
 json.dump(result, open("./fund.json", "w"))
+print("finish")
 
 
 
