@@ -14,9 +14,9 @@
       
         <tags>
             
-            <tag> HDFS </tag>
-            
             <tag> HADOOP </tag>
+            
+            <tag> HDFS </tag>
             
         </tags>
       
@@ -451,9 +451,9 @@
       
         <tags>
             
-            <tag> HADOOP </tag>
-            
             <tag> HIVE </tag>
+            
+            <tag> HADOOP </tag>
             
         </tags>
       
@@ -1748,27 +1748,6 @@
     
     
     <entry>
-      <title>操作系统略知一二</title>
-      <link href="article/2020/article_30_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
-      <url>article/2020/article_30_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文涉及操作系统各种方面，包括进程，线程，协议，cpu，内存；</p><h3 id="进程调度算法">进程调度算法</h3><ul><li>先来先服务调度算法：队列</li><li>最短作业优先调度算法：时间短的先运行</li><li>高响应比优先调度算法：先计算响应比优先级，优先级高的先运行</li><li>时间片轮转调度算法：每个进程分配一个时间片段，如果在时间片段内没有执行完成，也切换进程运行，如果时间片内执行，则立即切换。</li><li>最高优先级调度算法：静态优先级 - 创建进程时确定优先级，动态优先级 - 进程优先级随时间增加而增加</li><li>多级反馈队列调度算法：设置多个队列，每个队列优先级从高到低，优先级越高时间片越短</li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 知识积累 </tag>
-            
-            <tag> 操作系统 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Mysql略知一二</title>
       <link href="article/2020/article_28_mysql%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
       <url>article/2020/article_28_mysql%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
@@ -1803,6 +1782,27 @@
             <tag> JAVA </tag>
             
             <tag> 知识积累 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统略知一二</title>
+      <link href="article/2020/article_30_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
+      <url>article/2020/article_30_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文涉及操作系统各种方面，包括进程，线程，协议，cpu，内存；</p><h3 id="进程调度算法">进程调度算法</h3><ul><li>先来先服务调度算法：队列</li><li>最短作业优先调度算法：时间短的先运行</li><li>高响应比优先调度算法：先计算响应比优先级，优先级高的先运行</li><li>时间片轮转调度算法：每个进程分配一个时间片段，如果在时间片段内没有执行完成，也切换进程运行，如果时间片内执行，则立即切换。</li><li>最高优先级调度算法：静态优先级 - 创建进程时确定优先级，动态优先级 - 进程优先级随时间增加而增加</li><li>多级反馈队列调度算法：设置多个队列，每个队列优先级从高到低，优先级越高时间片越短</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 知识积累 </tag>
+            
+            <tag> 操作系统 </tag>
             
         </tags>
       
@@ -1860,7 +1860,7 @@
       <link href="article/music/music_1_%E9%9F%B3%E4%B9%90%E7%AF%87/"/>
       <url>article/music/music_1_%E9%9F%B3%E4%B9%90%E7%AF%87/</url>
       
-        <content type="html"><![CDATA[<video src="/img/movie/haidi.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">您的浏览器不支持 video 标签。</video><h2 id="海底"><a href="/img/movie/haidi.mp4">海底</a></h2><h2 id="river-flows-in-you"><a href="/img/movie/riverflowsinyou.mp4">River flows in you</a></h2><h2 id="夜的钢琴曲11"><a href="/img/movie/yedegangqinqu11.mp4">夜的钢琴曲11</a></h2><h2 id="梁祝钢琴曲"><a href="/img/movie/liangzhu.mp4">梁祝钢琴曲</a></h2><h2 id="我的纯音乐歌单">我的纯音乐歌单</h2><p><a href="https://t.kugou.com/355mda6xVV2" target="_blank" rel="external">纯音乐歌单</a>（打不开可以尝试手机打开）</p><p>很多歌带着一段感情与记忆，还是要经历过才会听得更有滋味</p><h2 id="音乐篇必读镇楼">音乐篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">音乐自得其乐</span><br><span class="line">1. 分享音乐与感受</span><br><span class="line">2. 钢琴学习与弹奏</span><br></pre></td></tr></table></figure><script type="text/javascript">    let movie = document.getElementById("movie");    let lks = document.querySelectorAll(".post-container > h2 > a");    for(let i = 0; i < lks.length; i++) {        if(lks[i].className == "" && lks[i].href.endsWith("mp4")) {            lks[i].onclick = function(e){                e.preventDefault();                movie.src=lks[i].href;                movie.play();            }        }    }</script>]]></content>
+        <content type="html"><![CDATA[<video src="/img/movie/haidi.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">您的浏览器不支持 video 标签。</video><h2 id="青石巷-片段"><a href="/img/movie/qingshixiang.mp4">青石巷 - 片段</a></h2><h2 id="海底"><a href="/img/movie/haidi.mp4">海底</a></h2><h2 id="river-flows-in-you"><a href="/img/movie/riverflowsinyou.mp4">River flows in you</a></h2><h2 id="夜的钢琴曲11"><a href="/img/movie/yedegangqinqu11.mp4">夜的钢琴曲11</a></h2><h2 id="梁祝钢琴曲"><a href="/img/movie/liangzhu.mp4">梁祝钢琴曲</a></h2><h2 id="我的纯音乐歌单">我的纯音乐歌单</h2><p><a href="https://t.kugou.com/355mda6xVV2" target="_blank" rel="external">纯音乐歌单</a>（打不开可以尝试手机打开）</p><p>很多歌带着一段感情与记忆，还是要经历过才会听得更有滋味</p><h2 id="音乐篇必读镇楼">音乐篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">音乐自得其乐</span><br><span class="line">1. 分享音乐与感受</span><br><span class="line">2. 钢琴学习与弹奏</span><br></pre></td></tr></table></figure><script type="text/javascript">    let movie = document.getElementById("movie");    let lks = document.querySelectorAll(".post-container > h2 > a");    for(let i = 0; i < lks.length; i++) {        if(lks[i].className == "" && lks[i].href.endsWith("mp4")) {            lks[i].onclick = function(e){                e.preventDefault();                movie.src=lks[i].href;                movie.play();            }        }    }</script>]]></content>
       
       
       
