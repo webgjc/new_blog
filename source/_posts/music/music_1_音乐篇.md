@@ -11,6 +11,8 @@ header-img: "/img/header_img/archive.jpg"
 您的浏览器不支持 video 标签。
 </video>
 
+## [青石巷 - 片段](/img/movie/qingshixiang.mp4)
+
 ## [海底](/img/movie/haidi.mp4)
 
 ## [River flows in you](/img/movie/riverflowsinyou.mp4)
