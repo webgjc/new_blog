@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/page/11/">
+  <link rel="canonical" href="http://ganjiacheng.cn/archives/3/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -139,12 +139,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-                        
                     
                         
                         <li>
@@ -158,6 +152,12 @@
                     
                         
                     
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -225,30 +225,36 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_8_python日常问答篇--更新中/">
+    <a href="/article/2020/article_12_基于antlr4实现HQL的解析-格式化/">
         <h2 class="post-title">
             
-            python日常问答篇--更新中
+            基于antlr4实现HQL的解析[格式化]
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            python篇：
-1.windows上，在pip install xxx失败的时候怎么办？
-答：http://www.lfd.uci.edu/~gohlke/pythonlibs/到这里面寻找whl，下载之后用 pip install xxx.whl 来安装。
-
-2.解决pip3报错Fatal error in launcher: Unable to create process using......
+            前言
+对于一般的网页上sql查询工具都会有一个功能【格式化】，对于hql的格式化市面上没有很好的直接使用的工具。
+这边基于antlr4对hql的解析手动实现一个格式化的功能。
+代码实现参考：https://github.com/webgjc/sql-parser/
+设计思路
+对于一般比较固定的语句如create，show，drop，alter等采用直接对拿到节点并带格式用字符串拼接。
+对于最......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-11
-        <span class="post-count"> 文章字数: 161</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2020-04-30
+        <span class="post-count"> 文章字数: 2.4k</span>
+        <span class="post-count"> 阅读时间: 15分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
         
     </div>
     
@@ -260,143 +266,40 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_7_前端回忆录---上篇/">
+    <a href="/article/2020/article_11_新增两个功能/">
         <h2 class="post-title">
             
-            前端回忆录---上篇
+            博客新增两个功能模块
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            前端起家，而最终还是没留在这块‘宝地’，虽然火，但也不和大波人抢饭吃啦！！
-记载回忆篇教程—'老年人’的理解（这里不讲教程，而是整个的学习过程）
-一款好的文本编辑器是必须先入手的，sublime是我一直在用且功能强大的文本编辑器，软件自寻，装好之后装一些插件,在工具栏Preference-&gt;Browse Packdges先安装包，之后Preference-&gt;Packdge Con......
+            入口
+在主页侧边栏的FRIENDS模块中，
+新增了我的钢琴屋 和 我的阅读室
+下面分别来阐述
+我的钢琴屋
+这个是挂在github上的一个静态页面，github地址为
+
+https://github.com/webgjc/tan8【如侵权可下线】
+
+主要功能为练习和收听钢琴曲
+实现
+其中包括一个flash播放器和一个数据列表
+flash播放器主要参考某琴吧的实现，并引用了他们的文件存储直接获取......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-11
-        <span class="post-count"> 文章字数: 3k</span>
-        <span class="post-count"> 阅读时间: 19分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_6_leetcode解题篇Python法1-5题/">
-        <h2 class="post-title">
-            
-            leetcode解题篇Python法1-5题
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            具体详细题目请到https://leetcode.com/problemset/algorithms/查看
-之下解法都属第一思路，大可改进。
-悄悄自问一句：今天ac了吗？
-
-Two Sum
-
-class Solution(object):
-    def twoSum(self, nums, target):
-    l=len(nums)
-    for i in xrange(l):
- ......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-03-10
-        <span class="post-count"> 文章字数: 417</span>
-        <span class="post-count"> 阅读时间: 2分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_5_KNN实现手写数字0-9识别/">
-        <h2 class="post-title">
-            
-            KNN实现手写数字0-9识别
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            KNN：我的简单理解为计算各个点到原点的距离，对于于样本数据以相差远近排序，取前面K个，属于哪个类别比较多的就当做最后分类，样本越多就越精确。
-举个栗子：样本点：[a,b,c,d,e,f]，类别：[1,2,3,2,3,5]，假定a-f分别为相差从近到远；
-如果K取1，那分类结果属于1，如果K取值为4，拿结果便为2。
-废话不多说直接上代码：
-//KNN分类的主程序
-from numpy imp......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-03-09
-        <span class="post-count"> 文章字数: 461</span>
+        2020-04-29
+        <span class="post-count"> 文章字数: 485</span>
         <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_4_数字杭电的模拟登陆(带验证码)/">
-        <h2 class="post-title">
-            
-            数字杭电的模拟登陆(带验证码)
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            对于一个学生，研究学校网站还是比较有趣滴！
-Talk is cheap！Then I show the code.
-下面是用php的实现，具体细节在注释里讲解
-//登录之前先获取cookie及lt(一次性使用，lt很关键)
-function GetCookie(){
-    //cookie的地址
-    $cookie=dirname(__FILE__).'/cookie.txt';
-  ......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-03-08
-        <span class="post-count"> 文章字数: 619</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#OTHER" title="OTHER">OTHER</a>
         
     </div>
     
@@ -408,150 +311,30 @@ function GetCookie(){
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_3_简单线性回归---学习篇/">
+    <a href="/article/2020/article_10_HIVE源码学习-从CliDriver跟踪整个执行流程/">
         <h2 class="post-title">
             
-            简单线性回归---学习篇
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            先讲回归这个概念，我的理解：如果是二维平面里，指根据现有的点拟合出直线，在用直线做分析与预测。
-简单线性回归便是全部的点都在一类之下。拟合出直线用于发现其中的关系。
-logistic回归是在两类里做分类，完成训练后，拟合出的直线一边各一类，新来的点就可以很轻易的分类。
-softmax回归便是多分类。
-这是简单线性回归的一般公式：
-然后用python进行了尝试
-#python2.7
-impor......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-03-07
-        <span class="post-count"> 文章字数: 296</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_2_搭建wordpress个人博客/">
-        <h2 class="post-title">
-            
-            搭建wordpress个人博客
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            试着写blog啦，用以分享，记录技术和生活！
-本人年方21，前端起家，在向后端的php和python前进。
-本次就从安装wordpress说起：
-注：环境：云服务器+lnmp+域名。
-1.先从官网https://cn.wordpress.org/releases/找了最新版本4.7.2，之后解压，复制到服务器上，打开对应域名+路径就有了。
-2.在配置mysql数据库，用户名和密码。就可以生成......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-03-06
-        <span class="post-count"> 文章字数: 243</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_1_个人简介/">
-        <h2 class="post-title">
-            
-            个人简介
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            我叫甘家城，来自宁波余姚，目前是杭电的一名大三学生，作为一个电子专业的学生，路过前端的崛起，也看过“最好”的php，目前写着苦短的python，咯咯咯。
-All of life is an act of letting go, but what hurts the most is not taking a moment to say goodbye.
- 
-私邮：@qq.co......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-03-06
-        <span class="post-count"> 文章字数: 86</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2021/article_5_H3S投影仪入手体验/">
-        <h2 class="post-title">
-            
-            极米H3S投影仪入手体验
+            HIVE源码学习--从CliDriver跟踪整个执行流程
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-本文是极米的H3S的上手体验与评测，也是新手入手第一个投影仪的探索与发现。
-评测全凭个人主观意见，如有雷同纯属雷同。
-主要功能
-投影
-投影仪的投影功能当然是最基本的功能，2200ANSI明流的亮度，这边主要还是看在明亮条件下和黑暗条件下的效果。
-梯形矫正
-梯形矫正是投影仪必不可少的功能，它可以在斜着投影时自动调整回矩形，
-否则就得手动调整投影仪摆放的位置和角度，很是麻烦。
-蓝牙
-投影仪......
+对接和使用hive的上层组件也很多了，hiveserver2，beeline，metastore，hivehook等，但没好好调试过hive，计划进行一次比较狠的补课，让自己对hive内部的很多实现有一个基础的认识，同时自定义实现一些模块。
+本次是hive源码层的调试与实验的开坑，初步想象的过程有：hive执行大致全流程调试，序列化反序列化，执行计划，metastore，hivehoo......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2001-03-23
-        <span class="post-count"> 文章字数: 716</span>
+        2020-04-28
+        <span class="post-count"> 文章字数: 702</span>
         <span class="post-count"> 阅读时间: 4分钟</span>
     </p>
     <div class="tags">
         
-        <a href="/tags/#H3S" title="H3S">H3S</a>
-        
-        <a href="/tags/#评测" title="评测">评测</a>
-        
-        <a href="/tags/#生活" title="生活">生活</a>
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
         
     </div>
     
@@ -563,48 +346,304 @@ All of life is an act of letting go, but what hurts the most is not taking a mom
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_32_chrome插件-WEB-ROBOT实现难点/">
+    <a href="/article/2020/article_9_本地hadoop与hive的部署-mac/">
         <h2 class="post-title">
             
-            chrome插件 web_robot之难点探讨
+            本地hadoop与hive的单节点部署和开发调试[mac]
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            预备
+这边部署的
+hadoop版本为 2.7.3
+hive版本为 1.2.1
+注:src为源码包
+Hadoop搭建
+解压，进入配置目录
+
+tar zxvf hadoop-2.7.3.tar.gz
+cd hadoop-2.7.3/etc/hadoop
+
+修改配置
+core-site.xml，hdfs-site.xml， mapred-site.xml
+......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-04-27
+        <span class="post-count"> 文章字数: 1k</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
+        
+        <a href="/tags/#HADOOP" title="HADOOP">HADOOP</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_8_hiveSQL执行日志的收集/">
+        <h2 class="post-title">
+            
+            hiveSQL执行日志的收集
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-本篇主要对 WEB-ROBOT 用到的技术点和实现的探讨
-将会以一个一篇文章的粒度来探讨。
-可视化圈选的实现
-
-选中事件捕获与ui展示
-反向选择器解析
-
-从上层运行到下层事件的运行流程
-
-多条事务形成联动，事务上下游，事务循环，爬虫事务（未实现）
-一个事务的运行
-一个事件的运行，包括前置dom检查
-js事件与chrome事件封装
-
-插件的通信
-
-background与popup
-pop......
+一般的hive客户端都没有详细的执行日志，要了解执行情况得去yarn看，就比较麻烦，本次考虑的是在hive客户端获取到全部的执行日志，来源主要参考hadoop-yarn-client的内部实现。
+使用引擎为tez，在异步执行hql时，获取到的日志中包括applicationId，考虑通过这个去获取到全部的执行日志，包括进度和map/reduce信息。
+实现
+jdbc部分日志
+获取jdb......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2000-12-01
-        <span class="post-count"> 文章字数: 159</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2020-04-09
+        <span class="post-count"> 文章字数: 1.2k</span>
+        <span class="post-count"> 阅读时间: 7分钟</span>
     </p>
     <div class="tags">
         
-        <a href="/tags/#CHROME插件" title="CHROME插件">CHROME插件</a>
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
         
-        <a href="/tags/#自动化" title="自动化">自动化</a>
+        <a href="/tags/#YARN" title="YARN">YARN</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_7_hiveserver2与HQL的执行/">
+        <h2 class="post-title">
+            
+            hiveserver2与hiveSQL的执行
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+对于hql的执行，可以在集群中启动hive的命令行，也可以使用beeline或其他客户端用jdbc连接Hiveserver2发送sql，中间传输用的是thrift协议。
+这边演示python的实现和java的实现
+实现
+python
+python使用pyhive或者impyla库都可以。使用方式也都类似，这边以pyhive举例。
+from pyhive......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-04-09
+        <span class="post-count"> 文章字数: 632</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#PYTHON" title="PYTHON">PYTHON</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_6_基于antlr4实现HQL的解析-元数据/">
+        <h2 class="post-title">
+            
+            基于antlr4实现HQL的解析[元数据]
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+在大数据场景中，HQL的使用次数很多：离线任务，及时查询，数仓建模等。
+关于HQL解析在hive底层也有他自己的HQL解析实现。不过底层的实现直接用不起来，这边使用antlr4直接来实现HQL的解析。
+HQL解析在很多场景能用到并发挥如虎添翼的作用，这边开个新坑，会分好几个文章来讲主要用到的一些场景和实现。
+本文主要讲CREATE语句解析出元数据。会用到的场景也很多，比如建模的时候，离......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-04-07
+        <span class="post-count"> 文章字数: 1.5k</span>
+        <span class="post-count"> 阅读时间: 9分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#元数据" title="元数据">元数据</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_5_hive与mysql元数据的快速采集/">
+        <h2 class="post-title">
+            
+            hive与mysql元数据的快速采集
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Hive元数据采集
+首先以hive举例，
+hive可以在命令行执行下面命令得到大部分表和字段的元数据，
+但因为这样每个都要执行就很慢。
+
+DESCRIBE FORMATTED {tablename}
+
+然后直接尝试从metastore库采集，这里不做metastore具体结构的论述，
+想了解详细结构可以移步Hive MetaStore的结构。
+因为是按库采集，首先想到的方法是先到通过库获取库......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-04-05
+        <span class="post-count"> 文章字数: 1.4k</span>
+        <span class="post-count"> 阅读时间: 9分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#MYSQL" title="MYSQL">MYSQL</a>
+        
+        <a href="/tags/#元数据" title="元数据">元数据</a>
+        
+        <a href="/tags/#大数据" title="大数据">大数据</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_4_pynput实现鼠标键盘操作的监控与还原/">
+        <h2 class="post-title">
+            
+            pynput实现鼠标键盘操作的记录与还原
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+心血来潮，实现一波记录操作并还原操作，可用的场景说不定还挺多。
+这次实现的记录和还原的操作包括
+
+鼠标移动，滚动，左右键
+键盘的按下，松开
+
+前期准备
+使用pynput就可以完美的实现上面需求，而且用着还挺简单；
+具体包详细接口与使用说明看如下图：
+
+具体实现
+使用python3编写，在mac环境下运行良好。
+......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-04-01
+        <span class="post-count"> 文章字数: 920</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#PYTHON" title="PYTHON">PYTHON</a>
+        
+        <a href="/tags/#脚本" title="脚本">脚本</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_3_讲讲元数据/">
+        <h2 class="post-title">
+            
+            讲讲元数据
+        </h2>
+        <h3 class="post-subtitle">
+            大数据平台中元数据系统的一些见解
+        </h3>
+        <div class="post-content-preview">
+            前言
+做了一些元数据的系统，分享一些相关的理解与体会。
+掺杂个人理解与实操历史，不一定是最佳实践。
+元数据定义
+元数据一般指的是 定义数据的数据。
+对于一个后端系统或者大数据集群来说，基本的元数据就是在执行ddl时产生的各种库表字段等信息。
+
+比如mysql的每个实例会默认有一个叫information_schema的库；
+比如hive在运行前都需要配置一个metastore库，一般为mys......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-03-31
+        <span class="post-count"> 文章字数: 1.2k</span>
+        <span class="post-count"> 阅读时间: 7分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#元数据" title="元数据">元数据</a>
+        
+        <a href="/tags/#大数据" title="大数据">大数据</a>
         
     </div>
     
@@ -620,12 +659,12 @@ pop......
     <ul class="pager">
         
         <li class="previous">
-            <a href="/page/10/">&larr; Newer Posts</a>
+            <a href="/archives/2/">&larr; Newer Posts</a>
         </li>
         
         
         <li class="next">
-            <a href="/page/12/">Older Posts &rarr;</a>
+            <a href="/archives/4/">Older Posts &rarr;</a>
         </li>
         
     </ul>
@@ -767,11 +806,11 @@ pop......
             
         
             
-            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
+            <a href="/tags/#其他" title="其他" rel="1">其他</a>
             
         
             
-            <a href="/tags/#其他" title="其他" rel="1">其他</a>
+            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
             
         
             
@@ -783,14 +822,6 @@ pop......
             
         
             
-            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
-            
-        
-            
-            <a href="/tags/#MYSQL" title="MYSQL" rel="2">MYSQL</a>
-            
-        
-            
             <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
             
         
@@ -799,11 +830,11 @@ pop......
             
         
             
-            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
+            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
             
         
             
-            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
+            <a href="/tags/#MYSQL" title="MYSQL" rel="2">MYSQL</a>
             
         
             
@@ -815,15 +846,15 @@ pop......
             
         
             
+            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
+            
+        
+            
+            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
+            
+        
+            
             <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
-            
-        
-            
-            <a href="/tags/#总结" title="总结" rel="1">总结</a>
-            
-        
-            
-            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
             
         
             
@@ -836,6 +867,14 @@ pop......
         
             
             <a href="/tags/#生活" title="生活" rel="1">生活</a>
+            
+        
+            
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            
+        
+            
+            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
             
         
     </div>
@@ -945,6 +984,10 @@ pop......
             </span>
         </div>
     
+    <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+        <span>网站备案号：</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备16005140号-1</a>
+    </div>
 </footer>
 
 <!-- jQuery -->

@@ -1664,53 +1664,11 @@
     
     
     <entry>
-      <title>Java常用类略知一二</title>
-      <link href="article/2020/article_24_java%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
-      <url>article/2020/article_24_java%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>这是一篇关于 Java 部分常用类的源码和实现方法的快速记录回忆篇</p><h3 id="hashmap">HashMap</h3><p>存储结构：数组 + 链表/红黑树<br>put：首先将 key 取 hashcode，移位 16 位得到 1-16 的数作为数组 index，对于不同的 key 一样的 index 存入一个单链表中，当数量比较大后存成一个红黑树，便于查找<br>get：首先将 key 进行一样的操作，得到 index，获取数组 index 的链表或者树然后进行遍历找到对应 key 的 value</p><h3 id="threadlocal">ThreadLocal</h3><p>维护一个 ThreadLocalMap，当前线程 Thread 作为 key，value 为存储的值</p><h3 id="hashset">HashSet</h3><p>维护一个 HashMap 实现</p><h3 id="synchronized-和-volatile-区别">synchronized 和 volatile 区别</h3><ul><li>volatile 是让当前变量到主存里去读取，synchronized 则是锁定当前变量；</li><li>volatile 只能用在变量级别，synchronized 可以用在变量、方法和类；</li><li>volatile 只能实现变量修改可见性，不能保证原子性，synchronized 可以保证可见性和原子性；</li><li>volatile 会让线程自旋，不会阻塞。synchronized 可能会造成阻塞；</li><li>volatile 变量不会被编译器优化，synchronized 会被优化；</li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> JAVA </tag>
-            
-            <tag> 知识积累 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Spring略知一二</title>
       <link href="article/2020/article_25_spring%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
       <url>article/2020/article_25_spring%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
       
         <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文涉及 spring 的相关实现和源码解读</p><h3 id=""></h3>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> JAVA </tag>
-            
-            <tag> 知识积累 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>容器略知一二</title>
-      <link href="article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
-      <url>article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文产出关于一些容器的知识</p><h3 id="tomcat-总体架构">tomcat 总体架构</h3><ul><li>server:一个 tomcat 即一个 server</li><li>service:包含多个 connector 和一个 container，一个 server 可以有多个 service</li><li>connector:链接器，监听 socket 并交给对应 container 处理</li><li>container:执行请求并返回响应的对象，包括 engine，host，context，wrapper</li><li>engine:整个 servlet 引擎，最高层级容器对象，获取目标容器入口</li><li>host:表示虚拟主机的概念，处理来自不同地址的请求</li><li>context:表示一个独立的 web 应用</li><li>wrapper:表示 servlet 定义</li><li>executor:表示可以共享的线程池</li></ul><h3 id="tomcat-处理请求过程">tomcat 处理请求过程</h3><ul><li>endpoint 接收请求</li><li>processor 处理请求</li><li>coyoteAdapter 请求路径映射</li><li>mapper 获取匹配的执行</li><li>engine 容器入口</li><li>host 获取匹配的 host 执行</li><li>context 获取匹配的 context 执行</li><li>wrapper 获取匹配的 wrapper 执行</li><li>filterchain 执行 filter</li><li>servlet 执行 servlet</li></ul>]]></content>
       
       
       
@@ -1748,11 +1706,53 @@
     
     
     <entry>
+      <title>Java常用类略知一二</title>
+      <link href="article/2020/article_24_java%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
+      <url>article/2020/article_24_java%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>这是一篇关于 Java 部分常用类的源码和实现方法的快速记录回忆篇</p><h3 id="hashmap">HashMap</h3><p>存储结构：数组 + 链表/红黑树<br>put：首先将 key 取 hashcode，移位 16 位得到 1-16 的数作为数组 index，对于不同的 key 一样的 index 存入一个单链表中，当数量比较大后存成一个红黑树，便于查找<br>get：首先将 key 进行一样的操作，得到 index，获取数组 index 的链表或者树然后进行遍历找到对应 key 的 value</p><h3 id="threadlocal">ThreadLocal</h3><p>维护一个 ThreadLocalMap，当前线程 Thread 作为 key，value 为存储的值</p><h3 id="hashset">HashSet</h3><p>维护一个 HashMap 实现</p><h3 id="synchronized-和-volatile-区别">synchronized 和 volatile 区别</h3><ul><li>volatile 是让当前变量到主存里去读取，synchronized 则是锁定当前变量；</li><li>volatile 只能用在变量级别，synchronized 可以用在变量、方法和类；</li><li>volatile 只能实现变量修改可见性，不能保证原子性，synchronized 可以保证可见性和原子性；</li><li>volatile 会让线程自旋，不会阻塞。synchronized 可能会造成阻塞；</li><li>volatile 变量不会被编译器优化，synchronized 会被优化；</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+            <tag> 知识积累 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mysql略知一二</title>
       <link href="article/2020/article_28_mysql%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
       <url>article/2020/article_28_mysql%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
       
         <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>本文主要为 mysql 相关知识</p><h3 id="脏读不可重复读幻读">脏读，不可重复读，幻读</h3><ul><li>脏读：某个事务更新数据没有提交，另一个事务已经读取了数据</li><li>不可重复读：一个事务两次查询数据不一致，因为两次查询中间另一个事务更新了数据</li><li>幻读：一个事务两次查询数据总量不一致，因为两次中间另一个事务插入了数据</li></ul><h3 id="隔离级别">隔离级别</h3><table><thead><tr><th>隔离级别</th><th style="text-align:center">脏读</th><th style="text-align:center">不可重复读</th><th style="text-align:center">幻读</th></tr></thead><tbody><tr><td>读未提交(Read Uncommitted)</td><td style="text-align:center">√</td><td style="text-align:center">√</td><td style="text-align:center">√</td></tr><tr><td>读已提交(Read Committed)</td><td style="text-align:center">×</td><td style="text-align:center">√</td><td style="text-align:center">√</td></tr><tr><td>可重复读(Repeatable Read)</td><td style="text-align:center">×</td><td style="text-align:center">×</td><td style="text-align:center">√</td></tr><tr><td>序列化(Serializable)</td><td style="text-align:center">×</td><td style="text-align:center">×</td><td style="text-align:center">×</td></tr></tbody></table><h3 id="innodb-锁模式">Innodb 锁模式</h3><ul><li>共享锁：允许一个事务去读一行，阻止其他事务获得相同数据集的写锁</li><li>排他锁：允许获得排他锁的事务更新数据，阻止其他事务取得相同数据集的共享读锁和写锁。</li></ul><h3 id="innodb-加锁模式">Innodb 加锁模式</h3><ul><li>意向锁是 innodb 自动加的</li><li>update，insert，delete，innodb 会加上排他锁</li><li>普通 select 不会加锁，用到了索引的查询在索引上加行锁，否则加表锁，加锁语句如下<ul><li>共享锁：LOCK IN SHARE MODE</li><li>排他锁：FOR UPDATE</li></ul></li></ul><h3 id="索引-b-树特点">索引 B+ 树特点</h3><ul><li>有 n 个子树的非叶子节点包括 n 个关键字，不存数据只用作索引，所有数据都存在叶子节点。</li><li>所有叶子节点包含所有关键字信息，且叶子节点关键字自小而大连接。</li><li>通常在 b+树上有两个头指针，一个指向根节点，一个指向关键字最小的叶子节点。</li><li>同一个数据会在不同节点重复出现，根节点最大元素就是 b+树最大元素。</li></ul><h3 id="b树和-b-树区别">B+树和 B 树区别</h3><ul><li>B 树每个节点都存储数据，B+树只有叶子节点存储数据，所有的叶子结点使用链表相连</li><li>B 树具有 n 个关键字的节点包含（n+1）棵子树，B+树包含（n）棵子树。</li><li>B+ 树每次查找都是从根节点到叶子节点的路径</li></ul><h3 id="主键索引和一般索引的区别">主键索引和一般索引的区别</h3><p>主键索引叶子节点存放的是整行数据，非主键索引叶子节点存放的是主键的值，<br>非主键索引需要多查询一次 ID 索引树</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+            <tag> 知识积累 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>容器略知一二</title>
+      <link href="article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
+      <url>article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文产出关于一些容器的知识</p><h3 id="tomcat-总体架构">tomcat 总体架构</h3><ul><li>server:一个 tomcat 即一个 server</li><li>service:包含多个 connector 和一个 container，一个 server 可以有多个 service</li><li>connector:链接器，监听 socket 并交给对应 container 处理</li><li>container:执行请求并返回响应的对象，包括 engine，host，context，wrapper</li><li>engine:整个 servlet 引擎，最高层级容器对象，获取目标容器入口</li><li>host:表示虚拟主机的概念，处理来自不同地址的请求</li><li>context:表示一个独立的 web 应用</li><li>wrapper:表示 servlet 定义</li><li>executor:表示可以共享的线程池</li></ul><h3 id="tomcat-处理请求过程">tomcat 处理请求过程</h3><ul><li>endpoint 接收请求</li><li>processor 处理请求</li><li>coyoteAdapter 请求路径映射</li><li>mapper 获取匹配的执行</li><li>engine 容器入口</li><li>host 获取匹配的 host 执行</li><li>context 获取匹配的 context 执行</li><li>wrapper 获取匹配的 wrapper 执行</li><li>filterchain 执行 filter</li><li>servlet 执行 servlet</li></ul>]]></content>
       
       
       
@@ -1830,11 +1830,11 @@
     
     
     <entry>
-      <title>生活篇</title>
-      <link href="article/life/life_1_%E7%94%9F%E6%B4%BB%E7%AF%87/"/>
-      <url>article/life/life_1_%E7%94%9F%E6%B4%BB%E7%AF%87/</url>
+      <title>理财篇</title>
+      <link href="article/money/money_1_%E7%90%86%E8%B4%A2%E7%AF%87/"/>
+      <url>article/money/money_1_%E7%90%86%E8%B4%A2%E7%AF%87/</url>
       
-        <content type="html"><![CDATA[<h2 id="换房子">换房子</h2><ul><li>2021-03-13</li></ul><p>搬家找了两个大学室友一起，叫了辆货拉拉，中间出了点岔子是搬家还得物业开出门单，特地有跑了一趟还好马上解决了。<br>从翡翠城绿萝苑换到了福鼎家园，虽然也才五公里，上班却也方便了许多，走走路10分钟就可以到达，也不用挤公交。<br>现在的单间比之前的大点，也带独卫，虽然贵了三百，也算是换工作后自己的一个福利。<br>这边离地铁会近点，最近的出门和回家也会方便许多，之前一直得坐公交。<br>在杭州也是各地住过：江干区下沙，滨江浦沿，余杭仓前，余杭闲林，余杭五常。<br>每个都是一段回忆~</p><h2 id="换工作">换工作</h2><ul><li>2021-01-25</li></ul><p>这次进的是阿里的子公司-乌鸫科技，做的事业务开发供应链方向，办公也在阿里巴巴西溪园区。面试大概经历了近一个月，从20年12月到1月，也是比较艰难还好是骑驴找马，不然容易心态不行。搜车这边挽留基本也没啥用，我这人还是认定了事情不太容易改变，特别是这种影响人生的大事，肯定经过一段时间的思想挣扎和艰难决定。原来那边主要还是薪资待遇不太行，个人也没啥发展空间。换了至少目前薪资是我认可的，发展的话不能说一定能达到预期，有两个顾虑，一个是从大数据平台开发转到了业务开发，另一个是这边并不是阿里集团，可能受限于子公司的发展，所以还是看着办，还是有一定试错成本在的。</p><h2 id="找工作123">找工作123</h2><ul><li>2020-09-20</li></ul><p>最近来说也面试了好几家，稍微一些感悟，两家一面挂的，感受到比较薄弱的环节是（网络，算法，分布式，并发，容器，框架），还有一家小公司直接去公司面了就给过的，这边其实还是问到工作中用到的一些浅显实用的部分，最后因为薪资问题被我给拒绝了，也是早有心理的预期，到不了也没什么谈的。总的来说感觉也是需要定位好自己，在转java后经过快一年的时间，目前来说这些或基础或深入的知识在实际开发中难接触到，要学习也就只能看书看资料。对充实自己来说是好的，但也得经历一定的时间。就目前的自己来说要找到一个提高自己收入的工作来说可能需要再去小一点的公司碰碰运气，可能目前的我就是适合一个灵活变动语言框架，前后端切换的团队。手头工作这边调薪的话也得是年末，现在的九到十月可以还是继续投入一些经历在面试中，继续加深自己的认知和水准吧。</p><h2 id="生活篇必读镇楼">生活篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">本栏主要用于分享人生大小事和体悟</span><br><span class="line">人生总是在不断放下，但也要好好记录</span><br><span class="line">1. 突发奇想</span><br><span class="line">2. 吃喝玩乐</span><br><span class="line">3. 生活变动</span><br><span class="line">4. 人生节点</span><br><span class="line">5. 朝花朝拾</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="查看基金数据与交易">查看基金数据与交易</h2><div id="trace_data">    <select id="select_code"></select>    <iframe id="ifr_data"></iframe></div><h2 id="下跌在稳住">下跌在稳住</h2><ul><li>2021-03-15<br>年初挣的钱在年后都还回去了，现在还亏了不少，仓位也比较高</li></ul><p>主要还是集中在半导体，还有不多的一些其他行业的，传媒/证券</p><p>但也想逐步转换到沪深300，做做指数比较香</p><p>黄金最近也入手了一些，主要从之前的400跌倒了350，买时成本价在365左右，<br>现在价格差不多基本持平，个人觉得跌的差不多了，也可能最低在320。</p><h2 id="整理基金实际操作记录">整理基金实际操作记录</h2><ul><li>2020-08-29</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">本次的数据来源主要是支付宝查账，</span><br><span class="line">地址为 https://consumeprod.alipay.com/record/standard.htm</span><br><span class="line">通过搜索筛选带蚂蚁财富的近三年账单，筛选出基金的买入卖出操作，</span><br><span class="line">下载为csv文件</span><br><span class="line"></span><br><span class="line">然后通过天天基金接口，获取到基金名称与代码的对应关系(有些关系还得手动补充维护)</span><br><span class="line">通过脚本转换csv到json格式，同时筛选所需的信息(基金，操作，日期)</span><br><span class="line"></span><br><span class="line">最后通过脚本将json生成markdown文本用于hexo渲染成页面</span><br></pre></td></tr></table></figure><h2 id="理财篇必读镇楼">理财篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">我当前的理财主要在于基金的买卖，也是第二收入(亏损)来源；</span><br><span class="line">本栏是一些理财思路和方法的整合，主要包含几个方向</span><br><span class="line">1. 基金买入卖出及其来源依据或直觉依据</span><br><span class="line">2. 在一些节点回顾性总结</span><br><span class="line">3. 发现或总结一些方法论</span><br><span class="line">4. 理财工具，分析工具的创造</span><br><span class="line">5. 数据挖掘和分析</span><br><span class="line">6. 分享一些这个方向的文章</span><br></pre></td></tr></table></figure><script type="text/javascript">    let ifr = document.getElementById("ifr_data");    let scode = document.getElementById("select_code");    let urlroot = "/money/fund_trace_data.html?code=";    ifr.style.border = "none";    ifr.style.width = "100%";    ifr.style.minHeight = "400px";    ifr.ondblclick = function(e) {        alert(1);    }    fetch("/money/fund.json")    .then(res => res.json())    .then(data => {        let codemap = {};        let now = new Date();        now.setFullYear(new Date().getFullYear()-1);        data.forEach(d => {            if(new Date(d["datetime"]) > now) {                codemap[d["fund_name"]] = d["fund_code"];            }        });        let codes = Object.keys(codemap);        scode.innerHTML = codes        .map(name => `<option value=${codemap[name]}>${name}</option>`)        .join(" ");        ifr.src = urlroot + codemap[codes[0]];    });        scode.onchange = (e) => {        ifr.src = urlroot + scode.value;    }</script>]]></content>
       
       
       
@@ -1843,11 +1843,11 @@
     
     
     <entry>
-      <title>理财篇</title>
-      <link href="article/money/money_1_%E7%90%86%E8%B4%A2%E7%AF%87/"/>
-      <url>article/money/money_1_%E7%90%86%E8%B4%A2%E7%AF%87/</url>
+      <title>生活篇</title>
+      <link href="article/life/life_1_%E7%94%9F%E6%B4%BB%E7%AF%87/"/>
+      <url>article/life/life_1_%E7%94%9F%E6%B4%BB%E7%AF%87/</url>
       
-        <content type="html"><![CDATA[<h2 id="查看基金数据与交易">查看基金数据与交易</h2><div id="trace_data">    <select id="select_code"></select>    <iframe id="ifr_data"></iframe></div><h2 id="下跌在稳住">下跌在稳住</h2><ul><li>2021-03-15<br>年初挣的钱在年后都还回去了，现在还亏了不少，仓位也比较高</li></ul><p>主要还是集中在半导体，还有不多的一些其他行业的，传媒/证券</p><p>但也想逐步转换到沪深300，做做指数比较香</p><p>黄金最近也入手了一些，主要从之前的400跌倒了350，买时成本价在365左右，<br>现在价格差不多基本持平，个人觉得跌的差不多了，也可能最低在320。</p><h2 id="整理基金实际操作记录">整理基金实际操作记录</h2><ul><li>2020-08-29</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">本次的数据来源主要是支付宝查账，</span><br><span class="line">地址为 https://consumeprod.alipay.com/record/standard.htm</span><br><span class="line">通过搜索筛选带蚂蚁财富的近三年账单，筛选出基金的买入卖出操作，</span><br><span class="line">下载为csv文件</span><br><span class="line"></span><br><span class="line">然后通过天天基金接口，获取到基金名称与代码的对应关系(有些关系还得手动补充维护)</span><br><span class="line">通过脚本转换csv到json格式，同时筛选所需的信息(基金，操作，日期)</span><br><span class="line"></span><br><span class="line">最后通过脚本将json生成markdown文本用于hexo渲染成页面</span><br></pre></td></tr></table></figure><h2 id="理财篇必读镇楼">理财篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">我当前的理财主要在于基金的买卖，也是第二收入(亏损)来源；</span><br><span class="line">本栏是一些理财思路和方法的整合，主要包含几个方向</span><br><span class="line">1. 基金买入卖出及其来源依据或直觉依据</span><br><span class="line">2. 在一些节点回顾性总结</span><br><span class="line">3. 发现或总结一些方法论</span><br><span class="line">4. 理财工具，分析工具的创造</span><br><span class="line">5. 数据挖掘和分析</span><br><span class="line">6. 分享一些这个方向的文章</span><br></pre></td></tr></table></figure><script type="text/javascript">    let ifr = document.getElementById("ifr_data");    let scode = document.getElementById("select_code");    let urlroot = "/money/fund_trace_data.html?code=";    ifr.style.border = "none";    ifr.style.width = "100%";    ifr.style.minHeight = "400px";    ifr.ondblclick = function(e) {        alert(1);    }    fetch("/money/fund.json")    .then(res => res.json())    .then(data => {        let codemap = {};        let now = new Date();        now.setFullYear(new Date().getFullYear()-1);        data.forEach(d => {            if(new Date(d["datetime"]) > now) {                codemap[d["fund_name"]] = d["fund_code"];            }        });        let codes = Object.keys(codemap);        scode.innerHTML = codes        .map(name => `<option value=${codemap[name]}>${name}</option>`)        .join(" ");        ifr.src = urlroot + codemap[codes[0]];    });        scode.onchange = (e) => {        ifr.src = urlroot + scode.value;    }</script>]]></content>
+        <content type="html"><![CDATA[<h2 id="换房子">换房子</h2><ul><li>2021-03-13</li></ul><p>搬家找了两个大学室友一起，叫了辆货拉拉，中间出了点岔子是搬家还得物业开出门单，特地有跑了一趟还好马上解决了。<br>从翡翠城绿萝苑换到了福鼎家园，虽然也才五公里，上班却也方便了许多，走走路10分钟就可以到达，也不用挤公交。<br>现在的单间比之前的大点，也带独卫，虽然贵了三百，也算是换工作后自己的一个福利。<br>这边离地铁会近点，最近的出门和回家也会方便许多，之前一直得坐公交。<br>在杭州也是各地住过：江干区下沙，滨江浦沿，余杭仓前，余杭闲林，余杭五常。<br>每个都是一段回忆~</p><h2 id="换工作">换工作</h2><ul><li>2021-01-25</li></ul><p>这次进的是阿里的子公司-乌鸫科技，做的事业务开发供应链方向，办公也在阿里巴巴西溪园区。面试大概经历了近一个月，从20年12月到1月，也是比较艰难还好是骑驴找马，不然容易心态不行。搜车这边挽留基本也没啥用，我这人还是认定了事情不太容易改变，特别是这种影响人生的大事，肯定经过一段时间的思想挣扎和艰难决定。原来那边主要还是薪资待遇不太行，个人也没啥发展空间。换了至少目前薪资是我认可的，发展的话不能说一定能达到预期，有两个顾虑，一个是从大数据平台开发转到了业务开发，另一个是这边并不是阿里集团，可能受限于子公司的发展，所以还是看着办，还是有一定试错成本在的。</p><h2 id="找工作123">找工作123</h2><ul><li>2020-09-20</li></ul><p>最近来说也面试了好几家，稍微一些感悟，两家一面挂的，感受到比较薄弱的环节是（网络，算法，分布式，并发，容器，框架），还有一家小公司直接去公司面了就给过的，这边其实还是问到工作中用到的一些浅显实用的部分，最后因为薪资问题被我给拒绝了，也是早有心理的预期，到不了也没什么谈的。总的来说感觉也是需要定位好自己，在转java后经过快一年的时间，目前来说这些或基础或深入的知识在实际开发中难接触到，要学习也就只能看书看资料。对充实自己来说是好的，但也得经历一定的时间。就目前的自己来说要找到一个提高自己收入的工作来说可能需要再去小一点的公司碰碰运气，可能目前的我就是适合一个灵活变动语言框架，前后端切换的团队。手头工作这边调薪的话也得是年末，现在的九到十月可以还是继续投入一些经历在面试中，继续加深自己的认知和水准吧。</p><h2 id="生活篇必读镇楼">生活篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">本栏主要用于分享人生大小事和体悟</span><br><span class="line">人生总是在不断放下，但也要好好记录</span><br><span class="line">1. 突发奇想</span><br><span class="line">2. 吃喝玩乐</span><br><span class="line">3. 生活变动</span><br><span class="line">4. 人生节点</span><br><span class="line">5. 朝花朝拾</span><br></pre></td></tr></table></figure>]]></content>
       
       
       

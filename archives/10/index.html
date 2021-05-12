@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/page/3/">
+  <link rel="canonical" href="http://ganjiacheng.cn/archives/10/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -139,12 +139,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-                        
                     
                         
                         <li>
@@ -158,6 +152,12 @@
                     
                         
                     
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -225,36 +225,29 @@
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_12_基于antlr4实现HQL的解析-格式化/">
+    <a href="/article/2017/article_19_微信小程序初探与文字二维码举例/">
         <h2 class="post-title">
             
-            基于antlr4实现HQL的解析[格式化]
+            微信小程序初探与文字二维码举例
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            前言
-对于一般的网页上sql查询工具都会有一个功能【格式化】，对于hql的格式化市面上没有很好的直接使用的工具。
-这边基于antlr4对hql的解析手动实现一个格式化的功能。
-代码实现参考：https://github.com/webgjc/sql-parser/
-设计思路
-对于一般比较固定的语句如create，show，drop，alter等采用直接对拿到节点并带格式用字符串拼接。
-对于最......
+            最近，微信小程序开放了个人开发者，所以立刻申请了一个来试试。
+小程序从之前刚出来时在开发者圈火极一时，而现在却用的不多，也有限制多的缘故，所以在开放了部分限制之后再来看他的发展吧。
+这里讨论一下初探小程序的一点想法。
+在小程序手册中也已经很明白了，把视图和逻辑分开，有点类似于react的虚拟dom，不直接去操作dom，而是改变数据之后自动刷新页面的渲染，使改动最小化。最初的试验感觉他的数据应......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2020-04-30
-        <span class="post-count"> 文章字数: 2.4k</span>
-        <span class="post-count"> 阅读时间: 15分钟</span>
+        2017-04-07
+        <span class="post-count"> 文章字数: 964</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
     </p>
     <div class="tags">
-        
-        <a href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
-        
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
         
     </div>
     
@@ -266,40 +259,273 @@
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_11_新增两个功能/">
+    <a href="/article/2017/article_18_python实现简单时时打印桌面程序/">
         <h2 class="post-title">
             
-            博客新增两个功能模块
+            python实现简单时时打印桌面程序
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            入口
-在主页侧边栏的FRIENDS模块中，
-新增了我的钢琴屋 和 我的阅读室
-下面分别来阐述
-我的钢琴屋
-这个是挂在github上的一个静态页面，github地址为
-
-https://github.com/webgjc/tan8【如侵权可下线】
-
-主要功能为练习和收听钢琴曲
-实现
-其中包括一个flash播放器和一个数据列表
-flash播放器主要参考某琴吧的实现，并引用了他们的文件存储直接获取......
+            这里的需求是用户在某个网页下单之后，需要打印机打出票据。
+实现：用python访问一个网络接口获取需要打印的数据（json格式），之后调用系统win32print的打印接口打印出来。
+时时打印的话下面用轮询并定时sleep实现。
+再用Tkinter写一个桌面程序可以用来提醒并可以使程序长久运行。
+之后再用py2exe把python文件变成一个exe文件方便在后台执行。
+#coding:utf......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2020-04-29
-        <span class="post-count"> 文章字数: 485</span>
+        2017-03-31
+        <span class="post-count"> 文章字数: 646</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_17_nginx+php下配置https/">
+        <h2 class="post-title">
+            
+            nginx+php下配置https
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            本来以为配置https应该和配置http是差不多的，没想到还是出了许多问题，分享给大家。
+现在市面有许多免费的ssl证书，可以找一个，本人使用了腾讯云的免费dv证书。
+之后就会得到两个文件，分别为test.com_bundle.crt和test.com.key
+本人配置的环境是在centos，php集成环境lnmp下
+先在服务器找到文件usr/local/nginx/conf/nginx.c......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-30
+        <span class="post-count"> 文章字数: 338</span>
+        <span class="post-count"> 阅读时间: 2分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_16_许愿墙效果（仿）/">
+        <h2 class="post-title">
+            
+            许愿墙效果（仿）
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            也不知道为什么要叫许愿墙，在前端网看到许多人实现了，便来实现一个自己的版本，顺便许个愿！
+这里需要先看一下下面这张图，对于后面的理解很有帮助。
+
+使用方法：下面代码复制到一个html文件里，之后浏览器打开就行。
+具体实现在代码中注释。
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset=......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-26
+        <span class="post-count"> 文章字数: 670</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_15_前端回忆录---下篇/">
+        <h2 class="post-title">
+            
+            前端回忆录---下篇
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            下篇开始，对于我自己来说也就是在这边徘徊，暂时也并不能完全很好的掌握这些或深入的或新颖的知识，因为前端新东西出现的实在太快了。这里的我只大致做一个引导，如有错误请及时指出。毕竟修行在个人，还是得靠自己摸索。
+我们还是再来学习js—js进阶。这里目前必读的一本书—泽卡斯的《js高级编程指南》，如果能啃下这本书，必定精进一大步。当初我也是略读读了几次，能感受到他的强大和对我的影响力。js进阶，一......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-20
+        <span class="post-count"> 文章字数: 1.8k</span>
+        <span class="post-count"> 阅读时间: 11分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_13_php实现Soap调用的两种方法/">
+        <h2 class="post-title">
+            
+            php实现Soap调用的两种方法
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            php也可以通过soap（一种基于xml的协议）和webservice进行数据交互。
+这里通过两种方法来讲解，一个是php的SoapClient对象，另一个是php的curl。
+
+第一种：先要做一件事就是在php.ini中把soap扩展开了。
+extension=php_soap.dll
+然后进行php代码的编写，这里直接讲解带有header验证的soap。没有header验证的话就不需要加......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-20
+        <span class="post-count"> 文章字数: 610</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_11_便捷的集体通讯录---vcf文件制作使用/">
+        <h2 class="post-title">
+            
+            便捷的集体通讯录---vcf文件制作使用
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            一种情况就是新组成的一个团队，人比较多，要互相留下手机号。这种时候一个个输入到手机里就比较麻烦，所以可以制作一个vcf文件，直接导入到通讯录。
+vcf文件制作软件可以到这里下载http://pan.baidu.com/s/1kVLoUTh
+下载后打开里面的exe文件，之后添加需要的人的信息和手机号码，点击保存通讯录就会保存到Contacts.vcf文件里。可能会发生输入名字变成问号的问题，这......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-19
+        <span class="post-count"> 文章字数: 266</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_14_logistics回归做二分类---学习篇/">
+        <h2 class="post-title">
+            
+            logistics回归做二分类---学习篇
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            一般的logistics回归过程并不复杂，特别是在理解了梯度下降之后，梯度下降法可以参考我之前的文章，点击这里查看
+大致讲一下理解：
+大致还是通过梯度下降把需要拟合的直线的前面的系数渐渐靠近，比如用ax+by+c=0，这条直线来进行二分类，a，b，c三个系数就是下面代码中的数组weight，每次迭代改变的就是weight。然后误差是通过把每组训练的数进行sigmoid函数  ，在与之前分好的......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-19
+        <span class="post-count"> 文章字数: 587</span>
         <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
         
-        <a href="/tags/#OTHER" title="OTHER">OTHER</a>
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2017/article_12_梯度下降法---学习篇/">
+        <h2 class="post-title">
+            
+            梯度下降法---学习篇
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            梯度下降法：一般想法就是，开始先找一个点，之后每次找下降最快的那个方向来找下一个点，直到找到最低点。
+看过很多教程或者高数书上的讲解，大致就知道梯度下降是怎么回事情。但很多时候都是被众多的公式和英文名词吓到而不真正理解。
+这次我们来简单理解最初的一个------单变量梯度下降，这里用梯度下降来做线性回归，也就是找一条h(x)=ax+b的线来拟合现有的点。
+想象有很多点，中间有条线，所有点不可......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2017-03-16
+        <span class="post-count"> 文章字数: 526</span>
+        <span class="post-count"> 阅读时间: 3分钟</span>
+    </p>
+    <div class="tags">
         
     </div>
     
@@ -311,339 +537,32 @@ flash播放器主要参考某琴吧的实现，并引用了他们的文件存储
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_10_HIVE源码学习-从CliDriver跟踪整个执行流程/">
+    <a href="/article/2017/article_10_使用ppython---实现python和php之间的通信/">
         <h2 class="post-title">
             
-            HIVE源码学习--从CliDriver跟踪整个执行流程
+            使用ppython---实现python和php之间的通信
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            前言
-对接和使用hive的上层组件也很多了，hiveserver2，beeline，metastore，hivehook等，但没好好调试过hive，计划进行一次比较狠的补课，让自己对hive内部的很多实现有一个基础的认识，同时自定义实现一些模块。
-本次是hive源码层的调试与实验的开坑，初步想象的过程有：hive执行大致全流程调试，序列化反序列化，执行计划，metastore，hivehoo......
+            ppython大致是用socket来实现php和python的联络;
+日常不常用，有必要时还是挺有用的。
+先是用python的socket开一个端口监听，在这个端口来进行数据传输
+之后php连接那个端口，向那个端口传输数据，python在接受到数据处理之后再返回结果。
+这里介绍一下基本使用，先下载http://pan.baidu.com/s/1dEHgYgL。
+解压之后放到服务器上。
+为了长......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2020-04-28
-        <span class="post-count"> 文章字数: 702</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
+        2017-03-15
+        <span class="post-count"> 文章字数: 203</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
-        
-        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_9_本地hadoop与hive的部署-mac/">
-        <h2 class="post-title">
-            
-            本地hadoop与hive的单节点部署和开发调试[mac]
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            预备
-这边部署的
-hadoop版本为 2.7.3
-hive版本为 1.2.1
-注:src为源码包
-Hadoop搭建
-解压，进入配置目录
-
-tar zxvf hadoop-2.7.3.tar.gz
-cd hadoop-2.7.3/etc/hadoop
-
-修改配置
-core-site.xml，hdfs-site.xml， mapred-site.xml
-......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-27
-        <span class="post-count"> 文章字数: 1k</span>
-        <span class="post-count"> 阅读时间: 6分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
-        
-        <a href="/tags/#HADOOP" title="HADOOP">HADOOP</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_8_hiveSQL执行日志的收集/">
-        <h2 class="post-title">
-            
-            hiveSQL执行日志的收集
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-一般的hive客户端都没有详细的执行日志，要了解执行情况得去yarn看，就比较麻烦，本次考虑的是在hive客户端获取到全部的执行日志，来源主要参考hadoop-yarn-client的内部实现。
-使用引擎为tez，在异步执行hql时，获取到的日志中包括applicationId，考虑通过这个去获取到全部的执行日志，包括进度和map/reduce信息。
-实现
-jdbc部分日志
-获取jdb......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-09
-        <span class="post-count"> 文章字数: 1.2k</span>
-        <span class="post-count"> 阅读时间: 7分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
-        
-        <a href="/tags/#YARN" title="YARN">YARN</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_7_hiveserver2与HQL的执行/">
-        <h2 class="post-title">
-            
-            hiveserver2与hiveSQL的执行
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-对于hql的执行，可以在集群中启动hive的命令行，也可以使用beeline或其他客户端用jdbc连接Hiveserver2发送sql，中间传输用的是thrift协议。
-这边演示python的实现和java的实现
-实现
-python
-python使用pyhive或者impyla库都可以。使用方式也都类似，这边以pyhive举例。
-from pyhive......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-09
-        <span class="post-count"> 文章字数: 632</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
-        
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
-        
-        <a href="/tags/#PYTHON" title="PYTHON">PYTHON</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_6_基于antlr4实现HQL的解析-元数据/">
-        <h2 class="post-title">
-            
-            基于antlr4实现HQL的解析[元数据]
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-在大数据场景中，HQL的使用次数很多：离线任务，及时查询，数仓建模等。
-关于HQL解析在hive底层也有他自己的HQL解析实现。不过底层的实现直接用不起来，这边使用antlr4直接来实现HQL的解析。
-HQL解析在很多场景能用到并发挥如虎添翼的作用，这边开个新坑，会分好几个文章来讲主要用到的一些场景和实现。
-本文主要讲CREATE语句解析出元数据。会用到的场景也很多，比如建模的时候，离......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-07
-        <span class="post-count"> 文章字数: 1.5k</span>
-        <span class="post-count"> 阅读时间: 9分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
-        
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
-        
-        <a href="/tags/#元数据" title="元数据">元数据</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_5_hive与mysql元数据的快速采集/">
-        <h2 class="post-title">
-            
-            hive与mysql元数据的快速采集
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Hive元数据采集
-首先以hive举例，
-hive可以在命令行执行下面命令得到大部分表和字段的元数据，
-但因为这样每个都要执行就很慢。
-
-DESCRIBE FORMATTED {tablename}
-
-然后直接尝试从metastore库采集，这里不做metastore具体结构的论述，
-想了解详细结构可以移步Hive MetaStore的结构。
-因为是按库采集，首先想到的方法是先到通过库获取库......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-05
-        <span class="post-count"> 文章字数: 1.4k</span>
-        <span class="post-count"> 阅读时间: 9分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#MYSQL" title="MYSQL">MYSQL</a>
-        
-        <a href="/tags/#元数据" title="元数据">元数据</a>
-        
-        <a href="/tags/#大数据" title="大数据">大数据</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_4_pynput实现鼠标键盘操作的监控与还原/">
-        <h2 class="post-title">
-            
-            pynput实现鼠标键盘操作的记录与还原
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-心血来潮，实现一波记录操作并还原操作，可用的场景说不定还挺多。
-这次实现的记录和还原的操作包括
-
-鼠标移动，滚动，左右键
-键盘的按下，松开
-
-前期准备
-使用pynput就可以完美的实现上面需求，而且用着还挺简单；
-具体包详细接口与使用说明看如下图：
-
-具体实现
-使用python3编写，在mac环境下运行良好。
-......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-01
-        <span class="post-count"> 文章字数: 920</span>
-        <span class="post-count"> 阅读时间: 6分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#PYTHON" title="PYTHON">PYTHON</a>
-        
-        <a href="/tags/#脚本" title="脚本">脚本</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_3_讲讲元数据/">
-        <h2 class="post-title">
-            
-            讲讲元数据
-        </h2>
-        <h3 class="post-subtitle">
-            大数据平台中元数据系统的一些见解
-        </h3>
-        <div class="post-content-preview">
-            前言
-做了一些元数据的系统，分享一些相关的理解与体会。
-掺杂个人理解与实操历史，不一定是最佳实践。
-元数据定义
-元数据一般指的是 定义数据的数据。
-对于一个后端系统或者大数据集群来说，基本的元数据就是在执行ddl时产生的各种库表字段等信息。
-
-比如mysql的每个实例会默认有一个叫information_schema的库；
-比如hive在运行前都需要配置一个metastore库，一般为mys......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-03-31
-        <span class="post-count"> 文章字数: 1.2k</span>
-        <span class="post-count"> 阅读时间: 7分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#元数据" title="元数据">元数据</a>
-        
-        <a href="/tags/#大数据" title="大数据">大数据</a>
         
     </div>
     
@@ -659,12 +578,12 @@ DESCRIBE FORMATTED {tablename}
     <ul class="pager">
         
         <li class="previous">
-            <a href="/page/2/">&larr; Newer Posts</a>
+            <a href="/archives/9/">&larr; Newer Posts</a>
         </li>
         
         
         <li class="next">
-            <a href="/page/4/">Older Posts &rarr;</a>
+            <a href="/archives/11/">Older Posts &rarr;</a>
         </li>
         
     </ul>
@@ -806,11 +725,11 @@ DESCRIBE FORMATTED {tablename}
             
         
             
-            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
+            <a href="/tags/#其他" title="其他" rel="1">其他</a>
             
         
             
-            <a href="/tags/#其他" title="其他" rel="1">其他</a>
+            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
             
         
             
@@ -822,14 +741,6 @@ DESCRIBE FORMATTED {tablename}
             
         
             
-            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
-            
-        
-            
-            <a href="/tags/#MYSQL" title="MYSQL" rel="2">MYSQL</a>
-            
-        
-            
             <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
             
         
@@ -838,11 +749,11 @@ DESCRIBE FORMATTED {tablename}
             
         
             
-            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
+            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
             
         
             
-            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
+            <a href="/tags/#MYSQL" title="MYSQL" rel="2">MYSQL</a>
             
         
             
@@ -854,15 +765,15 @@ DESCRIBE FORMATTED {tablename}
             
         
             
+            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
+            
+        
+            
+            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
+            
+        
+            
             <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
-            
-        
-            
-            <a href="/tags/#总结" title="总结" rel="1">总结</a>
-            
-        
-            
-            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
             
         
             
@@ -875,6 +786,14 @@ DESCRIBE FORMATTED {tablename}
         
             
             <a href="/tags/#生活" title="生活" rel="1">生活</a>
+            
+        
+            
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            
+        
+            
+            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
             
         
     </div>
@@ -984,6 +903,10 @@ DESCRIBE FORMATTED {tablename}
             </span>
         </div>
     
+    <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+        <span>网站备案号：</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备16005140号-1</a>
+    </div>
 </footer>
 
 <!-- jQuery -->
