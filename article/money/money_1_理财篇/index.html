@@ -153,6 +153,12 @@
                     
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -163,12 +169,6 @@
                     
                         
                     
-                        
-                    
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
                         
                     
                         
@@ -292,10 +292,30 @@
                 <div class="music" style="margin-top: 30px;"></div>
                 
 
-                <h2 id="查看基金数据与交易">查看基金数据与交易</h2>
-<div id="trace_data">
+                <h2 id="切换基金">切换基金</h2>
+<div>
     <select id="select_code"></select>
-    <iframe id="ifr_data"></iframe>
+</div>
+<h3 id="查看基金数据与交易">查看基金数据与交易</h3>
+<div>
+    <iframe id="ifr_data" style="border: none; width: 100%; min-height: 400px"></iframe>
+</div>
+<h3 id="点位分布数量">点位分布数量</h3>
+<div>
+    <div style="display: flex; margin-bottom: 20px">
+        <div style="flex: 0 0 80px">步长</div>
+        <input type="number" id="step" value="10">
+    </div>
+    <div style="display: flex; margin-bottom: 20px">
+        <div style="flex: 0 0 80px">开始时间</div>
+        <input type="date" id="start" value="2020-01-01">
+    </div>
+    <div style="display: flex; margin-bottom: 20px">
+        <div style="flex: 0 0 80px">结束时间</div>
+        <input type="date" id="end" value="2021-05-01">
+    </div>
+    <div style="color: red">注：除指数外，其他净值均放大了1000倍，当前位置显示为紫色</div>
+    <iframe id="analyse_ifr_data" style="border: none; width: 100%; min-height: 400px"></iframe>
 </div>
 <h2 id="下跌在稳住">下跌在稳住</h2>
 <ul>
@@ -317,20 +337,72 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">我当前的理财主要在于基金的买卖，也是第二收入(亏损)来源；</span><br><span class="line">本栏是一些理财思路和方法的整合，主要包含几个方向</span><br><span class="line">1. 基金买入卖出及其来源依据或直觉依据</span><br><span class="line">2. 在一些节点回顾性总结</span><br><span class="line">3. 发现或总结一些方法论</span><br><span class="line">4. 理财工具，分析工具的创造</span><br><span class="line">5. 数据挖掘和分析</span><br><span class="line">6. 分享一些这个方向的文章</span><br></pre></td></tr></table></figure>
 <script type="text/javascript">
+    Date.prototype.format = function(fmt) { 
+        var o = { 
+            "M+" : this.getMonth()+1,                 //月份 
+            "d+" : this.getDate(),                    //日 
+            "h+" : this.getHours(),                   //小时 
+            "m+" : this.getMinutes(),                 //分 
+            "s+" : this.getSeconds(),                 //秒 
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度 
+            "S"  : this.getMilliseconds()             //毫秒 
+        }; 
+        if(/(y+)/.test(fmt)) {
+                fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+        }
+        for(var k in o) {
+            if(new RegExp("("+ k +")").test(fmt)){
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+            }
+        }
+        return fmt; 
+    }
+
+    let zhishu_data = [
+        {
+            code: "000001",
+            name: "上证指数"
+        }
+    ]
+
     let ifr = document.getElementById("ifr_data");
+    let analyse_ifr = document.getElementById("analyse_ifr_data");
+
     let scode = document.getElementById("select_code");
+    let analyse_step = document.getElementById("step");
+    let analyse_start = document.getElementById("start");
+    let analyse_end = document.getElementById("end");
+
     let urlroot = "/money/fund_trace_data.html?code=";
-    ifr.style.border = "none";
-    ifr.style.width = "100%";
-    ifr.style.minHeight = "400px";
-    ifr.ondblclick = function(e) {
-        alert(1);
+    let analyes_url = "/money/fund_analyse_distribution.html?";
+
+    let analyse_data = {
+        code: "000001",
+        step: 100,
+        start: `${new Date().getFullYear()-1}-${new Date().format("MM-dd")}`,
+        end: new Date().format("yyyy-MM-dd")
+    }
+
+    function init() {
+        ifr.src = urlroot + analyse_data.code;
+        analyse_step.value = analyse_data.step;
+        analyse_start.value = analyse_data.start;
+        analyse_end.value = analyse_data.end;
+    }
+
+    init()
+
+    function render_analyse() {
+        analyse_ifr.src = analyes_url + `code=${analyse_data.code}&step=${analyse_data.step}&start=${analyse_data.start}&end=${analyse_data.end}`
     }
 
     fetch("/money/fund.json")
     .then(res => res.json())
     .then(data => {
         let codemap = {};
+        zhishu_data.forEach(item => {
+            codemap[item["name"]] = item["code"]
+        })
         let now = new Date();
         now.setFullYear(new Date().getFullYear()-1);
         data.forEach(d => {
@@ -343,9 +415,28 @@
         .map(name => `<option value=${codemap[name]}>${name}</option>`)
         .join(" ");
         ifr.src = urlroot + codemap[codes[0]];
+        analyse_data.code = codemap[codes[0]];
+        render_analyse();
     });
+
+    analyse_step.onchange = function(e){
+        analyse_data.step = e.target.value
+        render_analyse();
+    }
+
+    analyse_start.onchange = function(e){
+        analyse_data.start = e.target.value
+        render_analyse();
+    }
+
+    analyse_end.onchange = function(e){
+        analyse_data.end = e.target.value
+        render_analyse();
+    }
     
     scode.onchange = (e) => {
+        analyse_data.code = scode.value;
+        render_analyse();
         ifr.src = urlroot + scode.value;
     }
 </script>
@@ -361,12 +452,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/2020/article_17_HIVE源码学习-实现自定义的udf/" data-toggle="tooltip" data-placement="top" title="HIVE源码学习--实现自定义的UDF，UDAF，UDTF">&larr; Previous Post</a>
+                            <a href="/article/life/life_1_生活篇/" data-toggle="tooltip" data-placement="top" title="生活篇">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/life/life_1_生活篇/" data-toggle="tooltip" data-placement="top" title="生活篇">Next Post &rarr;</a>
+                            <a href="/article/book/book_2_《深河》/" data-toggle="tooltip" data-placement="top" title="《深河》 -- 远藤周作">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -430,7 +521,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#查看基金数据与交易"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">查看基金数据与交易</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下跌在稳住"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下跌在稳住</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#整理基金实际操作记录"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">整理基金实际操作记录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#理财篇必读镇楼"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">理财篇必读镇楼</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#切换基金"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">切换基金</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看基金数据与交易"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">查看基金数据与交易</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#点位分布数量"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">点位分布数量</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下跌在稳住"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下跌在稳住</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#整理基金实际操作记录"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">整理基金实际操作记录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#理财篇必读镇楼"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">理财篇必读镇楼</span></a></li></ol>
         
         </div>
       </aside>

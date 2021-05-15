@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/archives/3/">
+  <link rel="canonical" href="http://ganjiacheng.cn/page/12/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -142,6 +142,12 @@
                     
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -152,12 +158,6 @@
                     
                         
                     
-                        
-                    
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
                         
                     
                         
@@ -225,36 +225,35 @@
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_12_基于antlr4实现HQL的解析-格式化/">
+    <a href="/article/2020/article_24_java常用类略知一二/">
         <h2 class="post-title">
             
-            基于antlr4实现HQL的解析[格式化]
+            Java常用类略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-对于一般的网页上sql查询工具都会有一个功能【格式化】，对于hql的格式化市面上没有很好的直接使用的工具。
-这边基于antlr4对hql的解析手动实现一个格式化的功能。
-代码实现参考：https://github.com/webgjc/sql-parser/
-设计思路
-对于一般比较固定的语句如create，show，drop，alter等采用直接对拿到节点并带格式用字符串拼接。
-对于最......
+这是一篇关于 Java 部分常用类的源码和实现方法的快速记录回忆篇
+HashMap
+存储结构：数组 + 链表/红黑树
+put：首先将 key 取 hashcode，移位 16 位得到 1-16 的数作为数组 index，对于不同的 key 一样的 index 存入一个单链表中，当数量比较大后存成一个红黑树，便于查找
+get：首先将 key 进行一样的操作，得到 index，获取数组 i......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2020-04-30
-        <span class="post-count"> 文章字数: 2.4k</span>
-        <span class="post-count"> 阅读时间: 15分钟</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 281</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
         
-        <a href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
-        
         <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
     </div>
     
@@ -266,206 +265,224 @@
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_11_新增两个功能/">
+    <a href="/article/2020/article_26_容器略知一二/">
         <h2 class="post-title">
             
-            博客新增两个功能模块
+            容器略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            入口
-在主页侧边栏的FRIENDS模块中，
-新增了我的钢琴屋 和 我的阅读室
-下面分别来阐述
-我的钢琴屋
-这个是挂在github上的一个静态页面，github地址为
+            前言
+本文产出关于一些容器的知识
+tomcat 总体架构
 
-https://github.com/webgjc/tan8【如侵权可下线】
-
-主要功能为练习和收听钢琴曲
-实现
-其中包括一个flash播放器和一个数据列表
-flash播放器主要参考某琴吧的实现，并引用了他们的文件存储直接获取......
+server:一个 tomcat 即一个 server
+service:包含多个 connector 和一个 container，一个 server 可以有多个 service
+connector:链接器，监听 socket 并交给对应 container 处理
+container:执行请求并返回响应的对象，包括 engine，ho......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2020-04-29
-        <span class="post-count"> 文章字数: 485</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 224</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_27_网络略知一二/">
+        <h2 class="post-title">
+            
+            网络略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文主要为网络的基础知识
+tcp 三次握手建立连接
+
+连接端发起一个 SYN 消息，SEQ=x
+被连端收到后返回 SYN+ACK 消息，SEQ=y, ACK=x+1
+连接端收到消息返回 ACK 消息，ACK=y+1
+
+两端都进入 Established 状态
+tcp 四次挥手断开连接
+
+发起端发起一个 FIN 的消息，SEQ=x
+接收端收到后返回 ACK 消息，表示准备断开连接，SEQ......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 690</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_25_spring略知一二/">
+        <h2 class="post-title">
+            
+            Spring略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文涉及 spring 的相关实现和源码解读
+
+...
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 17</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_29_分布式略知一二/">
+        <h2 class="post-title">
+            
+            分布式略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文涉及分布式情况下会产生的各种问题；
+celery 多个 comsumor 如何实现一致性
+当 celery 配合 redis，将 redis 作为消息队列时，redis 内部使用 list 的 lpush，brpop 来实现入队出队。
+当多个 celery 消费进程来取任务时，由于 redis 内部是单线程的，不会导致消息的重复读，brpop 在没任务时会阻塞。
+cap 理论
+
+一......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 200</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_28_mysql略知一二/">
+        <h2 class="post-title">
+            
+            Mysql略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文主要为 mysql 相关知识
+脏读，不可重复读，幻读
+
+脏读：某个事务更新数据没有提交，另一个事务已经读取了数据
+不可重复读：一个事务两次查询数据不一致，因为两次查询中间另一个事务更新了数据
+幻读：一个事务两次查询数据总量不一致，因为两次中间另一个事务插入了数据
+
+隔离级别
+
+
+
+隔离级别
+脏读
+不可重复读
+幻读
+
+
+
+
+读未提交(Read Uncommitted)
+√
+√
+√
+
+......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 582</span>
         <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
         
-        <a href="/tags/#OTHER" title="OTHER">OTHER</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_10_HIVE源码学习-从CliDriver跟踪整个执行流程/">
-        <h2 class="post-title">
-            
-            HIVE源码学习--从CliDriver跟踪整个执行流程
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-对接和使用hive的上层组件也很多了，hiveserver2，beeline，metastore，hivehook等，但没好好调试过hive，计划进行一次比较狠的补课，让自己对hive内部的很多实现有一个基础的认识，同时自定义实现一些模块。
-本次是hive源码层的调试与实验的开坑，初步想象的过程有：hive执行大致全流程调试，序列化反序列化，执行计划，metastore，hivehoo......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-28
-        <span class="post-count"> 文章字数: 702</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_9_本地hadoop与hive的部署-mac/">
-        <h2 class="post-title">
-            
-            本地hadoop与hive的单节点部署和开发调试[mac]
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            预备
-这边部署的
-hadoop版本为 2.7.3
-hive版本为 1.2.1
-注:src为源码包
-Hadoop搭建
-解压，进入配置目录
-
-tar zxvf hadoop-2.7.3.tar.gz
-cd hadoop-2.7.3/etc/hadoop
-
-修改配置
-core-site.xml，hdfs-site.xml， mapred-site.xml
-......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-27
-        <span class="post-count"> 文章字数: 1k</span>
-        <span class="post-count"> 阅读时间: 6分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
-        
-        <a href="/tags/#HADOOP" title="HADOOP">HADOOP</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_8_hiveSQL执行日志的收集/">
-        <h2 class="post-title">
-            
-            hiveSQL执行日志的收集
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-一般的hive客户端都没有详细的执行日志，要了解执行情况得去yarn看，就比较麻烦，本次考虑的是在hive客户端获取到全部的执行日志，来源主要参考hadoop-yarn-client的内部实现。
-使用引擎为tez，在异步执行hql时，获取到的日志中包括applicationId，考虑通过这个去获取到全部的执行日志，包括进度和map/reduce信息。
-实现
-jdbc部分日志
-获取jdb......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-09
-        <span class="post-count"> 文章字数: 1.2k</span>
-        <span class="post-count"> 阅读时间: 7分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
-        
-        <a href="/tags/#YARN" title="YARN">YARN</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_7_hiveserver2与HQL的执行/">
-        <h2 class="post-title">
-            
-            hiveserver2与hiveSQL的执行
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-对于hql的执行，可以在集群中启动hive的命令行，也可以使用beeline或其他客户端用jdbc连接Hiveserver2发送sql，中间传输用的是thrift协议。
-这边演示python的实现和java的实现
-实现
-python
-python使用pyhive或者impyla库都可以。使用方式也都类似，这边以pyhive举例。
-from pyhive......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-09
-        <span class="post-count"> 文章字数: 632</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
-        
         <a href="/tags/#JAVA" title="JAVA">JAVA</a>
         
-        <a href="/tags/#PYTHON" title="PYTHON">PYTHON</a>
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
     </div>
     
@@ -477,36 +494,38 @@ from pyhive......
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_6_基于antlr4实现HQL的解析-元数据/">
+    <a href="/article/2020/article_30_操作系统略知一二/">
         <h2 class="post-title">
             
-            基于antlr4实现HQL的解析[元数据]
+            操作系统略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-在大数据场景中，HQL的使用次数很多：离线任务，及时查询，数仓建模等。
-关于HQL解析在hive底层也有他自己的HQL解析实现。不过底层的实现直接用不起来，这边使用antlr4直接来实现HQL的解析。
-HQL解析在很多场景能用到并发挥如虎添翼的作用，这边开个新坑，会分好几个文章来讲主要用到的一些场景和实现。
-本文主要讲CREATE语句解析出元数据。会用到的场景也很多，比如建模的时候，离......
+本文涉及操作系统各种方面，包括进程，线程，协议，cpu，内存；
+进程调度算法
+
+先来先服务调度算法：队列
+最短作业优先调度算法：时间短的先运行
+高响应比优先调度算法：先计算响应比优先级，优先级高的先运行
+时间片轮转调度算法：每个进程分配一个时间片段，如果在时间片段内没有执行完成，也切换进程运行，如果时间片内执行，则立即切换。
+最高优先级调度算法：静态优先级 - 创建进程时确定优先级，动......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2020-04-07
-        <span class="post-count"> 文章字数: 1.5k</span>
-        <span class="post-count"> 阅读时间: 9分钟</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 220</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
         
-        <a href="/tags/#HQL解析" title="HQL解析">HQL解析</a>
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
-        
-        <a href="/tags/#元数据" title="元数据">元数据</a>
+        <a href="/tags/#操作系统" title="操作系统">操作系统</a>
         
     </div>
     
@@ -518,89 +537,35 @@ HQL解析在很多场景能用到并发挥如虎添翼的作用，这边开个�
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_5_hive与mysql元数据的快速采集/">
+    <a href="/article/2020/article_17_HIVE源码学习-实现自定义的udf/">
         <h2 class="post-title">
             
-            hive与mysql元数据的快速采集
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Hive元数据采集
-首先以hive举例，
-hive可以在命令行执行下面命令得到大部分表和字段的元数据，
-但因为这样每个都要执行就很慢。
-
-DESCRIBE FORMATTED {tablename}
-
-然后直接尝试从metastore库采集，这里不做metastore具体结构的论述，
-想了解详细结构可以移步Hive MetaStore的结构。
-因为是按库采集，首先想到的方法是先到通过库获取库......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-04-05
-        <span class="post-count"> 文章字数: 1.4k</span>
-        <span class="post-count"> 阅读时间: 9分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#MYSQL" title="MYSQL">MYSQL</a>
-        
-        <a href="/tags/#元数据" title="元数据">元数据</a>
-        
-        <a href="/tags/#大数据" title="大数据">大数据</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_4_pynput实现鼠标键盘操作的监控与还原/">
-        <h2 class="post-title">
-            
-            pynput实现鼠标键盘操作的记录与还原
+            HIVE源码学习--实现自定义的UDF，UDAF，UDTF
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-心血来潮，实现一波记录操作并还原操作，可用的场景说不定还挺多。
-这次实现的记录和还原的操作包括
+hive里有三种可以自定义实现的函数，
 
-鼠标移动，滚动，左右键
-键盘的按下，松开
+自定义函数包括三种 UDF、UDAF、UDTF
 
-前期准备
-使用pynput就可以完美的实现上面需求，而且用着还挺简单；
-具体包详细接口与使用说明看如下图：
-
-具体实现
-使用python3编写，在mac环境下运行良好。
-......
+UDF（User-Defined-Function） 一进一出 ，既一行进一行出
+UDAF（User- Defined Aggregation Funcation） 聚集函数，多进一出（多行进一行出）。Count/max/min
+UDTF（User-Defined Table-Generatin......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2020-04-01
-        <span class="post-count"> 文章字数: 920</span>
-        <span class="post-count"> 阅读时间: 6分钟</span>
+        2000-05-07
+        <span class="post-count"> 文章字数: 78</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
         
-        <a href="/tags/#PYTHON" title="PYTHON">PYTHON</a>
-        
-        <a href="/tags/#脚本" title="脚本">脚本</a>
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
         
     </div>
     
@@ -610,46 +575,7 @@ DESCRIBE FORMATTED {tablename}
 
     
 
-<div class="post-preview">
-
-    <a href="/article/2020/article_3_讲讲元数据/">
-        <h2 class="post-title">
-            
-            讲讲元数据
-        </h2>
-        <h3 class="post-subtitle">
-            大数据平台中元数据系统的一些见解
-        </h3>
-        <div class="post-content-preview">
-            前言
-做了一些元数据的系统，分享一些相关的理解与体会。
-掺杂个人理解与实操历史，不一定是最佳实践。
-元数据定义
-元数据一般指的是 定义数据的数据。
-对于一个后端系统或者大数据集群来说，基本的元数据就是在执行ddl时产生的各种库表字段等信息。
-
-比如mysql的每个实例会默认有一个叫information_schema的库；
-比如hive在运行前都需要配置一个metastore库，一般为mys......
-        </div>
-    </a>
     
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2020-03-31
-        <span class="post-count"> 文章字数: 1.2k</span>
-        <span class="post-count"> 阅读时间: 7分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#元数据" title="元数据">元数据</a>
-        
-        <a href="/tags/#大数据" title="大数据">大数据</a>
-        
-    </div>
-    
-
-</div>
-<hr>
 
     
 
@@ -659,12 +585,12 @@ DESCRIBE FORMATTED {tablename}
     <ul class="pager">
         
         <li class="previous">
-            <a href="/archives/2/">&larr; Newer Posts</a>
+            <a href="/page/11/">&larr; Newer Posts</a>
         </li>
         
         
         <li class="next">
-            <a href="/archives/4/">Older Posts &rarr;</a>
+            <a href="/page/13/">Older Posts &rarr;</a>
         </li>
         
     </ul>
@@ -786,15 +712,7 @@ DESCRIBE FORMATTED {tablename}
             
         
             
-            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
-            
-        
-            
-            <a href="/tags/#HQL解析" title="HQL解析" rel="3">HQL解析</a>
-            
-        
-            
-            <a href="/tags/#JAVA" title="JAVA" rel="10">JAVA</a>
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
             
         
             
@@ -802,59 +720,19 @@ DESCRIBE FORMATTED {tablename}
             
         
             
-            <a href="/tags/#HADOOP" title="HADOOP" rel="3">HADOOP</a>
-            
-        
-            
-            <a href="/tags/#其他" title="其他" rel="1">其他</a>
-            
-        
-            
             <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
             
         
             
-            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
+            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
             
         
             
-            <a href="/tags/#操作系统" title="操作系统" rel="1">操作系统</a>
+            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
             
         
             
-            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
-            
-        
-            
-            <a href="/tags/#后端" title="后端" rel="1">后端</a>
-            
-        
-            
-            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
-            
-        
-            
-            <a href="/tags/#MYSQL" title="MYSQL" rel="2">MYSQL</a>
-            
-        
-            
-            <a href="/tags/#元数据" title="元数据" rel="3">元数据</a>
-            
-        
-            
-            <a href="/tags/#大数据" title="大数据" rel="2">大数据</a>
-            
-        
-            
-            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
-            
-        
-            
-            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
-            
-        
-            
-            <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
+            <a href="/tags/#HADOOP" title="HADOOP" rel="3">HADOOP</a>
             
         
             
@@ -870,11 +748,59 @@ DESCRIBE FORMATTED {tablename}
             
         
             
-            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            <a href="/tags/#HQL解析" title="HQL解析" rel="3">HQL解析</a>
             
         
             
-            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
+            <a href="/tags/#JAVA" title="JAVA" rel="10">JAVA</a>
+            
+        
+            
+            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
+            
+        
+            
+            <a href="/tags/#其他" title="其他" rel="1">其他</a>
+            
+        
+            
+            <a href="/tags/#操作系统" title="操作系统" rel="1">操作系统</a>
+            
+        
+            
+            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
+            
+        
+            
+            <a href="/tags/#后端" title="后端" rel="1">后端</a>
+            
+        
+            
+            <a href="/tags/#元数据" title="元数据" rel="3">元数据</a>
+            
+        
+            
+            <a href="/tags/#大数据" title="大数据" rel="2">大数据</a>
+            
+        
+            
+            <a href="/tags/#SQL" title="SQL" rel="1">SQL</a>
+            
+        
+            
+            <a href="/tags/#MYSQL" title="MYSQL" rel="2">MYSQL</a>
+            
+        
+            
+            <a href="/tags/#PYTHON" title="PYTHON" rel="2">PYTHON</a>
+            
+        
+            
+            <a href="/tags/#脚本" title="脚本" rel="1">脚本</a>
+            
+        
+            
+            <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
             
         
     </div>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./static/echarts.min.js"></script>
+    <title>点位分布分析</title>
+    <style type="text/css">
+        #trace {
+            width: 98vw;
+            height: 97vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="trace"></div> 
+    <script type="text/javascript">
+
+        function getQueryString(name) {
+            let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            let r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURI(r[2]);
+            return null;
+        }
+
+        let step = parseFloat(getQueryString("step")) // 步长
+        let start = getQueryString("start")
+        let end = getQueryString("end")
+        let zhishu_code = ["000001"]
+
+        function analyse(data) {
+            let date_data = []
+            let mi = 9999999
+            let mx = 0
+            let xs = []
+            let ys = []
+
+            for(let i = 0; i < data.length; i++) {
+                if(data[i]["x"] >= start && data[i]["x"] <= end) {
+                    if(zhishu_code.indexOf(getQueryString("code")) == -1) {
+                        data[i]["y"] = data[i]["y"] * 1000
+                    }
+                    date_data.push(data[i]);
+                    mi = data[i]["y"] < mi ? data[i]["y"] : mi
+                    mx = data[i]["y"] > mx ? data[i]["y"] : mx
+                }
+            }
+            let ss = parseInt(mi)
+            let i = 0
+            while(true) {
+                if((ss + i * step) > mx) {
+                    break
+                }
+                xs.push("[" + (ss + i * step) + "," + (ss + step + i * step) + ")")
+                ys.push(0)
+                i++
+            }
+            
+            for(let i = 0; i < date_data.length; i++) {
+                ys[parseInt((date_data[i]["y"] - mi) / step)]++
+                if(i == date_data.length - 1) {
+                    ys[parseInt((date_data[i]["y"] - mi) / step)] = {
+                        value: ys[parseInt((date_data[i]["y"] - mi) / step)],
+                        itemStyle: {
+                            color: '#5570c6'
+                        }
+                    }
+                }
+            }
+
+            return {
+                xs: xs,
+                ys: ys
+            }
+        }
+        
+        fetch(`./funddata/${getQueryString("code")}.json`)
+            .then((res) => res.json())
+            .then((data) => {
+                let res = analyse(data)
+                render(res["xs"], res["ys"])
+            })
+
+        function render(xs, ys) {
+            var chartDom = document.getElementById('trace');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: xs
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: ys,
+                    type: 'bar'
+                }]
+            };
+
+            option && myChart.setOption(option);
+        }
+    </script>
+</body>
+</html>
