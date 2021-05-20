@@ -7,6 +7,12 @@ subtitle: 论如何更有钱
 header-img:
 ---
 
+# 数据策略
+
+[基于估值和持仓曲线的交易策略](/money/strategy/)
+
+# 数据分析
+
 ## 切换基金
 
 <div>
@@ -36,6 +42,8 @@ header-img:
     <iframe id="analyse_ifr_data" style="border: none; width: 100%; min-height: 400px"></iframe>
 </div>
 
+# 个人记录
+
 ## 下跌在稳住
 - 2021-03-15
 年初挣的钱在年后都还回去了，现在还亏了不少，仓位也比较高  
@@ -60,6 +68,8 @@ header-img:
 
 最后通过脚本将json生成markdown文本用于hexo渲染成页面
 ```
+
+# 底部
 
 ## 理财篇必读镇楼 
 - 2020-08-23
@@ -130,6 +140,17 @@ header-img:
     }
 
     init()
+
+    // let dates = ["2020-01-01", "2020-02-01", "2020-03-01", "2020-04-01", "2020-05-01", "2020-06-01", "2020-07-01", "2020-08-01", "2020-09-01"]
+    // let date_index = 0
+
+    // setInterval(() => {
+    //     if(date_index < dates.length) {
+    //         analyse_data.start = dates[date_index]
+    //         render_analyse()
+    //         date_index++
+    //     }
+    // }, 1000)
 
     function render_analyse() {
         analyse_ifr.src = analyes_url + `code=${analyse_data.code}&step=${analyse_data.step}&start=${analyse_data.start}&end=${analyse_data.end}`
