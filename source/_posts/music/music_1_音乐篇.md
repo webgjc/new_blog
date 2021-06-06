@@ -7,9 +7,11 @@ subtitle: 音乐始终陪伴
 header-img: "/img/header_img/archive.jpg"
 ---
 
-<video src="/img/movie/yanhuolidechenai.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">
+<video src="/img/movie/mengzhongdehunli.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">
 您的浏览器不支持 video 标签。
 </video>
+
+## [梦中的婚礼](/img/movie/mengzhongdehunli.mp4)
 
 ## [烟火里的尘埃](/img/movie/yanhuolidechenai.mp4)
 
