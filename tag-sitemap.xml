@@ -9,14 +9,14 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/%E8%84%9A%E6%9C%AC/</loc>
+        <loc>http://ganjiacheng.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
         <lastmod>2021-01-21T06:11:00.112Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+        <loc>http://ganjiacheng.cn/tags/%E8%84%9A%E6%9C%AC/</loc>
         <lastmod>2021-01-21T06:11:00.112Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -37,14 +37,14 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/%E5%85%B6%E4%BB%96/</loc>
+        <loc>http://ganjiacheng.cn/tags/%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/</loc>
         <lastmod>2021-01-21T06:11:00.114Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/</loc>
+        <loc>http://ganjiacheng.cn/tags/%E5%85%B6%E4%BB%96/</loc>
         <lastmod>2021-01-21T06:11:00.114Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -86,6 +86,13 @@
     </url>
 
     <url>
+        <loc>http://ganjiacheng.cn/tags/HIVE/</loc>
+        <lastmod>2021-06-26T02:48:57.929Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://ganjiacheng.cn/tags/HQL%E8%A7%A3%E6%9E%90/</loc>
         <lastmod>2021-06-26T02:48:57.929Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -94,13 +101,6 @@
 
     <url>
         <loc>http://ganjiacheng.cn/tags/JAVA/</loc>
-        <lastmod>2021-06-26T02:48:57.929Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ganjiacheng.cn/tags/HIVE/</loc>
         <lastmod>2021-06-26T02:48:57.929Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -128,21 +128,7 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/HADOOP/</loc>
-        <lastmod>2021-06-26T02:48:57.932Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ganjiacheng.cn/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
-        <lastmod>2021-06-26T02:48:57.932Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ganjiacheng.cn/tags/HDFS/</loc>
         <lastmod>2021-06-26T02:48:57.932Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -164,6 +150,20 @@
 
     <url>
         <loc>http://ganjiacheng.cn/tags/%E7%94%9F%E6%B4%BB/</loc>
+        <lastmod>2021-06-26T02:48:57.932Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/tags/HDFS/</loc>
+        <lastmod>2021-06-26T02:48:57.932Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/tags/HADOOP/</loc>
         <lastmod>2021-06-26T02:48:57.932Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
