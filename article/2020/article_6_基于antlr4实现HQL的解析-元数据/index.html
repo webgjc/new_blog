@@ -42,11 +42,16 @@
 
   <link rel="stylesheet" href="/css/toc.css">
 
+  <!-- audio player -->
+  <link rel="stylesheet" href="/css/meplayer.min.css">
+  <link rel="stylesheet" href="/css/player.css">
+
+  <link rel="stylesheet" href="/css/search.css">
+
   <!-- Custom Fonts -->
   <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
   <!-- Hux change font-awesome CDN to qiniu -->
   <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 
   <!-- Hux Delete, sad but pending in China
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -63,6 +68,7 @@
     <![endif]-->
 
   <!-- ga & ba script hoook -->
+  
   <script></script>
 </head>
 
@@ -150,10 +156,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
                     
                         
                         <li>
@@ -167,6 +169,12 @@
                     
                         
                     
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -220,6 +228,62 @@
     <!-- Main Content -->
     <!-- Modify by Yu-Hsuan Yen -->
 
+<script>
+    function encrypto( str, xor, hex ) {
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+
+        for ( let i=0; i<str.length; i++ ) {
+            // 提取字符串每个字符的ascll码
+            let charCode = str.charCodeAt(i);
+            // 进行异或加密
+            charCode = (charCode * 1) ^ xor;
+            // 异或加密后的字符转成 hex 位数的字符串
+            charCode = charCode.toString(hex);
+            resultList.push(charCode);
+        }
+
+        let splitStr = String.fromCharCode(hex + 97);
+        let resultStr = resultList.join( splitStr );
+        return resultStr;
+    }
+
+    function decrypto( str, xor, hex ) { 
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+        let strCharList = [];
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+        // 解析出分割字符
+        let splitStr = String.fromCharCode(hex + 97);
+        // 分割出加密字符串的加密后的每个字符
+        strCharList = str.split(splitStr);
+
+        for ( let i=0; i<strCharList.length; i++ ) {
+            // 将加密后的每个字符转成加密后的ascll码
+            let charCode = parseInt(strCharList[i], hex);
+            // 异或解密出原字符的ascll码
+            charCode = (charCode * 1) ^ xor;
+            let strChar = String.fromCharCode(charCode);
+            resultList.push(strChar);
+        }
+        let resultStr = resultList.join('');
+        return resultStr;
+    }
+</script>
+
+
+
+<!-- audio player -->
+<!-- <div>
+    <div class="music"></div>
+</div> -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -231,11 +295,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
+                <div class="music" style="margin-top: 30px;"></div>
+                
+
                 <h2 id="前言">前言</h2>
 <p>在大数据场景中，HQL的使用次数很多：离线任务，及时查询，数仓建模等。</p>
 <p>关于HQL解析在hive底层也有他自己的HQL解析实现。不过底层的实现直接用不起来，这边使用antlr4直接来实现HQL的解析。</p>
 <p>HQL解析在很多场景能用到并发挥如虎添翼的作用，这边开个新坑，会分好几个文章来讲主要用到的一些场景和实现。</p>
 <p>本文主要讲CREATE语句解析出元数据。会用到的场景也很多，比如建模的时候，离线任务中的创表和其他有用到类似建表的地方都可以转换为HQL的交互方式拿到数据，而不是传统的填写表单。</p>
+<p>代码实现参考：<a href="https://github.com/webgjc/sql-parser/" target="_blank" rel="noopener">https://github.com/webgjc/sql-parser/</a></p>
 <h2 id="前期准备">前期准备</h2>
 <ul>
 <li>antlr4安装看<a href="https://www.antlr.org/" target="_blank" rel="noopener">这里官方教程</a></li>
@@ -268,9 +336,14 @@ plugin antlr4-maven-plugin(可以在编译的时候将g4<br>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> db_test.test_user (</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">comment</span> <span class="string">'id'</span>,</span><br><span class="line">    <span class="keyword">name</span> <span class="keyword">string</span> <span class="keyword">comment</span> <span class="string">'姓名'</span>,</span><br><span class="line">    age <span class="built_in">int</span> <span class="keyword">comment</span> <span class="string">'年龄'</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">comment</span> <span class="string">'测试用户表'</span></span><br><span class="line">partitioned <span class="keyword">by</span> (ds <span class="keyword">string</span> <span class="keyword">comment</span> <span class="string">'分区'</span>)</span><br><span class="line"><span class="keyword">ROW</span> <span class="keyword">FORMAT</span> <span class="keyword">DELIMITED</span></span><br><span class="line"><span class="literal">NULL</span> DEFINED <span class="keyword">AS</span> <span class="string">""</span></span><br><span class="line"><span class="keyword">STORED</span> <span class="keyword">AS</span> TEXTFILE</span><br><span class="line">LOCATION <span class="string">'/user/hive/warehouse/db_test.db/test_user'</span>;</span><br></pre></td></tr></table></figure>
 <p>解析后的结果</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"dbName"</span>: <span class="string">"db_test"</span>,</span><br><span class="line">    <span class="attr">"fields"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"dataType"</span>: <span class="string">"int"</span>,</span><br><span class="line">            <span class="attr">"fieldComment"</span>: <span class="string">"id"</span>,</span><br><span class="line">            <span class="attr">"fieldName"</span>: <span class="string">"id"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"dataType"</span>: <span class="string">"string"</span>,</span><br><span class="line">            <span class="attr">"fieldComment"</span>: <span class="string">"姓名"</span>,</span><br><span class="line">            <span class="attr">"fieldName"</span>: <span class="string">"name"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"dataType"</span>: <span class="string">"int"</span>,</span><br><span class="line">            <span class="attr">"fieldComment"</span>: <span class="string">"年龄"</span>,</span><br><span class="line">            <span class="attr">"fieldName"</span>: <span class="string">"age"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"location"</span>: <span class="string">"LOCATION '/user/hive/warehouse/db_test.db/test_user'"</span>,</span><br><span class="line">    <span class="attr">"partition"</span>: <span class="string">"partitioned by (ds string comment '分区')"</span>,</span><br><span class="line">    <span class="attr">"properties"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"rowFormat"</span>: <span class="string">"ROW FORMAT DELIMITED\nNULL DEFINED AS \"\""</span>,</span><br><span class="line">    <span class="attr">"store"</span>: <span class="string">"STORED AS TEXTFILE"</span>,</span><br><span class="line">    <span class="attr">"tableComment"</span>: <span class="string">"测试用户表"</span>,</span><br><span class="line">    <span class="attr">"tableName"</span>: <span class="string">"test_user"</span>,</span><br><span class="line">    <span class="attr">"tableType"</span>: <span class="string">"external"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-                
 
                 <hr>
+
+                <div style="color: #ccc; font-size: 12px;">
+                    <span>版权声明：本文为原创文章，转载请注明出处和作者，不得用于商业用途，请遵守</span>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans">CC BY-NC-SA 4.0协议。</a>
+                </div>
+
                 <!-- Pager -->
                 <ul class="pager">
                     
@@ -288,6 +361,14 @@ plugin antlr4-maven-plugin(可以在编译的时候将g4<br>
                 <br>
 
                 <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.png"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
                 
                 <!--打赏-->
 
@@ -381,6 +462,8 @@ plugin antlr4-maven-plugin(可以在编译的时候将g4<br>
                     
                         <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
                     
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
                 </ul>
                 
                 <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
@@ -400,7 +483,9 @@ plugin antlr4-maven-plugin(可以在编译的时候将g4<br>
                         }
                     })
                     setTimeout(() => {
-                        document.getElementsByClassName("info")[0].style.display="none";
+                        if(document.getElementsByClassName("info")[0] != undefined) {
+                            document.getElementsByClassName("info")[0].style.display="none";
+                        }
                     }, 3000)
                 </script>
             </div>
@@ -468,7 +553,6 @@ plugin antlr4-maven-plugin(可以在编译的时候将g4<br>
         })  
 </script>
 
-
     <!-- Footer -->
     <!-- Footer -->
 <footer>
@@ -528,17 +612,24 @@ plugin antlr4-maven-plugin(可以在编译的时候将g4<br>
             </span>
         </div>
     
+    <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+        <span>网站备案号：</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备16005140号-1</a>
+    </div>
 </footer>
 
 <!-- jQuery -->
 <script src="/js/jquery.min.js"></script>
+
+<!-- audio player -->
+<script src="/js/meplayer.min.js"></script>
+<script src="/js/player.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/hux-blog.min.js"></script>
-
 
 <!-- async load function -->
 <script>
@@ -704,7 +795,7 @@ plugin antlr4-maven-plugin(可以在编译的时候将g4<br>
 	<a id="rocket" href="#top" class=""></a>
 	
 <!-- Image to hack wechat -->
-<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- <img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" /> -->
 <!-- Migrate from head to bottom, no longer block render and still work -->
 <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>

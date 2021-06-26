@@ -42,11 +42,16 @@
 
   <link rel="stylesheet" href="/css/toc.css">
 
+  <!-- audio player -->
+  <link rel="stylesheet" href="/css/meplayer.min.css">
+  <link rel="stylesheet" href="/css/player.css">
+
+  <link rel="stylesheet" href="/css/search.css">
+
   <!-- Custom Fonts -->
   <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
   <!-- Hux change font-awesome CDN to qiniu -->
   <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 
   <!-- Hux Delete, sad but pending in China
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -63,6 +68,7 @@
     <![endif]-->
 
   <!-- ga & ba script hoook -->
+  
   <script></script>
 </head>
 
@@ -144,10 +150,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
                     
                         
                         <li>
@@ -161,6 +163,12 @@
                     
                         
                     
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -214,6 +222,62 @@
     <!-- Main Content -->
     <!-- Modify by Yu-Hsuan Yen -->
 
+<script>
+    function encrypto( str, xor, hex ) {
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+
+        for ( let i=0; i<str.length; i++ ) {
+            // 提取字符串每个字符的ascll码
+            let charCode = str.charCodeAt(i);
+            // 进行异或加密
+            charCode = (charCode * 1) ^ xor;
+            // 异或加密后的字符转成 hex 位数的字符串
+            charCode = charCode.toString(hex);
+            resultList.push(charCode);
+        }
+
+        let splitStr = String.fromCharCode(hex + 97);
+        let resultStr = resultList.join( splitStr );
+        return resultStr;
+    }
+
+    function decrypto( str, xor, hex ) { 
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+        let strCharList = [];
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+        // 解析出分割字符
+        let splitStr = String.fromCharCode(hex + 97);
+        // 分割出加密字符串的加密后的每个字符
+        strCharList = str.split(splitStr);
+
+        for ( let i=0; i<strCharList.length; i++ ) {
+            // 将加密后的每个字符转成加密后的ascll码
+            let charCode = parseInt(strCharList[i], hex);
+            // 异或解密出原字符的ascll码
+            charCode = (charCode * 1) ^ xor;
+            let strChar = String.fromCharCode(charCode);
+            resultList.push(strChar);
+        }
+        let resultStr = resultList.join('');
+        return resultStr;
+    }
+</script>
+
+
+
+<!-- audio player -->
+<!-- <div>
+    <div class="music"></div>
+</div> -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -225,59 +289,191 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="查看基金数据与交易">查看基金数据与交易</h2>
-<div id="trace_data">
+                <div class="music" style="margin-top: 30px;"></div>
+                
+
+                <h1 id="数据策略">数据策略</h1>
+<p><a href="/money/strategy/">基于估值和持仓曲线的交易策略</a></p>
+<h1 id="数据分析">数据分析</h1>
+<h2 id="切换基金">切换基金</h2>
+<div>
     <select id="select_code"></select>
-    <iframe id="ifr_data"></iframe>
 </div>
+<h3 id="查看基金数据与交易">查看基金数据与交易</h3>
+<div>
+    <iframe id="ifr_data" style="border: none; width: 100%; min-height: 400px"></iframe>
+</div>
+<h3 id="点位分布数量">点位分布数量</h3>
+<div>
+    <div style="display: flex; margin-bottom: 20px">
+        <div style="flex: 0 0 80px">步长</div>
+        <input type="number" id="step" value="10">
+    </div>
+    <div style="display: flex; margin-bottom: 20px">
+        <div style="flex: 0 0 80px">开始时间</div>
+        <input type="date" id="start" value="2020-01-01">
+    </div>
+    <div style="display: flex; margin-bottom: 20px">
+        <div style="flex: 0 0 80px">结束时间</div>
+        <input type="date" id="end" value="2021-05-01">
+    </div>
+    <div style="color: red">注：除指数外，其他净值均放大了1000倍，当前位置显示为紫色</div>
+    <iframe id="analyse_ifr_data" style="border: none; width: 100%; min-height: 400px"></iframe>
+</div>
+<h1 id="个人记录">个人记录</h1>
+<h2 id="下跌在稳住">下跌在稳住</h2>
+<ul>
+<li>2021-03-15<br>
+年初挣的钱在年后都还回去了，现在还亏了不少，仓位也比较高</li>
+</ul>
+<p>主要还是集中在半导体，还有不多的一些其他行业的，传媒/证券</p>
+<p>但也想逐步转换到沪深300，做做指数比较香</p>
+<p>黄金最近也入手了一些，主要从之前的400跌倒了350，买时成本价在365左右，<br>
+现在价格差不多基本持平，个人觉得跌的差不多了，也可能最低在320。</p>
 <h2 id="整理基金实际操作记录">整理基金实际操作记录</h2>
 <ul>
-<li>2020-08-29<br>
-<a href="/article/money_2_%E5%9F%BA%E9%87%91%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C/">查看基金实际操作</a></li>
+<li>2020-08-29</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">本次的数据来源主要是支付宝查账，</span><br><span class="line">地址为 https://consumeprod.alipay.com/record/standard.htm</span><br><span class="line">通过搜索筛选带蚂蚁财富的近三年账单，筛选出基金的买入卖出操作，</span><br><span class="line">下载为csv文件</span><br><span class="line"></span><br><span class="line">然后通过天天基金接口，获取到基金名称与代码的对应关系(有些关系还得手动补充维护)</span><br><span class="line">通过脚本转换csv到json格式，同时筛选所需的信息(基金，操作，日期)</span><br><span class="line"></span><br><span class="line">最后通过脚本将json生成markdown文本用于hexo渲染成页面</span><br></pre></td></tr></table></figure>
+<h1 id="底部">底部</h1>
 <h2 id="理财篇必读镇楼">理财篇必读镇楼</h2>
 <ul>
 <li>2020-08-23</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">我当前的理财主要在于基金的买卖，也是第二收入(亏损)来源；</span><br><span class="line">本栏是一些理财思路和方法的整合，主要包含几个方向</span><br><span class="line">1. 基金买入卖出及其来源依据或直觉依据</span><br><span class="line">2. 在一些节点回顾性总结</span><br><span class="line">3. 发现或总结一些方法论</span><br><span class="line">4. 理财工具，分析工具的创造</span><br><span class="line">5. 数据挖掘和分析</span><br><span class="line">6. 分享一些这个方向的文章</span><br></pre></td></tr></table></figure>
 <script type="text/javascript">
+    Date.prototype.format = function(fmt) { 
+        var o = { 
+            "M+" : this.getMonth()+1,                 //月份 
+            "d+" : this.getDate(),                    //日 
+            "h+" : this.getHours(),                   //小时 
+            "m+" : this.getMinutes(),                 //分 
+            "s+" : this.getSeconds(),                 //秒 
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度 
+            "S"  : this.getMilliseconds()             //毫秒 
+        }; 
+        if(/(y+)/.test(fmt)) {
+                fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+        }
+        for(var k in o) {
+            if(new RegExp("("+ k +")").test(fmt)){
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+            }
+        }
+        return fmt; 
+    }
+
+    let zhishu_data = [
+        {
+            code: "000001",
+            name: "上证指数"
+        }
+    ]
+
     let ifr = document.getElementById("ifr_data");
+    let analyse_ifr = document.getElementById("analyse_ifr_data");
+
     let scode = document.getElementById("select_code");
+    let analyse_step = document.getElementById("step");
+    let analyse_start = document.getElementById("start");
+    let analyse_end = document.getElementById("end");
+
     let urlroot = "/money/fund_trace_data.html?code=";
-    ifr.style.border = "none";
-    ifr.style.width = "100%";
-    ifr.style.minHeight = "400px";
+    let analyes_url = "/money/fund_analyse_distribution.html?";
+
+    let analyse_data = {
+        code: "000001",
+        step: 100,
+        start: `${new Date().getFullYear()-1}-${new Date().format("MM-dd")}`,
+        end: new Date().format("yyyy-MM-dd")
+    }
+
+    function init() {
+        ifr.src = urlroot + analyse_data.code;
+        analyse_step.value = analyse_data.step;
+        analyse_start.value = analyse_data.start;
+        analyse_end.value = analyse_data.end;
+    }
+
+    init()
+
+    // let dates = ["2020-01-01", "2020-02-01", "2020-03-01", "2020-04-01", "2020-05-01", "2020-06-01", "2020-07-01", "2020-08-01", "2020-09-01"]
+    // let date_index = 0
+
+    // setInterval(() => {
+    //     if(date_index < dates.length) {
+    //         analyse_data.start = dates[date_index]
+    //         render_analyse()
+    //         date_index++
+    //     }
+    // }, 1000)
+
+    function render_analyse() {
+        analyse_ifr.src = analyes_url + `code=${analyse_data.code}&step=${analyse_data.step}&start=${analyse_data.start}&end=${analyse_data.end}`
+    }
 
     fetch("/money/fund.json")
     .then(res => res.json())
     .then(data => {
         let codemap = {};
-        data.forEach(d => codemap[d["fund_name"]] = d["fund_code"]);
+        zhishu_data.forEach(item => {
+            codemap[item["name"]] = item["code"]
+        })
+        let now = new Date();
+        now.setFullYear(new Date().getFullYear()-1);
+        data.forEach(d => {
+            if(new Date(d["datetime"]) > now) {
+                codemap[d["fund_name"]] = d["fund_code"];
+            }
+        });
         let codes = Object.keys(codemap);
         scode.innerHTML = codes
         .map(name => `<option value=${codemap[name]}>${name}</option>`)
         .join(" ");
         ifr.src = urlroot + codemap[codes[0]];
+        analyse_data.code = codemap[codes[0]];
+        render_analyse();
     });
+
+    analyse_step.onchange = function(e){
+        analyse_data.step = e.target.value
+        render_analyse();
+    }
+
+    analyse_start.onchange = function(e){
+        analyse_data.start = e.target.value
+        render_analyse();
+    }
+
+    analyse_end.onchange = function(e){
+        analyse_data.end = e.target.value
+        render_analyse();
+    }
     
     scode.onchange = (e) => {
+        analyse_data.code = scode.value;
+        render_analyse();
         ifr.src = urlroot + scode.value;
     }
 </script>
-                
 
                 <hr>
+
+                <div style="color: #ccc; font-size: 12px;">
+                    <span>版权声明：本文为原创文章，转载请注明出处和作者，不得用于商业用途，请遵守</span>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans">CC BY-NC-SA 4.0协议。</a>
+                </div>
+
                 <!-- Pager -->
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/music/music_1_音乐篇/" data-toggle="tooltip" data-placement="top" title="音乐篇">&larr; Previous Post</a>
+                            <a href="/article/life/life_1_生活篇/" data-toggle="tooltip" data-placement="top" title="生活篇">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/money/money_2_基金实际操作/" data-toggle="tooltip" data-placement="top" title="基金实际操作篇">Next Post &rarr;</a>
+                            <a href="/article/music/music_1_音乐篇/" data-toggle="tooltip" data-placement="top" title="音乐篇">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -285,6 +481,14 @@
                 <br>
 
                 <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.png"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
                 
                 <!--打赏-->
 
@@ -333,7 +537,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#查看基金数据与交易"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x67E5;&#x770B;&#x57FA;&#x91D1;&#x6570;&#x636E;&#x4E0E;&#x4EA4;&#x6613;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#整理基金实际操作记录"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x6574;&#x7406;&#x57FA;&#x91D1;&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x8BB0;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#理财篇必读镇楼"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x7406;&#x8D22;&#x7BC7;&#x5FC5;&#x8BFB;&#x9547;&#x697C;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#数据策略"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6570;&#x636E;&#x7B56;&#x7565;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#数据分析"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x6570;&#x636E;&#x5206;&#x6790;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#切换基金"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x5207;&#x6362;&#x57FA;&#x91D1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看基金数据与交易"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">&#x67E5;&#x770B;&#x57FA;&#x91D1;&#x6570;&#x636E;&#x4E0E;&#x4EA4;&#x6613;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#点位分布数量"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">&#x70B9;&#x4F4D;&#x5206;&#x5E03;&#x6570;&#x91CF;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#个人记录"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x4E2A;&#x4EBA;&#x8BB0;&#x5F55;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下跌在稳住"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">&#x4E0B;&#x8DCC;&#x5728;&#x7A33;&#x4F4F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#整理基金实际操作记录"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">&#x6574;&#x7406;&#x57FA;&#x91D1;&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x8BB0;&#x5F55;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#底部"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x5E95;&#x90E8;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#理财篇必读镇楼"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">&#x7406;&#x8D22;&#x7BC7;&#x5FC5;&#x8BFB;&#x9547;&#x697C;</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -372,6 +576,8 @@
                     
                         <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
                     
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
                 </ul>
                 
                 <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
@@ -391,7 +597,9 @@
                         }
                     })
                     setTimeout(() => {
-                        document.getElementsByClassName("info")[0].style.display="none";
+                        if(document.getElementsByClassName("info")[0] != undefined) {
+                            document.getElementsByClassName("info")[0].style.display="none";
+                        }
                     }, 3000)
                 </script>
             </div>
@@ -459,7 +667,6 @@
         })  
 </script>
 
-
     <!-- Footer -->
     <!-- Footer -->
 <footer>
@@ -519,17 +726,24 @@
             </span>
         </div>
     
+    <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+        <span>网站备案号：</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备16005140号-1</a>
+    </div>
 </footer>
 
 <!-- jQuery -->
 <script src="/js/jquery.min.js"></script>
+
+<!-- audio player -->
+<script src="/js/meplayer.min.js"></script>
+<script src="/js/player.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/hux-blog.min.js"></script>
-
 
 <!-- async load function -->
 <script>
@@ -695,7 +909,7 @@
 	<a id="rocket" href="#top" class=""></a>
 	
 <!-- Image to hack wechat -->
-<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- <img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" /> -->
 <!-- Migrate from head to bottom, no longer block render and still work -->
 <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>

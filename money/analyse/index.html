@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../static/echarts.min.js"></script>
+    <title>点位分布分析</title>
+    <style type="text/css">
+        #trace {
+            width: 98vw;
+            height: 97vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="trace">测试</div> 
+    <script type="text/javascript">
+        let step = 20 // 步长
+        let start = "2020-01-01" 
+        let end = "2022-01-01" 
+
+        function analyse(data) {
+            let date_data = []
+            let mi = 999999
+            let mx = 0
+            let xs = []
+            let ys = []
+            for(let i = 0; i < data.length; i++) {
+                if(data[i]["x"] >= start && data[i]["x"] <= end) {
+                    date_data.push(data[i]);
+                    mi = data[i]["y"] < mi ? data[i]["y"] : mi
+                    mx = data[i]["y"] > mx ? data[i]["y"] : mx
+                }
+            }
+            let ss = parseInt(mi)
+            let i = 0;
+            while(true) {
+                if((ss + i * step) > mx) {
+                    break
+                }
+                xs.push("[" + (ss + i * step) + "," + (ss + step + i * step) + ")")
+                ys.push(0)
+                i++
+            }
+            
+            for(let i = 0; i < date_data.length; i++) {
+                ys[parseInt((date_data[i]["y"] - mi) / step)]++
+            }
+
+            return {
+                xs: xs,
+                ys: ys
+            }
+        }
+        
+        fetch("000001.json")
+            .then((res) => res.json())
+            .then((data) => {
+                let res = analyse(data)
+                render(res["xs"], res["ys"])
+            })
+
+        function render(xs, ys) {
+            var chartDom = document.getElementById('trace');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: xs
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: ys,
+                    type: 'bar'
+                }]
+            };
+
+            option && myChart.setOption(option);
+        }
+    </script>
+</body>
+</html>

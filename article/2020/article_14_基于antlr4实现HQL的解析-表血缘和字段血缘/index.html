@@ -42,11 +42,16 @@
 
   <link rel="stylesheet" href="/css/toc.css">
 
+  <!-- audio player -->
+  <link rel="stylesheet" href="/css/meplayer.min.css">
+  <link rel="stylesheet" href="/css/player.css">
+
+  <link rel="stylesheet" href="/css/search.css">
+
   <!-- Custom Fonts -->
   <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
   <!-- Hux change font-awesome CDN to qiniu -->
   <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 
   <!-- Hux Delete, sad but pending in China
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -63,6 +68,7 @@
     <![endif]-->
 
   <!-- ga & ba script hoook -->
+  
   <script></script>
 </head>
 
@@ -146,10 +152,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
                     
                         
                         <li>
@@ -163,6 +165,12 @@
                     
                         
                     
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -216,6 +224,62 @@
     <!-- Main Content -->
     <!-- Modify by Yu-Hsuan Yen -->
 
+<script>
+    function encrypto( str, xor, hex ) {
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+
+        for ( let i=0; i<str.length; i++ ) {
+            // 提取字符串每个字符的ascll码
+            let charCode = str.charCodeAt(i);
+            // 进行异或加密
+            charCode = (charCode * 1) ^ xor;
+            // 异或加密后的字符转成 hex 位数的字符串
+            charCode = charCode.toString(hex);
+            resultList.push(charCode);
+        }
+
+        let splitStr = String.fromCharCode(hex + 97);
+        let resultStr = resultList.join( splitStr );
+        return resultStr;
+    }
+
+    function decrypto( str, xor, hex ) { 
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+        let strCharList = [];
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+        // 解析出分割字符
+        let splitStr = String.fromCharCode(hex + 97);
+        // 分割出加密字符串的加密后的每个字符
+        strCharList = str.split(splitStr);
+
+        for ( let i=0; i<strCharList.length; i++ ) {
+            // 将加密后的每个字符转成加密后的ascll码
+            let charCode = parseInt(strCharList[i], hex);
+            // 异或解密出原字符的ascll码
+            charCode = (charCode * 1) ^ xor;
+            let strChar = String.fromCharCode(charCode);
+            resultList.push(strChar);
+        }
+        let resultStr = resultList.join('');
+        return resultStr;
+    }
+</script>
+
+
+
+<!-- audio player -->
+<!-- <div>
+    <div class="music"></div>
+</div> -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -227,9 +291,13 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
+                <div class="music" style="margin-top: 30px;"></div>
+                
+
                 <h2 id="前言">前言</h2>
 <p>关于 HiveSQL 血缘，一般表示的就是 hive 数据仓库中所有表和字段的来源流向关系。它的解析是十分必要的，一方面数仓建表的时候有时只会定义 SQL 任务不会特别关注到任务之间的关系，对于查看的数据也不容易追溯两层以上或以下的数据来源和去向。</p>
 <p>有了血缘就可以对离线任务执行的先后关系作出一定规范，可以做数据来源链路的分析，数据的上卷下钻，数仓直接的数据建模等。</p>
+<p>代码实现参考：<a href="https://github.com/webgjc/sql-parser/" target="_blank" rel="noopener">https://github.com/webgjc/sql-parser/</a></p>
 <h2 id="实现思路">实现思路</h2>
 <p>一般来说比较直接的实现方式是 hivehook 的 LineageLogger，但直接用也有比较明显麻烦的地方，一个是借用了 hive 自带的 antlr3 的 hql 解析，如果有部分语法不满足，去修改解析文件会造成不可控影响；另一个用 hivehook 实现后的迭代测试发布等都是一个比较麻烦的过程，出错了也很难定位问题所在。</p>
 <p>这边就考虑用 antlr4 配合 hive 内部的 Hplsql.g4 直接实现一个血缘的解析。实现方式还是 visit 模式。</p>
@@ -263,9 +331,14 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">antlr4.version</span>&gt;</span>4.7.2<span class="tag">&lt;/<span class="name">antlr4.version</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通用的</span></span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.ParserRuleContext;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.RuleContext;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.tree.ParseTree;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"><span class="comment">// 基于Hplsql.g4文件生成的, 使用antlr4-maven-plugin</span></span><br><span class="line"><span class="keyword">import</span> xxx.HplsqlBaseVisitor;</span><br><span class="line"><span class="keyword">import</span> xxx.HplsqlParser;</span><br></pre></td></tr></table></figure>
 
-                
 
                 <hr>
+
+                <div style="color: #ccc; font-size: 12px;">
+                    <span>版权声明：本文为原创文章，转载请注明出处和作者，不得用于商业用途，请遵守</span>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans">CC BY-NC-SA 4.0协议。</a>
+                </div>
+
                 <!-- Pager -->
                 <ul class="pager">
                     
@@ -283,6 +356,14 @@
                 <br>
 
                 <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.png"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
                 
                 <!--打赏-->
 
@@ -372,6 +453,8 @@
                     
                         <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
                     
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
                 </ul>
                 
                 <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
@@ -391,7 +474,9 @@
                         }
                     })
                     setTimeout(() => {
-                        document.getElementsByClassName("info")[0].style.display="none";
+                        if(document.getElementsByClassName("info")[0] != undefined) {
+                            document.getElementsByClassName("info")[0].style.display="none";
+                        }
                     }, 3000)
                 </script>
             </div>
@@ -459,7 +544,6 @@
         })  
 </script>
 
-
     <!-- Footer -->
     <!-- Footer -->
 <footer>
@@ -519,17 +603,24 @@
             </span>
         </div>
     
+    <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+        <span>网站备案号：</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备16005140号-1</a>
+    </div>
 </footer>
 
 <!-- jQuery -->
 <script src="/js/jquery.min.js"></script>
+
+<!-- audio player -->
+<script src="/js/meplayer.min.js"></script>
+<script src="/js/player.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/hux-blog.min.js"></script>
-
 
 <!-- async load function -->
 <script>
@@ -695,7 +786,7 @@
 	<a id="rocket" href="#top" class=""></a>
 	
 <!-- Image to hack wechat -->
-<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- <img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" /> -->
 <!-- Migrate from head to bottom, no longer block render and still work -->
 <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>

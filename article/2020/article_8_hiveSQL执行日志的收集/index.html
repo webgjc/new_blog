@@ -42,11 +42,16 @@
 
   <link rel="stylesheet" href="/css/toc.css">
 
+  <!-- audio player -->
+  <link rel="stylesheet" href="/css/meplayer.min.css">
+  <link rel="stylesheet" href="/css/player.css">
+
+  <link rel="stylesheet" href="/css/search.css">
+
   <!-- Custom Fonts -->
   <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
   <!-- Hux change font-awesome CDN to qiniu -->
   <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 
   <!-- Hux Delete, sad but pending in China
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -63,6 +68,7 @@
     <![endif]-->
 
   <!-- ga & ba script hoook -->
+  
   <script></script>
 </head>
 
@@ -148,10 +154,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
                     
                         
                         <li>
@@ -165,6 +167,12 @@
                     
                         
                     
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -218,6 +226,62 @@
     <!-- Main Content -->
     <!-- Modify by Yu-Hsuan Yen -->
 
+<script>
+    function encrypto( str, xor, hex ) {
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+
+        for ( let i=0; i<str.length; i++ ) {
+            // 提取字符串每个字符的ascll码
+            let charCode = str.charCodeAt(i);
+            // 进行异或加密
+            charCode = (charCode * 1) ^ xor;
+            // 异或加密后的字符转成 hex 位数的字符串
+            charCode = charCode.toString(hex);
+            resultList.push(charCode);
+        }
+
+        let splitStr = String.fromCharCode(hex + 97);
+        let resultStr = resultList.join( splitStr );
+        return resultStr;
+    }
+
+    function decrypto( str, xor, hex ) { 
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+        let strCharList = [];
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+        // 解析出分割字符
+        let splitStr = String.fromCharCode(hex + 97);
+        // 分割出加密字符串的加密后的每个字符
+        strCharList = str.split(splitStr);
+
+        for ( let i=0; i<strCharList.length; i++ ) {
+            // 将加密后的每个字符转成加密后的ascll码
+            let charCode = parseInt(strCharList[i], hex);
+            // 异或解密出原字符的ascll码
+            charCode = (charCode * 1) ^ xor;
+            let strChar = String.fromCharCode(charCode);
+            resultList.push(strChar);
+        }
+        let resultStr = resultList.join('');
+        return resultStr;
+    }
+</script>
+
+
+
+<!-- audio player -->
+<!-- <div>
+    <div class="music"></div>
+</div> -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -228,6 +292,9 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
+
+                <div class="music" style="margin-top: 30px;"></div>
+                
 
                 <h2 id="前言">前言</h2>
 <p>一般的hive客户端都没有详细的执行日志，要了解执行情况得去yarn看，就比较麻烦，本次考虑的是在hive客户端获取到全部的执行日志，来源主要参考hadoop-yarn-client的内部实现。</p>
@@ -291,9 +358,14 @@ containerLogInfo里面每个都是日志文件。</p>
 </blockquote>
 <p>至此已获取到全部日志。</p>
 
-                
 
                 <hr>
+
+                <div style="color: #ccc; font-size: 12px;">
+                    <span>版权声明：本文为原创文章，转载请注明出处和作者，不得用于商业用途，请遵守</span>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans">CC BY-NC-SA 4.0协议。</a>
+                </div>
+
                 <!-- Pager -->
                 <ul class="pager">
                     
@@ -311,6 +383,14 @@ containerLogInfo里面每个都是日志文件。</p>
                 <br>
 
                 <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.png"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
                 
                 <!--打赏-->
 
@@ -402,6 +482,8 @@ containerLogInfo里面每个都是日志文件。</p>
                     
                         <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
                     
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
                 </ul>
                 
                 <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
@@ -421,7 +503,9 @@ containerLogInfo里面每个都是日志文件。</p>
                         }
                     })
                     setTimeout(() => {
-                        document.getElementsByClassName("info")[0].style.display="none";
+                        if(document.getElementsByClassName("info")[0] != undefined) {
+                            document.getElementsByClassName("info")[0].style.display="none";
+                        }
                     }, 3000)
                 </script>
             </div>
@@ -489,7 +573,6 @@ containerLogInfo里面每个都是日志文件。</p>
         })  
 </script>
 
-
     <!-- Footer -->
     <!-- Footer -->
 <footer>
@@ -549,17 +632,24 @@ containerLogInfo里面每个都是日志文件。</p>
             </span>
         </div>
     
+    <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+        <span>网站备案号：</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备16005140号-1</a>
+    </div>
 </footer>
 
 <!-- jQuery -->
 <script src="/js/jquery.min.js"></script>
+
+<!-- audio player -->
+<script src="/js/meplayer.min.js"></script>
+<script src="/js/player.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/hux-blog.min.js"></script>
-
 
 <!-- async load function -->
 <script>
@@ -725,7 +815,7 @@ containerLogInfo里面每个都是日志文件。</p>
 	<a id="rocket" href="#top" class=""></a>
 	
 <!-- Image to hack wechat -->
-<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- <img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" /> -->
 <!-- Migrate from head to bottom, no longer block render and still work -->
 <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>

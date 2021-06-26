@@ -42,11 +42,16 @@
 
   <link rel="stylesheet" href="/css/toc.css">
 
+  <!-- audio player -->
+  <link rel="stylesheet" href="/css/meplayer.min.css">
+  <link rel="stylesheet" href="/css/player.css">
+
+  <link rel="stylesheet" href="/css/search.css">
+
   <!-- Custom Fonts -->
   <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
   <!-- Hux change font-awesome CDN to qiniu -->
   <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 
   <!-- Hux Delete, sad but pending in China
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -63,6 +68,7 @@
     <![endif]-->
 
   <!-- ga & ba script hoook -->
+  
   <script></script>
 </head>
 
@@ -144,10 +150,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
                     
                         
                         <li>
@@ -161,6 +163,12 @@
                     
                         
                     
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -214,6 +222,62 @@
     <!-- Main Content -->
     <!-- Modify by Yu-Hsuan Yen -->
 
+<script>
+    function encrypto( str, xor, hex ) {
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+
+        for ( let i=0; i<str.length; i++ ) {
+            // 提取字符串每个字符的ascll码
+            let charCode = str.charCodeAt(i);
+            // 进行异或加密
+            charCode = (charCode * 1) ^ xor;
+            // 异或加密后的字符转成 hex 位数的字符串
+            charCode = charCode.toString(hex);
+            resultList.push(charCode);
+        }
+
+        let splitStr = String.fromCharCode(hex + 97);
+        let resultStr = resultList.join( splitStr );
+        return resultStr;
+    }
+
+    function decrypto( str, xor, hex ) { 
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+        let strCharList = [];
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+        // 解析出分割字符
+        let splitStr = String.fromCharCode(hex + 97);
+        // 分割出加密字符串的加密后的每个字符
+        strCharList = str.split(splitStr);
+
+        for ( let i=0; i<strCharList.length; i++ ) {
+            // 将加密后的每个字符转成加密后的ascll码
+            let charCode = parseInt(strCharList[i], hex);
+            // 异或解密出原字符的ascll码
+            charCode = (charCode * 1) ^ xor;
+            let strChar = String.fromCharCode(charCode);
+            resultList.push(strChar);
+        }
+        let resultStr = resultList.join('');
+        return resultStr;
+    }
+</script>
+
+
+
+<!-- audio player -->
+<!-- <div>
+    <div class="music"></div>
+</div> -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -224,6 +288,9 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
+
+                <div class="music" style="margin-top: 30px;"></div>
+                
 
                 <p>下篇开始，对于我自己来说也就是在这边徘徊，暂时也并不能完全很好的掌握这些或深入的或新颖的知识，因为前端新东西出现的实在太快了。这里的我只大致做一个引导，如有错误请及时指出。毕竟修行在个人，还是得靠自己摸索。<a id="more"></a></p>
 <p>我们还是再来学习js—js进阶。这里目前必读的一本书—泽卡斯的《js高级编程指南》，如果能啃下这本书，必定精进一大步。当初我也是略读读了几次，能感受到他的强大和对我的影响力。js进阶，一方面补充了很多之前遗漏的细节，另一方面代码风格，代码思想会发生变化。学学面向对象，函数式编程，异步编程等等编程思想，对于编程的效率甚至体验都会改变。当然你会发现当初的编一行试一行的考虑肯定不是最好的，应该要站在高处看问题。如果是一个成千上万行代码的任务时，需要有总体设计的眼光。推荐在看看《js设计模式》这本。这部分时间将会非常长，当然也有无数人或停滞不前，或退而自满。任何一个行业在深入之后都不会很简单，如果你是被那三个月培训出来10k以上工资吸引进入这个行业，那就得做好打持久战的准备了，不牢固的基础在这时候会被放大。所以建议还是慢慢来，急功近利很难成为真正nb的人。</p>
@@ -236,9 +303,14 @@
 <p>再来讲最火的三个框架—angular2，react，vue。我的感觉是angular2企业内部用的较多，react可以用来搭建大型应用，vue适合轻量级的网页。就试过react，给我的感觉就是初始上手有点困难，可能不是很适合刚入门的开发者，稍微有点经验之后再来学习框架可能会有更深刻的理解。当初是被react的全家桶吸引，react和react native，毕竟也是google工程师开发出来的。前端组件化也是在react出现之后才有的名词，很多人认为这也是前端发展的大方向，或许是吧，个人有个人的理解。总有对比这三个框架的文章见到，一般就按需求来做选择，也没必要在一个框架上吊死。虽然可能学一个框架的成本并不低，但在用熟了之后会发现再也离不开，因为多多少少会被这个框架设计的思想所束缚。个人感觉框架是用来帮助人的，而不是束缚，在学框架的同时不要忘记语言本身。</p>
 <p>学到这儿，我相信您已经可以自己完成之后的路了，后面更加深入的可以是前端的深入研究，可以是编程提高的算法与数据结构，也可以是服务器端的复杂逻辑与数据交互等等，后面的路更是丰富多彩，希望本篇前端之路只是一个开端。</p>
 
-                
 
                 <hr>
+
+                <div style="color: #ccc; font-size: 12px;">
+                    <span>版权声明：本文为原创文章，转载请注明出处和作者，不得用于商业用途，请遵守</span>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans">CC BY-NC-SA 4.0协议。</a>
+                </div>
+
                 <!-- Pager -->
                 <ul class="pager">
                     
@@ -256,6 +328,14 @@
                 <br>
 
                 <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.png"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
                 
                 <!--打赏-->
 
@@ -343,6 +423,8 @@
                     
                         <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
                     
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
                 </ul>
                 
                 <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
@@ -362,7 +444,9 @@
                         }
                     })
                     setTimeout(() => {
-                        document.getElementsByClassName("info")[0].style.display="none";
+                        if(document.getElementsByClassName("info")[0] != undefined) {
+                            document.getElementsByClassName("info")[0].style.display="none";
+                        }
                     }, 3000)
                 </script>
             </div>
@@ -430,7 +514,6 @@
         })  
 </script>
 
-
     <!-- Footer -->
     <!-- Footer -->
 <footer>
@@ -490,17 +573,24 @@
             </span>
         </div>
     
+    <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+        <span>网站备案号：</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备16005140号-1</a>
+    </div>
 </footer>
 
 <!-- jQuery -->
 <script src="/js/jquery.min.js"></script>
+
+<!-- audio player -->
+<script src="/js/meplayer.min.js"></script>
+<script src="/js/player.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/hux-blog.min.js"></script>
-
 
 <!-- async load function -->
 <script>
@@ -666,7 +756,7 @@
 	<a id="rocket" href="#top" class=""></a>
 	
 <!-- Image to hack wechat -->
-<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- <img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" /> -->
 <!-- Migrate from head to bottom, no longer block render and still work -->
 <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>

@@ -7,6 +7,13 @@
     </url>
     
     <url>
+        <loc>http://ganjiacheng.cn/about/</loc>
+        <lastmod>2021-06-26T02:48:57.933Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://ganjiacheng.cn/about/%E7%94%98%E5%AE%B6%E5%9F%8E-%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AE%80%E5%8E%86.html</loc>
         <lastmod>2021-01-21T03:43:15.168Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -16,13 +23,6 @@
     <url>
         <loc>http://ganjiacheng.cn/about/resume.html</loc>
         <lastmod>2021-01-21T03:43:15.163Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://ganjiacheng.cn/about/</loc>
-        <lastmod>2021-01-21T03:43:15.162Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

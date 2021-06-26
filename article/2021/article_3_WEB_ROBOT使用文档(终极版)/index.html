@@ -42,11 +42,16 @@
 
   <link rel="stylesheet" href="/css/toc.css">
 
+  <!-- audio player -->
+  <link rel="stylesheet" href="/css/meplayer.min.css">
+  <link rel="stylesheet" href="/css/player.css">
+
+  <link rel="stylesheet" href="/css/search.css">
+
   <!-- Custom Fonts -->
   <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
   <!-- Hux change font-awesome CDN to qiniu -->
   <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 
   <!-- Hux Delete, sad but pending in China
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -63,6 +68,7 @@
     <![endif]-->
 
   <!-- ga & ba script hoook -->
+  
   <script></script>
 </head>
 
@@ -148,10 +154,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
                     
                         
                         <li>
@@ -165,6 +167,12 @@
                     
                         
                     
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -218,6 +226,62 @@
     <!-- Main Content -->
     <!-- Modify by Yu-Hsuan Yen -->
 
+<script>
+    function encrypto( str, xor, hex ) {
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+
+        for ( let i=0; i<str.length; i++ ) {
+            // 提取字符串每个字符的ascll码
+            let charCode = str.charCodeAt(i);
+            // 进行异或加密
+            charCode = (charCode * 1) ^ xor;
+            // 异或加密后的字符转成 hex 位数的字符串
+            charCode = charCode.toString(hex);
+            resultList.push(charCode);
+        }
+
+        let splitStr = String.fromCharCode(hex + 97);
+        let resultStr = resultList.join( splitStr );
+        return resultStr;
+    }
+
+    function decrypto( str, xor, hex ) { 
+        if ( typeof str !== 'string' || typeof xor !== 'number' || typeof hex !== 'number') {
+            return;
+        }
+        let strCharList = [];
+        let resultList = []; 
+        hex = hex <= 25 ? hex : hex % 25;
+        // 解析出分割字符
+        let splitStr = String.fromCharCode(hex + 97);
+        // 分割出加密字符串的加密后的每个字符
+        strCharList = str.split(splitStr);
+
+        for ( let i=0; i<strCharList.length; i++ ) {
+            // 将加密后的每个字符转成加密后的ascll码
+            let charCode = parseInt(strCharList[i], hex);
+            // 异或解密出原字符的ascll码
+            charCode = (charCode * 1) ^ xor;
+            let strChar = String.fromCharCode(charCode);
+            resultList.push(strChar);
+        }
+        let resultStr = resultList.join('');
+        return resultStr;
+    }
+</script>
+
+
+
+<!-- audio player -->
+<!-- <div>
+    <div class="music"></div>
+</div> -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -228,6 +292,9 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
+
+                <div class="music" style="margin-top: 30px;"></div>
+                
 
                 <h1 id="前言">前言</h1>
 <p>本文为<a href="https://github.com/webgjc/web_robot" target="_blank" rel="noopener">Web Robot</a>插件使用教程终极版</p>
@@ -359,13 +426,15 @@
 <p>mouseover：鼠标移动到上面事件</p>
 <p>refresh：刷新当前页面</p>
 <p>pagejump：当前页面跳转，需要设值页面url</p>
-<p>newpage：打开一个新页面，需要设值页面url</p>
+<p>newpage：打开一个新页面，需要设值页面url<br>
+<strong>注</strong>：第一个事件如果是新开页面且选择在后台打开，这样整个事务都会在后台运行</p>
 <p>getvalue：取页面元素的文本，取到后保留在运行参数中，可用来后续设值，也可作为爬虫的数据。（需要设值一个取到后保存的key）<br>
 （如取到第一个页面的元素设为 title(key)，然后打卡第二个页面，设值输入框为title值，则会用刚才设值的title）</p>
 <p>getcustomvalue：取document结果，或js函数结果，用处同上。（需要设值两个，一个作为取值key，一个为表达式）<br>
 如取document.title可以取到页面的标题。</p>
 <p>closepage：关闭当前页面</p>
 <p>onlyshow：看板特殊事件操作，将当前页面只保留选择的元素，其他所有都隐藏。</p>
+<p>sendmessgae: 发送消息，默认为发送系统消息，也可以走浏览器alert消息。</p>
 <h3 id="确定唯一元素">确定唯一元素</h3>
 <p>定义页面事件的第一步都是确定一个页面元素。</p>
 <p>这边有多种方法，通用的为 <strong>一般选择器 + 第n个</strong> 来表述唯一元素(如 body&amp;0)</p>
@@ -505,16 +574,48 @@
 <p>在点击后，则会出现确认添加到看板，</p>
 <p>确认则可以直接将这个元素添加到看板。</p>
 <p>同时也会生成一个流程事务（只是看不到）</p>
+<h1 id="演示用例">演示用例</h1>
+<p>复制下面的json字符串，走导入事务的流程即可</p>
+<h3 id="基本操作">基本操作</h3>
+<p>实现效果：打开百度，设置搜索为天气，点击搜索</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"基本操作"</span>,<span class="attr">"case_process"</span>:[&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"newpage"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"https://www.baidu.com/s?ie=UTF-8&amp;wd=test"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"value"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#kw"</span>,<span class="attr">"value"</span>:<span class="string">"天气"</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#su"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"process"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="取值事件">取值事件</h3>
+<p>实现效果：打开我的博客主页，获取标题，打开百度，搜索获取到的标题</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"取值事件用例"</span>,<span class="attr">"case_process"</span>:[&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"newpage"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"http://blog.ganjiacheng.cn/"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"HTML.macos.desktop.landscape &gt; BODY &gt; NAV.navbar.navbar-default.navbar-custom.navbar-fixed-top &gt; DIV.container-fluid &gt; DIV.navbar-header.page-scroll &gt; A.navbar-brand"</span>,<span class="attr">"value"</span>:<span class="string">"title"</span>,<span class="attr">"wait"</span>:<span class="string">"3"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"pagejump"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"https://www.baidu.com/s?ie=UTF-8&amp;wd=test"</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"value"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#kw"</span>,<span class="attr">"value"</span>:<span class="string">"title"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#su"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"process"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="百度去广告源码事务">百度去广告(源码事务)</h3>
+<p>实现效果：百度去广告</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"百度去广告"</span>,<span class="attr">"case_process"</span>:[],<span class="attr">"case_sourcecode"</span>:<span class="string">"Array.from(\n            document.querySelectorAll('#content_left&gt;div'))\n            .forEach(el =&gt; \n                /&gt;广告&lt;/.test(el.innerHTML) &amp;&amp; el.parentNode.removeChild(el)\n        );\nsetInterval(() =&gt; &#123;\n    try&#123;\n        Array.from(\n            document.querySelectorAll('#content_left&gt;div'))\n            .forEach(el =&gt; \n                /&gt;广告&lt;/.test(el.innerHTML) &amp;&amp; el.parentNode.removeChild(el)\n        )\n    &#125; catch(e)&#123;&#125;\n&#125;, 1000)\n"</span>,<span class="attr">"case_type"</span>:<span class="string">"sourcecode"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">"baidu.com.*"</span>,<span class="attr">"start_inject"</span>:<span class="literal">true</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定时喝水源码事务">定时喝水(源码事务)</h3>
+<p>实现效果：每60分钟发出alert提醒喝水</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"定时喝水"</span>,<span class="attr">"case_process"</span>:[],<span class="attr">"case_sourcecode"</span>:<span class="string">"alert(\"你该喝水咯\")"</span>,<span class="attr">"case_type"</span>:<span class="string">"sourcecode"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"last_runtime"</span>:<span class="number">1599706892179</span>,<span class="attr">"runtime"</span>:<span class="string">"60m"</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="值选择器用例">值选择器用例</h3>
+<p>实现效果：div{xx}可以选择值为xx的div标签，适用于页面元素匹配的补充</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"值选择器用例"</span>,<span class="attr">"case_process"</span>:[&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"newpage"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"http://blog.ganjiacheng.cn/"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"a&#123;About&#125;"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"a&#123;Archives&#125;"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;,&#123;<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"a&#123;Home&#125;"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"2"</span>&#125;],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"process"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="并发爬虫事务用例爬取百度搜索前10页的每页前三条结果">并发爬虫事务用例(爬取百度搜索前10页的每页前三条结果)</h3>
+<p>实现效果：爬取百度搜索test前10页的前三条标题</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"爬虫用例"</span>,<span class="attr">"case_process"</span>:[],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"paral_crawler"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"paral_crawler"</span>:&#123;<span class="attr">"api"</span>:<span class="string">"http://127.0.0.1:12580/crawler/"</span>,<span class="attr">"apicb"</span>:<span class="literal">false</span>,<span class="attr">"cc"</span>:<span class="number">5</span>,<span class="attr">"data"</span>:[],<span class="attr">"fetch"</span>:[&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">"new Date()"</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"getcustomvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"时间"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"h3"</span>,<span class="attr">"value"</span>:<span class="string">"标题1"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"1"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"h3"</span>,<span class="attr">"value"</span>:<span class="string">"标题2"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"2"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"h3"</span>,<span class="attr">"value"</span>:<span class="string">"标题3"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;],<span class="attr">"freq"</span>:<span class="number">1</span>,<span class="attr">"send"</span>:<span class="literal">false</span>,<span class="attr">"urlapi"</span>:<span class="string">"http://127.0.0.1:12580/crawler/url/"</span>,<span class="attr">"urls"</span>:[<span class="string">"https://www.baidu.com/s?wd=test&amp;pn=&#123;0-10&#125;0"</span>]&#125;,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="后台运行流程事务-消息通知用例">后台运行流程事务 + 消息通知用例</h3>
+<p>实现效果：流程事务在后台运行，打开百度，搜索天气，点击搜搜，获取到天气的框中的值，发送系统消息</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"case_name"</span>:<span class="string">"后台运行+消息发送"</span>,<span class="attr">"case_process"</span>:[&#123;<span class="attr">"bgopen"</span>:<span class="literal">true</span>,<span class="attr">"check"</span>:<span class="literal">false</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"newpage"</span>,<span class="attr">"sysmsg"</span>:<span class="literal">false</span>,<span class="attr">"tag"</span>:<span class="string">"body"</span>,<span class="attr">"value"</span>:<span class="string">"https://www.baidu.com/s?ie=UTF-8&amp;wd=test"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"value"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#kw"</span>,<span class="attr">"value"</span>:<span class="string">"天气"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"click"</span>,<span class="attr">"tag"</span>:<span class="string">"INPUT#su"</span>,<span class="attr">"value"</span>:<span class="string">""</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;,&#123;<span class="attr">"bgopen"</span>:<span class="literal">false</span>,<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"getvalue"</span>,<span class="attr">"tag"</span>:<span class="string">"DIV#content_left &gt; DIV.result-op.c-container.xpath-log &gt; DIV.op_weather4_twoicon_container_div &gt; DIV.op_weather4_twoicon &gt; A.op_weather4_twoicon_today.OP_LOG_LINK"</span>,<span class="attr">"value"</span>:<span class="string">"key"</span>,<span class="attr">"wait"</span>:<span class="string">"1"</span>&#125;,&#123;<span class="attr">"bgopen"</span>:<span class="literal">false</span>,<span class="attr">"check"</span>:<span class="literal">true</span>,<span class="attr">"expr"</span>:<span class="string">""</span>,<span class="attr">"n"</span>:<span class="string">"0"</span>,<span class="attr">"opera"</span>:<span class="string">"sendmessage"</span>,<span class="attr">"sysmsg"</span>:<span class="literal">true</span>,<span class="attr">"tag"</span>:<span class="string">"DIV#wrapper_wrapper"</span>,<span class="attr">"value"</span>:<span class="string">"天气：$&#123;key&#125;"</span>,<span class="attr">"wait"</span>:<span class="string">"0"</span>&#125;],<span class="attr">"case_sourcecode"</span>:<span class="string">""</span>,<span class="attr">"case_type"</span>:<span class="string">"process"</span>,<span class="attr">"control_url"</span>:<span class="string">""</span>,<span class="attr">"fail_rerun"</span>:<span class="literal">false</span>,<span class="attr">"last_runtime"</span>:<span class="number">1611820796375</span>,<span class="attr">"runtime"</span>:<span class="string">""</span>,<span class="attr">"sourcecode_url"</span>:<span class="string">".*"</span>&#125;</span><br></pre></td></tr></table></figure>
 
-                
 
                 <hr>
+
+                <div style="color: #ccc; font-size: 12px;">
+                    <span>版权声明：本文为原创文章，转载请注明出处和作者，不得用于商业用途，请遵守</span>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans">CC BY-NC-SA 4.0协议。</a>
+                </div>
+
                 <!-- Pager -->
                 <ul class="pager">
                     
+                        <li class="previous">
+                            <a href="/article/bug_review/" data-toggle="tooltip" data-placement="top" title="采坑备忘录">&larr; Previous Post</a>
+                        </li>
+                    
                     
                         <li class="next">
-                            <a href="/article/2021/article_1_2020总结-稳中求进/" data-toggle="tooltip" data-placement="top" title="2020总结 -- 稳重求进">Next Post &rarr;</a>
+                            <a href="/article/2021/article_2_原博客大迁移2017-2018/" data-toggle="tooltip" data-placement="top" title="原博客迁移与复原（2017-2018）">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -522,6 +623,14 @@
                 <br>
 
                 <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.png"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
                 
                 <!--打赏-->
 
@@ -570,7 +679,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#前言"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x524D;&#x8A00;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#教程"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x6559;&#x7A0B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载与安装"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x4E0B;&#x8F7D;&#x4E0E;&#x5B89;&#x88C5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#下载"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">&#x4E0B;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#事务相关操作"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">&#x4E8B;&#x52A1;&#x76F8;&#x5173;&#x64CD;&#x4F5C;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#导入事务"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">&#x5BFC;&#x5165;&#x4E8B;&#x52A1;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#新增事务"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">&#x65B0;&#x589E;&#x4E8B;&#x52A1;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重命名上移删除"><span class="toc-nav-number">2.2.3.</span> <span class="toc-nav-text">&#x91CD;&#x547D;&#x540D;/&#x4E0A;&#x79FB;/&#x5220;&#x9664;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#导出事务"><span class="toc-nav-number">2.2.4.</span> <span class="toc-nav-text">&#x5BFC;&#x51FA;&#x4E8B;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#本地客户端相关启动与使用"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">&#x672C;&#x5730;&#x5BA2;&#x6237;&#x7AEF;&#x76F8;&#x5173;&#xFF0C;&#x542F;&#x52A8;&#x4E0E;&#x4F7F;&#x7528;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#启动与使用"><span class="toc-nav-number">2.3.1.</span> <span class="toc-nav-text">&#x542F;&#x52A8;&#x4E0E;&#x4F7F;&#x7528;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#受控概念"><span class="toc-nav-number">2.3.2.</span> <span class="toc-nav-text">&#x53D7;&#x63A7;&#x6982;&#x5FF5;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#爬虫本地相关"><span class="toc-nav-number">2.3.3.</span> <span class="toc-nav-text">&#x722C;&#x866B;&#x672C;&#x5730;&#x76F8;&#x5173;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#流程事务"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">&#x6D41;&#x7A0B;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#事件详情"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">&#x4E8B;&#x4EF6;&#x8BE6;&#x60C5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#事件操作说明"><span class="toc-nav-number">2.4.1.1.</span> <span class="toc-nav-text">&#x4E8B;&#x4EF6;&#x64CD;&#x4F5C;&#x8BF4;&#x660E;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#确定唯一元素"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">&#x786E;&#x5B9A;&#x552F;&#x4E00;&#x5143;&#x7D20;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#添加事件"><span class="toc-nav-number">2.4.2.1.</span> <span class="toc-nav-text">&#x6DFB;&#x52A0;&#x4E8B;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#页面录制不推荐"><span class="toc-nav-number">2.4.2.2.</span> <span class="toc-nav-text">&#x9875;&#x9762;&#x5F55;&#x5236;&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#页面添加事件推荐使用"><span class="toc-nav-number">2.4.2.3.</span> <span class="toc-nav-text">&#x9875;&#x9762;&#x6DFB;&#x52A0;&#x4E8B;&#x4EF6;&#xFF08;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#xFF09;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#运行说明"><span class="toc-nav-number">2.4.3.</span> <span class="toc-nav-text">&#x8FD0;&#x884C;&#x8BF4;&#x660E;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#运行"><span class="toc-nav-number">2.4.3.1.</span> <span class="toc-nav-text">&#x8FD0;&#x884C;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#定时运行"><span class="toc-nav-number">2.4.3.2.</span> <span class="toc-nav-text">&#x5B9A;&#x65F6;&#x8FD0;&#x884C;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#受控运行"><span class="toc-nav-number">2.4.3.3.</span> <span class="toc-nav-text">&#x53D7;&#x63A7;&#x8FD0;&#x884C;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#轮播"><span class="toc-nav-number">2.4.3.4.</span> <span class="toc-nav-text">&#x8F6E;&#x64AD;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#并发爬虫事务"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">&#x5E76;&#x53D1;&#x722C;&#x866B;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置爬虫"><span class="toc-nav-number">2.5.1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x722C;&#x866B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#url配置"><span class="toc-nav-number">2.5.1.1.</span> <span class="toc-nav-text">url&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#爬取数据配置"><span class="toc-nav-number">2.5.1.2.</span> <span class="toc-nav-text">&#x722C;&#x53D6;&#x6570;&#x636E;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#其他"><span class="toc-nav-number">2.5.1.3.</span> <span class="toc-nav-text">&#x5176;&#x4ED6;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#源码事务"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">&#x6E90;&#x7801;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置事务"><span class="toc-nav-number">2.6.1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x4E8B;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#受控事务"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">&#x53D7;&#x63A7;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置事务"><span class="toc-nav-number">2.7.1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x4E8B;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#我的看板"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">&#x6211;&#x7684;&#x770B;&#x677F;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#看板操作与排版"><span class="toc-nav-number">2.8.1.</span> <span class="toc-nav-text">&#x770B;&#x677F;&#x64CD;&#x4F5C;&#x4E0E;&#x6392;&#x7248;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#简单看板模式"><span class="toc-nav-number">2.8.2.</span> <span class="toc-nav-text">&#x7B80;&#x5355;&#x770B;&#x677F;&#x6A21;&#x5F0F;</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#前言"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x524D;&#x8A00;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#教程"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x6559;&#x7A0B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载与安装"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x4E0B;&#x8F7D;&#x4E0E;&#x5B89;&#x88C5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#下载"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">&#x4E0B;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#事务相关操作"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">&#x4E8B;&#x52A1;&#x76F8;&#x5173;&#x64CD;&#x4F5C;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#导入事务"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">&#x5BFC;&#x5165;&#x4E8B;&#x52A1;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#新增事务"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">&#x65B0;&#x589E;&#x4E8B;&#x52A1;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重命名上移删除"><span class="toc-nav-number">2.2.3.</span> <span class="toc-nav-text">&#x91CD;&#x547D;&#x540D;/&#x4E0A;&#x79FB;/&#x5220;&#x9664;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#导出事务"><span class="toc-nav-number">2.2.4.</span> <span class="toc-nav-text">&#x5BFC;&#x51FA;&#x4E8B;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#本地客户端相关启动与使用"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">&#x672C;&#x5730;&#x5BA2;&#x6237;&#x7AEF;&#x76F8;&#x5173;&#xFF0C;&#x542F;&#x52A8;&#x4E0E;&#x4F7F;&#x7528;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#启动与使用"><span class="toc-nav-number">2.3.1.</span> <span class="toc-nav-text">&#x542F;&#x52A8;&#x4E0E;&#x4F7F;&#x7528;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#受控概念"><span class="toc-nav-number">2.3.2.</span> <span class="toc-nav-text">&#x53D7;&#x63A7;&#x6982;&#x5FF5;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#爬虫本地相关"><span class="toc-nav-number">2.3.3.</span> <span class="toc-nav-text">&#x722C;&#x866B;&#x672C;&#x5730;&#x76F8;&#x5173;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#流程事务"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">&#x6D41;&#x7A0B;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#事件详情"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">&#x4E8B;&#x4EF6;&#x8BE6;&#x60C5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#事件操作说明"><span class="toc-nav-number">2.4.1.1.</span> <span class="toc-nav-text">&#x4E8B;&#x4EF6;&#x64CD;&#x4F5C;&#x8BF4;&#x660E;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#确定唯一元素"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">&#x786E;&#x5B9A;&#x552F;&#x4E00;&#x5143;&#x7D20;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#添加事件"><span class="toc-nav-number">2.4.2.1.</span> <span class="toc-nav-text">&#x6DFB;&#x52A0;&#x4E8B;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#页面录制不推荐"><span class="toc-nav-number">2.4.2.2.</span> <span class="toc-nav-text">&#x9875;&#x9762;&#x5F55;&#x5236;&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#页面添加事件推荐使用"><span class="toc-nav-number">2.4.2.3.</span> <span class="toc-nav-text">&#x9875;&#x9762;&#x6DFB;&#x52A0;&#x4E8B;&#x4EF6;&#xFF08;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#xFF09;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#运行说明"><span class="toc-nav-number">2.4.3.</span> <span class="toc-nav-text">&#x8FD0;&#x884C;&#x8BF4;&#x660E;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#运行"><span class="toc-nav-number">2.4.3.1.</span> <span class="toc-nav-text">&#x8FD0;&#x884C;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#定时运行"><span class="toc-nav-number">2.4.3.2.</span> <span class="toc-nav-text">&#x5B9A;&#x65F6;&#x8FD0;&#x884C;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#受控运行"><span class="toc-nav-number">2.4.3.3.</span> <span class="toc-nav-text">&#x53D7;&#x63A7;&#x8FD0;&#x884C;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#轮播"><span class="toc-nav-number">2.4.3.4.</span> <span class="toc-nav-text">&#x8F6E;&#x64AD;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#并发爬虫事务"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">&#x5E76;&#x53D1;&#x722C;&#x866B;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置爬虫"><span class="toc-nav-number">2.5.1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x722C;&#x866B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#url配置"><span class="toc-nav-number">2.5.1.1.</span> <span class="toc-nav-text">url&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#爬取数据配置"><span class="toc-nav-number">2.5.1.2.</span> <span class="toc-nav-text">&#x722C;&#x53D6;&#x6570;&#x636E;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#其他"><span class="toc-nav-number">2.5.1.3.</span> <span class="toc-nav-text">&#x5176;&#x4ED6;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#源码事务"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">&#x6E90;&#x7801;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置事务"><span class="toc-nav-number">2.6.1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x4E8B;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#受控事务"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">&#x53D7;&#x63A7;&#x4E8B;&#x52A1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置事务"><span class="toc-nav-number">2.7.1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x4E8B;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#我的看板"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">&#x6211;&#x7684;&#x770B;&#x677F;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#看板操作与排版"><span class="toc-nav-number">2.8.1.</span> <span class="toc-nav-text">&#x770B;&#x677F;&#x64CD;&#x4F5C;&#x4E0E;&#x6392;&#x7248;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#简单看板模式"><span class="toc-nav-number">2.8.2.</span> <span class="toc-nav-text">&#x7B80;&#x5355;&#x770B;&#x677F;&#x6A21;&#x5F0F;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#演示用例"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x6F14;&#x793A;&#x7528;&#x4F8B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#基本操作"><span class="toc-nav-number">3.0.1.</span> <span class="toc-nav-text">&#x57FA;&#x672C;&#x64CD;&#x4F5C;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#取值事件"><span class="toc-nav-number">3.0.2.</span> <span class="toc-nav-text">&#x53D6;&#x503C;&#x4E8B;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#百度去广告源码事务"><span class="toc-nav-number">3.0.3.</span> <span class="toc-nav-text">&#x767E;&#x5EA6;&#x53BB;&#x5E7F;&#x544A;(&#x6E90;&#x7801;&#x4E8B;&#x52A1;)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#定时喝水源码事务"><span class="toc-nav-number">3.0.4.</span> <span class="toc-nav-text">&#x5B9A;&#x65F6;&#x559D;&#x6C34;(&#x6E90;&#x7801;&#x4E8B;&#x52A1;)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#值选择器用例"><span class="toc-nav-number">3.0.5.</span> <span class="toc-nav-text">&#x503C;&#x9009;&#x62E9;&#x5668;&#x7528;&#x4F8B;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#并发爬虫事务用例爬取百度搜索前10页的每页前三条结果"><span class="toc-nav-number">3.0.6.</span> <span class="toc-nav-text">&#x5E76;&#x53D1;&#x722C;&#x866B;&#x4E8B;&#x52A1;&#x7528;&#x4F8B;(&#x722C;&#x53D6;&#x767E;&#x5EA6;&#x641C;&#x7D22;&#x524D;10&#x9875;&#x7684;&#x6BCF;&#x9875;&#x524D;&#x4E09;&#x6761;&#x7ED3;&#x679C;)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#后台运行流程事务-消息通知用例"><span class="toc-nav-number">3.0.7.</span> <span class="toc-nav-text">&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x6D41;&#x7A0B;&#x4E8B;&#x52A1; + &#x6D88;&#x606F;&#x901A;&#x77E5;&#x7528;&#x4F8B;</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
@@ -613,6 +722,8 @@
                     
                         <li><a href="/article/life/life_1_生活篇/" target="_blank">我的生活</a></li>
                     
+                        <li><a href="/article/bug_review/" target="_blank">采坑备忘录</a></li>
+                    
                 </ul>
                 
                 <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
@@ -632,7 +743,9 @@
                         }
                     })
                     setTimeout(() => {
-                        document.getElementsByClassName("info")[0].style.display="none";
+                        if(document.getElementsByClassName("info")[0] != undefined) {
+                            document.getElementsByClassName("info")[0].style.display="none";
+                        }
                     }, 3000)
                 </script>
             </div>
@@ -700,7 +813,6 @@
         })  
 </script>
 
-
     <!-- Footer -->
     <!-- Footer -->
 <footer>
@@ -760,17 +872,24 @@
             </span>
         </div>
     
+    <div style="text-align: center; font-size: 14px; color: #9c9c9c; margin-top: 10px;">
+        <span>网站备案号：</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备16005140号-1</a>
+    </div>
 </footer>
 
 <!-- jQuery -->
 <script src="/js/jquery.min.js"></script>
+
+<!-- audio player -->
+<script src="/js/meplayer.min.js"></script>
+<script src="/js/player.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/hux-blog.min.js"></script>
-
 
 <!-- async load function -->
 <script>
@@ -936,7 +1055,7 @@
 	<a id="rocket" href="#top" class=""></a>
 	
 <!-- Image to hack wechat -->
-<img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- <img src="http://ganjiacheng.cn/img/icon_wechat.png" width="0" height="0" /> -->
 <!-- Migrate from head to bottom, no longer block render and still work -->
 <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
