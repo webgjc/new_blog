@@ -8,7 +8,15 @@
 
     <url>
         <loc>http://ganjiacheng.cn/article/music/music_1_%E9%9F%B3%E4%B9%90%E7%AF%87/</loc>
-        <lastmod>2021-06-06T15:53:17.289Z</lastmod>
+        <lastmod>2021-06-29T09:53:34.137Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/article/book/book_1_%E3%80%8A%E4%B8%BA%E4%BD%95%E7%88%B1%E4%BC%9A%E4%BC%A4%E4%BA%BA%E3%80%8B/</loc>
+        <lastmod>2021-06-07T12:35:24.416Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -105,22 +113,6 @@
     <url>
         <loc>http://ganjiacheng.cn/article/bug_review/</loc>
         <lastmod>2021-01-29T12:25:33.990Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ganjiacheng.cn/article/book/book_2_%E3%80%8A%E6%B7%B1%E6%B2%B3%E3%80%8B/</loc>
-        <lastmod>2021-01-27T04:46:28.782Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ganjiacheng.cn/article/book/book_1_%E3%80%8A%E6%B4%BB%E7%9D%80%E3%80%8B/</loc>
-        <lastmod>2021-01-27T04:46:28.781Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -231,23 +223,15 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</loc>
-        <lastmod>2021-01-27T04:46:28.772Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ganjiacheng.cn/article/2020/article_28_mysql%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</loc>
-        <lastmod>2021-01-27T04:46:28.772Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://ganjiacheng.cn/article/2020/article_27_%E7%BD%91%E7%BB%9C%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</loc>
+        <lastmod>2021-01-27T04:46:28.772Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</loc>
         <lastmod>2021-01-27T04:46:28.772Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -263,8 +247,8 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/article/2020/article_25_spring%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</loc>
-        <lastmod>2021-01-27T04:46:28.771Z</lastmod>
+        <loc>http://ganjiacheng.cn/article/2020/article_28_mysql%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</loc>
+        <lastmod>2021-01-27T04:46:28.772Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -272,6 +256,14 @@
 
     <url>
         <loc>http://ganjiacheng.cn/article/2020/article_24_java%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</loc>
+        <lastmod>2021-01-27T04:46:28.771Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ganjiacheng.cn/article/2020/article_25_spring%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</loc>
         <lastmod>2021-01-27T04:46:28.771Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
