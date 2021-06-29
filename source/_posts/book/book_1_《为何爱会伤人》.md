@@ -1,9 +1,9 @@
 ---
 article: false
 book: true
-bookcover: /img/book/huozhe.jpg
-title: "《活着》 -- 余华"
-date: 1020-05-08 17:05:00
+bookcover: /img/book/whahshr.jpg
+title: "《为何爱会伤人》 -- 武志红"
+date: 2021-06-07 11:09:25
 header-img: "/img/article_header/header.jpg"
 ---
 
