@@ -7,9 +7,11 @@ subtitle: 音乐始终陪伴
 header-img: "/img/header_img/archive.jpg"
 ---
 
-<video src="/img/movie/xinyang.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">
+<video src="/img/movie/qiudesinian.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">
 您的浏览器不支持 video 标签。
 </video>
+
+## [秋的思念](/img/movie/qiudesinian.mp4)
 
 ## [信仰-全职高手](/img/movie/xinyang.mp4)
 
