@@ -7,9 +7,17 @@ subtitle: 音乐始终陪伴
 header-img: "/img/header_img/archive.jpg"
 ---
 
+<!-- https://github.com/newraina/mePlayer -->
+
 <video src="/img/movie/qiudesinian.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">
 您的浏览器不支持 video 标签。
 </video>
+
+<div class="music" id="ms"></div>
+
+## [fallin flower](/music/fallinflower.mp3)
+
+## [summer](/img/movie/summer.mp4)
 
 ## [秋的思念](/img/movie/qiudesinian.mp4)
 
@@ -44,16 +52,77 @@ header-img: "/img/header_img/archive.jpg"
 2. 钢琴学习与弹奏
 ```
 
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/meplayer.min.js"></script>
+
 <script type="text/javascript">
+    function getQueryVariable(variable){
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+    }
+
+
     let movie = document.getElementById("movie");
+    let ms = document.getElementById("ms");
     let lks = document.querySelectorAll(".post-container > h2 > a");
+    let mePlayerBuilder = mePlayer;
+    let mePlayerOperater = null;
+    let first = true;
+
+    function playMovie(pmv) {
+        ms.style.display = "none";
+        movie.style.display = "block";
+        document.getElementsByTagName("audio")[0].pause()
+        movie.src=pmv.href;
+        movie.play();
+    }
+
+    function playMp3(pmp) {
+        movie.style.display = "none";
+        movie.pause();
+        ms.style.display = "block";
+        mePlayerBuilder({
+            music: {
+                src: pmp.href,
+                title: pmp.text,
+                author: "纯音乐请欣赏",
+                loop: true
+            },
+            target: '#ms',
+            autoplay: true
+        });
+    }
+
+
     for(let i = 0; i < lks.length; i++) {
         if(lks[i].className == "" && lks[i].href.endsWith("mp4")) {
             lks[i].onclick = function(e){
                 e.preventDefault();
-                movie.src=lks[i].href;
-                movie.play();
+                playMovie(lks[i]);
             }
+        }
+
+        if(lks[i].className == "" && lks[i].href.endsWith("mp3")) {
+            lks[i].onclick = function(e){
+                e.preventDefault();
+                playMp3(lks[i]);
+            }
+        }
+    }
+
+    if(getQueryVariable("init")) {
+        let init = document.getElementById(getQueryVariable("init"));
+        let node = init.children[0];
+        if(node.href.endsWith("mp4")) {
+            playMovie(node);
+        }
+        if(node.href.endsWith("mp3")) {
+            playMp3(node);
         }
     }
 </script>
