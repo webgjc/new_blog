@@ -15,6 +15,8 @@ header-img: "/img/header_img/archive.jpg"
 
 <div class="music" id="ms"></div>
 
+## [伯虎说](/music/伯虎说.mp3)
+
 ## [fallin flower](/music/fallinflower.mp3)
 
 ## [summer](/img/movie/summer.mp4)
@@ -61,7 +63,7 @@ header-img: "/img/header_img/archive.jpg"
        var vars = query.split("&");
        for (var i=0;i<vars.length;i++) {
             var pair = vars[i].split("=");
-            if(pair[0] == variable){return pair[1];}
+            if(pair[0] == variable){return decodeURI(pair[1]);}
        }
        return(false);
     }
