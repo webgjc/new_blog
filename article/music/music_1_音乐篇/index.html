@@ -150,12 +150,6 @@
                         
                     
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-                        
                     
                         
                         <li>
@@ -169,6 +163,12 @@
                     
                         
                     
+                        
+                    
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
                         
                     
                         
@@ -297,6 +297,7 @@
 您的浏览器不支持 video 标签。
 </video>
 <div class="music" id="ms"></div>
+<h2 id="伯虎说"><a href="/music/%E4%BC%AF%E8%99%8E%E8%AF%B4.mp3">伯虎说</a></h2>
 <h2 id="fallin-flower"><a href="/music/fallinflower.mp3">fallin flower</a></h2>
 <h2 id="summer"><a href="/img/movie/summer.mp4">summer</a></h2>
 <h2 id="秋的思念"><a href="/img/movie/qiudesinian.mp4">秋的思念</a></h2>
@@ -325,7 +326,7 @@
        var vars = query.split("&");
        for (var i=0;i<vars.length;i++) {
             var pair = vars[i].split("=");
-            if(pair[0] == variable){return pair[1];}
+            if(pair[0] == variable){return decodeURI(pair[1]);}
        }
        return(false);
     }
@@ -406,6 +407,10 @@
                         </li>
                     
                     
+                        <li class="next">
+                            <a href="/article/money/money_1_理财篇/" data-toggle="tooltip" data-placement="top" title="理财篇">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
 
                 <br>
@@ -467,7 +472,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fallin-flower"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">fallin flower</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#summer"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">summer</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#秋的思念"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">秋的思念</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#信仰-全职高手"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">信仰-全职高手</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#someone-like-you"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Someone like you</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#梦中的婚礼"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">梦中的婚礼</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#烟火里的尘埃"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">烟火里的尘埃</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#青石巷-片段"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">青石巷 - 片段</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#海底"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">海底</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#river-flows-in-you"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">River flows in you</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#夜的钢琴曲11"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">夜的钢琴曲11</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#梁祝钢琴曲"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">梁祝钢琴曲</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#我的纯音乐歌单"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">我的纯音乐歌单</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#音乐篇必读镇楼"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">音乐篇必读镇楼</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#伯虎说"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">伯虎说</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fallin-flower"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">fallin flower</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#summer"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">summer</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#秋的思念"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">秋的思念</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#信仰-全职高手"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">信仰-全职高手</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#someone-like-you"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Someone like you</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#梦中的婚礼"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">梦中的婚礼</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#烟火里的尘埃"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">烟火里的尘埃</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#青石巷-片段"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">青石巷 - 片段</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#海底"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">海底</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#river-flows-in-you"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">River flows in you</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#夜的钢琴曲11"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">夜的钢琴曲11</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#梁祝钢琴曲"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">梁祝钢琴曲</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#我的纯音乐歌单"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">我的纯音乐歌单</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#音乐篇必读镇楼"><span class="toc-nav-number">15.</span> <span class="toc-nav-text">音乐篇必读镇楼</span></a></li></ol>
         
         </div>
       </aside>

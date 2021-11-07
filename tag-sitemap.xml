@@ -30,13 +30,6 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/SQL/</loc>
-        <lastmod>2021-01-27T04:46:28.775Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ganjiacheng.cn/tags/HTTP/</loc>
         <lastmod>2021-01-27T04:46:28.775Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,6 +44,13 @@
     </url>
 
     <url>
+        <loc>http://ganjiacheng.cn/tags/SQL/</loc>
+        <lastmod>2021-01-27T04:46:28.775Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://ganjiacheng.cn/tags/%E8%84%9A%E6%9C%AC/</loc>
         <lastmod>2021-01-27T04:46:28.776Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -58,14 +58,14 @@
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+        <loc>http://ganjiacheng.cn/tags/MYSQL/</loc>
         <lastmod>2021-01-27T04:46:28.777Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://ganjiacheng.cn/tags/MYSQL/</loc>
+        <loc>http://ganjiacheng.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
         <lastmod>2021-01-27T04:46:28.777Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
