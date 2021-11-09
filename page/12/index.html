@@ -139,8 +139,6 @@
                         
                     
                         
-                    
-                        
                         <li>
                             <a href="/about/">About</a>
                         </li>
@@ -168,6 +166,8 @@
                         <li>
                             <a href="/tags/">Tags</a>
                         </li>
+                        
+                    
                         
                     
                     
@@ -278,30 +278,73 @@ pop......
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_26_容器略知一二/">
+    <a href="/article/2020/article_27_网络略知一二/">
         <h2 class="post-title">
             
-            容器略知一二
+            网络略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-本文产出关于一些容器的知识
-tomcat 总体架构
+本文主要为网络的基础知识
+tcp 三次握手建立连接
 
-server:一个 tomcat 即一个 server
-service:包含多个 connector 和一个 container，一个 server 可以有多个 service
-connector:链接器，监听 socket 并交给对应 container 处理
-container:执行请求并返回响应的对象，包括 engine，ho......
+连接端发起一个 SYN 消息，SEQ=x
+被连端收到后返回 SYN+ACK 消息，SEQ=y, ACK=x+1
+连接端收到消息返回 ACK 消息，ACK=y+1
+
+两端都进入 Established 状态
+tcp 四次挥手断开连接
+
+发起端发起一个 FIN 的消息，SEQ=x
+接收端收到后返回 ACK 消息，表示准备断开连接，SEQ......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
         2000-09-27
-        <span class="post-count"> 文章字数: 224</span>
+        <span class="post-count"> 文章字数: 690</span>
+        <span class="post-count"> 阅读时间: 4分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_25_spring略知一二/">
+        <h2 class="post-title">
+            
+            Spring略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文涉及 spring 的相关实现和源码解读
+
+...
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 17</span>
         <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
@@ -360,74 +403,31 @@ get：首先将 key 进行一样的操作，得到 index，获取数组 i......
 
 <div class="post-preview">
 
-    <a href="/article/2020/article_25_spring略知一二/">
+    <a href="/article/2020/article_26_容器略知一二/">
         <h2 class="post-title">
             
-            Spring略知一二
+            容器略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             前言
-本文涉及 spring 的相关实现和源码解读
+本文产出关于一些容器的知识
+tomcat 总体架构
 
-...
+server:一个 tomcat 即一个 server
+service:包含多个 connector 和一个 container，一个 server 可以有多个 service
+connector:链接器，监听 socket 并交给对应 container 处理
+container:执行请求并返回响应的对象，包括 engine，ho......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
         2000-09-27
-        <span class="post-count"> 文章字数: 17</span>
+        <span class="post-count"> 文章字数: 224</span>
         <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
-        
-        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_27_网络略知一二/">
-        <h2 class="post-title">
-            
-            网络略知一二
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-本文主要为网络的基础知识
-tcp 三次握手建立连接
-
-连接端发起一个 SYN 消息，SEQ=x
-被连端收到后返回 SYN+ACK 消息，SEQ=y, ACK=x+1
-连接端收到消息返回 ACK 消息，ACK=y+1
-
-两端都进入 Established 状态
-tcp 四次挥手断开连接
-
-发起端发起一个 FIN 的消息，SEQ=x
-接收端收到后返回 ACK 消息，表示准备断开连接，SEQ......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2000-09-27
-        <span class="post-count"> 文章字数: 690</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
     </p>
     <div class="tags">
         
@@ -787,19 +787,11 @@ UDTF（User-Defined Table-Generatin......
             
         
             
-            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
-            
-        
-            
             <a href="/tags/#HADOOP" title="HADOOP" rel="3">HADOOP</a>
             
         
             
-            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
-            
-        
-            
-            <a href="/tags/#后端" title="后端" rel="1">后端</a>
+            <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
             
         
             
@@ -831,7 +823,11 @@ UDTF（User-Defined Table-Generatin......
             
         
             
-            <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
+            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
+            
+        
+            
+            <a href="/tags/#后端" title="后端" rel="1">后端</a>
             
         
             
@@ -839,7 +835,7 @@ UDTF（User-Defined Table-Generatin......
             
         
             
-            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
+            <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
             
         
             
@@ -852,6 +848,10 @@ UDTF（User-Defined Table-Generatin......
         
             
             <a href="/tags/#生活" title="生活" rel="1">生活</a>
+            
+        
+            
+            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
             
         
     </div>
@@ -1038,18 +1038,18 @@ UDTF（User-Defined Table-Generatin......
 
 
 <script>
-    // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
-    var _gaDomain = 'yoursite';
+    // // dynamic User by Hux
+    // var _gaId = 'UA-XXXXXXXX-X';
+    // var _gaDomain = 'yoursite';
 
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    // // Originial
+    // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
+    // ga('create', _gaId, _gaDomain);
+    // ga('send', 'pageview');
 </script>
 
 
