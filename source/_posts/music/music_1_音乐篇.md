@@ -9,7 +9,7 @@ header-img: "/img/header_img/archive.jpg"
 
 <!-- https://github.com/newraina/mePlayer -->
 
-<video src="/img/movie/qiudesinian.mp4" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">
+<video src="#" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop" muted="muted">
 您的浏览器不支持 video 标签。
 </video>
 
@@ -58,6 +58,15 @@ header-img: "/img/header_img/archive.jpg"
 <script type="text/javascript" src="/js/meplayer.min.js"></script>
 
 <script type="text/javascript">
+
+    let defaultPlay = "qiudesinian";
+    let movie = document.getElementById("movie");
+    let ms = document.getElementById("ms");
+    let lks = document.querySelectorAll(".post-container > h2 > a");
+    let mePlayerBuilder = mePlayer;
+    let mePlayerOperater = null;
+    let first = true;
+
     function getQueryVariable(variable){
        var query = window.location.search.substring(1);
        var vars = query.split("&");
@@ -68,23 +77,19 @@ header-img: "/img/header_img/archive.jpg"
        return(false);
     }
 
-
-    let movie = document.getElementById("movie");
-    let ms = document.getElementById("ms");
-    let lks = document.querySelectorAll(".post-container > h2 > a");
-    let mePlayerBuilder = mePlayer;
-    let mePlayerOperater = null;
-    let first = true;
-
-    function playMovie(pmv) {
+    function playMovie(pmv, play) {
         ms.style.display = "none";
         movie.style.display = "block";
-        document.getElementsByTagName("audio")[0].pause()
+        if(document.getElementsByTagName("audio")[0]) {
+            document.getElementsByTagName("audio")[0].pause()
+        }
         movie.src=pmv.href;
-        movie.play();
+        if(play) {
+            movie.play();
+        }
     }
 
-    function playMp3(pmp) {
+    function playMp3(pmp, play) {
         movie.style.display = "none";
         movie.pause();
         ms.style.display = "block";
@@ -96,7 +101,7 @@ header-img: "/img/header_img/archive.jpg"
                 loop: true
             },
             target: '#ms',
-            autoplay: true
+            autoplay: play
         });
     }
 
@@ -105,26 +110,30 @@ header-img: "/img/header_img/archive.jpg"
         if(lks[i].className == "" && lks[i].href.endsWith("mp4")) {
             lks[i].onclick = function(e){
                 e.preventDefault();
-                playMovie(lks[i]);
+                playMovie(lks[i], true);
             }
         }
 
         if(lks[i].className == "" && lks[i].href.endsWith("mp3")) {
             lks[i].onclick = function(e){
                 e.preventDefault();
-                playMp3(lks[i]);
+                playMp3(lks[i], true);
             }
         }
     }
 
+    let thePlay;
     if(getQueryVariable("init")) {
-        let init = document.getElementById(getQueryVariable("init"));
-        let node = init.children[0];
-        if(node.href.endsWith("mp4")) {
-            playMovie(node);
-        }
-        if(node.href.endsWith("mp3")) {
-            playMp3(node);
-        }
+        thePlay = getQueryVariable("init")
+    } else {
+        thePlay = defaultPlay;
+    }
+    let init = document.getElementById(thePlay);
+    let node = init.children[0];
+    if(node.href.endsWith("mp4")) {
+        playMovie(node, false);
+    }
+    if(node.href.endsWith("mp3")) {
+        playMp3(node, false);
     }
 </script>
