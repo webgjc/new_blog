@@ -139,6 +139,16 @@
                         
                     
                         
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
                     
                         
                         <li>
@@ -148,16 +158,6 @@
                     
                         
                     
-                        
-                    
-                        
-                    
-                        
-                    
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
                         
                     
                         
@@ -318,6 +318,44 @@ get：首先将 key 进行一样的操作，得到 index，获取数组 i......
 
 <div class="post-preview">
 
+    <a href="/article/2020/article_25_spring略知一二/">
+        <h2 class="post-title">
+            
+            Spring略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文涉及 spring 的相关实现和源码解读
+
+...
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 17</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
     <a href="/article/2020/article_26_容器略知一二/">
         <h2 class="post-title">
             
@@ -342,44 +380,6 @@ container:执行请求并返回响应的对象，包括 engine，ho......
         Posted by 甘家城 on
         2000-09-27
         <span class="post-count"> 文章字数: 224</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
-        
-        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_25_spring略知一二/">
-        <h2 class="post-title">
-            
-            Spring略知一二
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-本文涉及 spring 的相关实现和源码解读
-
-...
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2000-09-27
-        <span class="post-count"> 文章字数: 17</span>
         <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
@@ -505,6 +505,48 @@ tcp 四次挥手断开连接
 
 <div class="post-preview">
 
+    <a href="/article/2020/article_29_分布式略知一二/">
+        <h2 class="post-title">
+            
+            分布式略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文涉及分布式情况下会产生的各种问题；
+celery 多个 comsumor 如何实现一致性
+当 celery 配合 redis，将 redis 作为消息队列时，redis 内部使用 list 的 lpush，brpop 来实现入队出队。
+当多个 celery 消费进程来取任务时，由于 redis 内部是单线程的，不会导致消息的重复读，brpop 在没任务时会阻塞。
+cap 理论
+
+一......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 200</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
     <a href="/article/2020/article_30_操作系统略知一二/">
         <h2 class="post-title">
             
@@ -537,48 +579,6 @@ tcp 四次挥手断开连接
         <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
         <a href="/tags/#操作系统" title="操作系统">操作系统</a>
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2020/article_29_分布式略知一二/">
-        <h2 class="post-title">
-            
-            分布式略知一二
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-本文涉及分布式情况下会产生的各种问题；
-celery 多个 comsumor 如何实现一致性
-当 celery 配合 redis，将 redis 作为消息队列时，redis 内部使用 list 的 lpush，brpop 来实现入队出队。
-当多个 celery 消费进程来取任务时，由于 redis 内部是单线程的，不会导致消息的重复读，brpop 在没任务时会阻塞。
-cap 理论
-
-一......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2000-09-27
-        <span class="post-count"> 文章字数: 200</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
-        
-        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
     </div>
     
@@ -759,11 +759,43 @@ UDTF（User-Defined Table-Generatin......
     <div class="tags">
         
             
-            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
+            <a href="/tags/#OTHER" title="OTHER" rel="3">OTHER</a>
             
         
             
-            <a href="/tags/#OTHER" title="OTHER" rel="3">OTHER</a>
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
+            
+        
+            
+            <a href="/tags/#CHROME插件" title="CHROME插件" rel="7">CHROME插件</a>
+            
+        
+            
+            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
+            
+        
+            
+            <a href="/tags/#H3S" title="H3S" rel="1">H3S</a>
+            
+        
+            
+            <a href="/tags/#评测" title="评测" rel="1">评测</a>
+            
+        
+            
+            <a href="/tags/#生活" title="生活" rel="1">生活</a>
+            
+        
+            
+            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
+            
+        
+            
+            <a href="/tags/#HADOOP" title="HADOOP" rel="3">HADOOP</a>
+            
+        
+            
+            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
             
         
             
@@ -772,18 +804,6 @@ UDTF（User-Defined Table-Generatin......
         
             
             <a href="/tags/#JAVA" title="JAVA" rel="10">JAVA</a>
-            
-        
-            
-            <a href="/tags/#CHROME插件" title="CHROME插件" rel="7">CHROME插件</a>
-            
-        
-            
-            <a href="/tags/#HADOOP" title="HADOOP" rel="3">HADOOP</a>
-            
-        
-            
-            <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
             
         
             
@@ -832,26 +852,6 @@ UDTF（User-Defined Table-Generatin......
         
             
             <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
-            
-        
-            
-            <a href="/tags/#总结" title="总结" rel="1">总结</a>
-            
-        
-            
-            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
-            
-        
-            
-            <a href="/tags/#H3S" title="H3S" rel="1">H3S</a>
-            
-        
-            
-            <a href="/tags/#评测" title="评测" rel="1">评测</a>
-            
-        
-            
-            <a href="/tags/#生活" title="生活" rel="1">生活</a>
             
         
     </div>
