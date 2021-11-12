@@ -27,9 +27,9 @@
       
         <tags>
             
-            <tag> HADOOP </tag>
-            
             <tag> HDFS </tag>
+            
+            <tag> HADOOP </tag>
             
         </tags>
       
@@ -464,9 +464,9 @@
       
         <tags>
             
-            <tag> HIVE </tag>
-            
             <tag> HADOOP </tag>
+            
+            <tag> HIVE </tag>
             
         </tags>
       
@@ -1677,27 +1677,6 @@
     
     
     <entry>
-      <title>Java常用类略知一二</title>
-      <link href="article/2020/article_24_java%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
-      <url>article/2020/article_24_java%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>这是一篇关于 Java 部分常用类的源码和实现方法的快速记录回忆篇</p><h3 id="hashmap">HashMap</h3><p>存储结构：数组 + 链表/红黑树<br>put：首先将 key 取 hashcode，移位 16 位得到 1-16 的数作为数组 index，对于不同的 key 一样的 index 存入一个单链表中，当数量比较大后存成一个红黑树，便于查找<br>get：首先将 key 进行一样的操作，得到 index，获取数组 index 的链表或者树然后进行遍历找到对应 key 的 value</p><h3 id="threadlocal">ThreadLocal</h3><p>维护一个 ThreadLocalMap，当前线程 Thread 作为 key，value 为存储的值</p><h3 id="hashset">HashSet</h3><p>维护一个 HashMap 实现</p><h3 id="synchronized-和-volatile-区别">synchronized 和 volatile 区别</h3><ul><li>volatile 是让当前变量到主存里去读取，synchronized 则是锁定当前变量；</li><li>volatile 只能用在变量级别，synchronized 可以用在变量、方法和类；</li><li>volatile 只能实现变量修改可见性，不能保证原子性，synchronized 可以保证可见性和原子性；</li><li>volatile 会让线程自旋，不会阻塞。synchronized 可能会造成阻塞；</li><li>volatile 变量不会被编译器优化，synchronized 会被优化；</li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> JAVA </tag>
-            
-            <tag> 知识积累 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Spring略知一二</title>
       <link href="article/2020/article_25_spring%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
       <url>article/2020/article_25_spring%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
@@ -1719,11 +1698,11 @@
     
     
     <entry>
-      <title>容器略知一二</title>
-      <link href="article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
-      <url>article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
+      <title>Java常用类略知一二</title>
+      <link href="article/2020/article_24_java%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
+      <url>article/2020/article_24_java%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文产出关于一些容器的知识</p><h3 id="tomcat-总体架构">tomcat 总体架构</h3><ul><li>server:一个 tomcat 即一个 server</li><li>service:包含多个 connector 和一个 container，一个 server 可以有多个 service</li><li>connector:链接器，监听 socket 并交给对应 container 处理</li><li>container:执行请求并返回响应的对象，包括 engine，host，context，wrapper</li><li>engine:整个 servlet 引擎，最高层级容器对象，获取目标容器入口</li><li>host:表示虚拟主机的概念，处理来自不同地址的请求</li><li>context:表示一个独立的 web 应用</li><li>wrapper:表示 servlet 定义</li><li>executor:表示可以共享的线程池</li></ul><h3 id="tomcat-处理请求过程">tomcat 处理请求过程</h3><ul><li>endpoint 接收请求</li><li>processor 处理请求</li><li>coyoteAdapter 请求路径映射</li><li>mapper 获取匹配的执行</li><li>engine 容器入口</li><li>host 获取匹配的 host 执行</li><li>context 获取匹配的 context 执行</li><li>wrapper 获取匹配的 wrapper 执行</li><li>filterchain 执行 filter</li><li>servlet 执行 servlet</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>这是一篇关于 Java 部分常用类的源码和实现方法的快速记录回忆篇</p><h3 id="hashmap">HashMap</h3><p>存储结构：数组 + 链表/红黑树<br>put：首先将 key 取 hashcode，移位 16 位得到 1-16 的数作为数组 index，对于不同的 key 一样的 index 存入一个单链表中，当数量比较大后存成一个红黑树，便于查找<br>get：首先将 key 进行一样的操作，得到 index，获取数组 index 的链表或者树然后进行遍历找到对应 key 的 value</p><h3 id="threadlocal">ThreadLocal</h3><p>维护一个 ThreadLocalMap，当前线程 Thread 作为 key，value 为存储的值</p><h3 id="hashset">HashSet</h3><p>维护一个 HashMap 实现</p><h3 id="synchronized-和-volatile-区别">synchronized 和 volatile 区别</h3><ul><li>volatile 是让当前变量到主存里去读取，synchronized 则是锁定当前变量；</li><li>volatile 只能用在变量级别，synchronized 可以用在变量、方法和类；</li><li>volatile 只能实现变量修改可见性，不能保证原子性，synchronized 可以保证可见性和原子性；</li><li>volatile 会让线程自旋，不会阻塞。synchronized 可能会造成阻塞；</li><li>volatile 变量不会被编译器优化，synchronized 会被优化；</li></ul>]]></content>
       
       
       
@@ -1782,19 +1761,19 @@
     
     
     <entry>
-      <title>操作系统略知一二</title>
-      <link href="article/2020/article_30_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
-      <url>article/2020/article_30_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
+      <title>容器略知一二</title>
+      <link href="article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
+      <url>article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文涉及操作系统各种方面，包括进程，线程，协议，cpu，内存；</p><h3 id="进程调度算法">进程调度算法</h3><ul><li>先来先服务调度算法：队列</li><li>最短作业优先调度算法：时间短的先运行</li><li>高响应比优先调度算法：先计算响应比优先级，优先级高的先运行</li><li>时间片轮转调度算法：每个进程分配一个时间片段，如果在时间片段内没有执行完成，也切换进程运行，如果时间片内执行，则立即切换。</li><li>最高优先级调度算法：静态优先级 - 创建进程时确定优先级，动态优先级 - 进程优先级随时间增加而增加</li><li>多级反馈队列调度算法：设置多个队列，每个队列优先级从高到低，优先级越高时间片越短</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文产出关于一些容器的知识</p><h3 id="tomcat-总体架构">tomcat 总体架构</h3><ul><li>server:一个 tomcat 即一个 server</li><li>service:包含多个 connector 和一个 container，一个 server 可以有多个 service</li><li>connector:链接器，监听 socket 并交给对应 container 处理</li><li>container:执行请求并返回响应的对象，包括 engine，host，context，wrapper</li><li>engine:整个 servlet 引擎，最高层级容器对象，获取目标容器入口</li><li>host:表示虚拟主机的概念，处理来自不同地址的请求</li><li>context:表示一个独立的 web 应用</li><li>wrapper:表示 servlet 定义</li><li>executor:表示可以共享的线程池</li></ul><h3 id="tomcat-处理请求过程">tomcat 处理请求过程</h3><ul><li>endpoint 接收请求</li><li>processor 处理请求</li><li>coyoteAdapter 请求路径映射</li><li>mapper 获取匹配的执行</li><li>engine 容器入口</li><li>host 获取匹配的 host 执行</li><li>context 获取匹配的 context 执行</li><li>wrapper 获取匹配的 wrapper 执行</li><li>filterchain 执行 filter</li><li>servlet 执行 servlet</li></ul>]]></content>
       
       
       
         <tags>
             
-            <tag> 知识积累 </tag>
+            <tag> JAVA </tag>
             
-            <tag> 操作系统 </tag>
+            <tag> 知识积累 </tag>
             
         </tags>
       
@@ -1824,6 +1803,27 @@
     
     
     <entry>
+      <title>操作系统略知一二</title>
+      <link href="article/2020/article_30_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
+      <url>article/2020/article_30_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文涉及操作系统各种方面，包括进程，线程，协议，cpu，内存；</p><h3 id="进程调度算法">进程调度算法</h3><ul><li>先来先服务调度算法：队列</li><li>最短作业优先调度算法：时间短的先运行</li><li>高响应比优先调度算法：先计算响应比优先级，优先级高的先运行</li><li>时间片轮转调度算法：每个进程分配一个时间片段，如果在时间片段内没有执行完成，也切换进程运行，如果时间片内执行，则立即切换。</li><li>最高优先级调度算法：静态优先级 - 创建进程时确定优先级，动态优先级 - 进程优先级随时间增加而增加</li><li>多级反馈队列调度算法：设置多个队列，每个队列优先级从高到低，优先级越高时间片越短</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 知识积累 </tag>
+            
+            <tag> 操作系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HIVE源码学习--实现自定义的UDF，UDAF，UDTF</title>
       <link href="article/2020/article_17_HIVE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84udf/"/>
       <url>article/2020/article_17_HIVE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84udf/</url>
@@ -1837,19 +1837,6 @@
             <tag> HIVE </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>生活篇</title>
-      <link href="article/life/life_1_%E7%94%9F%E6%B4%BB%E7%AF%87/"/>
-      <url>article/life/life_1_%E7%94%9F%E6%B4%BB%E7%AF%87/</url>
-      
-        <content type="html"><![CDATA[<h2 id="换房子">换房子</h2><ul><li>2021-03-13</li></ul><p>搬家找了两个大学室友一起，叫了辆货拉拉，中间出了点岔子是搬家还得物业开出门单，特地有跑了一趟还好马上解决了。<br>从翡翠城绿萝苑换到了福鼎家园，虽然也才五公里，上班却也方便了许多，走走路10分钟就可以到达，也不用挤公交。<br>现在的单间比之前的大点，也带独卫，虽然贵了三百，也算是换工作后自己的一个福利。<br>这边离地铁会近点，最近的出门和回家也会方便许多，之前一直得坐公交。<br>在杭州也是各地住过：江干区下沙，滨江浦沿，余杭仓前，余杭闲林，余杭五常。<br>每个都是一段回忆~</p><h2 id="换工作">换工作</h2><ul><li>2021-01-25</li></ul><p>这次进的是阿里的子公司-乌鸫科技，做的事业务开发供应链方向，办公也在阿里巴巴西溪园区。面试大概经历了近一个月，从20年12月到1月，也是比较艰难还好是骑驴找马，不然容易心态不行。搜车这边挽留基本也没啥用，我这人还是认定了事情不太容易改变，特别是这种影响人生的大事，肯定经过一段时间的思想挣扎和艰难决定。原来那边主要还是薪资待遇不太行，个人也没啥发展空间。换了至少目前薪资是我认可的，发展的话不能说一定能达到预期，有两个顾虑，一个是从大数据平台开发转到了业务开发，另一个是这边并不是阿里集团，可能受限于子公司的发展，所以还是看着办，还是有一定试错成本在的。</p><h2 id="找工作123">找工作123</h2><ul><li>2020-09-20</li></ul><p>最近来说也面试了好几家，稍微一些感悟，两家一面挂的，感受到比较薄弱的环节是（网络，算法，分布式，并发，容器，框架），还有一家小公司直接去公司面了就给过的，这边其实还是问到工作中用到的一些浅显实用的部分，最后因为薪资问题被我给拒绝了，也是早有心理的预期，到不了也没什么谈的。总的来说感觉也是需要定位好自己，在转java后经过快一年的时间，目前来说这些或基础或深入的知识在实际开发中难接触到，要学习也就只能看书看资料。对充实自己来说是好的，但也得经历一定的时间。就目前的自己来说要找到一个提高自己收入的工作来说可能需要再去小一点的公司碰碰运气，可能目前的我就是适合一个灵活变动语言框架，前后端切换的团队。手头工作这边调薪的话也得是年末，现在的九到十月可以还是继续投入一些经历在面试中，继续加深自己的认知和水准吧。</p><h2 id="生活篇必读镇楼">生活篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">本栏主要用于分享人生大小事和体悟</span><br><span class="line">人生总是在不断放下，但也要好好记录</span><br><span class="line">1. 突发奇想</span><br><span class="line">2. 吃喝玩乐</span><br><span class="line">3. 生活变动</span><br><span class="line">4. 人生节点</span><br><span class="line">5. 朝花朝拾</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
       
     </entry>
     
@@ -1874,6 +1861,19 @@
       <url>article/music/music_1_%E9%9F%B3%E4%B9%90%E7%AF%87/</url>
       
         <content type="html"><![CDATA[<!-- https://github.com/newraina/mePlayer --><video src="#" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">您的浏览器不支持 video 标签。</video><div class="music" id="ms"></div><h2 id="伯虎说"><a href="/music/%E4%BC%AF%E8%99%8E%E8%AF%B4.mp3">伯虎说</a></h2><h2 id="fallin-flower"><a href="/music/fallinflower.mp3">fallin flower</a></h2><h2 id="summer"><a href="/img/movie/summer.mp4">summer</a></h2><h2 id="秋的思念"><a href="/img/movie/qiudesinian.mp4">秋的思念</a></h2><h2 id="信仰-全职高手"><a href="/img/movie/xinyang.mp4">信仰-全职高手</a></h2><h2 id="someone-like-you"><a href="/img/movie/someonelikeyou.mp4">Someone like you</a></h2><h2 id="梦中的婚礼"><a href="/img/movie/mengzhongdehunli.mp4">梦中的婚礼</a></h2><h2 id="烟火里的尘埃"><a href="/img/movie/yanhuolidechenai.mp4">烟火里的尘埃</a></h2><h2 id="青石巷-片段"><a href="/img/movie/qingshixiang.mp4">青石巷 - 片段</a></h2><h2 id="海底"><a href="/img/movie/haidi.mp4">海底</a></h2><h2 id="river-flows-in-you"><a href="/img/movie/riverflowsinyou.mp4">River flows in you</a></h2><h2 id="夜的钢琴曲11"><a href="/img/movie/yedegangqinqu11.mp4">夜的钢琴曲11</a></h2><h2 id="梁祝钢琴曲"><a href="/img/movie/liangzhu.mp4">梁祝钢琴曲</a></h2><h2 id="我的纯音乐歌单">我的纯音乐歌单</h2><p><a href="https://t.kugou.com/355mda6xVV2" target="_blank" rel="external">纯音乐歌单</a>（打不开可以尝试手机打开）</p><p>很多歌带着一段感情与记忆，还是要经历过才会听得更有滋味</p><h2 id="音乐篇必读镇楼">音乐篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">音乐自得其乐</span><br><span class="line">1. 分享音乐与感受</span><br><span class="line">2. 钢琴学习与弹奏</span><br></pre></td></tr></table></figure><script type="text/javascript" src="/js/jquery.min.js"></script><script type="text/javascript" src="/js/meplayer.min.js"></script><script type="text/javascript">    let defaultPlay = "qiudesinian";    let movie = document.getElementById("movie");    let ms = document.getElementById("ms");    let lks = document.querySelectorAll(".post-container > h2 > a");    let mePlayerBuilder = mePlayer;    let mePlayerOperater = null;    let first = true;    function getQueryVariable(variable){       var query = window.location.search.substring(1);       var vars = query.split("&");       for (var i=0;i<vars.length;i++) {            var pair = vars[i].split("=");            if(pair[0] == variable){return decodeURI(pair[1]);}       }       return(false);    }    function playMovie(pmv, play) {        ms.style.display = "none";        movie.style.display = "block";        if(document.getElementsByTagName("audio")[0]) {            document.getElementsByTagName("audio")[0].pause()        }        movie.src=pmv.href;        if(play) {            movie.play();        }    }    function playMp3(pmp, play) {        movie.style.display = "none";        movie.pause();        ms.style.display = "block";        mePlayerBuilder({            music: {                src: pmp.href,                title: pmp.text,                author: "纯音乐请欣赏",                loop: true            },            target: '#ms',            autoplay: play        });    }    for(let i = 0; i < lks.length; i++) {        if(lks[i].className == "" && lks[i].href.endsWith("mp4")) {            lks[i].onclick = function(e){                e.preventDefault();                playMovie(lks[i], true);            }        }        if(lks[i].className == "" && lks[i].href.endsWith("mp3")) {            lks[i].onclick = function(e){                e.preventDefault();                playMp3(lks[i], true);            }        }    }    let thePlay;    if(getQueryVariable("init")) {        thePlay = getQueryVariable("init")    } else {        thePlay = defaultPlay;    }    let init = document.getElementById(thePlay);    let node = init.children[0];    if(node.href.endsWith("mp4")) {        playMovie(node, false);    }    if(node.href.endsWith("mp3")) {        playMp3(node, false);    }</script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>生活篇</title>
+      <link href="article/life/life_1_%E7%94%9F%E6%B4%BB%E7%AF%87/"/>
+      <url>article/life/life_1_%E7%94%9F%E6%B4%BB%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<h2 id="换房子">换房子</h2><ul><li>2021-03-13</li></ul><p>搬家找了两个大学室友一起，叫了辆货拉拉，中间出了点岔子是搬家还得物业开出门单，特地有跑了一趟还好马上解决了。<br>从翡翠城绿萝苑换到了福鼎家园，虽然也才五公里，上班却也方便了许多，走走路10分钟就可以到达，也不用挤公交。<br>现在的单间比之前的大点，也带独卫，虽然贵了三百，也算是换工作后自己的一个福利。<br>这边离地铁会近点，最近的出门和回家也会方便许多，之前一直得坐公交。<br>在杭州也是各地住过：江干区下沙，滨江浦沿，余杭仓前，余杭闲林，余杭五常。<br>每个都是一段回忆~</p><h2 id="换工作">换工作</h2><ul><li>2021-01-25</li></ul><p>这次进的是阿里的子公司-乌鸫科技，做的事业务开发供应链方向，办公也在阿里巴巴西溪园区。面试大概经历了近一个月，从20年12月到1月，也是比较艰难还好是骑驴找马，不然容易心态不行。搜车这边挽留基本也没啥用，我这人还是认定了事情不太容易改变，特别是这种影响人生的大事，肯定经过一段时间的思想挣扎和艰难决定。原来那边主要还是薪资待遇不太行，个人也没啥发展空间。换了至少目前薪资是我认可的，发展的话不能说一定能达到预期，有两个顾虑，一个是从大数据平台开发转到了业务开发，另一个是这边并不是阿里集团，可能受限于子公司的发展，所以还是看着办，还是有一定试错成本在的。</p><h2 id="找工作123">找工作123</h2><ul><li>2020-09-20</li></ul><p>最近来说也面试了好几家，稍微一些感悟，两家一面挂的，感受到比较薄弱的环节是（网络，算法，分布式，并发，容器，框架），还有一家小公司直接去公司面了就给过的，这边其实还是问到工作中用到的一些浅显实用的部分，最后因为薪资问题被我给拒绝了，也是早有心理的预期，到不了也没什么谈的。总的来说感觉也是需要定位好自己，在转java后经过快一年的时间，目前来说这些或基础或深入的知识在实际开发中难接触到，要学习也就只能看书看资料。对充实自己来说是好的，但也得经历一定的时间。就目前的自己来说要找到一个提高自己收入的工作来说可能需要再去小一点的公司碰碰运气，可能目前的我就是适合一个灵活变动语言框架，前后端切换的团队。手头工作这边调薪的话也得是年末，现在的九到十月可以还是继续投入一些经历在面试中，继续加深自己的认知和水准吧。</p><h2 id="生活篇必读镇楼">生活篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">本栏主要用于分享人生大小事和体悟</span><br><span class="line">人生总是在不断放下，但也要好好记录</span><br><span class="line">1. 突发奇想</span><br><span class="line">2. 吃喝玩乐</span><br><span class="line">3. 生活变动</span><br><span class="line">4. 人生节点</span><br><span class="line">5. 朝花朝拾</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
