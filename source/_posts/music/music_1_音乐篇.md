@@ -15,7 +15,7 @@ header-img: "/img/header_img/archive.jpg"
 
 <div class="music" id="ms"></div>
 
-## [伯虎说](/music/伯虎说.mp3)
+## [伯虎说](/music/bohushuo.mp3)
 
 ## [fallin flower](/music/fallinflower.mp3)
 
@@ -59,7 +59,7 @@ header-img: "/img/header_img/archive.jpg"
 
 <script type="text/javascript">
 
-    let defaultPlay = "qiudesinian";
+    let defaultPlay = "秋的思念";
     let movie = document.getElementById("movie");
     let ms = document.getElementById("ms");
     let lks = document.querySelectorAll(".post-container > h2 > a");
