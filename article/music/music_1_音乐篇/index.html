@@ -150,6 +150,12 @@
                         
                     
                         
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                        
                     
                         
                         <li>
@@ -163,12 +169,6 @@
                     
                         
                     
-                        
-                    
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
                         
                     
                         
@@ -297,7 +297,7 @@
 您的浏览器不支持 video 标签。
 </video>
 <div class="music" id="ms"></div>
-<h2 id="伯虎说"><a href="/music/%E4%BC%AF%E8%99%8E%E8%AF%B4.mp3">伯虎说</a></h2>
+<h2 id="伯虎说"><a href="/music/bohushuo.mp3">伯虎说</a></h2>
 <h2 id="fallin-flower"><a href="/music/fallinflower.mp3">fallin flower</a></h2>
 <h2 id="summer"><a href="/img/movie/summer.mp4">summer</a></h2>
 <h2 id="秋的思念"><a href="/img/movie/qiudesinian.mp4">秋的思念</a></h2>
@@ -322,7 +322,7 @@
 <script type="text/javascript" src="/js/meplayer.min.js"></script>
 <script type="text/javascript">
 
-    let defaultPlay = "qiudesinian";
+    let defaultPlay = "秋的思念";
     let movie = document.getElementById("movie");
     let ms = document.getElementById("ms");
     let lks = document.querySelectorAll(".post-container > h2 > a");
@@ -391,6 +391,7 @@
     } else {
         thePlay = defaultPlay;
     }
+    console.log(thePlay)
     let init = document.getElementById(thePlay);
     let node = init.children[0];
     if(node.href.endsWith("mp4")) {
@@ -412,9 +413,13 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/money/money_1_理财篇/" data-toggle="tooltip" data-placement="top" title="理财篇">&larr; Previous Post</a>
+                            <a href="/article/2020/article_17_HIVE源码学习-实现自定义的udf/" data-toggle="tooltip" data-placement="top" title="HIVE源码学习--实现自定义的UDF，UDAF，UDTF">&larr; Previous Post</a>
                         </li>
                     
+                    
+                        <li class="next">
+                            <a href="/article/life/life_1_生活篇/" data-toggle="tooltip" data-placement="top" title="生活篇">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 

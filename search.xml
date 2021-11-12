@@ -552,11 +552,11 @@
       
         <tags>
             
-            <tag> MYSQL </tag>
-            
             <tag> 元数据 </tag>
             
             <tag> 大数据 </tag>
+            
+            <tag> MYSQL </tag>
             
         </tags>
       
@@ -1698,27 +1698,6 @@
     
     
     <entry>
-      <title>网络略知一二</title>
-      <link href="article/2020/article_27_%E7%BD%91%E7%BB%9C%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
-      <url>article/2020/article_27_%E7%BD%91%E7%BB%9C%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文主要为网络的基础知识</p><h3 id="tcp-三次握手建立连接">tcp 三次握手建立连接</h3><ul><li>连接端发起一个 SYN 消息，SEQ=x</li><li>被连端收到后返回 SYN+ACK 消息，SEQ=y, ACK=x+1</li><li>连接端收到消息返回 ACK 消息，ACK=y+1</li></ul><p>两端都进入 Established 状态</p><h3 id="tcp-四次挥手断开连接">tcp 四次挥手断开连接</h3><ul><li>发起端发起一个 FIN 的消息，SEQ=x</li><li>接收端收到后返回 ACK 消息，表示准备断开连接，SEQ=y, ACK=x+1</li><li>接收端准备完毕，发送 FIN 消息，SEQ=y+1, ACK=x+1</li><li>发起端收到后返回 ACK 消息，SEQ=x+1, ACK=y+2</li></ul><h3 id="tcp-建立连接后的数据传输">tcp 建立连接后的数据传输</h3><ul><li>发送端发起一个数据包，SEQ=x，数据为 100B</li><li>接受端收到数据消息返回 ACK = x + 100 + 1</li><li>发送端收到后继续发送，SEQ=x+100+1，数据为 100B</li><li>接受端收到后返回 ACK = x + 200 + 2</li></ul><h3 id="tcp-连接的可靠性">tcp 连接的可靠性</h3><ul><li>tcp 会将数据截成最合适发送的数据块</li><li>当发送端发出一段数据后，会启动定时器等待回应，如果没有回应，会重新发送</li><li>tcp 会保持首部和数据的检验和</li><li>tcp 会将乱序的数据进行重新排序，返回应用层原来顺序</li><li>tcp 能控制流量，每一方都有固定大小的缓冲空间</li></ul><h3 id="tcp-如何进行拥塞控制">tcp 如何进行拥塞控制</h3><p>在拥塞控制中，发送方维持一个叫做拥塞窗口 cwnd 的状态变量，根据拥塞程度动态变化。<br>慢启动算法：一开始不发送大量数据，先试探网络拥塞程度，由小到大增加窗口，每个传输轮次后 cwnd 加倍<br>拥塞避免算法：采用线性逐渐增加拥塞窗口 cwnd<br>慢启动阀门（ssthresh）：</p><ul><li>cwnd &lt; ssthresh 慢启动算法</li><li>cwnd &gt; ssthresh 拥塞避免算法</li></ul><p>只要发现拥塞，将 ssthresh 设为一半，cwnd 设为 1</p><h3 id="tcp-流量控制">tcp 流量控制</h3><p>接收端在确认应答发送 ACK 报文的时候，将自己的即时窗口大小 rwnd 写入 TCP 头部 16 位字段的窗口大小，<br>发送端根据 ACK 报文里的窗口大小改变自己的发送速度。越大表示接收端缓冲区剩余空间越大，网络吞吐量越大。</p><h3 id="网络层级http和https区别">网络层级，http和https区别</h3><p>网络五层结构为 应用层(http) - 传输层(tcp) - 网络层(ip) - 数据链路层 - 物理层<br>https是在应用层和传输层中间添加一个ssl层</p><h3 id="http20特性">http2.0特性</h3><ul><li>头部压缩：使用HPACK算法进行压缩</li><li>二进制格式：使用更加靠近TCP/IP的二进制格式，提升解析效率</li><li>强化安全：跑在https上</li><li>多路复用：一个连接有多个请求</li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> JAVA </tag>
-            
-            <tag> 知识积累 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>容器略知一二</title>
       <link href="article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
       <url>article/2020/article_26_%E5%AE%B9%E5%99%A8%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
@@ -1745,6 +1724,48 @@
       <url>article/2020/article_25_spring%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
       
         <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文涉及 spring 的相关实现和源码解读</p><h3 id=""></h3>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+            <tag> 知识积累 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>网络略知一二</title>
+      <link href="article/2020/article_27_%E7%BD%91%E7%BB%9C%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
+      <url>article/2020/article_27_%E7%BD%91%E7%BB%9C%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文主要为网络的基础知识</p><h3 id="tcp-三次握手建立连接">tcp 三次握手建立连接</h3><ul><li>连接端发起一个 SYN 消息，SEQ=x</li><li>被连端收到后返回 SYN+ACK 消息，SEQ=y, ACK=x+1</li><li>连接端收到消息返回 ACK 消息，ACK=y+1</li></ul><p>两端都进入 Established 状态</p><h3 id="tcp-四次挥手断开连接">tcp 四次挥手断开连接</h3><ul><li>发起端发起一个 FIN 的消息，SEQ=x</li><li>接收端收到后返回 ACK 消息，表示准备断开连接，SEQ=y, ACK=x+1</li><li>接收端准备完毕，发送 FIN 消息，SEQ=y+1, ACK=x+1</li><li>发起端收到后返回 ACK 消息，SEQ=x+1, ACK=y+2</li></ul><h3 id="tcp-建立连接后的数据传输">tcp 建立连接后的数据传输</h3><ul><li>发送端发起一个数据包，SEQ=x，数据为 100B</li><li>接受端收到数据消息返回 ACK = x + 100 + 1</li><li>发送端收到后继续发送，SEQ=x+100+1，数据为 100B</li><li>接受端收到后返回 ACK = x + 200 + 2</li></ul><h3 id="tcp-连接的可靠性">tcp 连接的可靠性</h3><ul><li>tcp 会将数据截成最合适发送的数据块</li><li>当发送端发出一段数据后，会启动定时器等待回应，如果没有回应，会重新发送</li><li>tcp 会保持首部和数据的检验和</li><li>tcp 会将乱序的数据进行重新排序，返回应用层原来顺序</li><li>tcp 能控制流量，每一方都有固定大小的缓冲空间</li></ul><h3 id="tcp-如何进行拥塞控制">tcp 如何进行拥塞控制</h3><p>在拥塞控制中，发送方维持一个叫做拥塞窗口 cwnd 的状态变量，根据拥塞程度动态变化。<br>慢启动算法：一开始不发送大量数据，先试探网络拥塞程度，由小到大增加窗口，每个传输轮次后 cwnd 加倍<br>拥塞避免算法：采用线性逐渐增加拥塞窗口 cwnd<br>慢启动阀门（ssthresh）：</p><ul><li>cwnd &lt; ssthresh 慢启动算法</li><li>cwnd &gt; ssthresh 拥塞避免算法</li></ul><p>只要发现拥塞，将 ssthresh 设为一半，cwnd 设为 1</p><h3 id="tcp-流量控制">tcp 流量控制</h3><p>接收端在确认应答发送 ACK 报文的时候，将自己的即时窗口大小 rwnd 写入 TCP 头部 16 位字段的窗口大小，<br>发送端根据 ACK 报文里的窗口大小改变自己的发送速度。越大表示接收端缓冲区剩余空间越大，网络吞吐量越大。</p><h3 id="网络层级http和https区别">网络层级，http和https区别</h3><p>网络五层结构为 应用层(http) - 传输层(tcp) - 网络层(ip) - 数据链路层 - 物理层<br>https是在应用层和传输层中间添加一个ssl层</p><h3 id="http20特性">http2.0特性</h3><ul><li>头部压缩：使用HPACK算法进行压缩</li><li>二进制格式：使用更加靠近TCP/IP的二进制格式，提升解析效率</li><li>强化安全：跑在https上</li><li>多路复用：一个连接有多个请求</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+            <tag> 知识积累 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分布式略知一二</title>
+      <link href="article/2020/article_29_%E5%88%86%E5%B8%83%E5%BC%8F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
+      <url>article/2020/article_29_%E5%88%86%E5%B8%83%E5%BC%8F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文涉及分布式情况下会产生的各种问题；</p><h3 id="celery-多个-comsumor-如何实现一致性">celery 多个 comsumor 如何实现一致性</h3><p>当 celery 配合 redis，将 redis 作为消息队列时，redis 内部使用 list 的 lpush，brpop 来实现入队出队。<br>当多个 celery 消费进程来取任务时，由于 redis 内部是单线程的，不会导致消息的重复读，brpop 在没任务时会阻塞。</p><h3 id="cap-理论">cap 理论</h3><ul><li>一致性</li><li>可用性</li><li>分区容错性</li></ul><h3 id="zk-如何保证一致性">zk 如何保证一致性</h3><p>客户端的写请求都由 Leader 接收，Leader 将请求转成事务 Proposal，并向集群所有 Follower 节点发送广播请求，<br>只要有一半以上的 Follower 进行了正确的反馈 ACK，Leader 再向所有 Follower 发送 commit 请求，将上一个事务进行提交。</p>]]></content>
       
       
       
@@ -1803,27 +1824,6 @@
     
     
     <entry>
-      <title>分布式略知一二</title>
-      <link href="article/2020/article_29_%E5%88%86%E5%B8%83%E5%BC%8F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/"/>
-      <url>article/2020/article_29_%E5%88%86%E5%B8%83%E5%BC%8F%E7%95%A5%E7%9F%A5%E4%B8%80%E4%BA%8C/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文涉及分布式情况下会产生的各种问题；</p><h3 id="celery-多个-comsumor-如何实现一致性">celery 多个 comsumor 如何实现一致性</h3><p>当 celery 配合 redis，将 redis 作为消息队列时，redis 内部使用 list 的 lpush，brpop 来实现入队出队。<br>当多个 celery 消费进程来取任务时，由于 redis 内部是单线程的，不会导致消息的重复读，brpop 在没任务时会阻塞。</p><h3 id="cap-理论">cap 理论</h3><ul><li>一致性</li><li>可用性</li><li>分区容错性</li></ul><h3 id="zk-如何保证一致性">zk 如何保证一致性</h3><p>客户端的写请求都由 Leader 接收，Leader 将请求转成事务 Proposal，并向集群所有 Follower 节点发送广播请求，<br>只要有一半以上的 Follower 进行了正确的反馈 ACK，Leader 再向所有 Follower 发送 commit 请求，将上一个事务进行提交。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> JAVA </tag>
-            
-            <tag> 知识积累 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>HIVE源码学习--实现自定义的UDF，UDAF，UDTF</title>
       <link href="article/2020/article_17_HIVE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84udf/"/>
       <url>article/2020/article_17_HIVE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84udf/</url>
@@ -1837,6 +1837,19 @@
             <tag> HIVE </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐篇</title>
+      <link href="article/music/music_1_%E9%9F%B3%E4%B9%90%E7%AF%87/"/>
+      <url>article/music/music_1_%E9%9F%B3%E4%B9%90%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<!-- https://github.com/newraina/mePlayer --><video src="#" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">您的浏览器不支持 video 标签。</video><div class="music" id="ms"></div><h2 id="伯虎说"><a href="/music/bohushuo.mp3">伯虎说</a></h2><h2 id="fallin-flower"><a href="/music/fallinflower.mp3">fallin flower</a></h2><h2 id="summer"><a href="/img/movie/summer.mp4">summer</a></h2><h2 id="秋的思念"><a href="/img/movie/qiudesinian.mp4">秋的思念</a></h2><h2 id="信仰-全职高手"><a href="/img/movie/xinyang.mp4">信仰-全职高手</a></h2><h2 id="someone-like-you"><a href="/img/movie/someonelikeyou.mp4">Someone like you</a></h2><h2 id="梦中的婚礼"><a href="/img/movie/mengzhongdehunli.mp4">梦中的婚礼</a></h2><h2 id="烟火里的尘埃"><a href="/img/movie/yanhuolidechenai.mp4">烟火里的尘埃</a></h2><h2 id="青石巷-片段"><a href="/img/movie/qingshixiang.mp4">青石巷 - 片段</a></h2><h2 id="海底"><a href="/img/movie/haidi.mp4">海底</a></h2><h2 id="river-flows-in-you"><a href="/img/movie/riverflowsinyou.mp4">River flows in you</a></h2><h2 id="夜的钢琴曲11"><a href="/img/movie/yedegangqinqu11.mp4">夜的钢琴曲11</a></h2><h2 id="梁祝钢琴曲"><a href="/img/movie/liangzhu.mp4">梁祝钢琴曲</a></h2><h2 id="我的纯音乐歌单">我的纯音乐歌单</h2><p><a href="https://t.kugou.com/355mda6xVV2" target="_blank" rel="external">纯音乐歌单</a>（打不开可以尝试手机打开）</p><p>很多歌带着一段感情与记忆，还是要经历过才会听得更有滋味</p><h2 id="音乐篇必读镇楼">音乐篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">音乐自得其乐</span><br><span class="line">1. 分享音乐与感受</span><br><span class="line">2. 钢琴学习与弹奏</span><br></pre></td></tr></table></figure><script type="text/javascript" src="/js/jquery.min.js"></script><script type="text/javascript" src="/js/meplayer.min.js"></script><script type="text/javascript">    let defaultPlay = "秋的思念";    let movie = document.getElementById("movie");    let ms = document.getElementById("ms");    let lks = document.querySelectorAll(".post-container > h2 > a");    let mePlayerBuilder = mePlayer;    let mePlayerOperater = null;    let first = true;    function getQueryVariable(variable){       var query = window.location.search.substring(1);       var vars = query.split("&");       for (var i=0;i<vars.length;i++) {            var pair = vars[i].split("=");            if(pair[0] == variable){return decodeURI(pair[1]);}       }       return(false);    }    function playMovie(pmv, play) {        ms.style.display = "none";        movie.style.display = "block";        if(document.getElementsByTagName("audio")[0]) {            document.getElementsByTagName("audio")[0].pause()        }        movie.src=pmv.href;        if(play) {            movie.play();        }    }    function playMp3(pmp, play) {        movie.style.display = "none";        movie.pause();        ms.style.display = "block";        mePlayerBuilder({            music: {                src: pmp.href,                title: pmp.text,                author: "纯音乐请欣赏",                loop: true            },            target: '#ms',            autoplay: play        });    }    for(let i = 0; i < lks.length; i++) {        if(lks[i].className == "" && lks[i].href.endsWith("mp4")) {            lks[i].onclick = function(e){                e.preventDefault();                playMovie(lks[i], true);            }        }        if(lks[i].className == "" && lks[i].href.endsWith("mp3")) {            lks[i].onclick = function(e){                e.preventDefault();                playMp3(lks[i], true);            }        }    }    let thePlay;    if(getQueryVariable("init")) {        thePlay = getQueryVariable("init")    } else {        thePlay = defaultPlay;    }    console.log(thePlay)    let init = document.getElementById(thePlay);    let node = init.children[0];    if(node.href.endsWith("mp4")) {        playMovie(node, false);    }    if(node.href.endsWith("mp3")) {        playMp3(node, false);    }</script>]]></content>
+      
+      
       
     </entry>
     
@@ -1861,19 +1874,6 @@
       <url>article/money/money_1_%E7%90%86%E8%B4%A2%E7%AF%87/</url>
       
         <content type="html"><![CDATA[<h1 id="数据策略">数据策略</h1><p><a href="/money/strategy/">基于估值和持仓曲线的交易策略</a></p><h1 id="数据分析">数据分析</h1><h2 id="切换基金">切换基金</h2><div>    <select id="select_code"></select></div><h3 id="查看基金数据与交易">查看基金数据与交易</h3><div>    <iframe id="ifr_data" style="border: none; width: 100%; min-height: 400px"></iframe></div><h3 id="点位分布数量">点位分布数量</h3><div>    <div style="display: flex; margin-bottom: 20px">        <div style="flex: 0 0 80px">步长</div>        <input type="number" id="step" value="10">    </div>    <div style="display: flex; margin-bottom: 20px">        <div style="flex: 0 0 80px">开始时间</div>        <input type="date" id="start" value="2020-01-01">    </div>    <div style="display: flex; margin-bottom: 20px">        <div style="flex: 0 0 80px">结束时间</div>        <input type="date" id="end" value="2021-05-01">    </div>    <div style="color: red">注：除指数外，其他净值均放大了1000倍，当前位置显示为紫色</div>    <iframe id="analyse_ifr_data" style="border: none; width: 100%; min-height: 400px"></iframe></div><h1 id="个人记录">个人记录</h1><h2 id="下跌在稳住">下跌在稳住</h2><ul><li>2021-03-15<br>年初挣的钱在年后都还回去了，现在还亏了不少，仓位也比较高</li></ul><p>主要还是集中在半导体，还有不多的一些其他行业的，传媒/证券</p><p>但也想逐步转换到沪深300，做做指数比较香</p><p>黄金最近也入手了一些，主要从之前的400跌倒了350，买时成本价在365左右，<br>现在价格差不多基本持平，个人觉得跌的差不多了，也可能最低在320。</p><h2 id="整理基金实际操作记录">整理基金实际操作记录</h2><ul><li>2020-08-29</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">本次的数据来源主要是支付宝查账，</span><br><span class="line">地址为 https://consumeprod.alipay.com/record/standard.htm</span><br><span class="line">通过搜索筛选带蚂蚁财富的近三年账单，筛选出基金的买入卖出操作，</span><br><span class="line">下载为csv文件</span><br><span class="line"></span><br><span class="line">然后通过天天基金接口，获取到基金名称与代码的对应关系(有些关系还得手动补充维护)</span><br><span class="line">通过脚本转换csv到json格式，同时筛选所需的信息(基金，操作，日期)</span><br><span class="line"></span><br><span class="line">最后通过脚本将json生成markdown文本用于hexo渲染成页面</span><br></pre></td></tr></table></figure><h1 id="底部">底部</h1><h2 id="理财篇必读镇楼">理财篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">我当前的理财主要在于基金的买卖，也是第二收入(亏损)来源；</span><br><span class="line">本栏是一些理财思路和方法的整合，主要包含几个方向</span><br><span class="line">1. 基金买入卖出及其来源依据或直觉依据</span><br><span class="line">2. 在一些节点回顾性总结</span><br><span class="line">3. 发现或总结一些方法论</span><br><span class="line">4. 理财工具，分析工具的创造</span><br><span class="line">5. 数据挖掘和分析</span><br><span class="line">6. 分享一些这个方向的文章</span><br></pre></td></tr></table></figure><script type="text/javascript">    Date.prototype.format = function(fmt) {         var o = {             "M+" : this.getMonth()+1,                 //月份             "d+" : this.getDate(),                    //日             "h+" : this.getHours(),                   //小时             "m+" : this.getMinutes(),                 //分             "s+" : this.getSeconds(),                 //秒             "q+" : Math.floor((this.getMonth()+3)/3), //季度             "S"  : this.getMilliseconds()             //毫秒         };         if(/(y+)/.test(fmt)) {                fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));         }        for(var k in o) {            if(new RegExp("("+ k +")").test(fmt)){                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));            }        }        return fmt;     }    let zhishu_data = [        {            code: "000001",            name: "上证指数"        }    ]    let ifr = document.getElementById("ifr_data");    let analyse_ifr = document.getElementById("analyse_ifr_data");    let scode = document.getElementById("select_code");    let analyse_step = document.getElementById("step");    let analyse_start = document.getElementById("start");    let analyse_end = document.getElementById("end");    let urlroot = "/money/fund_trace_data.html?code=";    let analyes_url = "/money/fund_analyse_distribution.html?";    let analyse_data = {        code: "000001",        step: 100,        start: `${new Date().getFullYear()-1}-${new Date().format("MM-dd")}`,        end: new Date().format("yyyy-MM-dd")    }    function init() {        ifr.src = urlroot + analyse_data.code;        analyse_step.value = analyse_data.step;        analyse_start.value = analyse_data.start;        analyse_end.value = analyse_data.end;    }    init()    // let dates = ["2020-01-01", "2020-02-01", "2020-03-01", "2020-04-01", "2020-05-01", "2020-06-01", "2020-07-01", "2020-08-01", "2020-09-01"]    // let date_index = 0    // setInterval(() => {    //     if(date_index < dates.length) {    //         analyse_data.start = dates[date_index]    //         render_analyse()    //         date_index++    //     }    // }, 1000)    function render_analyse() {        analyse_ifr.src = analyes_url + `code=${analyse_data.code}&step=${analyse_data.step}&start=${analyse_data.start}&end=${analyse_data.end}`    }    fetch("/money/fund.json")    .then(res => res.json())    .then(data => {        let codemap = {};        zhishu_data.forEach(item => {            codemap[item["name"]] = item["code"]        })        let now = new Date();        now.setFullYear(new Date().getFullYear()-1);        data.forEach(d => {            if(new Date(d["datetime"]) > now) {                codemap[d["fund_name"]] = d["fund_code"];            }        });        let codes = Object.keys(codemap);        scode.innerHTML = codes        .map(name => `<option value=${codemap[name]}>${name}</option>`)        .join(" ");        ifr.src = urlroot + codemap[codes[0]];        analyse_data.code = codemap[codes[0]];        render_analyse();    });    analyse_step.onchange = function(e){        analyse_data.step = e.target.value        render_analyse();    }    analyse_start.onchange = function(e){        analyse_data.start = e.target.value        render_analyse();    }    analyse_end.onchange = function(e){        analyse_data.end = e.target.value        render_analyse();    }        scode.onchange = (e) => {        analyse_data.code = scode.value;        render_analyse();        ifr.src = urlroot + scode.value;    }</script>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐篇</title>
-      <link href="article/music/music_1_%E9%9F%B3%E4%B9%90%E7%AF%87/"/>
-      <url>article/music/music_1_%E9%9F%B3%E4%B9%90%E7%AF%87/</url>
-      
-        <content type="html"><![CDATA[<!-- https://github.com/newraina/mePlayer --><video src="#" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">您的浏览器不支持 video 标签。</video><div class="music" id="ms"></div><h2 id="伯虎说"><a href="/music/%E4%BC%AF%E8%99%8E%E8%AF%B4.mp3">伯虎说</a></h2><h2 id="fallin-flower"><a href="/music/fallinflower.mp3">fallin flower</a></h2><h2 id="summer"><a href="/img/movie/summer.mp4">summer</a></h2><h2 id="秋的思念"><a href="/img/movie/qiudesinian.mp4">秋的思念</a></h2><h2 id="信仰-全职高手"><a href="/img/movie/xinyang.mp4">信仰-全职高手</a></h2><h2 id="someone-like-you"><a href="/img/movie/someonelikeyou.mp4">Someone like you</a></h2><h2 id="梦中的婚礼"><a href="/img/movie/mengzhongdehunli.mp4">梦中的婚礼</a></h2><h2 id="烟火里的尘埃"><a href="/img/movie/yanhuolidechenai.mp4">烟火里的尘埃</a></h2><h2 id="青石巷-片段"><a href="/img/movie/qingshixiang.mp4">青石巷 - 片段</a></h2><h2 id="海底"><a href="/img/movie/haidi.mp4">海底</a></h2><h2 id="river-flows-in-you"><a href="/img/movie/riverflowsinyou.mp4">River flows in you</a></h2><h2 id="夜的钢琴曲11"><a href="/img/movie/yedegangqinqu11.mp4">夜的钢琴曲11</a></h2><h2 id="梁祝钢琴曲"><a href="/img/movie/liangzhu.mp4">梁祝钢琴曲</a></h2><h2 id="我的纯音乐歌单">我的纯音乐歌单</h2><p><a href="https://t.kugou.com/355mda6xVV2" target="_blank" rel="external">纯音乐歌单</a>（打不开可以尝试手机打开）</p><p>很多歌带着一段感情与记忆，还是要经历过才会听得更有滋味</p><h2 id="音乐篇必读镇楼">音乐篇必读镇楼</h2><ul><li>2020-08-23</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">音乐自得其乐</span><br><span class="line">1. 分享音乐与感受</span><br><span class="line">2. 钢琴学习与弹奏</span><br></pre></td></tr></table></figure><script type="text/javascript" src="/js/jquery.min.js"></script><script type="text/javascript" src="/js/meplayer.min.js"></script><script type="text/javascript">    let defaultPlay = "qiudesinian";    let movie = document.getElementById("movie");    let ms = document.getElementById("ms");    let lks = document.querySelectorAll(".post-container > h2 > a");    let mePlayerBuilder = mePlayer;    let mePlayerOperater = null;    let first = true;    function getQueryVariable(variable){       var query = window.location.search.substring(1);       var vars = query.split("&");       for (var i=0;i<vars.length;i++) {            var pair = vars[i].split("=");            if(pair[0] == variable){return decodeURI(pair[1]);}       }       return(false);    }    function playMovie(pmv, play) {        ms.style.display = "none";        movie.style.display = "block";        if(document.getElementsByTagName("audio")[0]) {            document.getElementsByTagName("audio")[0].pause()        }        movie.src=pmv.href;        if(play) {            movie.play();        }    }    function playMp3(pmp, play) {        movie.style.display = "none";        movie.pause();        ms.style.display = "block";        mePlayerBuilder({            music: {                src: pmp.href,                title: pmp.text,                author: "纯音乐请欣赏",                loop: true            },            target: '#ms',            autoplay: play        });    }    for(let i = 0; i < lks.length; i++) {        if(lks[i].className == "" && lks[i].href.endsWith("mp4")) {            lks[i].onclick = function(e){                e.preventDefault();                playMovie(lks[i], true);            }        }        if(lks[i].className == "" && lks[i].href.endsWith("mp3")) {            lks[i].onclick = function(e){                e.preventDefault();                playMp3(lks[i], true);            }        }    }    let thePlay;    if(getQueryVariable("init")) {        thePlay = getQueryVariable("init")    } else {        thePlay = defaultPlay;    }    let init = document.getElementById(thePlay);    let node = init.children[0];    if(node.href.endsWith("mp4")) {        playMovie(node, false);    }    if(node.href.endsWith("mp3")) {        playMp3(node, false);    }</script>]]></content>
       
       
       
