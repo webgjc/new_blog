@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/page/7/">
+  <link rel="canonical" href="http://ganjiacheng.cn/archives/12/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,6 +141,10 @@
                         
                     
                         
+                    
+                        
+                    
+                        
                         <li>
                             <a href="/about/">About</a>
                         </li>
@@ -149,17 +153,13 @@
                         
                     
                         
+                    
+                        
+                    
+                        
                         <li>
                             <a href="/archive/">Archives</a>
                         </li>
-                        
-                    
-                        
-                    
-                        
-                    
-                        
-                    
                         
                     
                         
@@ -225,171 +225,49 @@
 
 <div class="post-preview">
 
-    <a href="/article/2018/article_1_2017总结咯/">
+    <a href="/article/2020/article_32_chrome插件-WEB-ROBOT实现难点/">
         <h2 class="post-title">
             
-            2017总结咯
+            chrome插件 web_robot之难点探讨
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            之前的博客多数以技术为主，今后将加入Life板块，用以记录生活，随笔，杂念～
-首篇就做一篇2017年总结，也算有东西写，不ga聊。
-2017上半年，我大二上，还当着宿管会技术部的部长，事情也是一大堆。
-开年印象比较深刻的是我作为主负责人之一的项目在上线前一刻被pass了，这可能也是后来我离开宿管原因之一。
-我找了半个女朋友，咋么这么说呢，至少那时候没有确定关系吧，聊得挺开的，也经常一起吃饭看......
+            前言
+本篇主要对 WEB-ROBOT 用到的技术点和实现的探讨
+将会以一个一篇文章的粒度来探讨。
+可视化圈选的实现
+
+选中事件捕获与ui展示
+反向选择器解析
+
+从上层运行到下层事件的运行流程
+
+多条事务形成联动，事务上下游，事务循环，爬虫事务（未实现）
+一个事务的运行
+一个事件的运行，包括前置dom检查
+js事件与chrome事件封装
+
+插件的通信
+
+background与popup
+pop......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2018-01-01
-        <span class="post-count"> 文章字数: 850</span>
-        <span class="post-count"> 阅读时间: 5分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_48_flask+mongodb+gunicron初试/">
-        <h2 class="post-title">
-            
-            flask+mongodb+gunicron初试
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            最近接触些python后端开发，记录下所用到的一些技术。
-flask，这个在他的官网里也有详细文档，这里简单论述一个登录+后台管理的例子。
-#引入一个蓝图，蓝图封装一些接口
-from lantu import simple_page
-from flask import Flask,render_template,request,session,redirect,url_for
-import ......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-12-21
-        <span class="post-count"> 文章字数: 785</span>
-        <span class="post-count"> 阅读时间: 5分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_47_不会停下的setInterval/">
-        <h2 class="post-title">
-            
-            不会停下的setInterval
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            关于定时器，如果把浏览器最小化或者看其他页面的时候，页面都会处于未激活状态，也就是对于chrome定时器会变1s运行一次，手机定时器则会直接暂停。
-比如运行如下代码，页面切到后台的话，定时器chrome会变一秒变一次，手机则会暂停。
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-12-07
-        <span class="post-count"> 文章字数: 653</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_46_swoole初试，作为一个你画我猜的websocket server/">
-        <h2 class="post-title">
-            
-            swoole初试，作为一个你画我猜的websocket server
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            swoole也是一个php比较强大的扩展，可以实现高性能的异步并发 TCP、UDP、Unix Socket、HTTP，WebSocket。这里实现一个WebSocket的server端的你画我猜。自我觉得还是踩坑之旅，生产环节用还是值得斟酌。
-安装环节这里不多叙述，linux上按这里的进行就可以，插一句修改php.ini那个只要加在第一行就行。
-然后touch一个php文件，这里命名为dra......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-12-07
-        <span class="post-count"> 文章字数: 2.5k</span>
-        <span class="post-count"> 阅读时间: 16分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_45_解决各种问题集/">
-        <h2 class="post-title">
-            
-            解决各种问题集
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            python篇：
-1.windows上，在pip install xxx失败的时候怎么办？
-答：http://www.lfd.uci.edu/~gohlke/pythonlibs/到这里面寻找whl，下载之后用 pip install xxx.whl 来安装。
-
-2.解决pip3报错Fatal error in launcher: Unable to create process using......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-11-30
-        <span class="post-count"> 文章字数: 212</span>
+        2000-12-01
+        <span class="post-count"> 文章字数: 159</span>
         <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
         
+        <a href="/tags/#CHROME插件" title="CHROME插件">CHROME插件</a>
+        
+        <a href="/tags/#自动化" title="自动化">自动化</a>
+        
     </div>
     
 
@@ -400,38 +278,36 @@ import ......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_9_常用编程小操作/">
+    <a href="/article/2020/article_24_java常用类略知一二/">
         <h2 class="post-title">
             
-            常用编程小操作
+            Java常用类略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            包括，批量重命名，待更新。。。
-1.批量重命名  changeName.py
-import os
-f=os.listdir("./")
-f.remove("changeName.py")
-j=0
-for i in f:
- os.renames(i,str(j)+".jpg")
- j+=1
-2.实现数组next并循环—js版
-(now+1)%array.length
-3.python字典自动初......
+            前言
+这是一篇关于 Java 部分常用类的源码和实现方法的快速记录回忆篇
+HashMap
+存储结构：数组 + 链表/红黑树
+put：首先将 key 取 hashcode，移位 16 位得到 1-16 的数作为数组 index，对于不同的 key 一样的 index 存入一个单链表中，当数量比较大后存成一个红黑树，便于查找
+get：首先将 key 进行一样的操作，得到 index，获取数组 i......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-11-30
-        <span class="post-count"> 文章字数: 204</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 281</span>
         <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
         
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
     </div>
     
 
@@ -442,63 +318,122 @@ for i in f:
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_44_sublime装个google翻译的package/">
+    <a href="/article/2020/article_25_spring略知一二/">
         <h2 class="post-title">
             
-            sublime装个google翻译的package
+            Spring略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            原以为翻译这种包package control就可以解决，还是有许多问题出现，所以记录一下。顺便了解一下sublime包文件结构，毕竟也是python写的！
-这里引用的是github上的一个google 翻译包，这是另一个人改过的，主要更新了google的api，他的原作是在这里。
-这里的操作皆为windows平台下，首先用git
-git clone https://github.com/M......
+            前言
+本文涉及 spring 的相关实现和源码解读
+
+...
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-11-26
-        <span class="post-count"> 文章字数: 728</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 17</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_26_容器略知一二/">
+        <h2 class="post-title">
+            
+            容器略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文产出关于一些容器的知识
+tomcat 总体架构
+
+server:一个 tomcat 即一个 server
+service:包含多个 connector 和一个 container，一个 server 可以有多个 service
+connector:链接器，监听 socket 并交给对应 container 处理
+container:执行请求并返回响应的对象，包括 engine，ho......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 224</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_27_网络略知一二/">
+        <h2 class="post-title">
+            
+            网络略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文主要为网络的基础知识
+tcp 三次握手建立连接
+
+连接端发起一个 SYN 消息，SEQ=x
+被连端收到后返回 SYN+ACK 消息，SEQ=y, ACK=x+1
+连接端收到消息返回 ACK 消息，ACK=y+1
+
+两端都进入 Established 状态
+tcp 四次挥手断开连接
+
+发起端发起一个 FIN 的消息，SEQ=x
+接收端收到后返回 ACK 消息，表示准备断开连接，SEQ......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 690</span>
         <span class="post-count"> 阅读时间: 4分钟</span>
     </p>
     <div class="tags">
         
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_28_用node.js的socket.io实现双人五子棋对战/">
-        <h2 class="post-title">
-            
-            用node.js的socket.io实现双人五子棋对战
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            websocket也没啥好讲的，就一可以实现长连接的协议，其中也有三次握手之说。具体的也不去探究了，这里用node.js做后端来实现与前端js的websocket连接。并完成一个简易的联机游戏。
-首先参考这个socket.io的网址，参考get start可得到一些安装的基本步骤，这里默认已经安装好node.js以及npm，具体操作包括如下
-npm init
-npm install --sa......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-11-22
-        <span class="post-count"> 文章字数: 1.1k</span>
-        <span class="post-count"> 阅读时间: 7分钟</span>
-    </p>
-    <div class="tags">
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
     </div>
     
@@ -510,30 +445,55 @@ npm install --sa......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_43_用python写个自动改壁纸的桌面程序/">
+    <a href="/article/2020/article_28_mysql略知一二/">
         <h2 class="post-title">
             
-            用python写个自动改壁纸的桌面程序
+            Mysql略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            忍无可忍桌面壁纸软件的广告了，终于决定自己写个，总体逻辑上也并不复杂。
-先是随机爬取某bing站的壁纸图片，调用win32接口改桌面壁纸，之后用tk的桌面程序来获取用户输入时间间隔，最后封装成exe使得更通用，在后台运行以及加个图标。不说了，直接上代码。
-由于是python3.x，库win32api库可能下载会有问题。建议直接去这里手动下载安装。
-#coding:utf-8
-#python3......
+            前言
+本文主要为 mysql 相关知识
+脏读，不可重复读，幻读
+
+脏读：某个事务更新数据没有提交，另一个事务已经读取了数据
+不可重复读：一个事务两次查询数据不一致，因为两次查询中间另一个事务更新了数据
+幻读：一个事务两次查询数据总量不一致，因为两次中间另一个事务插入了数据
+
+隔离级别
+
+
+
+隔离级别
+脏读
+不可重复读
+幻读
+
+
+
+
+读未提交(Read Uncommitted)
+√
+√
+√
+
+......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-11-10
-        <span class="post-count"> 文章字数: 911</span>
-        <span class="post-count"> 阅读时间: 6分钟</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 582</span>
+        <span class="post-count"> 阅读时间: 3分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
         
     </div>
     
@@ -545,34 +505,128 @@ npm install --sa......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_42_爬虫技术栈小结/">
+    <a href="/article/2020/article_30_操作系统略知一二/">
         <h2 class="post-title">
             
-            爬虫技术栈小结
+            操作系统略知一二
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            做了接近一个月爬虫，中间爬到数据多的爬过唯品会，dpchallenge，frilly。百度图片和1688也是取了一部分数据来。这里做一些爬虫技术总结记录，包括基本的requests使用，json，bs4，OrderedDict，下载图片，多进程以及post一个数组。
-首先，基本的爬虫以唯品会（这里以女装做示范），主要用以接口获取json数据，json解析，json格式化。
-首先获取一下他的分......
+            前言
+本文涉及操作系统各种方面，包括进程，线程，协议，cpu，内存；
+进程调度算法
+
+先来先服务调度算法：队列
+最短作业优先调度算法：时间短的先运行
+高响应比优先调度算法：先计算响应比优先级，优先级高的先运行
+时间片轮转调度算法：每个进程分配一个时间片段，如果在时间片段内没有执行完成，也切换进程运行，如果时间片内执行，则立即切换。
+最高优先级调度算法：静态优先级 - 创建进程时确定优先级，动......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-11-05
-        <span class="post-count"> 文章字数: 947</span>
-        <span class="post-count"> 阅读时间: 6分钟</span>
+        2000-09-27
+        <span class="post-count"> 文章字数: 220</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
     </p>
     <div class="tags">
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+        <a href="/tags/#操作系统" title="操作系统">操作系统</a>
         
     </div>
     
 
 </div>
 <hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_29_分布式略知一二/">
+        <h2 class="post-title">
+            
+            分布式略知一二
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+本文涉及分布式情况下会产生的各种问题；
+celery 多个 comsumor 如何实现一致性
+当 celery 配合 redis，将 redis 作为消息队列时，redis 内部使用 list 的 lpush，brpop 来实现入队出队。
+当多个 celery 消费进程来取任务时，由于 redis 内部是单线程的，不会导致消息的重复读，brpop 在没任务时会阻塞。
+cap 理论
+
+一......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-09-27
+        <span class="post-count"> 文章字数: 200</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#JAVA" title="JAVA">JAVA</a>
+        
+        <a href="/tags/#知识积累" title="知识积累">知识积累</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_17_HIVE源码学习-实现自定义的udf/">
+        <h2 class="post-title">
+            
+            HIVE源码学习--实现自定义的UDF，UDAF，UDTF
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言
+hive里有三种可以自定义实现的函数，
+
+自定义函数包括三种 UDF、UDAF、UDTF
+
+UDF（User-Defined-Function） 一进一出 ，既一行进一行出
+UDAF（User- Defined Aggregation Funcation） 聚集函数，多进一出（多行进一行出）。Count/max/min
+UDTF（User-Defined Table-Generatin......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2000-05-07
+        <span class="post-count"> 文章字数: 78</span>
+        <span class="post-count"> 阅读时间: 1分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#HIVE" title="HIVE">HIVE</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
 
     
 
@@ -582,12 +636,12 @@ npm install --sa......
     <ul class="pager">
         
         <li class="previous">
-            <a href="/page/6/">&larr; Newer Posts</a>
+            <a href="/archives/11/">&larr; Newer Posts</a>
         </li>
         
         
         <li class="next">
-            <a href="/page/8/">Older Posts &rarr;</a>
+            <a href="/archives/13/">Older Posts &rarr;</a>
         </li>
         
     </ul>
@@ -725,6 +779,10 @@ npm install --sa......
             
         
             
+            <a href="/tags/#HADOOP" title="HADOOP" rel="3">HADOOP</a>
+            
+        
+            
             <a href="/tags/#自动化" title="自动化" rel="5">自动化</a>
             
         
@@ -737,19 +795,7 @@ npm install --sa......
             
         
             
-            <a href="/tags/#HADOOP" title="HADOOP" rel="3">HADOOP</a>
-            
-        
-            
             <a href="/tags/#操作系统" title="操作系统" rel="1">操作系统</a>
-            
-        
-            
-            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
-            
-        
-            
-            <a href="/tags/#后端" title="后端" rel="1">后端</a>
             
         
             
@@ -766,6 +812,14 @@ npm install --sa......
         
             
             <a href="/tags/#大数据" title="大数据" rel="2">大数据</a>
+            
+        
+            
+            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
+            
+        
+            
+            <a href="/tags/#后端" title="后端" rel="1">后端</a>
             
         
             
