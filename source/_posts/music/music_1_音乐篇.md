@@ -9,7 +9,7 @@ header-img: "/img/header_img/archive.jpg"
 
 <!-- https://github.com/newraina/mePlayer -->
 
-<video src="#" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop" muted="muted">
+<video src="#" controls="controls" style="width: 100%; max-height: 500px" id="movie" loop="loop">
 您的浏览器不支持 video 标签。
 </video>
 
