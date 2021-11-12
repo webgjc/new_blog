@@ -21,7 +21,7 @@
     
   </title>
 
-  <link rel="canonical" href="http://ganjiacheng.cn/page/11/">
+  <link rel="canonical" href="http://ganjiacheng.cn/archives/4/">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -139,6 +139,8 @@
                         
                     
                         
+                    
+                        
                         <li>
                             <a href="/about/">About</a>
                         </li>
@@ -153,13 +155,11 @@
                         
                     
                         
+                    
+                        
                         <li>
                             <a href="/archive/">Archives</a>
                         </li>
-                        
-                    
-                        
-                    
                         
                     
                         
@@ -225,30 +225,162 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_10_使用ppython---实现python和php之间的通信/">
+    <a href="/article/2020/article_3_讲讲元数据/">
         <h2 class="post-title">
             
-            使用ppython---实现python和php之间的通信
+            讲讲元数据
         </h2>
         <h3 class="post-subtitle">
-            
+            大数据平台中元数据系统的一些见解
         </h3>
         <div class="post-content-preview">
-            ppython大致是用socket来实现php和python的联络;
-日常不常用，有必要时还是挺有用的。
-先是用python的socket开一个端口监听，在这个端口来进行数据传输
-之后php连接那个端口，向那个端口传输数据，python在接受到数据处理之后再返回结果。
-这里介绍一下基本使用，先下载http://pan.baidu.com/s/1dEHgYgL。
-解压之后放到服务器上。
-为了长......
+            前言
+做了一些元数据的系统，分享一些相关的理解与体会。
+掺杂个人理解与实操历史，不一定是最佳实践。
+元数据定义
+元数据一般指的是 定义数据的数据。
+对于一个后端系统或者大数据集群来说，基本的元数据就是在执行ddl时产生的各种库表字段等信息。
+
+比如mysql的每个实例会默认有一个叫information_schema的库；
+比如hive在运行前都需要配置一个metastore库，一般为mys......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-15
-        <span class="post-count"> 文章字数: 203</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2020-03-31
+        <span class="post-count"> 文章字数: 1.2k</span>
+        <span class="post-count"> 阅读时间: 7分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#元数据" title="元数据">元数据</a>
+        
+        <a href="/tags/#大数据" title="大数据">大数据</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2020/article_2_整理晒晒老博客/">
+        <h2 class="post-title">
+            
+            整理晒晒老博客
+        </h2>
+        <h3 class="post-subtitle">
+            整理下之前记录的一些东西
+        </h3>
+        <div class="post-content-preview">
+            前言
+之前写过些博客，文章没直接保留，代码都还留着；
+这边对之前的做简单论述和总结。
+git地址：https://github.com/webgjc/blog
+content
+修改桌面背景图片
+
+使用python实现，从网上获取图片，修改window桌面背景图片。可以用pyinstaller打包为exe
+
+dfs的几个demo
+
+dfs.py包含了全排，八皇后问题
+river.py为和尚妖怪......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2020-02-29
+        <span class="post-count"> 文章字数: 552</span>
+        <span class="post-count"> 阅读时间: 3分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#OTHER" title="OTHER">OTHER</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2019/article_1_又双叒叕建博客/">
+        <h2 class="post-title">
+            
+            又双叒叕建博客
+        </h2>
+        <h3 class="post-subtitle">
+            讲讲本次建博客中间那些事
+        </h3>
+        <div class="post-content-preview">
+            前言
+第二次搭建博客了，第一次是用的自己的服务器搭建了wordpress博客，写了两年左右60+篇，在服务器废弃后也不再维护了。
+本次又心血来潮，使用node的hexo和github的gh-pages来搭建。
+开篇就以博客搭建过程为主要内容。
+工具准备
+
+git, node, github账号, vscode(非必备), 域名(非必备)
+
+这里需要自行搜索学习安装了
+动手搭建
+
+贴个官方地址......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2019-11-13
+        <span class="post-count"> 文章字数: 1.9k</span>
+        <span class="post-count"> 阅读时间: 12分钟</span>
+    </p>
+    <div class="tags">
+        
+        <a href="/tags/#OTHER" title="OTHER">OTHER</a>
+        
+    </div>
+    
+
+</div>
+<hr>
+
+    
+
+<div class="post-preview">
+
+    <a href="/article/2018/article_28_回校之路/">
+        <h2 class="post-title">
+            
+            回校之路
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            晚六下班，走上回校之路。
+同是在杭州，工作在杭的这一端，学校在杭的另一端。
+公交堵在半路，饥肠辘辘之际，
+是不是该总结些什么。
+上一篇记得是是工作之初，现在已然是老司机上路。
+工作内容，于我来说虽然大部分是运维，小部分是自己摸索性开发，但也不至于太抗拒。也就是之前所想的广度上增加了一些，仿佛很少感受自己在纵向有多少进步，说不定还在退步。凉凉与我同在。
+工作还是有了解了更多的人，见识了更多的事......
+        </div>
+    </a>
+    
+    <p class="post-meta" style="margin: 10px 0;">
+        Posted by 甘家城 on
+        2018-09-07
+        <span class="post-count"> 文章字数: 812</span>
+        <span class="post-count"> 阅读时间: 5分钟</span>
     </p>
     <div class="tags">
         
@@ -262,101 +394,28 @@
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_8_python日常问答篇--更新中/">
+    <a href="/article/2018/article_27_写个基于screen和expect的服务器管理小工具/">
         <h2 class="post-title">
             
-            python日常问答篇--更新中
+            写个基于screen和expect的服务器管理小工具
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            python篇：
-1.windows上，在pip install xxx失败的时候怎么办？
-答：http://www.lfd.uci.edu/~gohlke/pythonlibs/到这里面寻找whl，下载之后用 pip install xxx.whl 来安装。
-
-2.解决pip3报错Fatal error in launcher: Unable to create process using......
+            日常管理的服务器如果很多，总会感觉连完这个连那个，要么要重复输入用户密码，要么在如xshell中的一个长列表中找寻所需的服务器。比较难受就自己写个工具来连接多台服务器，并用screen保持会话。
+先配环境，此处默认centos咯。
+yum install -y screen
+yum install -y expect
+由于ssh连接要输入用户密码，因此得写expect脚本。
+先创建一个ssh......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-11
-        <span class="post-count"> 文章字数: 161</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_7_前端回忆录---上篇/">
-        <h2 class="post-title">
-            
-            前端回忆录---上篇
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前端起家，而最终还是没留在这块‘宝地’，虽然火，但也不和大波人抢饭吃啦！！
-记载回忆篇教程—'老年人’的理解（这里不讲教程，而是整个的学习过程）
-一款好的文本编辑器是必须先入手的，sublime是我一直在用且功能强大的文本编辑器，软件自寻，装好之后装一些插件,在工具栏Preference-&gt;Browse Packdges先安装包，之后Preference-&gt;Packdge Con......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-03-11
-        <span class="post-count"> 文章字数: 3k</span>
-        <span class="post-count"> 阅读时间: 19分钟</span>
-    </p>
-    <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2017/article_6_leetcode解题篇Python法1-5题/">
-        <h2 class="post-title">
-            
-            leetcode解题篇Python法1-5题
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            具体详细题目请到https://leetcode.com/problemset/algorithms/查看
-之下解法都属第一思路，大可改进。
-悄悄自问一句：今天ac了吗？
-
-Two Sum
-
-class Solution(object):
-    def twoSum(self, nums, target):
-    l=len(nums)
-    for i in xrange(l):
- ......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2017-03-10
-        <span class="post-count"> 文章字数: 417</span>
+        2018-08-29
+        <span class="post-count"> 文章字数: 431</span>
         <span class="post-count"> 阅读时间: 2分钟</span>
     </p>
     <div class="tags">
@@ -371,29 +430,28 @@ class Solution(object):
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_5_KNN实现手写数字0-9识别/">
+    <a href="/article/2018/article_26_用virsh进行虚拟机管理/">
         <h2 class="post-title">
             
-            KNN实现手写数字0-9识别
+            用virsh进行虚拟机管理
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            KNN：我的简单理解为计算各个点到原点的距离，对于于样本数据以相差远近排序，取前面K个，属于哪个类别比较多的就当做最后分类，样本越多就越精确。
-举个栗子：样本点：[a,b,c,d,e,f]，类别：[1,2,3,2,3,5]，假定a-f分别为相差从近到远；
-如果K取1，那分类结果属于1，如果K取值为4，拿结果便为2。
-废话不多说直接上代码：
-//KNN分类的主程序
-from numpy imp......
+            最近做运维，觉得学得比较实用点的技能就是管理虚拟机了。
+这里使用的环境是已经装了centos的物理机上。
+首先配置所需库，用yum下载就可以
+yum -y install qemu-kvm qemu-key-tools virt-manager libvirt virt-install python-virtinst bridge-utils
+yum -y install kvm qemu ......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-09
-        <span class="post-count"> 文章字数: 461</span>
-        <span class="post-count"> 阅读时间: 3分钟</span>
+        2018-08-21
+        <span class="post-count"> 文章字数: 871</span>
+        <span class="post-count"> 阅读时间: 5分钟</span>
     </p>
     <div class="tags">
         
@@ -407,31 +465,28 @@ from numpy imp......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_4_数字杭电的模拟登陆(带验证码)/">
+    <a href="/article/2018/article_25_试试树莓派，反正也是python/">
         <h2 class="post-title">
             
-            数字杭电的模拟登陆(带验证码)
+            试试树莓派，反正也是python
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            对于一个学生，研究学校网站还是比较有趣滴！
-Talk is cheap！Then I show the code.
-下面是用php的实现，具体细节在注释里讲解
-//登录之前先获取cookie及lt(一次性使用，lt很关键)
-function GetCookie(){
-    //cookie的地址
-    $cookie=dirname(__FILE__).'/cookie.txt';
-  ......
+            学校一个课程用到，在linux实现一个qt界面来控制几个硬件功能：摄像头，温湿度，超声波测距，红绿灯。
+安装对应库，运行代码前就是要把器件连到对应的引脚上。
+#coding:utf-8
+#author:!@#$%^&amp;*()_+ganster
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QLabel, QApplication,Q......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-08
-        <span class="post-count"> 文章字数: 619</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
+        2018-07-15
+        <span class="post-count"> 文章字数: 910</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
     </p>
     <div class="tags">
         
@@ -445,31 +500,31 @@ function GetCookie(){
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_3_简单线性回归---学习篇/">
+    <a href="/article/2018/article_24_上班，上班/">
         <h2 class="post-title">
             
-            简单线性回归---学习篇
+            上班，上班
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            先讲回归这个概念，我的理解：如果是二维平面里，指根据现有的点拟合出直线，在用直线做分析与预测。
-简单线性回归便是全部的点都在一类之下。拟合出直线用于发现其中的关系。
-logistic回归是在两类里做分类，完成训练后，拟合出的直线一边各一类，新来的点就可以很轻易的分类。
-softmax回归便是多分类。
-这是简单线性回归的一般公式：
-然后用python进行了尝试
-#python2.7
-impor......
+            生活总是要过的，班也总是要上的。
+上班一周，虽然也是第二次上班了，但感受还是很不一样的。
+开始有些顾虑，顾虑后面的发展与自我的价值。
+之前很多事情来的突然，求职，面试，租房，搬家，上班，都只能凭着自己的感觉走。
+不知道自己第六感的感觉是对是错，或许需要些时日能看出。
+虽然知道事情总是会水到渠成，自己能做的也只能是放平心态。
+公司不大不小，不好说啥，不求带来什么大的改变，做好自己的吧。
+尽快融......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-07
-        <span class="post-count"> 文章字数: 296</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2018-07-11
+        <span class="post-count"> 文章字数: 982</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
     </p>
     <div class="tags">
         
@@ -483,29 +538,34 @@ impor......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_2_搭建wordpress个人博客/">
+    <a href="/article/2018/article_23_打造基金小数据库/">
         <h2 class="post-title">
             
-            搭建wordpress个人博客
+            打造基金小数据库
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            试着写blog啦，用以分享，记录技术和生活！
-本人年方21，前端起家，在向后端的php和python前进。
-本次就从安装wordpress说起：
-注：环境：云服务器+lnmp+域名。
-1.先从官网https://cn.wordpress.org/releases/找了最新版本4.7.2，之后解压，复制到服务器上，打开对应域名+路径就有了。
-2.在配置mysql数据库，用户名和密码。就可以生成......
+            买过些基金，想着也可以自己打造个管理基金的，这会儿先弄来个基金数据库。
+基金数据来自于chinafund。
+先前准备：配置好mongodb的环境和下载好pymongo库且使用默认配置
+用于获取数据：jj.py
+#coding:utf-8
+#author:~!@#$%^&amp;*()_+ganster
+import io 
+import re
+import sys 
+import json
+......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-06
-        <span class="post-count"> 文章字数: 243</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2018-06-30
+        <span class="post-count"> 文章字数: 975</span>
+        <span class="post-count"> 阅读时间: 6分钟</span>
     </p>
     <div class="tags">
         
@@ -519,76 +579,32 @@ impor......
 
 <div class="post-preview">
 
-    <a href="/article/2017/article_1_个人简介/">
+    <a href="/article/2018/article_22_视频运动检测尝试/">
         <h2 class="post-title">
             
-            个人简介
+            视频运动检测尝试
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            我叫甘家城，来自宁波余姚，目前是杭电的一名大三学生，作为一个电子专业的学生，路过前端的崛起，也看过“最好”的php，目前写着苦短的python，咯咯咯。
-All of life is an act of letting go, but what hurts the most is not taking a moment to say goodbye.
- 
-私邮：@qq.co......
+            这里主要尝试一个用背景减除法实现运动检测
+视频是yuv格式，这里讲一下yuv的格式读取。用二进制读取yuv文件，从开头开始前wh个字符的ascii码则是第一帧的灰度图（8位int），后面第w//2h//2*2个字符存的是rgb信息。然后开始是第二帧。
+这里基本思路就是每次更新背景，然后做差分，然后优化噪声。
+直接上代码
+import cv2
+import os
+import numpy as......
         </div>
     </a>
     
     <p class="post-meta" style="margin: 10px 0;">
         Posted by 甘家城 on
-        2017-03-06
-        <span class="post-count"> 文章字数: 86</span>
-        <span class="post-count"> 阅读时间: 1分钟</span>
+        2018-06-06
+        <span class="post-count"> 文章字数: 879</span>
+        <span class="post-count"> 阅读时间: 5分钟</span>
     </p>
     <div class="tags">
-        
-    </div>
-    
-
-</div>
-<hr>
-
-    
-
-<div class="post-preview">
-
-    <a href="/article/2021/article_5_H3S投影仪入手体验/">
-        <h2 class="post-title">
-            
-            极米H3S投影仪入手体验
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-本文是极米的H3S的上手体验与评测，也是新手入手第一个投影仪的探索与发现。
-评测全凭个人主观意见，如有雷同纯属雷同。
-主要功能
-投影
-投影仪的投影功能当然是最基本的功能，2200ANSI明流的亮度，这边主要还是看在明亮条件下和黑暗条件下的效果。
-梯形矫正
-梯形矫正是投影仪必不可少的功能，它可以在斜着投影时自动调整回矩形，
-否则就得手动调整投影仪摆放的位置和角度，很是麻烦。
-蓝牙
-投影仪......
-        </div>
-    </a>
-    
-    <p class="post-meta" style="margin: 10px 0;">
-        Posted by 甘家城 on
-        2001-03-23
-        <span class="post-count"> 文章字数: 716</span>
-        <span class="post-count"> 阅读时间: 4分钟</span>
-    </p>
-    <div class="tags">
-        
-        <a href="/tags/#H3S" title="H3S">H3S</a>
-        
-        <a href="/tags/#评测" title="评测">评测</a>
-        
-        <a href="/tags/#生活" title="生活">生活</a>
         
     </div>
     
@@ -604,12 +620,12 @@ All of life is an act of letting go, but what hurts the most is not taking a mom
     <ul class="pager">
         
         <li class="previous">
-            <a href="/page/10/">&larr; Newer Posts</a>
+            <a href="/archives/3/">&larr; Newer Posts</a>
         </li>
         
         
         <li class="next">
-            <a href="/page/12/">Older Posts &rarr;</a>
+            <a href="/archives/5/">Older Posts &rarr;</a>
         </li>
         
     </ul>
@@ -731,15 +747,7 @@ All of life is an act of letting go, but what hurts the most is not taking a mom
             
         
             
-            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
-            
-        
-            
-            <a href="/tags/#HQL解析" title="HQL解析" rel="3">HQL解析</a>
-            
-        
-            
-            <a href="/tags/#JAVA" title="JAVA" rel="10">JAVA</a>
+            <a href="/tags/#总结" title="总结" rel="1">总结</a>
             
         
             
@@ -751,7 +759,11 @@ All of life is an act of letting go, but what hurts the most is not taking a mom
             
         
             
-            <a href="/tags/#其他" title="其他" rel="1">其他</a>
+            <a href="/tags/#HIVE" title="HIVE" rel="8">HIVE</a>
+            
+        
+            
+            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
             
         
             
@@ -759,7 +771,31 @@ All of life is an act of letting go, but what hurts the most is not taking a mom
             
         
             
+            <a href="/tags/#HQL解析" title="HQL解析" rel="3">HQL解析</a>
+            
+        
+            
+            <a href="/tags/#JAVA" title="JAVA" rel="10">JAVA</a>
+            
+        
+            
+            <a href="/tags/#H3S" title="H3S" rel="1">H3S</a>
+            
+        
+            
+            <a href="/tags/#评测" title="评测" rel="1">评测</a>
+            
+        
+            
+            <a href="/tags/#生活" title="生活" rel="1">生活</a>
+            
+        
+            
             <a href="/tags/#知识积累" title="知识积累" rel="8">知识积累</a>
+            
+        
+            
+            <a href="/tags/#其他" title="其他" rel="1">其他</a>
             
         
             
@@ -772,6 +808,14 @@ All of life is an act of letting go, but what hurts the most is not taking a mom
         
             
             <a href="/tags/#MYSQL" title="MYSQL" rel="2">MYSQL</a>
+            
+        
+            
+            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
+            
+        
+            
+            <a href="/tags/#后端" title="后端" rel="1">后端</a>
             
         
             
@@ -791,35 +835,7 @@ All of life is an act of letting go, but what hurts the most is not taking a mom
             
         
             
-            <a href="/tags/#HTTP" title="HTTP" rel="1">HTTP</a>
-            
-        
-            
-            <a href="/tags/#后端" title="后端" rel="1">后端</a>
-            
-        
-            
-            <a href="/tags/#总结" title="总结" rel="1">总结</a>
-            
-        
-            
             <a href="/tags/#YARN" title="YARN" rel="1">YARN</a>
-            
-        
-            
-            <a href="/tags/#H3S" title="H3S" rel="1">H3S</a>
-            
-        
-            
-            <a href="/tags/#评测" title="评测" rel="1">评测</a>
-            
-        
-            
-            <a href="/tags/#生活" title="生活" rel="1">生活</a>
-            
-        
-            
-            <a href="/tags/#HDFS" title="HDFS" rel="1">HDFS</a>
             
         
     </div>
