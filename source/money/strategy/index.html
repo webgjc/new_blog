@@ -33,36 +33,51 @@
     </div>
     <div id="trace"></div>
     <div id="profit"></div>
-    <script src="./main.js"></script>
+    <!-- <script src="./strategy0.js"></script> -->
     <script type="text/javascript">
+
+    function getQueryString(name) {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        let r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURI(r[2]);
+        return null;
+    }
+
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = getQueryString('strategy') != null ? getQueryString('strategy') + ".js" : 'strategy0.js';
+    document.body.appendChild(script);
+
     let trace_chart = echarts.init(document.getElementById('trace'));
     let profit_chart = echarts.init(document.getElementById('profit'));
 
-    document.getElementById('config-input').innerHTML = getParam().map(item => {
-        if(item.type == "date") {
-            return `<div>${item.alias}: <input type="date" id="${item.name}" value=${item.default} /></div>`
-        } else {
-            return `<div>${item.alias}: <input type="text" id="${item.name}" value=${item.default} /></div>`
+    script.onload = function(e) {
+        document.getElementById('config-input').innerHTML = getParam().map(item => {
+            if(item.type == "date") {
+                return `<div>${item.alias}: <input type="date" id="${item.name}" value=${item.default} /></div>`
+            } else {
+                return `<div>${item.alias}: <input type="text" id="${item.name}" value=${item.default} /></div>`
+            }
+        }).join("")
+
+        function run() {
+            reRun().then(res => {
+                render_result(res);
+                render_trace(res);
+                render_profit(res);
+            })
         }
-    }).join("")
 
-    function run() {
-        reRun().then(res => {
-            render_result(res);
-            render_trace(res);
-            render_profit(res);
-        })
-    }
-
-    run();
-
-    document.getElementById('submit').onclick = function() {
-        let kv = {};
-        getParam().forEach(item => {
-            kv[item.name] = document.getElementById(item.name).value;
-        })
-        setParam(kv);
         run();
+
+        document.getElementById('submit').onclick = function() {
+            let kv = {};
+            getParam().forEach(item => {
+                kv[item.name] = document.getElementById(item.name).value;
+            })
+            setParam(kv);
+            run();
+        }
     }
 
     function deal_mark_data(data) {

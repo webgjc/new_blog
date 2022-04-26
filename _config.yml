@@ -222,10 +222,16 @@ baidusitemap:
 # repository: https://github.com/huweihuang/xxxxxxx.github.io.git
 # branch: master
 deploy:
-    type: git
+-   type: git
     repository: https://github.com/webgjc/new_blog
     branch: gh-pages
     message: Update CNAME
+-   type: qcloud-cos
+    cosRegion: ap-shanghai
+    cosSecretId: AKIDvgBPM3TdW7RVJp55oGQJvGJ5bpmSs0rR
+    cosSecretKey: JSKuDG2XljRr0uXu1rRklVzC8n57sLXT
+    cosBucket: coding-pages-bucket-3440936-7810273-13586-512516
+    cosAppid:  1300444322
 
 live2d:
     enable: true

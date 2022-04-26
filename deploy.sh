@@ -35,14 +35,16 @@ deploy_coding(){
     echo "end deploy coding"
 }
 
-case $1 in 
-    github)
-        deploy_github
-        ;;
-    coding)
-        deploy_coding
-        ;;
-    *)
-        echo "use args github/coding"
-        ;;
-esac
+deploy_github
+
+# case $1 in 
+#     github)
+#         deploy_github
+#         ;;
+#     coding)
+#         deploy_coding
+#         ;;
+#     *)
+#         echo "use args github/coding"
+#         ;;
+# esac
