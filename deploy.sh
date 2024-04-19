@@ -5,7 +5,7 @@ ROOT_PATH=$HOME_PATH/new_blog
 CODING_PATH=$HOME_PATH/projects/coding/blog
 
 upload_sitemap(){
-    open -a 'Google Chrome' https://www.google.com/ping?sitemap=http://blog.ganjiacheng.cn/sitemap.xml
+    open -a 'Google Chrome' https://www.google.com/ping?sitemap=http://ganjiacheng.cn/sitemap.xml
 }
 
 deploy_github(){
